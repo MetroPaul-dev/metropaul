@@ -1,0 +1,1145 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0465E1EDE1ADED2F887A3AC0909F2D85 /* PKAnimating.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07E636373546F8C93CEF55C1D2BE6EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */; };
+		28BA9576237D42BCBC712DD192B91963 /* CALayer+PKConvenienceAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A26880EE73AD208DE059BEE5A1E9F3A /* CAAnimation+PKIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B75C6FBDA841C12DF0B1372396E61DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */; };
+		416D0A72DA9CC74A401C9668E8D51DD3 /* PKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B91568F412148F0348213EDCCD4F56F /* PKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43A1B84FB52C1A01B0EA11B425EBED69 /* NSObject+PKBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */; };
+		4BCFADD30E7543AD2669CE0FBDB97BA6 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */; };
+		4CA5F664B288C59F8FD8A2B4233CF276 /* UIViewController+PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D857C085F646BD05E50A95422586BAD /* Pods-MetroPaul-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C19FF275AA34F26B6C99C24C4FAF4CC3 /* Pods-MetroPaul-dummy.m */; };
+		617B7AAB1309E322E5296F3D8B62D614 /* PKRevealControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */; };
+		6ACA43888B157B3D42EBED12284D5025 /* Pods-MetroPaulTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DD72E4D8DEF7A88FC6DCD7E928821 /* Pods-MetroPaulTests-dummy.m */; };
+		6E9431A9BFC7BD576E33EDE0592AB760 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */; };
+		7346AFE2ADF807B274D8032DD22A1944 /* NSObject+PKBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D67145B586704DA45F85253B28A8769 /* PKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DCFD1286F227630B122413551C913A /* PKLog.m */; };
+		7E63A419697566705D261E76E5A7F83C /* PKLayerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */; };
+		82AC15A18BEEBE13F046C2C4D8FCE9F2 /* CALayer+PKConvenienceAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */; };
+		82EE8238A057F98EBA920103797491A8 /* PKSequentialAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8678150AF78626A5891012D8533978F1 /* PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87E2EA4886855404E8AA906281A47936 /* PKRevealController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */; };
+		90D1D6619AB83971AD0FF11225FC277C /* PKAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9290B7BBA07834A8A8C0D6A06851F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		93959D14EB4C406D44D10B8555A2B3F3 /* PKRevealController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9478F12E19EBD7E66211802BE635BB45 /* PKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */; };
+		9530FC2AAFC01101562FE69F721B8BCC /* Pods-MetroPaulUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EFF0FA1C4BD185A8FC232389CFC790 /* Pods-MetroPaulUITests-dummy.m */; };
+		B13E907566BEE4F1F189F9CC4D913096 /* PKSequentialAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */; };
+		B446E6D5E5CC1B1CF1985FF88E3F62EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		C72969991F51315268FFED8D0B28B80C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		C8F84D422977315E55C9C42E9D671D43 /* Pods-MetroPaulTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A654A85611A0C98616F921DC607102 /* Pods-MetroPaulTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBF48F18B3D4E47F8C814646A6645D9F /* PKLayerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D12413EA93DE074D3C680EABC00BB7BD /* Pods-MetroPaulUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5338B7AE988ECB6607AC9011C511EC4 /* Pods-MetroPaulUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E46BCAF97EB78422360B3E64E82C38AF /* PKRevealControllerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA1BB5C5F95CFAF299EFA6D5255065A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
+		EFF681ADF5C355E22EF3A0A6496DEC02 /* CAAnimation+PKIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */; };
+		FF6D378D78CC9E111E2FA654C4FCDE51 /* Pods-MetroPaul-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90146B1EF8CAC67A92EF479C58BB1357 /* Pods-MetroPaul-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3FF6D13F2B1297F491568F127476A31 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FBF452D9313EF913EA92AD5D72258A8E;
+			remoteInfo = PKRevealController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealControllerView.m; path = Source/PKRevealController/Classes/PKRevealControllerView.m; sourceTree = "<group>"; };
+		0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+PKBlocks.h"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.h"; sourceTree = "<group>"; };
+		091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.m; sourceTree = "<group>"; };
+		0DEA66A6AD78FD157F5B9478114FCE07 /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
+		113CCF421848F48B483CA15B427EFA6D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		1393BACB70BBDD2D467D5225C1ABFB06 /* Pods-MetroPaulUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-umbrella.h"; sourceTree = "<group>"; };
+		1812419C05C15090E5444E0F7D5DE77E /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		18FEBFE1D452E872CB0280148532799D /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
+		1A69488288271836BFB7B3504DE83847 /* Pods_MetroPaulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLayerAnimator.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.m; sourceTree = "<group>"; };
+		23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		26525BDD0260D9289C5F008DEE9D6B79 /* GGLCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLCore.framework; path = Frameworks/GGLCore.framework; sourceTree = "<group>"; };
+		2885C76277EF59F9CDC08DD6E5550F08 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		298DB4B7CDFA45EDEC47F8FAF0752D6B /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		2AF701343AC4BD200973B1EBEEA208B5 /* GGLAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLAnalytics.framework; path = Frameworks/GGLAnalytics.framework; sourceTree = "<group>"; };
+		2B91568F412148F0348213EDCCD4F56F /* PKLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLog.h; path = Source/PKRevealController/Modules/PKLog/PKLog.h; sourceTree = "<group>"; };
+		2C6A4B3136C03CFFC241D1E96079BCBC /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Sources/GAITrackedViewController.h; sourceTree = "<group>"; };
+		2E56D9E40CA16E0BB75D62511196FCCA /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
+		2F707FDE715B19345B9E6253F023D4E7 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		303612BFBF893E40A55DC7ECC5E79339 /* Pods-MetroPaulTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulTests.release.xcconfig"; sourceTree = "<group>"; };
+		316300D295F834A47263C3086A6C609F /* Pods-MetroPaulTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaulTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		385873C12318337A15E6D8460663A134 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/Analytics.h; sourceTree = "<group>"; };
+		3A0DBC9477C2EBCEFDE088F650A94EE6 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Sources/GAITracker.h; sourceTree = "<group>"; };
+		3C8A7900AFE2476E7DC73FE5AEF30D57 /* Pods_MetroPaulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C9EA9A62B0BD80A407BECA895652F95 /* PKRevealController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKRevealController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E28C07F0405622B0548AFDB135B9363 /* Pods-MetroPaulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3EAE41B41332EF734A1C62CB179EE363 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
+		4838753977B3D72CDB097FEE550F15EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealControllerView.h; path = Source/PKRevealController/Classes/PKRevealControllerView.h; sourceTree = "<group>"; };
+		4D0E9E4B967982DFDF75D53C4DC7AB1F /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		52456FF59162C4F6644D8BAB36336479 /* Pods-MetroPaul-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaul-resources.sh"; sourceTree = "<group>"; };
+		5299270C39E754584B0B538AF3854304 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/Core.h; sourceTree = "<group>"; };
+		52C35C16175FF551BB151017014E2FD7 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Sources/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		56861ABC45E34505A8AC21BC60D77A38 /* PKRevealController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PKRevealController.modulemap; sourceTree = "<group>"; };
+		5C3401C5F235F79CD80451D6AEAE1D94 /* Pods-MetroPaulTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaulTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5C38EA0088C6B6B1A39615002BA3F4BB /* Pods-MetroPaulUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulUITests-resources.sh"; sourceTree = "<group>"; };
+		632D0843E002B06181861F2DFC1021EA /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Sources/GAI.h; sourceTree = "<group>"; };
+		681D294E7DE7D5C327B2F4597CAF78D5 /* Pods-MetroPaulTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulTests-frameworks.sh"; sourceTree = "<group>"; };
+		692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.h; sourceTree = "<group>"; };
+		6BB2906901F9C31C8E688B7B1F168E9D /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Source/PKRevealController/PKRevealController.h; sourceTree = "<group>"; };
+		75ECC0B048B1B0CAC54493CDBC8E68DE /* Pods-MetroPaul.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaul.modulemap"; sourceTree = "<group>"; };
+		76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PKRevealController-dummy.m"; sourceTree = "<group>"; };
+		782C3CBA0F742E2B18E34CCF7E43983A /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Sources/GAIFields.h; sourceTree = "<group>"; };
+		78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		791190CCD6E6386EA582D91B5F7CD7C8 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PKRevealController.m"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
+		846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKSequentialAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.m; sourceTree = "<group>"; };
+		86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimating.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimating.h; sourceTree = "<group>"; };
+		87D2C5F165E01FC9BC931EEBDFB5F6A0 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
+		8BAE64D521311F4FD8861D28F3657F22 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Sources/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PKBlocks.m"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.m"; sourceTree = "<group>"; };
+		90146B1EF8CAC67A92EF479C58BB1357 /* Pods-MetroPaul-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaul-umbrella.h"; sourceTree = "<group>"; };
+		90551A37C113FEFFA2EF9B6D42C4C518 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Sources/GAILogger.h; sourceTree = "<group>"; };
+		91EFF0FA1C4BD185A8FC232389CFC790 /* Pods-MetroPaulUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaulUITests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9798273F071A790AC35D1E43209E0DC2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97DB11C93DE81C71B1E1758C55AE9D61 /* Pods-MetroPaul-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaul-frameworks.sh"; sourceTree = "<group>"; };
+		9A6DD72E4D8DEF7A88FC6DCD7E928821 /* Pods-MetroPaulTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaulTests-dummy.m"; sourceTree = "<group>"; };
+		9A79AAC0B323847F99C0F851755339BF /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		9B753B247E0982FA052EE97ADBB5328D /* Pods-MetroPaulUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaulUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealController.m; path = Source/PKRevealController/PKRevealController.m; sourceTree = "<group>"; };
+		9F3C7A2A863D8A50DC8D8BB4C9D1F681 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Sources/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		A10AF54DBD1C3DF2E20D5AE59CC987AB /* Pods-MetroPaulUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaulUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A301F440CE42F5DA1804473F2BEE2F5C /* Pods-MetroPaul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaul.release.xcconfig"; sourceTree = "<group>"; };
+		A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AD8E0E76899B54FDED4179DB3372C4B2 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PKRevealController.xcconfig; sourceTree = "<group>"; };
+		B3A654A85611A0C98616F921DC607102 /* Pods-MetroPaulTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaulTests-umbrella.h"; sourceTree = "<group>"; };
+		B59169BBBB80C1CFBBEE924299E497E9 /* Pods-MetroPaulTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaulTests.modulemap"; sourceTree = "<group>"; };
+		B7AD29FA587B8DA372A0F503E1C4227D /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		B8C634E329A7C6304A1DC83C8FBC64D3 /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
+		BBF214323A1C895D5C76B5D7DFEFA12B /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+PKConvenienceAnimations.h"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.h"; sourceTree = "<group>"; };
+		BE657B0F3839DAE68B65C2C6C7B7D06E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE861D5AB6506B155027C7ABAAC636EF /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		C19FF275AA34F26B6C99C24C4FAF4CC3 /* Pods-MetroPaul-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaul-dummy.m"; sourceTree = "<group>"; };
+		C416398B446B703037BF2D37D6BD8159 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C43C81A0344B3684C4A4A6147CFCA7A1 /* Pods-MetroPaul-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaul-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C6B9A4AFA62322AE143B22B0274B06E1 /* Pods-MetroPaul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaul.debug.xcconfig"; sourceTree = "<group>"; };
+		C9CC2F96D8AF07E3C04DADFD0FEE149B /* Pods-MetroPaulUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaulUITests.modulemap"; sourceTree = "<group>"; };
+		D1BB3A940ADDE255FC611B087E5EACA6 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		D280E320B7581FD6BECA3DF39D93614E /* Pods-MetroPaul-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaul-acknowledgements.plist"; sourceTree = "<group>"; };
+		D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+PKIdentifier.h"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.h"; sourceTree = "<group>"; };
+		D38F3575F958E439135265F5FA3B41FB /* PKRevealController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-prefix.pch"; sourceTree = "<group>"; };
+		DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+PKIdentifier.m"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.m"; sourceTree = "<group>"; };
+		DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLayerAnimator.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.h; sourceTree = "<group>"; };
+		E130D2486FBB9F9E91CA22FA0C52C2D2 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5393C2998A714E721F8BDC881CFE49A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Sources/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		E9EC87B74BDF07058918096470BAD55B /* Pods-MetroPaulUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulUITests-frameworks.sh"; sourceTree = "<group>"; };
+		ED3FECB7D2730A48E2235DB3FD5716E9 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Sources/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		F337964C03D424B5D2CD8870C6A3FCFC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		F5338B7AE988ECB6607AC9011C511EC4 /* Pods-MetroPaulUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaulUITests-umbrella.h"; sourceTree = "<group>"; };
+		F7DCFD1286F227630B122413551C913A /* PKLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLog.m; path = Source/PKRevealController/Modules/PKLog/PKLog.m; sourceTree = "<group>"; };
+		FA29A33F3F2B11CBED8456ECEBE7E5B7 /* Pods-MetroPaulTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulTests-resources.sh"; sourceTree = "<group>"; };
+		FBBB4C6D2D38315DA30A086E8707A3D6 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKSequentialAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.h; sourceTree = "<group>"; };
+		FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+PKConvenienceAnimations.m"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C0CBB89FC38606E14210CE758AD68E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9290B7BBA07834A8A8C0D6A06851F849 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94691CEABF8E434BBFBC18D9FEE97570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B446E6D5E5CC1B1CF1985FF88E3F62EB /* Foundation.framework in Frameworks */,
+				2B75C6FBDA841C12DF0B1372396E61DE /* QuartzCore.framework in Frameworks */,
+				07E636373546F8C93CEF55C1D2BE6EBA /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2CA5D5C46DCB907AB39FB5C2361096A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C72969991F51315268FFED8D0B28B80C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4130667F8CAD92A41BD8F4F76EAA264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA1BB5C5F95CFAF299EFA6D5255065A6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01AD42A71171BC313FA5E132BAB0083C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				113CCF421848F48B483CA15B427EFA6D /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		06739DFB471E4E3E94213B5FBFD140CA /* Pods-MetroPaul */ = {
+			isa = PBXGroup;
+			children = (
+				BE657B0F3839DAE68B65C2C6C7B7D06E /* Info.plist */,
+				75ECC0B048B1B0CAC54493CDBC8E68DE /* Pods-MetroPaul.modulemap */,
+				C43C81A0344B3684C4A4A6147CFCA7A1 /* Pods-MetroPaul-acknowledgements.markdown */,
+				D280E320B7581FD6BECA3DF39D93614E /* Pods-MetroPaul-acknowledgements.plist */,
+				C19FF275AA34F26B6C99C24C4FAF4CC3 /* Pods-MetroPaul-dummy.m */,
+				97DB11C93DE81C71B1E1758C55AE9D61 /* Pods-MetroPaul-frameworks.sh */,
+				52456FF59162C4F6644D8BAB36336479 /* Pods-MetroPaul-resources.sh */,
+				90146B1EF8CAC67A92EF479C58BB1357 /* Pods-MetroPaul-umbrella.h */,
+				C6B9A4AFA62322AE143B22B0274B06E1 /* Pods-MetroPaul.debug.xcconfig */,
+				A301F440CE42F5DA1804473F2BEE2F5C /* Pods-MetroPaul.release.xcconfig */,
+			);
+			name = "Pods-MetroPaul";
+			path = "Target Support Files/Pods-MetroPaul";
+			sourceTree = "<group>";
+		};
+		095842B53FF37ADAAEC6B6702022C95E /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				385873C12318337A15E6D8460663A134 /* Analytics.h */,
+				2D4CBA90FF09DDBB64C07AC6764131B4 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		0C438EBED0C83A6B9F4D5E3F88B3D149 /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				BBF214323A1C895D5C76B5D7DFEFA12B /* ANSCompatibility.h */,
+				B7AD29FA587B8DA372A0F503E1C4227D /* Answers.h */,
+				3EAE41B41332EF734A1C62CB179EE363 /* CLSAttributes.h */,
+				1812419C05C15090E5444E0F7D5DE77E /* CLSLogging.h */,
+				BE861D5AB6506B155027C7ABAAC636EF /* CLSReport.h */,
+				791190CCD6E6386EA582D91B5F7CD7C8 /* CLSStackFrame.h */,
+				6BB2906901F9C31C8E688B7B1F168E9D /* Crashlytics.h */,
+				01AD42A71171BC313FA5E132BAB0083C /* Frameworks */,
+			);
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1244B6B5575BBD059DBF0335A01B1579 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB3A940ADDE255FC611B087E5EACA6 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1420F4D00D3DA79696F1DF3BCC375A9A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4838753977B3D72CDB097FEE550F15EB /* Info.plist */,
+				56861ABC45E34505A8AC21BC60D77A38 /* PKRevealController.modulemap */,
+				B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */,
+				76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */,
+				D38F3575F958E439135265F5FA3B41FB /* PKRevealController-prefix.pch */,
+				17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PKRevealController";
+			sourceTree = "<group>";
+		};
+		1699DE3EC8BEA0E484B97B05DE499256 /* Pods-MetroPaulUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9798273F071A790AC35D1E43209E0DC2 /* Info.plist */,
+				C9CC2F96D8AF07E3C04DADFD0FEE149B /* Pods-MetroPaulUITests.modulemap */,
+				9B753B247E0982FA052EE97ADBB5328D /* Pods-MetroPaulUITests-acknowledgements.markdown */,
+				A10AF54DBD1C3DF2E20D5AE59CC987AB /* Pods-MetroPaulUITests-acknowledgements.plist */,
+				91EFF0FA1C4BD185A8FC232389CFC790 /* Pods-MetroPaulUITests-dummy.m */,
+				E9EC87B74BDF07058918096470BAD55B /* Pods-MetroPaulUITests-frameworks.sh */,
+				5C38EA0088C6B6B1A39615002BA3F4BB /* Pods-MetroPaulUITests-resources.sh */,
+				F5338B7AE988ECB6607AC9011C511EC4 /* Pods-MetroPaulUITests-umbrella.h */,
+				1393BACB70BBDD2D467D5225C1ABFB06 /* Pods-MetroPaulUITests.debug.xcconfig */,
+				0DEA66A6AD78FD157F5B9478114FCE07 /* Pods-MetroPaulUITests.release.xcconfig */,
+			);
+			name = "Pods-MetroPaulUITests";
+			path = "Target Support Files/Pods-MetroPaulUITests";
+			sourceTree = "<group>";
+		};
+		1F45AC2FAE1385AB00E78B09EE4455E1 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				095842B53FF37ADAAEC6B6702022C95E /* Analytics */,
+				A3D51211EE1FABBE7C5F8388EF90886D /* Core */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		2D4CBA90FF09DDBB64C07AC6764131B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AF701343AC4BD200973B1EBEEA208B5 /* GGLAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E06DF32A6B0CF6BF186FD5277494B43 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				93ED00991EB3E8DD0F863733B9CA05D3 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		65B54BEE3923E0E620C321536552728D /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				87D2C5F165E01FC9BC931EEBDFB5F6A0 /* FIRInstanceID.h */,
+				1244B6B5575BBD059DBF0335A01B1579 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				9A8A089B948C57BD3BC62FB8F828D67A /* Pods */,
+				A11D5906174BD930F8EAAFF761705B81 /* Products */,
+				D05CB2CEFB2ECA162523E8EEA932F902 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		82053B2673CCD6DBF27A1CC6EC75E802 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F337964C03D424B5D2CD8870C6A3FCFC /* Fabric.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9003D233630D37D526F82969B2BBBDCC /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				9B5251369A02D2D28440825D7ECC4050 /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		93ED00991EB3E8DD0F863733B9CA05D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD8E0E76899B54FDED4179DB3372C4B2 /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		959C036F4AD8550DF6FE0F08A46CF2F3 /* Pods-MetroPaulTests */ = {
+			isa = PBXGroup;
+			children = (
+				C416398B446B703037BF2D37D6BD8159 /* Info.plist */,
+				B59169BBBB80C1CFBBEE924299E497E9 /* Pods-MetroPaulTests.modulemap */,
+				316300D295F834A47263C3086A6C609F /* Pods-MetroPaulTests-acknowledgements.markdown */,
+				5C3401C5F235F79CD80451D6AEAE1D94 /* Pods-MetroPaulTests-acknowledgements.plist */,
+				9A6DD72E4D8DEF7A88FC6DCD7E928821 /* Pods-MetroPaulTests-dummy.m */,
+				681D294E7DE7D5C327B2F4597CAF78D5 /* Pods-MetroPaulTests-frameworks.sh */,
+				FA29A33F3F2B11CBED8456ECEBE7E5B7 /* Pods-MetroPaulTests-resources.sh */,
+				B3A654A85611A0C98616F921DC607102 /* Pods-MetroPaulTests-umbrella.h */,
+				3E28C07F0405622B0548AFDB135B9363 /* Pods-MetroPaulTests.debug.xcconfig */,
+				303612BFBF893E40A55DC7ECC5E79339 /* Pods-MetroPaulTests.release.xcconfig */,
+			);
+			name = "Pods-MetroPaulTests";
+			path = "Target Support Files/Pods-MetroPaulTests";
+			sourceTree = "<group>";
+		};
+		9A8A089B948C57BD3BC62FB8F828D67A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C438EBED0C83A6B9F4D5E3F88B3D149 /* Crashlytics */,
+				C265CED3F14A0BCEE7530095AB41F756 /* Fabric */,
+				EF8944F11566106E45BCE45089E2E8B8 /* FirebaseAnalytics */,
+				65B54BEE3923E0E620C321536552728D /* FirebaseInstanceID */,
+				1F45AC2FAE1385AB00E78B09EE4455E1 /* Google */,
+				E3002E1141D53CEC9ABE5600EEE471E9 /* GoogleAnalytics */,
+				2E06DF32A6B0CF6BF186FD5277494B43 /* GoogleInterchangeUtilities */,
+				9003D233630D37D526F82969B2BBBDCC /* GoogleSymbolUtilities */,
+				E9367F86D5DC8A25958C5DC6B6E20026 /* GoogleUtilities */,
+				F3A4D37E81BD75519CE844D2A648B8D3 /* PKRevealController */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9B5251369A02D2D28440825D7ECC4050 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBBB4C6D2D38315DA30A086E8707A3D6 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A11D5906174BD930F8EAAFF761705B81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3C9EA9A62B0BD80A407BECA895652F95 /* PKRevealController.framework */,
+				E130D2486FBB9F9E91CA22FA0C52C2D2 /* Pods_MetroPaul.framework */,
+				1A69488288271836BFB7B3504DE83847 /* Pods_MetroPaulTests.framework */,
+				3C8A7900AFE2476E7DC73FE5AEF30D57 /* Pods_MetroPaulUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3D51211EE1FABBE7C5F8388EF90886D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B8C634E329A7C6304A1DC83C8FBC64D3 /* Analytics-Module.h */,
+				5299270C39E754584B0B538AF3854304 /* Core.h */,
+				2E56D9E40CA16E0BB75D62511196FCCA /* Core-Module.h */,
+				18FEBFE1D452E872CB0280148532799D /* SignIn-Module.h */,
+				AF3DCEF78FB998DDA48446E0BF311840 /* Frameworks */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		A44F8EB9A4AEF7B9331EDCC1196C20D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2885C76277EF59F9CDC08DD6E5550F08 /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF3DCEF78FB998DDA48446E0BF311840 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26525BDD0260D9289C5F008DEE9D6B79 /* GGLCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C265CED3F14A0BCEE7530095AB41F756 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				9A79AAC0B323847F99C0F851755339BF /* FABAttributes.h */,
+				298DB4B7CDFA45EDEC47F8FAF0752D6B /* Fabric.h */,
+				82053B2673CCD6DBF27A1CC6EC75E802 /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		CF05E6A6A8D97A9603418B8EFD4E52FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D0E9E4B967982DFDF75D53C4DC7AB1F /* libGoogleAnalytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D05CB2CEFB2ECA162523E8EEA932F902 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06739DFB471E4E3E94213B5FBFD140CA /* Pods-MetroPaul */,
+				959C036F4AD8550DF6FE0F08A46CF2F3 /* Pods-MetroPaulTests */,
+				1699DE3EC8BEA0E484B97B05DE499256 /* Pods-MetroPaulUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */,
+				23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */,
+				091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E3002E1141D53CEC9ABE5600EEE471E9 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				632D0843E002B06181861F2DFC1021EA /* GAI.h */,
+				E5393C2998A714E721F8BDC881CFE49A /* GAIDictionaryBuilder.h */,
+				8BAE64D521311F4FD8861D28F3657F22 /* GAIEcommerceFields.h */,
+				52C35C16175FF551BB151017014E2FD7 /* GAIEcommerceProduct.h */,
+				ED3FECB7D2730A48E2235DB3FD5716E9 /* GAIEcommerceProductAction.h */,
+				9F3C7A2A863D8A50DC8D8BB4C9D1F681 /* GAIEcommercePromotion.h */,
+				782C3CBA0F742E2B18E34CCF7E43983A /* GAIFields.h */,
+				90551A37C113FEFFA2EF9B6D42C4C518 /* GAILogger.h */,
+				2C6A4B3136C03CFFC241D1E96079BCBC /* GAITrackedViewController.h */,
+				3A0DBC9477C2EBCEFDE088F650A94EE6 /* GAITracker.h */,
+				CF05E6A6A8D97A9603418B8EFD4E52FA /* Frameworks */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		E9367F86D5DC8A25958C5DC6B6E20026 /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				A44F8EB9A4AEF7B9331EDCC1196C20D0 /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		EF8944F11566106E45BCE45089E2E8B8 /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				FFFDD21562A0A0E37D197C9C5113CFE7 /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		F3A4D37E81BD75519CE844D2A648B8D3 /* PKRevealController */ = {
+			isa = PBXGroup;
+			children = (
+				D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */,
+				DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */,
+				BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */,
+				FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */,
+				0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */,
+				8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */,
+				86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */,
+				692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */,
+				0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */,
+				DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */,
+				1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */,
+				2B91568F412148F0348213EDCCD4F56F /* PKLog.h */,
+				F7DCFD1286F227630B122413551C913A /* PKLog.m */,
+				6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */,
+				9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */,
+				49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */,
+				056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */,
+				FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */,
+				846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */,
+				78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */,
+				81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */,
+				1420F4D00D3DA79696F1DF3BCC375A9A /* Support Files */,
+			);
+			path = PKRevealController;
+			sourceTree = "<group>";
+		};
+		FFFDD21562A0A0E37D197C9C5113CFE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F707FDE715B19345B9E6253F023D4E7 /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		50648589CD73C0D62F354B51AB768F62 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8F84D422977315E55C9C42E9D671D43 /* Pods-MetroPaulTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		694B8B4D1AD763ACC2252B1445E96E2F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF6D378D78CC9E111E2FA654C4FCDE51 /* Pods-MetroPaul-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C48FEE51DA3EEB61594FA41E792B5986 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D12413EA93DE074D3C680EABC00BB7BD /* Pods-MetroPaulUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C56C879B3333F95A217C9234361AF6B1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A26880EE73AD208DE059BEE5A1E9F3A /* CAAnimation+PKIdentifier.h in Headers */,
+				28BA9576237D42BCBC712DD192B91963 /* CALayer+PKConvenienceAnimations.h in Headers */,
+				7346AFE2ADF807B274D8032DD22A1944 /* NSObject+PKBlocks.h in Headers */,
+				0465E1EDE1ADED2F887A3AC0909F2D85 /* PKAnimating.h in Headers */,
+				90D1D6619AB83971AD0FF11225FC277C /* PKAnimation.h in Headers */,
+				CBF48F18B3D4E47F8C814646A6645D9F /* PKLayerAnimator.h in Headers */,
+				416D0A72DA9CC74A401C9668E8D51DD3 /* PKLog.h in Headers */,
+				93959D14EB4C406D44D10B8555A2B3F3 /* PKRevealController-umbrella.h in Headers */,
+				8678150AF78626A5891012D8533978F1 /* PKRevealController.h in Headers */,
+				E46BCAF97EB78422360B3E64E82C38AF /* PKRevealControllerView.h in Headers */,
+				82EE8238A057F98EBA920103797491A8 /* PKSequentialAnimation.h in Headers */,
+				4CA5F664B288C59F8FD8A2B4233CF276 /* UIViewController+PKRevealController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		02A08C59759F89347C83C53FD0E1C55D /* Pods-MetroPaulTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5923A0416AA13178686798E21E34EE11 /* Build configuration list for PBXNativeTarget "Pods-MetroPaulTests" */;
+			buildPhases = (
+				FA78E941D58B953C940AF46FC21C3F37 /* Sources */,
+				4C0CBB89FC38606E14210CE758AD68E0 /* Frameworks */,
+				50648589CD73C0D62F354B51AB768F62 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MetroPaulTests";
+			productName = "Pods-MetroPaulTests";
+			productReference = 1A69488288271836BFB7B3504DE83847 /* Pods_MetroPaulTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1E2926E81E74A59D97E0B61B1B0EAE7B /* Pods-MetroPaulUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E24C4D73831AB06C5C9DFCE45CE0EEFB /* Build configuration list for PBXNativeTarget "Pods-MetroPaulUITests" */;
+			buildPhases = (
+				B64A347E678682559A0E0BC643A60EF5 /* Sources */,
+				D2CA5D5C46DCB907AB39FB5C2361096A /* Frameworks */,
+				C48FEE51DA3EEB61594FA41E792B5986 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MetroPaulUITests";
+			productName = "Pods-MetroPaulUITests";
+			productReference = 3C8A7900AFE2476E7DC73FE5AEF30D57 /* Pods_MetroPaulUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7409DDA71985211DA303C6F397A7C0BC /* Pods-MetroPaul */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70144D25C12EC791398084172234DBDB /* Build configuration list for PBXNativeTarget "Pods-MetroPaul" */;
+			buildPhases = (
+				8D72EBE339A14FED7F8680310FCD7DC5 /* Sources */,
+				F4130667F8CAD92A41BD8F4F76EAA264 /* Frameworks */,
+				694B8B4D1AD763ACC2252B1445E96E2F /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E96551AB1A2E2201DAD24B549A779DD1 /* PBXTargetDependency */,
+			);
+			name = "Pods-MetroPaul";
+			productName = "Pods-MetroPaul";
+			productReference = E130D2486FBB9F9E91CA22FA0C52C2D2 /* Pods_MetroPaul.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FBF452D9313EF913EA92AD5D72258A8E /* PKRevealController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F56AA137CF94DA5FE40B2EEF8C088A71 /* Build configuration list for PBXNativeTarget "PKRevealController" */;
+			buildPhases = (
+				DBF282BD2DE9AF55D087536035CFC38E /* Sources */,
+				94691CEABF8E434BBFBC18D9FEE97570 /* Frameworks */,
+				C56C879B3333F95A217C9234361AF6B1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PKRevealController;
+			productName = PKRevealController;
+			productReference = 3C9EA9A62B0BD80A407BECA895652F95 /* PKRevealController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A11D5906174BD930F8EAAFF761705B81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBF452D9313EF913EA92AD5D72258A8E /* PKRevealController */,
+				7409DDA71985211DA303C6F397A7C0BC /* Pods-MetroPaul */,
+				02A08C59759F89347C83C53FD0E1C55D /* Pods-MetroPaulTests */,
+				1E2926E81E74A59D97E0B61B1B0EAE7B /* Pods-MetroPaulUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D72EBE339A14FED7F8680310FCD7DC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D857C085F646BD05E50A95422586BAD /* Pods-MetroPaul-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B64A347E678682559A0E0BC643A60EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9530FC2AAFC01101562FE69F721B8BCC /* Pods-MetroPaulUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DBF282BD2DE9AF55D087536035CFC38E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFF681ADF5C355E22EF3A0A6496DEC02 /* CAAnimation+PKIdentifier.m in Sources */,
+				82AC15A18BEEBE13F046C2C4D8FCE9F2 /* CALayer+PKConvenienceAnimations.m in Sources */,
+				43A1B84FB52C1A01B0EA11B425EBED69 /* NSObject+PKBlocks.m in Sources */,
+				9478F12E19EBD7E66211802BE635BB45 /* PKAnimation.m in Sources */,
+				7E63A419697566705D261E76E5A7F83C /* PKLayerAnimator.m in Sources */,
+				7D67145B586704DA45F85253B28A8769 /* PKLog.m in Sources */,
+				87E2EA4886855404E8AA906281A47936 /* PKRevealController-dummy.m in Sources */,
+				6E9431A9BFC7BD576E33EDE0592AB760 /* PKRevealController.m in Sources */,
+				617B7AAB1309E322E5296F3D8B62D614 /* PKRevealControllerView.m in Sources */,
+				B13E907566BEE4F1F189F9CC4D913096 /* PKSequentialAnimation.m in Sources */,
+				4BCFADD30E7543AD2669CE0FBDB97BA6 /* UIViewController+PKRevealController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA78E941D58B953C940AF46FC21C3F37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6ACA43888B157B3D42EBED12284D5025 /* Pods-MetroPaulTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E96551AB1A2E2201DAD24B549A779DD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PKRevealController;
+			target = FBF452D9313EF913EA92AD5D72258A8E /* PKRevealController */;
+			targetProxy = E3FF6D13F2B1297F491568F127476A31 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2D83B7F2DF418B8E9711CD84ED336CAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A301F440CE42F5DA1804473F2BEE2F5C /* Pods-MetroPaul.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaul/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaul/Pods-MetroPaul.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaul;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		4ADF57F9C8DAC59F30A09019A3078379 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E28C07F0405622B0548AFDB135B9363 /* Pods-MetroPaulTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaulTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaulTests/Pods-MetroPaulTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaulTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9C035D0BB0EFDC02B1567ACAEF2CAAB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303612BFBF893E40A55DC7ECC5E79339 /* Pods-MetroPaulTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaulTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaulTests/Pods-MetroPaulTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaulTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1801FF2F4360520283074C9E77CE6B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PKRevealController/PKRevealController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PKRevealController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PKRevealController/PKRevealController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = PKRevealController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B3B31861D3065FB7263537BC346F447E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1393BACB70BBDD2D467D5225C1ABFB06 /* Pods-MetroPaulUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaulUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaulUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D658A954B47F858C4A7E298BC2D39499 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6B9A4AFA62322AE143B22B0274B06E1 /* Pods-MetroPaul.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaul/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaul/Pods-MetroPaul.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaul;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DAB90B1A993EEF62DBBAECB120C99085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PKRevealController/PKRevealController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/PKRevealController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/PKRevealController/PKRevealController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = PKRevealController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DBA1B55E0A2F4E5E239D97C10D94300C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DEA66A6AD78FD157F5B9478114FCE07 /* Pods-MetroPaulUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MetroPaulUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MetroPaulUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5923A0416AA13178686798E21E34EE11 /* Build configuration list for PBXNativeTarget "Pods-MetroPaulTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ADF57F9C8DAC59F30A09019A3078379 /* Debug */,
+				9C035D0BB0EFDC02B1567ACAEF2CAAB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70144D25C12EC791398084172234DBDB /* Build configuration list for PBXNativeTarget "Pods-MetroPaul" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D658A954B47F858C4A7E298BC2D39499 /* Debug */,
+				2D83B7F2DF418B8E9711CD84ED336CAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E24C4D73831AB06C5C9DFCE45CE0EEFB /* Build configuration list for PBXNativeTarget "Pods-MetroPaulUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3B31861D3065FB7263537BC346F447E /* Debug */,
+				DBA1B55E0A2F4E5E239D97C10D94300C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F56AA137CF94DA5FE40B2EEF8C088A71 /* Build configuration list for PBXNativeTarget "PKRevealController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB90B1A993EEF62DBBAECB120C99085 /* Debug */,
+				B1801FF2F4360520283074C9E77CE6B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

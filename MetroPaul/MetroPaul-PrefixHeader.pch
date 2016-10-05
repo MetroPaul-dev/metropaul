@@ -1,0 +1,27 @@
+//
+//  MetroPaul-PrefixHeader.pch
+//  MetroPaul
+//
+//  Created by Antoine Cointepas on 29/09/2016.
+//  Copyright © 2016 Antoine Cointepas. All rights reserved.
+//
+#import <Availability.h>
+
+#ifndef MetroPaul_PrefixHeader_pch
+#define MetroPaul_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* MetroPaul_PrefixHeader_pch */
+
+#ifndef __IPHONE_8_0
+#warning "This project uses features only available in iOS SDK 8.0 and later."
+#endif
+
+#ifdef __OBJC__
+//#import "PKRevealController.h"
+    #import "Constantes.h"
+    #import "MPLanguageManager.h"
+    #import "AppDelegate.h"
+#endif

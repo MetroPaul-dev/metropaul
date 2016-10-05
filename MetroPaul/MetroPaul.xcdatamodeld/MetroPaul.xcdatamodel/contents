@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="MPLine" representedClassName="MPLine" syncable="YES">
+        <attribute name="closing_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_line" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_network" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opening_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="transport_type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="network" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MPNetwork" inverseName="lines" inverseEntity="MPNetwork" syncable="YES"/>
+        <relationship name="stop_areas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPStopArea" inverseName="lines" inverseEntity="MPStopArea" syncable="YES"/>
+    </entity>
+    <entity name="MPNetwork" representedClassName="MPNetwork" syncable="YES">
+        <attribute name="generique_type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_network" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPLine" inverseName="network" inverseEntity="MPLine" syncable="YES"/>
+    </entity>
+    <entity name="MPStopArea" representedClassName="MPStopArea" syncable="YES">
+        <attribute name="calculated" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_navitia" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPLine" inverseName="stop_areas" inverseEntity="MPLine" syncable="YES"/>
+    </entity>
+    <entity name="MPStopAreaLine" representedClassName="MPStopAreaLine" syncable="YES">
+        <attribute name="id_line" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="MPLine" positionX="52" positionY="180" width="128" height="208"/>
+        <element name="MPStopArea" positionX="304" positionY="225" width="128" height="163"/>
+        <element name="MPNetwork" positionX="-126" positionY="260" width="128" height="118"/>
+        <element name="MPStopAreaLine" positionX="54" positionY="54" width="128" height="88"/>
+    </elements>
+</model>
