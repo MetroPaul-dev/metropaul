@@ -19,10 +19,12 @@
 @property(nonatomic, strong) NSMutableSet *lines;
 
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
+
 + (NSArray*)initWithArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 
 + (MPStopArea*)findById:(NSNumber*)id_stop_area;
 + (NSArray *)findByName:(NSString *)name;
 + (NSArray *)findAll;
++ (NSArray *)findByDistanceInMeter:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude;
 
 @end

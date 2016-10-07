@@ -16,6 +16,10 @@
 		7142C0901DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json in Resources */ = {isa = PBXBuildFile; fileRef = 7142C08F1DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json */; };
 		7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7142C0921DA3E67000F4CB95 /* MPDataLoader.m */; };
 		7142C0961DA3E7F800F4CB95 /* MPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 7142C0951DA3E7F800F4CB95 /* MPNetwork.m */; };
+		7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7611DA6BE350078B456 /* MPItineraryViewController.m */; };
+		7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */; };
+		7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */; };
+		714B8A971DA7AA3E002D003B /* MPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A961DA7AA3E002D003B /* MPAddress.m */; };
 		717024B61DA151F5007BA803 /* MapDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717024B51DA151F5007BA803 /* MapDownloadViewController.m */; };
 		7178C50D1D9B91F200ED775B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C50C1D9B91F200ED775B /* main.m */; };
 		7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C50F1D9B91F200ED775B /* AppDelegate.m */; };
@@ -52,6 +56,10 @@
 		71CDE9671DA169D00003C683 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9371DA164830003C683 /* SKMaps.framework */; };
 		71CDE9681DA169D00003C683 /* SKMaps.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9371DA164830003C683 /* SKMaps.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71CDEA541DA1A4780003C683 /* libSDKTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDEA511DA1A40C0003C683 /* libSDKTools.a */; };
+		71CE668A1DA64C3E00F599EE /* MPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE66891DA64C3E00F599EE /* MPNavigationController.m */; };
+		71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE668C1DA6646600F599EE /* UIView+CPSize.m */; };
+		71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */; };
+		71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */; };
 		71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */; };
 		71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEE1D9CF9270008EC19 /* LeftViewController.m */; };
 		71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E6DAF71D9CFFEF0008EC19 /* Localizable.strings */; };
@@ -131,6 +139,14 @@
 		7142C0921DA3E67000F4CB95 /* MPDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDataLoader.m; sourceTree = "<group>"; };
 		7142C0941DA3E7F800F4CB95 /* MPNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNetwork.h; sourceTree = "<group>"; };
 		7142C0951DA3E7F800F4CB95 /* MPNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNetwork.m; sourceTree = "<group>"; };
+		7143A7601DA6BE350078B456 /* MPItineraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItineraryViewController.h; sourceTree = "<group>"; };
+		7143A7611DA6BE350078B456 /* MPItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryViewController.m; sourceTree = "<group>"; };
+		7143A7631DA6BE5E0078B456 /* MPItineraryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItineraryCell.h; sourceTree = "<group>"; };
+		7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryCell.m; sourceTree = "<group>"; };
+		7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItineraryManager.h; sourceTree = "<group>"; };
+		7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItineraryManager.m; sourceTree = "<group>"; };
+		714B8A951DA7AA3E002D003B /* MPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAddress.h; sourceTree = "<group>"; };
+		714B8A961DA7AA3E002D003B /* MPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAddress.m; sourceTree = "<group>"; };
 		717024B41DA151F5007BA803 /* MapDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDownloadViewController.h; sourceTree = "<group>"; };
 		717024B51DA151F5007BA803 /* MapDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDownloadViewController.m; sourceTree = "<group>"; };
 		7178C5081D9B91F200ED775B /* MetroPaul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroPaul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +200,13 @@
 		71CDE9591DA166BE0003C683 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		71CDE95B1DA166C90003C683 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		71CDEA4C1DA1A40C0003C683 /* SDKTools.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDKTools.xcodeproj; path = SDKTools/SDKTools.xcodeproj; sourceTree = "<group>"; };
+		71CE66881DA64C3E00F599EE /* MPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNavigationController.h; sourceTree = "<group>"; };
+		71CE66891DA64C3E00F599EE /* MPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNavigationController.m; sourceTree = "<group>"; };
+		71CE668B1DA6646600F599EE /* UIView+CPSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CPSize.h"; sourceTree = "<group>"; };
+		71CE668C1DA6646600F599EE /* UIView+CPSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CPSize.m"; sourceTree = "<group>"; };
+		71CE66901DA6818900F599EE /* MPSearchResultDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSearchResultDestinationCell.h; sourceTree = "<group>"; };
+		71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSearchResultDestinationCell.m; sourceTree = "<group>"; };
+		71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPSearchResultDestinationCell.xib; sourceTree = "<group>"; };
 		71E6DAE81D9CF5510008EC19 /* MetroPaul-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MetroPaul-PrefixHeader.pch"; sourceTree = "<group>"; };
 		71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
@@ -313,6 +336,17 @@
 			name = Skobbler;
 			sourceTree = "<group>";
 		};
+		7143A75F1DA6BE130078B456 /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				7143A7601DA6BE350078B456 /* MPItineraryViewController.h */,
+				7143A7611DA6BE350078B456 /* MPItineraryViewController.m */,
+				7143A7631DA6BE5E0078B456 /* MPItineraryCell.h */,
+				7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */,
+			);
+			path = Itinerary;
+			sourceTree = "<group>";
+		};
 		717024B01DA1515F007BA803 /* MapDownload */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +384,7 @@
 		7178C50A1D9B91F200ED775B /* MetroPaul */ = {
 			isa = PBXGroup;
 			children = (
+				71CE668E1DA6646A00F599EE /* Utils */,
 				71AEC6101DA1A6AB002ED428 /* Model */,
 				71AEC60C1DA1A643002ED428 /* MapXMLParser */,
 				71E6DAF01D9CFF810008EC19 /* Ressources */,
@@ -416,6 +451,8 @@
 				71AEC6651DA29779002ED428 /* MPStopAreaLine.m */,
 				7142C0941DA3E7F800F4CB95 /* MPNetwork.h */,
 				7142C0951DA3E7F800F4CB95 /* MPNetwork.m */,
+				714B8A951DA7AA3E002D003B /* MPAddress.h */,
+				714B8A961DA7AA3E002D003B /* MPAddress.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -456,16 +493,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		71CE668E1DA6646A00F599EE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71CE668B1DA6646600F599EE /* UIView+CPSize.h */,
+				71CE668C1DA6646600F599EE /* UIView+CPSize.m */,
+				7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */,
+				7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		71CE668F1DA6813200F599EE /* Home-Map */ = {
+			isa = PBXGroup;
+			children = (
+				71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */,
+				71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */,
+				71CE66901DA6818900F599EE /* MPSearchResultDestinationCell.h */,
+				71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */,
+				71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */,
+			);
+			path = "Home-Map";
+			sourceTree = "<group>";
+		};
 		71E6DAE91D9CF8710008EC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7143A75F1DA6BE130078B456 /* Itinerary */,
+				71CE668F1DA6813200F599EE /* Home-Map */,
 				717024B01DA1515F007BA803 /* MapDownload */,
 				71C556841D9EC39D002D1BCB /* Menu */,
 				71E6DB011D9D10300008EC19 /* Language */,
 				71E6DAFD1D9D0D8D0008EC19 /* CGU */,
 				71E6DAF91D9D05BC0008EC19 /* Common */,
-				71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */,
-				71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -492,6 +552,8 @@
 			children = (
 				71E6DAFA1D9D05E60008EC19 /* MPRevealController.h */,
 				71E6DAFB1D9D05E60008EC19 /* MPRevealController.m */,
+				71CE66881DA64C3E00F599EE /* MPNavigationController.h */,
+				71CE66891DA64C3E00F599EE /* MPNavigationController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -678,6 +740,7 @@
 				7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */,
 				71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */,
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
+				71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */,
 				71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */,
 				71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */,
 				7142C08C1DA3E42D00F4CB95 /* T_STOP_AREA.json in Resources */,
@@ -855,6 +918,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */,
+				714B8A971DA7AA3E002D003B /* MPAddress.m in Sources */,
 				71AEC60F1DA1A671002ED428 /* XMLParser.m in Sources */,
 				71AEC6601DA29746002ED428 /* MPStopArea.m in Sources */,
 				7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */,
@@ -865,6 +930,8 @@
 				71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */,
 				71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */,
 				71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */,
+				7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */,
+				7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */,
 				71E6DB001D9D0DAC0008EC19 /* MPCGUViewController.m in Sources */,
 				71FB3EE71D9D1F4B00BD0D6A /* Constantes.m in Sources */,
 				71E6DAFC1D9D05E60008EC19 /* MPRevealController.m in Sources */,
@@ -873,10 +940,13 @@
 				7142C0961DA3E7F800F4CB95 /* MPNetwork.m in Sources */,
 				71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */,
 				71AEC61B1DA247BC002ED428 /* MPMapDownloadCell.m in Sources */,
+				71CE668A1DA64C3E00F599EE /* MPNavigationController.m in Sources */,
 				71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */,
+				71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */,
 				7178C50D1D9B91F200ED775B /* main.m in Sources */,
 				71AEC6131DA1A6CA002ED428 /* MapRegion.m in Sources */,
 				7178C5191D9B91F200ED775B /* MetroPaul.xcdatamodeld in Sources */,
+				7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

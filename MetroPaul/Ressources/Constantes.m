@@ -14,6 +14,10 @@
     return [UIColor colorWithRed:(55/255.f) green:(106/255.f) blue:(178/255.f) alpha:1];
 }
 
++ (UIColor *)gray {
+    return [UIColor colorWithRed:(63/255.f) green:(63/255.f) blue:(63/255.f) alpha:1];
+}
+
 + (NSArray*)rowMenu {
     NSArray *section0 = [NSArray arrayWithObjects:
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-search"], KEY_IMAGE_ROW, nil],
@@ -24,7 +28,6 @@
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.cgu" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-cgu"], KEY_IMAGE_ROW, nil],
                          nil];
     NSArray *section1 = [NSArray arrayWithObjects:
-                         [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.parameters" comment:nil], KEY_TITLE_ROW, nil, KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download" comment:nil], KEY_TITLE_ROW, nil, KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.pmr" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-pmr"], KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.language" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-flag"], KEY_IMAGE_ROW, nil],

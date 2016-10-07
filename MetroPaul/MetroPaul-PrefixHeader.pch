@@ -24,4 +24,6 @@
     #import "Constantes.h"
     #import "MPLanguageManager.h"
     #import "AppDelegate.h"
+    #import "MPNavigationController.h"
+    #import "UIView+CPSize.h"
 #endif

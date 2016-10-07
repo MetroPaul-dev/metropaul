@@ -7,6 +7,7 @@
 //
 
 #import "MPRevealController.h"
+#import "MPNavigationController.h"
 
 @interface MPRevealController ()<PKRevealing>
 @property (strong, nonatomic) UINavigationController *navigationController;
@@ -24,7 +25,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
         // Step 2: Instantiate
-        sharedInstance = [MPRevealController revealControllerWithFrontViewController:[[UINavigationController alloc] initWithRootViewController:[storyboard instantiateInitialViewController]] leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"LeftViewController"] rightViewController:nil];
+        sharedInstance = [MPRevealController revealControllerWithFrontViewController:[[MPNavigationController alloc] initWithRootViewController:[storyboard instantiateInitialViewController]] leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"LeftViewController"] rightViewController:nil];
         
         // Step 3: Configure.
         sharedInstance.animationDuration = 0.25;

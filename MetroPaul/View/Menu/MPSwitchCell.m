@@ -19,12 +19,15 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.label.font = [UIFont fontWithName:FONT_LIGHT size:12.0];
-    self.label.textColor = [Constantes blueBackGround];
+    self.label.font = [UIFont fontWithName:FONT_MEDIUM size:16.0];
+    self.label.textColor = [UIColor whiteColor];
     self.label.backgroundColor = [UIColor clearColor];
 
-    self.iconImageView.tintColor = [Constantes blueBackGround];
+    self.iconImageView.tintColor = [UIColor whiteColor];
     self.iconImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    self.switchView.onTintColor = [Constantes gray];
+    self.switchView.transform = CGAffineTransformMakeScale(0.9, 0.9);
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }

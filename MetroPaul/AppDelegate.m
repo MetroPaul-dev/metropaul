@@ -49,7 +49,8 @@
     self.cachedMapRegions = [NSMutableArray array];
     
     [[[MPDataLoader alloc] init] preloadData];
-        
+    
+    
     return YES;
 }
 
@@ -277,7 +278,6 @@
         [[SKMapsService sharedInstance].mapsVersioningManager updateToVersion:latestVersion.version];
     }
 }
-
 
 
 

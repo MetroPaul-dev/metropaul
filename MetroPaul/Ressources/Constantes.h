@@ -25,9 +25,13 @@
 #define KEY_TITLE_ROW @"KEY_TITLE_ROW"
 #define KEY_IMAGE_ROW @"KEY_IMAGE_ROW"
 
+#define STOP_AREA_DISTANCE_MAX 800
+
 
 @interface Constantes : NSObject
 
 + (UIColor*)blueBackGround;
++ (UIColor*)gray;
+
 + (NSArray*)rowMenu;
 @end

@@ -53,5 +53,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Roboto-Regular.otf</string>
+		<string>Roboto-Bold.otf</string>
+		<string>Roboto-Light.otf</string>
+		<string>Roboto-MediumItalic.otf</string>
+		<string>Roboto-LightItalic.otf</string>
+		<string>Roboto-Medium.otf</string>
+	</array>
 </dict>
 </plist>

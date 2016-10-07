@@ -12,9 +12,12 @@
 #import "MPRevealController.h"
 #import "MPLine.h"
 #import "MPStopArea.h"
+#import "MPSearchResultDestinationCell.h"
+#import "MPItineraryViewController.h"
+#import "MPGlobalItineraryManager.h"
 
-#define CELL_HEIGHT 45
-#define INFOVIEW_HEIGHT 80
+#define CELL_HEIGHT 50
+#define INFOVIEW_HEIGHT 70
 #define ANNOTATION_IDENTIFIER_USER_LOCATION 0
 #define RESULT_LIMIT 7
 
@@ -33,9 +36,13 @@ static SKListLevel listLevel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *infoViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *imageInfoView;
 @property (weak, nonatomic) IBOutlet UILabel *labelInfoView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonInfoView;
 
 @property(nonatomic, strong) SKMultiStepSearchSettings *multiStepSearchObject;
 @property(nonatomic, strong) NSArray *stopAreas;
+
+@property(nonatomic, strong) SKSearchResult *searchResult;
+@property(nonatomic, strong) MPStopArea *stopArea;
 
 @end
 
@@ -43,7 +50,7 @@ static SKListLevel listLevel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Plan";
+    
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"icon-menu"]
@@ -58,10 +65,45 @@ static SKListLevel listLevel;
     self.searchResultsStopArea = [NSMutableArray array];
     
     self.searchBar.delegate = self;
-    self.searchBar.showsCancelButton = YES;
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.barTintColor = [Constantes blueBackGround];
+    self.searchBar.tintColor = [UIColor whiteColor];
+    self.searchBar.layer.borderWidth = 1;
+    self.searchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
+    
+    NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
+    for (UIView *view in searchBarSubViews) {
+        if([view isKindOfClass:[UITextField class]])
+        {
+            UITextField *textField = (UITextField*)view;
+            [textField setBorderStyle:UITextBorderStyleNone];
+            textField.layer.cornerRadius = 0;
+            
+            [textField setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4]];
+            [textField setTextColor:[UIColor whiteColor]];
+            
+            UIImageView *imgView = (UIImageView*)textField.leftView;
+            [imgView setWidth:24.0];
+            imgView.contentMode = UIViewContentModeScaleAspectFit;
+            imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+            imgView.tintColor = [UIColor whiteColor];
+            textField.leftViewMode = UITextFieldViewModeAlways;
+            
+            UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
+            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
+            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
+            
+            btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
+            btnClear.tintColor = [UIColor whiteColor];
+        }
+    }
+    
+    [self.searchBar reloadInputViews];
     
     [self showTableView:NO];
-    
+    [self.tableView registerNib:[UINib nibWithNibName:@"MPSearchResultDestinationCell" bundle:nil] forCellReuseIdentifier:@"MPSearchResultDestinationCell"];
+    self.tableView.backgroundColor = [Constantes blueBackGround];
     self.mapView.delegate = self;
     self.mapView.mapScaleView.hidden = YES;
     
@@ -74,7 +116,11 @@ static SKListLevel listLevel;
     self.stopAreas = [MPStopArea findAll];
     
     self.infoView.backgroundColor = [Constantes blueBackGround];
+    self.imageInfoView.tintColor = [UIColor whiteColor];
     self.labelInfoView.font = [UIFont fontWithName:FONT_MEDIUM size:13.0f];
+    [self.buttonInfoView.titleLabel setFont:[UIFont fontWithName:FONT_MEDIUM size:16.0f]];
+    
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:@"Plan"];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -94,6 +140,7 @@ static SKListLevel listLevel;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (![self.searchBar.text isEqual: @""]) {
         if (self.searchResultsStopArea.count + self.searchResultsSkobbler.count > RESULT_LIMIT) {
@@ -126,14 +173,14 @@ static SKListLevel listLevel;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    MPSearchResultDestinationCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"MPSearchResultDestinationCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+        cell = [[MPSearchResultDestinationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MPSearchResultDestinationCell"];
     }
     if (indexPath.section == 0) {
         MPStopArea *stopArea = [self.searchResultsStopArea objectAtIndex:indexPath.row];
         cell.textLabel.text = [stopArea name];
-        
+        cell.imageView.image = [UIImage imageNamed:@"icon-metro"];
     } else {
         SKSearchResult *searchResult = [self.searchResultsSkobbler objectAtIndex:indexPath.row];
         NSMutableString *labelCell = [NSMutableString stringWithString:searchResult.name];
@@ -142,6 +189,7 @@ static SKListLevel listLevel;
                 [labelCell appendString:[NSString stringWithFormat:@", %@", parent.name]];
             }
         }
+        cell.imageView.image = [UIImage imageNamed:@"icon-pin"];
         cell.textLabel.text = labelCell;
     }
     
@@ -163,16 +211,6 @@ static SKListLevel listLevel;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return CELL_HEIGHT;
-}
-
-- (void)showTableView:(BOOL)show {
-    if (show) {
-        [self.tableView setHidden:NO];
-        CGFloat constraint = self.view.frame.size.height-self.searchResultsSkobbler.count*CELL_HEIGHT;
-        self.tableViewBottomConstraint.constant = constraint > self.view.frame.size.height ? 0 : constraint;
-    } else {
-        [self.tableView setHidden:YES];
-    }
 }
 
 #pragma mark - UISearchBarDelegate
@@ -263,35 +301,32 @@ static SKListLevel listLevel;
     
 }
 
-- (void)setDestination:(CLLocationCoordinate2D)coordinate {
-    [self.mapView hideCallout];
-    
-    SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: coordinate];
-    self.labelInfoView.text = searchObject.name;
-    [self centerOnCoordinate:searchObject.coordinate];
-    [self addAnnotationDestination:searchObject.coordinate];
-    [self showInfoView:YES];
-}
-
 - (void)setDestinationWithSearchResult:(SKSearchResult*)searchResult {
+    self.searchResult = searchResult;
+    self.stopArea = nil;
+    
     [self.mapView hideCallout];
     
-    NSMutableString *labelCell = [NSMutableString stringWithString:searchResult.name];
+    NSMutableString *mutableString = [NSMutableString stringWithString:searchResult.name];
     for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
         if (parent.type < SKSearchResultStreet) {
-            [labelCell appendString:[NSString stringWithFormat:@", %@", parent.name]];
+            [mutableString appendString:[NSString stringWithFormat:@", %@", parent.name]];
         }
     }
-    self.labelInfoView.text = labelCell;
+    
+    [self setTexteInfoView:mutableString image:[UIImage imageNamed:@"icon-pin"]];
     
     [self centerOnCoordinate:searchResult.coordinate];
     [self addAnnotationDestination:searchResult.coordinate];
     
     [self showInfoView:YES];
-    
+        
 }
 
 - (void)setDestinationWithStopArea:(MPStopArea*)stopArea {
+    self.searchResult = nil;
+    self.stopArea = stopArea;
+    
     [self.mapView hideCallout];
     
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
@@ -303,23 +338,14 @@ static SKListLevel listLevel;
         [text appendFormat:@" %@,",line.code];
     }
     [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
-
-    self.labelInfoView.text = text;
+    
     if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
-        self.imageInfoView.image = [UIImage imageNamed:@"icon-metro"];
+        [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-metro"]];
     } else {
-        self.imageInfoView.image = nil;
+        [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-pin"]];
     }
     
     [self showInfoView:YES];
-}
-
-- (void)showInfoView:(BOOL)show {
-    self.infoViewHeightConstraint.constant = show ? INFOVIEW_HEIGHT : 0.0;
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.view layoutIfNeeded];
-    } completion:^(BOOL finished) {
-    }];
 }
 
 - (void)addAnnotationDestination:(CLLocationCoordinate2D)coordinate {
@@ -340,17 +366,14 @@ static SKListLevel listLevel;
     [self.mapView addAnnotation:viewAnnotation withAnimationSettings:animationSettings];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)mapView:(SKMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    [self setDestination:coordinate];
+    SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: coordinate];
+    [self setDestinationWithSearchResult:searchObject];
 }
 
 - (void)mapView:(SKMapView *)mapView didDoubleTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
-    [self setDestination:coordinate];
+    SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: coordinate];
+    [self setDestinationWithSearchResult:searchObject];
 }
 
 -(void)mapView:(SKMapView *)mapView didSelectAnnotation:(SKAnnotation *)annotation{
@@ -362,12 +385,13 @@ static SKListLevel listLevel;
             mapView.calloutView.subtitleLabel.text = @"";
             [mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 10) animated:YES];
             
-            self.labelInfoView.text = stopArea.name;
+            if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
+                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-metro"]];
+            } else {
+                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-pin"]];
+            }
         }
     }
-}
-- (IBAction)tapOnMyLocationButton:(id)sender {
-    [self setDestination:[[SKPositionerService sharedInstance] currentCoordinate]];
 }
 
 #pragma mark - SKSearchServiceDelegate
@@ -402,5 +426,70 @@ static SKListLevel listLevel;
 }
 
 
+#pragma mark - ViewController Method
+
+- (IBAction)tapOnGoButton:(id)sender {
+    
+    if (self.searchResult != nil || self.stopArea != nil) {
+        if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
+            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
+            MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
+
+            [[MPGlobalItineraryManager sharedManager] setAddress:address];
+        }
+        MPAddress *address = [[MPAddress alloc] init];
+        
+        if (self.searchResult != nil) {
+            address = [[MPAddress alloc] initWithSKSearchResult:self.searchResult];
+        } else if (self.stopArea != nil) {
+            address.stopArea = self.stopArea;
+        }
+        
+        [[MPGlobalItineraryManager sharedManager] setAddress:address];
+        MPRevealController *revealController = [MPRevealController sharedInstance];
+        
+        [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPItineraryViewController class])] animated:YES];
+    }
+}
+
+- (IBAction)tapOnMyLocationButton:(id)sender {
+    SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
+    [self setDestinationWithSearchResult:searchObject];
+}
+
+- (void)showInfoView:(BOOL)show {
+    self.infoViewHeightConstraint.constant = show ? INFOVIEW_HEIGHT : 0.0;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+    }];
+}
+
+- (void)setTexteInfoView:(NSString*)text image:(UIImage*)image {
+    NSMutableAttributedString* attrString = [[NSMutableAttributedString alloc] initWithString:[text uppercaseString]];
+    NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+    [style setLineSpacing:0.2];
+    [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, [text length])];
+    self.labelInfoView.attributedText = attrString;
+    
+    self.imageInfoView.image = image;
+}
+
+- (void)showTableView:(BOOL)show {
+    self.searchBar.showsCancelButton = show;
+    
+    if (show) {
+        [self.tableView setHidden:NO];
+        // CGFloat constraint = self.view.frame.size.height-self.searchResultsSkobbler.count*CELL_HEIGHT;
+        // self.tableViewBottomConstraint.constant = constraint > self.view.frame.size.height ? 0 : constraint;
+    } else {
+        [self.tableView setHidden:YES];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 @end

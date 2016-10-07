@@ -7,6 +7,10 @@
 //
 
 #import "MPStopArea.h"
+#import <CoreLocation/CoreLocation.h>
+
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+#define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
 
 @implementation MPStopArea
 
@@ -56,7 +60,8 @@
 }
 
 + (MPStopArea *)findById:(NSNumber *)id_stop_area {
-    
+    NSLog(@"MPStopArea request findById : %@", id_stop_area);
+
     // Fetching
     //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
@@ -80,7 +85,8 @@
 }
 
 + (NSArray *)findByName:(NSString *)name {
-    
+    NSLog(@"MPStopArea request findByName : %@", name);
+
     // Fetching
     //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
@@ -100,6 +106,8 @@
 }
 
 + (NSArray *)findAll {
+    NSLog(@"MPStopArea request findAll");
+
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
     
     NSError *error;
@@ -110,5 +118,39 @@
     
     return results;
 }
+
+
++ (NSArray *)findByDistanceInMeter:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude {
+    NSLog(@"MPStopArea request findByDistanceInMeter : %i", distanceInMeter);
+    NSArray *boundingBox = [MPStopArea getBoundingBox:distanceInMeter fromLatitude:latitude fromLongitude:longitude];
+    // Fetching
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    
+    // Create Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"latitude >= %@ AND latitude <= %@ AND longitude >= %@ AND longitude <= %@", [boundingBox objectAtIndex:0], [boundingBox objectAtIndex:2], [boundingBox objectAtIndex:1], [boundingBox objectAtIndex:3]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *results = [[AppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error != nil) {
+        NSLog(@"Failed to retrieve record: \(e!.localizedDescription)");
+    }
+    
+    return results;
+}
+
++ (NSArray *)getBoundingBox:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude {
+    CGFloat R = 6371.0;
+    CGFloat radius = distanceInMeter/1000.0;
+    CGFloat maxLat = latitude + RADIANS_TO_DEGREES(radius/R);
+    CGFloat minLat = latitude - RADIANS_TO_DEGREES(radius/R);
+    CGFloat maxLong = longitude + RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
+    CGFloat minLong = longitude - RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
+    
+    NSArray *result = [NSArray arrayWithObjects:[NSNumber numberWithFloat:minLat], [NSNumber numberWithFloat:minLong], [NSNumber numberWithFloat:maxLat], [NSNumber numberWithFloat:maxLong], nil];
+
+    return result;
+}
+
 
 @end

@@ -16,6 +16,9 @@
 #import <MessageUI/MessageUI.h>
 
 #define YOUR_APP_STORE_ID 450174891 //Change this one to your ID
+#define CELL_HEIGHT 50.0
+#define FIRST_HEADER_HEIGHT 10.0
+#define SECOND_HEADER_HEIGHT 40.0
 
 
 @interface LeftViewController () <UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, MPSwitchCellDelegate>
@@ -29,8 +32,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [Constantes blueBackGround];
     tableData = [Constantes rowMenu];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.alwaysBounceVertical = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,10 +45,16 @@
     [self.tableView reloadData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return tableData.count;
@@ -54,8 +66,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = [[tableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-
-    if (indexPath.section == 1 && indexPath.row == 2) {
+    
+    if (indexPath.section == 1 && indexPath.row == 1) {
         MPSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPSwitchCell"];
         BOOL valueSwitch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"PMR"] boolValue];
         [cell setTitle:[[dict objectForKey:KEY_TITLE_ROW] uppercaseString] image:[dict objectForKey:KEY_IMAGE_ROW] switchState:valueSwitch];
@@ -65,6 +77,10 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+            cell.backgroundColor = [Constantes blueBackGround];
+            cell.imageView.tintColor = [UIColor whiteColor];
+            cell.textLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.font = [UIFont fontWithName:FONT_MEDIUM size:18.0];
         }
         cell.textLabel.text = [[dict objectForKey:KEY_TITLE_ROW] uppercaseString];
         cell.imageView.image = [dict objectForKey:KEY_IMAGE_ROW];
@@ -95,7 +111,7 @@
                 }
                 case 2: {
                     NSString *appName=[[[NSBundle mainBundle] infoDictionary]  objectForKey:(id)kCFBundleNameKey];
-
+                    
                     NSString *textToShare = [NSString stringWithFormat:@"http://itunes.com/app/%@", appName];
                     NSArray *itemsToShare = @[textToShare];
                     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
@@ -143,19 +159,15 @@
         case 1:{
             switch (indexPath.row) {
                 case 0: {
-                    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-                    break;
-                }
-                case 1: {
                     MapDownloadViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([MapDownloadViewController class])];
                     [(UINavigationController*)revealController.frontViewController pushViewController:vc animated:YES];
                     [revealController showFrontViewController];
                     break;
                 }
-                case 2: {
+                case 1: {
                     break;
                 }
-                case 3: {
+                case 2: {
                     [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPLanguageViewController class])] animated:YES];
                     [revealController showFrontViewController];
                     
@@ -170,7 +182,70 @@
         default:
             break;
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:[tableView rectForHeaderInSection:section]];
+    view.backgroundColor = [UIColor clearColor];
+    UIView *separator = [[UIView alloc] initWithFrame:CGRectMake(20.0, 0, [view getWidth]-40.0, 1)];
+    separator.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.35];
+    [view addSubview:separator];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 0, [view getWidth]-20.0, [view getHeight])];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:FONT_MEDIUM size:18.0];
+    label.textColor = [UIColor whiteColor];
+    [view addSubview:label];
+    
+    switch (section) {
+        case 1: {
+            label.text = [[[MPLanguageManager sharedManager] getStringWithKey:@"menu.parameters" comment:nil] uppercaseString];
+            break;
+        }
+        default:
+            break;
+    }
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:[tableView rectForFooterInSection:section]];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return CELL_HEIGHT;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if(section == 0) {
+        return FIRST_HEADER_HEIGHT;
+    } else {
+        return SECOND_HEADER_HEIGHT;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if(section == 0) {
+        long nbCell = [[tableData objectAtIndex:0] count] + [[tableData objectAtIndex:1] count];
+        
+        CGFloat heightUsed = nbCell*CELL_HEIGHT+ FIRST_HEADER_HEIGHT + SECOND_HEADER_HEIGHT;
+        if ([self.tableView getHeight] - heightUsed <= 0) {
+            return 0;
+        } else {
+            return [self.tableView getHeight] - heightUsed;
+        }
+    }
+    
+    return 0;
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
 
 - (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
@@ -195,6 +270,8 @@
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+#pragma mark - MPSwitchCellDelegate
 
 - (void)switchCellChanged:(MPSwitchCell *)cell {
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithBool:cell.switchView.isOn] forKey:@"PMR"];
