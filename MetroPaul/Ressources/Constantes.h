@@ -25,7 +25,7 @@
 #define KEY_TITLE_ROW @"KEY_TITLE_ROW"
 #define KEY_IMAGE_ROW @"KEY_IMAGE_ROW"
 
-#define STOP_AREA_DISTANCE_MAX 800
+#define STOP_AREA_DISTANCE_DEFAULT 800
 
 
 @interface Constantes : NSObject

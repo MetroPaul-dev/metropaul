@@ -9,17 +9,20 @@
 /* Begin PBXBuildFile section */
 		0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */; };
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
-		71267A871DA2B871004A2B28 /* T_LINE.json in Resources */ = {isa = PBXBuildFile; fileRef = 71267A861DA2B870004A2B28 /* T_LINE.json */; };
 		7142C08A1DA3BC1800F4CB95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B038271DA2A06200B8229C /* CoreData.framework */; };
-		7142C08C1DA3E42D00F4CB95 /* T_STOP_AREA.json in Resources */ = {isa = PBXBuildFile; fileRef = 7142C08B1DA3E42D00F4CB95 /* T_STOP_AREA.json */; };
-		7142C08E1DA3E44000F4CB95 /* T_NETWORK.json in Resources */ = {isa = PBXBuildFile; fileRef = 7142C08D1DA3E43F00F4CB95 /* T_NETWORK.json */; };
-		7142C0901DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json in Resources */ = {isa = PBXBuildFile; fileRef = 7142C08F1DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json */; };
 		7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7142C0921DA3E67000F4CB95 /* MPDataLoader.m */; };
 		7142C0961DA3E7F800F4CB95 /* MPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 7142C0951DA3E7F800F4CB95 /* MPNetwork.m */; };
 		7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7611DA6BE350078B456 /* MPItineraryViewController.m */; };
 		7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */; };
 		7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */; };
-		714B8A971DA7AA3E002D003B /* MPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A961DA7AA3E002D003B /* MPAddress.m */; };
+		714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A9B1DA7F3F2002D003B /* MPItinerary.m */; };
+		714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA41DA7FCC2002D003B /* MPRoute.m */; };
+		714B8AA81DA7FE0F002D003B /* MPStopPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA71DA7FE0F002D003B /* MPStopPoint.m */; };
+		714B8AAB1DA7FF99002D003B /* MPStopAreaRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */; };
+		715B7B8D1DAE8AC2003E229E /* MetroPaul.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */; };
+		715B7B8E1DAE8AC2003E229E /* MetroPaul.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */; };
+		715B7B8F1DAE8AC2003E229E /* MetroPaul.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */; };
+		71674B3E1DAE1A9400096F8E /* MPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A961DA7AA3E002D003B /* MPAddress.m */; };
 		717024B61DA151F5007BA803 /* MapDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717024B51DA151F5007BA803 /* MapDownloadViewController.m */; };
 		7178C50D1D9B91F200ED775B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C50C1D9B91F200ED775B /* main.m */; };
 		7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C50F1D9B91F200ED775B /* AppDelegate.m */; };
@@ -131,10 +134,6 @@
 		544E59710622FF32A05DBC5F /* Pods-MetroPaulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulTests/Pods-MetroPaulTests.debug.xcconfig"; sourceTree = "<group>"; };
 		54A057CB81B4E01D8BBBB6DD /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
 		56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71267A861DA2B870004A2B28 /* T_LINE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = T_LINE.json; sourceTree = "<group>"; };
-		7142C08B1DA3E42D00F4CB95 /* T_STOP_AREA.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = T_STOP_AREA.json; sourceTree = "<group>"; };
-		7142C08D1DA3E43F00F4CB95 /* T_NETWORK.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = T_NETWORK.json; sourceTree = "<group>"; };
-		7142C08F1DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = T_STOP_AREA_LINE.json; sourceTree = "<group>"; };
 		7142C0911DA3E67000F4CB95 /* MPDataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDataLoader.h; sourceTree = "<group>"; };
 		7142C0921DA3E67000F4CB95 /* MPDataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDataLoader.m; sourceTree = "<group>"; };
 		7142C0941DA3E7F800F4CB95 /* MPNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNetwork.h; sourceTree = "<group>"; };
@@ -147,6 +146,17 @@
 		7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItineraryManager.m; sourceTree = "<group>"; };
 		714B8A951DA7AA3E002D003B /* MPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAddress.h; sourceTree = "<group>"; };
 		714B8A961DA7AA3E002D003B /* MPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAddress.m; sourceTree = "<group>"; };
+		714B8A9A1DA7F3F2002D003B /* MPItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItinerary.h; sourceTree = "<group>"; };
+		714B8A9B1DA7F3F2002D003B /* MPItinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItinerary.m; sourceTree = "<group>"; };
+		714B8AA31DA7FCC2002D003B /* MPRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPRoute.h; sourceTree = "<group>"; };
+		714B8AA41DA7FCC2002D003B /* MPRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPRoute.m; sourceTree = "<group>"; };
+		714B8AA61DA7FE0F002D003B /* MPStopPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStopPoint.h; sourceTree = "<group>"; };
+		714B8AA71DA7FE0F002D003B /* MPStopPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopPoint.m; sourceTree = "<group>"; };
+		714B8AA91DA7FF99002D003B /* MPStopAreaRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStopAreaRoute.h; sourceTree = "<group>"; };
+		714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopAreaRoute.m; sourceTree = "<group>"; };
+		715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetroPaul.sqlite; sourceTree = "<group>"; };
+		715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MetroPaul.sqlite-shm"; sourceTree = "<group>"; };
+		715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MetroPaul.sqlite-wal"; sourceTree = "<group>"; };
 		717024B41DA151F5007BA803 /* MapDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDownloadViewController.h; sourceTree = "<group>"; };
 		717024B51DA151F5007BA803 /* MapDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDownloadViewController.m; sourceTree = "<group>"; };
 		7178C5081D9B91F200ED775B /* MetroPaul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroPaul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -301,10 +311,6 @@
 		7142C0971DA3E9E600F4CB95 /* jsonData */ = {
 			isa = PBXGroup;
 			children = (
-				71267A861DA2B870004A2B28 /* T_LINE.json */,
-				7142C08B1DA3E42D00F4CB95 /* T_STOP_AREA.json */,
-				7142C08D1DA3E43F00F4CB95 /* T_NETWORK.json */,
-				7142C08F1DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json */,
 			);
 			name = jsonData;
 			sourceTree = "<group>";
@@ -345,6 +351,16 @@
 				7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */,
 			);
 			path = Itinerary;
+			sourceTree = "<group>";
+		};
+		71674B3F1DAE2A3F00096F8E /* BDD */ = {
+			isa = PBXGroup;
+			children = (
+				715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */,
+				715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */,
+				715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */,
+			);
+			name = BDD;
 			sourceTree = "<group>";
 		};
 		717024B01DA1515F007BA803 /* MapDownload */ = {
@@ -453,6 +469,14 @@
 				7142C0951DA3E7F800F4CB95 /* MPNetwork.m */,
 				714B8A951DA7AA3E002D003B /* MPAddress.h */,
 				714B8A961DA7AA3E002D003B /* MPAddress.m */,
+				714B8A9A1DA7F3F2002D003B /* MPItinerary.h */,
+				714B8A9B1DA7F3F2002D003B /* MPItinerary.m */,
+				714B8AA31DA7FCC2002D003B /* MPRoute.h */,
+				714B8AA41DA7FCC2002D003B /* MPRoute.m */,
+				714B8AA61DA7FE0F002D003B /* MPStopPoint.h */,
+				714B8AA71DA7FE0F002D003B /* MPStopPoint.m */,
+				714B8AA91DA7FF99002D003B /* MPStopAreaRoute.h */,
+				714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +557,7 @@
 		71E6DAF01D9CFF810008EC19 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				71674B3F1DAE2A3F00096F8E /* BDD */,
 				7142C0991DA3EA0500F4CB95 /* Skobbler */,
 				7142C0981DA3E9F600F4CB95 /* Font */,
 				7142C0971DA3E9E600F4CB95 /* jsonData */,
@@ -679,8 +704,8 @@
 				TargetAttributes = {
 					7178C5071D9B91F200ED775B = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = G7H3UC3MT4;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = B5SDH4YU8C;
+						ProvisioningStyle = Manual;
 					};
 					7178C5231D9B91F200ED775B = {
 						CreatedOnToolsVersion = 8.0;
@@ -738,12 +763,13 @@
 			files = (
 				71FB3EF31D9D1FD100BD0D6A /* Roboto-BlackItalic.otf in Resources */,
 				7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */,
+				715B7B8E1DAE8AC2003E229E /* MetroPaul.sqlite-shm in Resources */,
 				71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */,
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
 				71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */,
+				715B7B8D1DAE8AC2003E229E /* MetroPaul.sqlite in Resources */,
 				71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */,
 				71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */,
-				7142C08C1DA3E42D00F4CB95 /* T_STOP_AREA.json in Resources */,
 				71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */,
 				71FB3EF51D9D1FD100BD0D6A /* Roboto-BoldItalic.otf in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
@@ -752,12 +778,10 @@
 				71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */,
 				71CDE9561DA1666A0003C683 /* SKTNavigationResources.bundle in Resources */,
 				71FB3EF81D9D1FD100BD0D6A /* Roboto-LightItalic.otf in Resources */,
-				7142C08E1DA3E44000F4CB95 /* T_NETWORK.json in Resources */,
 				71FB3EF61D9D1FD100BD0D6A /* Roboto-Italic.otf in Resources */,
 				7178C5161D9B91F200ED775B /* Main.storyboard in Resources */,
 				71FB3EF91D9D1FD100BD0D6A /* Roboto-Medium.otf in Resources */,
-				71267A871DA2B871004A2B28 /* T_LINE.json in Resources */,
-				7142C0901DA3E5DA00F4CB95 /* T_STOP_AREA_LINE.json in Resources */,
+				715B7B8F1DAE8AC2003E229E /* MetroPaul.sqlite-wal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,8 +942,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71674B3E1DAE1A9400096F8E /* MPAddress.m in Sources */,
 				71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */,
-				714B8A971DA7AA3E002D003B /* MPAddress.m in Sources */,
 				71AEC60F1DA1A671002ED428 /* XMLParser.m in Sources */,
 				71AEC6601DA29746002ED428 /* MPStopArea.m in Sources */,
 				7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */,
@@ -930,13 +954,17 @@
 				71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */,
 				71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */,
 				71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */,
+				714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */,
 				7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */,
+				714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */,
 				7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */,
 				71E6DB001D9D0DAC0008EC19 /* MPCGUViewController.m in Sources */,
 				71FB3EE71D9D1F4B00BD0D6A /* Constantes.m in Sources */,
 				71E6DAFC1D9D05E60008EC19 /* MPRevealController.m in Sources */,
 				71AEC6181DA1A77A002ED428 /* TBXML.m in Sources */,
 				717024B61DA151F5007BA803 /* MapDownloadViewController.m in Sources */,
+				714B8AA81DA7FE0F002D003B /* MPStopPoint.m in Sources */,
+				714B8AAB1DA7FF99002D003B /* MPStopAreaRoute.m in Sources */,
 				7142C0961DA3E7F800F4CB95 /* MPNetwork.m in Sources */,
 				71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */,
 				71AEC61B1DA247BC002ED428 /* MPMapDownloadCell.m in Sources */,
@@ -1043,6 +1071,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1092,6 +1121,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1115,7 +1145,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = G7H3UC3MT4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B5SDH4YU8C;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1141,8 +1173,35 @@
 				INFOPLIST_FILE = MetroPaul/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = antoinecointepas.MetroPaul;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PKRevealController/PKRevealController.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.metropaul.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2534ab3a-0880-441a-a095-f480a69316b9";
+				PROVISIONING_PROFILE_SPECIFIER = "MetroPaul - Dev";
 			};
 			name = Debug;
 		};
@@ -1152,7 +1211,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = G7H3UC3MT4;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = B5SDH4YU8C;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1178,8 +1239,36 @@
 				INFOPLIST_FILE = MetroPaul/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = antoinecointepas.MetroPaul;
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PKRevealController/PKRevealController.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Google\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				PRODUCT_BUNDLE_IDENTIFIER = fr.metropaul.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e8b61b6f-4dca-4b2e-957b-c5bb9c652cc8";
+				PROVISIONING_PROFILE_SPECIFIER = "MetroPaul-AppStore";
 			};
 			name = Release;
 		};

@@ -114,7 +114,7 @@ static SKListLevel listLevel;
     [SKMapsService sharedInstance].connectivityMode = SKConnectivityModeOffline;
     
     self.stopAreas = [MPStopArea findAll];
-    
+
     self.infoView.backgroundColor = [Constantes blueBackGround];
     self.imageInfoView.tintColor = [UIColor whiteColor];
     self.labelInfoView.font = [UIFont fontWithName:FONT_MEDIUM size:13.0f];
@@ -125,6 +125,15 @@ static SKListLevel listLevel;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    NSArray *oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages];
+    if (oldPackages.count <= 0) {
+        [self alertViewDownloadMap];
+
+        [self.searchBar setUserInteractionEnabled:NO];
+    } else {
+        [self.searchBar setUserInteractionEnabled:YES];
+    }
     
     // self.tableViewBottomConstraint.constant = self.view.frame.size.height-self.searchController.searchBar.frame.size.height;
     
@@ -285,6 +294,7 @@ static SKListLevel listLevel;
 
 - (void)addAnnotationWithStopArea:(MPStopArea*)stopArea {
     UIImageView *coloredView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
+
     coloredView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ligne%@",[(MPLine*)[stopArea.lines.allObjects firstObject] code]]];
     
     //create the SKAnnotationView
@@ -302,50 +312,54 @@ static SKListLevel listLevel;
 }
 
 - (void)setDestinationWithSearchResult:(SKSearchResult*)searchResult {
-    self.searchResult = searchResult;
-    self.stopArea = nil;
-    
-    [self.mapView hideCallout];
-    
-    NSMutableString *mutableString = [NSMutableString stringWithString:searchResult.name];
-    for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
-        if (parent.type < SKSearchResultStreet) {
-            [mutableString appendString:[NSString stringWithFormat:@", %@", parent.name]];
+    if (searchResult != nil) {
+        self.searchResult = searchResult;
+        self.stopArea = nil;
+        
+        [self.mapView hideCallout];
+        
+        NSMutableString *mutableString = [NSMutableString stringWithString:searchResult.name];
+        for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
+            if (parent.type < SKSearchResultStreet) {
+                [mutableString appendString:[NSString stringWithFormat:@", %@", parent.name]];
+            }
         }
+        
+        [self setTexteInfoView:mutableString image:[UIImage imageNamed:@"icon-pin"]];
+        
+        [self centerOnCoordinate:searchResult.coordinate];
+        [self addAnnotationDestination:searchResult.coordinate];
+        
+        [self showInfoView:YES];
     }
     
-    [self setTexteInfoView:mutableString image:[UIImage imageNamed:@"icon-pin"]];
-    
-    [self centerOnCoordinate:searchResult.coordinate];
-    [self addAnnotationDestination:searchResult.coordinate];
-    
-    [self showInfoView:YES];
-        
 }
 
 - (void)setDestinationWithStopArea:(MPStopArea*)stopArea {
-    self.searchResult = nil;
-    self.stopArea = stopArea;
-    
-    [self.mapView hideCallout];
-    
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
-    [self centerOnCoordinate:coordinate];
-    [self addAnnotationDestination:coordinate];
-    
-    NSMutableString *text = [NSMutableString stringWithFormat:@"%@\n%@\nLigne", [stopArea name], [(MPLine*)[stopArea.lines.allObjects firstObject] transport_type]];
-    for (MPLine *line in stopArea.lines) {
-        [text appendFormat:@" %@,",line.code];
+    if (stopArea != nil) {
+        self.searchResult = nil;
+        self.stopArea = stopArea;
+        
+        [self.mapView hideCallout];
+        
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
+        [self centerOnCoordinate:coordinate];
+        [self addAnnotationDestination:coordinate];
+        
+        NSMutableString *text = [NSMutableString stringWithFormat:@"%@\n%@\nLigne", [stopArea name], [(MPLine*)[stopArea.lines.allObjects firstObject] transport_type]];
+        for (MPLine *line in stopArea.lines) {
+            [text appendFormat:@" %@,",line.code];
+        }
+        [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
+        
+        if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
+            [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-metro"]];
+        } else {
+            [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-pin"]];
+        }
+        
+        [self showInfoView:YES];
     }
-    [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
-    
-    if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
-        [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-metro"]];
-    } else {
-        [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-pin"]];
-    }
-    
-    [self showInfoView:YES];
 }
 
 - (void)addAnnotationDestination:(CLLocationCoordinate2D)coordinate {
@@ -422,7 +436,7 @@ static SKListLevel listLevel;
 
 - (void)searchServiceDidFailToRetrieveMultiStepSearchResults:(SKSearchService *)searchService {
     NSLog(@"Search failed");
-    [[[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Merci de télécharger une carte dans le menu onglet \"Télécharger\"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [self alertViewDownloadMap];
 }
 
 
@@ -434,7 +448,7 @@ static SKListLevel listLevel;
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
-
+            
             [[MPGlobalItineraryManager sharedManager] setAddress:address];
         }
         MPAddress *address = [[MPAddress alloc] init];
@@ -454,6 +468,9 @@ static SKListLevel listLevel;
 
 - (IBAction)tapOnMyLocationButton:(id)sender {
     SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
+    if (searchObject == nil) {
+        [self alertViewDownloadMap];
+    }
     [self setDestinationWithSearchResult:searchObject];
 }
 
@@ -490,6 +507,10 @@ static SKListLevel listLevel;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)alertViewDownloadMap {
+    [[[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
 
 @end

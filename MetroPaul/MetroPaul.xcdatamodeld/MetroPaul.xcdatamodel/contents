@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1004" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="MPItinerary" representedClassName="MPItinerary" syncable="YES">
+        <attribute name="id_stop_area_from" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_area_to" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itineraire" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="MPLine" representedClassName="MPLine" syncable="YES">
         <attribute name="closing_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,6 +16,7 @@
         <attribute name="opening_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="transport_type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="network" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MPNetwork" inverseName="lines" inverseEntity="MPNetwork" syncable="YES"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPRoute" inverseName="line" inverseEntity="MPRoute" syncable="YES"/>
         <relationship name="stop_areas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPStopArea" inverseName="lines" inverseEntity="MPStopArea" syncable="YES"/>
     </entity>
     <entity name="MPNetwork" representedClassName="MPNetwork" syncable="YES">
@@ -19,6 +25,18 @@
         <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPLine" inverseName="network" inverseEntity="MPLine" syncable="YES"/>
+    </entity>
+    <entity name="MPRoute" representedClassName="MPRoute" syncable="YES">
+        <attribute name="closing_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_line" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_route" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="opening_time" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="line" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MPLine" inverseName="routes" inverseEntity="MPLine" syncable="YES"/>
+        <relationship name="stop_areas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPStopArea" inverseName="routes" inverseEntity="MPStopArea" syncable="YES"/>
+        <relationship name="stop_points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPStopPoint" inverseName="route" inverseEntity="MPStopPoint" syncable="YES"/>
     </entity>
     <entity name="MPStopArea" representedClassName="MPStopArea" syncable="YES">
         <attribute name="calculated" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -29,16 +47,39 @@
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="lines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPLine" inverseName="stop_areas" inverseEntity="MPLine" syncable="YES"/>
+        <relationship name="routes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPRoute" inverseName="stop_areas" inverseEntity="MPRoute" syncable="YES"/>
+        <relationship name="stop_points" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MPStopPoint" inverseName="stop_area" inverseEntity="MPStopPoint" syncable="YES"/>
     </entity>
     <entity name="MPStopAreaLine" representedClassName="MPStopAreaLine" syncable="YES">
         <attribute name="id_line" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id_stop_area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="MPStopAreaRoute" representedClassName="MPStopAreaRoute" syncable="YES">
+        <attribute name="id_route" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="MPStopPoint" representedClassName="MPStopPoint" syncable="YES">
+        <attribute name="id_route" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_point" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id_stop_point_navitia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_update" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="route" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MPRoute" inverseName="stop_points" inverseEntity="MPRoute" syncable="YES"/>
+        <relationship name="stop_area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MPStopArea" inverseName="stop_points" inverseEntity="MPStopArea" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="MPLine" positionX="52" positionY="180" width="128" height="208"/>
-        <element name="MPStopArea" positionX="304" positionY="225" width="128" height="163"/>
-        <element name="MPNetwork" positionX="-126" positionY="260" width="128" height="118"/>
+        <element name="MPItinerary" positionX="538" positionY="231" width="128" height="90"/>
+        <element name="MPLine" positionX="160" positionY="216" width="128" height="225"/>
+        <element name="MPNetwork" positionX="-83" positionY="249" width="128" height="120"/>
+        <element name="MPRoute" positionX="378" positionY="441" width="128" height="195"/>
+        <element name="MPStopArea" positionX="529" positionY="-45" width="128" height="195"/>
         <element name="MPStopAreaLine" positionX="54" positionY="54" width="128" height="88"/>
+        <element name="MPStopAreaRoute" positionX="232" positionY="-36" width="128" height="90"/>
+        <element name="MPStopPoint" positionX="736" positionY="288" width="128" height="195"/>
     </elements>
 </model>

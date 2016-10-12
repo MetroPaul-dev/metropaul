@@ -48,8 +48,13 @@
     [SKTDownloadManager sharedInstance];
     self.cachedMapRegions = [NSMutableArray array];
     
-    [[[MPDataLoader alloc] init] preloadData];
-    
+//    NSLog(@"path +++++ %@", self.applicationDocumentsDirectory.path);
+//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    if (![userDefault boolForKey:@"isPreloaded"]) {
+//        [[[MPDataLoader alloc] init] preloadData];
+//        [userDefault setBool:YES forKey:@"isPreloaded"];
+//        [userDefault synchronize];
+//    }
     
     return YES;
 }
@@ -64,7 +69,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveContext];
 }
+
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -98,6 +105,8 @@
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
+            [self loadExistingSQLite];
+            
             _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"MetroPaul"];
             [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
                 if (error != nil) {
@@ -132,58 +141,61 @@
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
-    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        return self.persistentContainer.viewContext;
-    } else {
+//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+//        return self.persistentContainer.viewContext;
+//    } else {
         if (_managedObjectContext != nil) {
             return _managedObjectContext;
         }
         
         NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
         if (coordinator != nil) {
-            _managedObjectContext = [[NSManagedObjectContext alloc] init];
+            _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
             [_managedObjectContext setPersistentStoreCoordinator:coordinator];
         }
         return _managedObjectContext;
-    }
+//    }
 }
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
-    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        return self.persistentContainer.managedObjectModel;
-    } else {
+//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+//        return self.persistentContainer.managedObjectModel;
+//    } else {
         if (_managedObjectModel != nil) {
             return _managedObjectModel;
         }
         NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"momd"];
         _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
         return _managedObjectModel;
-    }
+//    }
 }
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-        return self.persistentContainer.persistentStoreCoordinator;
-    } else {
+//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+//        return self.persistentContainer.persistentStoreCoordinator;
+//    } else {
         if (_persistentStoreCoordinator != nil) {
             return _persistentStoreCoordinator;
         }
         
-        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
+        [self loadExistingSQLite];
         
+        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
         NSError *error = nil;
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+        NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+        [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+        [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
         if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                        configuration:nil
                                                                  URL:storeURL
-                                                             options:@{NSMigratePersistentStoresAutomaticallyOption:@YES,
-                                                                       NSInferMappingModelAutomaticallyOption:@YES}
+                                                             options:options
                                                                error:&error]) {
             /*
              Replace this implementation with code to handle the error appropriately.
@@ -213,6 +225,32 @@
         }
         
         return _persistentStoreCoordinator;
+//    }
+}
+
+- (void)loadExistingSQLite {
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
+    // Load the existing database
+    if (![[NSFileManager defaultManager] fileExistsAtPath:storeURL.path]) {
+        NSArray *sourceSqliteURLs = @[[[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite"],
+                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-wal"],
+                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-shm"]
+                                      ];
+        NSArray *destSqliteURLs = @[[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"],
+                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-wal"],
+                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-shm"]
+                                    ];
+        
+        for (int index = 0; index < sourceSqliteURLs.count; index++) {
+            NSError *error = nil;
+            @try {
+                [[NSFileManager defaultManager] copyItemAtURL:sourceSqliteURLs[index] toURL:destSqliteURLs[index] error:&error];
+            } @catch (NSException *exception) {
+                NSLog(@"%@", error);
+            } @finally {
+                
+            }
+        }
     }
 }
 

@@ -14,6 +14,7 @@
 @dynamic generique_type;
 @dynamic last_update;
 @dynamic lines;
+
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
     self = [NSEntityDescription insertNewObjectForEntityForName:@"MPNetwork" inManagedObjectContext:managedObjectContext];
     if (self) {

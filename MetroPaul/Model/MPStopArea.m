@@ -22,6 +22,8 @@
 @dynamic last_update;
 @dynamic calculated;
 @dynamic lines;
+@dynamic routes;
+@dynamic stop_points;
 
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
     self = [NSEntityDescription insertNewObjectForEntityForName:@"MPStopArea" inManagedObjectContext:managedObjectContext];
@@ -60,7 +62,7 @@
 }
 
 + (MPStopArea *)findById:(NSNumber *)id_stop_area {
-    NSLog(@"MPStopArea request findById : %@", id_stop_area);
+   // NSLog(@"MPStopArea request findById : %@", id_stop_area);
 
     // Fetching
     //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
@@ -121,7 +123,7 @@
 
 
 + (NSArray *)findByDistanceInMeter:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude {
-    NSLog(@"MPStopArea request findByDistanceInMeter : %i", distanceInMeter);
+    NSLog(@"MPStopArea request findByDistanceInMeter : %li", (long)distanceInMeter);
     NSArray *boundingBox = [MPStopArea getBoundingBox:distanceInMeter fromLatitude:latitude fromLongitude:longitude];
     // Fetching
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];

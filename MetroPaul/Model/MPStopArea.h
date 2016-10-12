@@ -5,7 +5,7 @@
 //  Created by Antoine Cointepas on 03/10/2016.
 //  Copyright © 2016 Antoine Cointepas. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 @interface MPStopArea : NSManagedObject
@@ -17,6 +17,8 @@
 @property(nonatomic, strong) NSString *last_update;
 @property(nonatomic, strong) NSNumber *calculated;
 @property(nonatomic, strong) NSMutableSet *lines;
+@property(nonatomic, strong) NSMutableSet *routes;
+@property(nonatomic, strong) NSMutableSet *stop_points;
 
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 

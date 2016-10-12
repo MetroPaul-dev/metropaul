@@ -5,7 +5,7 @@
 //  Created by Antoine Cointepas on 04/10/2016.
 //  Copyright © 2016 Antoine Cointepas. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
 @interface MPNetwork : NSManagedObject

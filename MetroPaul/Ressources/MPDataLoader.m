@@ -13,6 +13,10 @@
 #import "MPStopArea.h"
 #import "MPStopAreaLine.h"
 #import "MPNetwork.h"
+#import "MPItinerary.h"
+#import "MPRoute.h"
+#import "MPStopAreaRoute.h"
+#import "MPStopPoint.h"
 
 @implementation MPDataLoader
 
@@ -36,7 +40,7 @@
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:networkDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
             // Preload the menu items
-            NSArray *arrayMPLine = [MPNetwork initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [MPNetwork initWithArray:datas managedObjectContext:self.managedObjectContext];
             [self saveContext];
         }
     }
@@ -46,7 +50,7 @@
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
             // Preload the menu items
-            NSArray *arrayMPLine = [MPStopArea initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [MPStopArea initWithArray:datas managedObjectContext:self.managedObjectContext];
             [self saveContext];
         }
     }
@@ -56,7 +60,7 @@
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:lineDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
             // Preload the menu items
-            NSArray *arrayMPLine = [MPLine initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [MPLine initWithArray:datas managedObjectContext:self.managedObjectContext];
             [self saveContext];
         }
     }
@@ -65,20 +69,70 @@
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaLineDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
             // Preload the menu items
-            NSArray *arrayMPLine = [MPStopAreaLine initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [MPStopAreaLine initWithArray:datas managedObjectContext:self.managedObjectContext];
             [self saveContext];
         }
     }
+    
+    NSString* routeDataPath = [[NSBundle mainBundle] pathForResource:@"T_ROUTE" ofType:@"json"];
+    if (routeDataPath != nil) {
+        NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:routeDataPath] options:kNilOptions error:nil];
+        if (datas != nil) {
+            // Preload the menu items
+            [MPRoute initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [self saveContext];
+        }
+    }
+
+    NSString *stopAreaRouteDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_AREA_ROUTE" ofType:@"json"];
+    if (stopAreaRouteDataPath != nil) {
+        NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaRouteDataPath] options:kNilOptions error:nil];
+        if (datas != nil) {
+            // Preload the menu items
+            [MPStopAreaRoute initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [self saveContext];
+        }
+    }
+    
+    NSString *stopPointDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_POINT" ofType:@"json"];
+    if (stopPointDataPath != nil) {
+        NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopPointDataPath] options:kNilOptions error:nil];
+        if (datas != nil) {
+            // Preload the menu items
+            [MPStopPoint initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [self saveContext];
+        }
+    }
+    
+    NSString* itineraryDataPath = [[NSBundle mainBundle] pathForResource:@"T_ITINERAIRES" ofType:@"json"];
+    if (stopAreaLineDataPath != nil) {
+        NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:itineraryDataPath] options:kNilOptions error:nil];
+        if (datas != nil) {
+            // Preload the menu items
+            [MPItinerary initWithArray:datas managedObjectContext:self.managedObjectContext];
+            [self saveContext];
+        }
+    }
+   
     
     NSLog(@"Data Preload finish");
 }
 
 - (void)removeAllData {
+    NSLog(@"Start Cleaning Database");
+
     // Remove all items before preloading
-    [self removeData:NSStringFromClass([MPNetwork class])];
+    [self removeData:NSStringFromClass([MPItinerary class])];
+    [self removeData:NSStringFromClass([MPStopPoint class])];    
+    [self removeData:NSStringFromClass([MPStopAreaRoute class])];
+    [self removeData:NSStringFromClass([MPRoute class])];
+    [self removeData:NSStringFromClass([MPStopAreaLine class])];
     [self removeData:NSStringFromClass([MPLine class])];
     [self removeData:NSStringFromClass([MPStopArea class])];
-    [self removeData:NSStringFromClass([MPStopAreaLine class])];
+    [self removeData:NSStringFromClass([MPNetwork class])];
+
+    NSLog(@"Cleaning finish");
+
 }
 
 
@@ -95,7 +149,7 @@
         
     } else {
         
-        for (MPLine *result in results) {
+        for (NSManagedObject *result in results) {
             [managedObjectContext deleteObject:result];
         }
     }

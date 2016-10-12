@@ -99,78 +99,6 @@
     [[SKRoutingService sharedInstance] calculateRoute:route];
 }
 
-- (void)routingService:(SKRoutingService *)routingService didFinishRouteCalculationWithInfo:(SKRouteInformation *)routeInformation {
-    [self traitementOnlyPieton:routeInformation];
-}
-
-- (void)traitement:(SKRouteInformation *)routeInformation {
-    NSMutableArray *itinerariesStart  = [self.startAddress.itineraryToStopAreas lastObject];
-    NSMutableArray *itinerariesDestination  = [self.destinationAddress.itineraryToStopAreas lastObject];
-    
-    if (self.startAddress.itineraryToStopAreas.count < self.startAddress.stopAreas.count || [itinerariesStart count] < 3) {
-        if ([itinerariesStart count] < 3) {
-            [[self.startAddress.itineraryToStopAreas lastObject] addObject:routeInformation];
-            
-            // On calcul avec un nouveau mode de deplacement si on a pas déjà fait les 3
-            if ([self.startAddress.itineraryToStopAreas.lastObject count] == 1) {
-                MPStopArea *stopArea = [self.startAddress.stopAreas objectAtIndex:self.startAddress.itineraryToStopAreas.count-1];
-                [self calculItinerarySkobbler:SKRouteCarFastest from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-            } else if ([self.startAddress.itineraryToStopAreas.lastObject count] == 2) {
-                MPStopArea *stopArea = [self.startAddress.stopAreas objectAtIndex:self.startAddress.itineraryToStopAreas.count-1];
-                [self calculItinerarySkobbler:SKRouteBicycleFastest from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-            } else {
-                // On repart d'un nouveau StopArea
-                if (self.startAddress.itineraryToStopAreas.count < self.startAddress.stopAreas.count) {
-                    MPStopArea *stopArea = [self.startAddress.stopAreas objectAtIndex:self.startAddress.itineraryToStopAreas.count];
-                    [self calculItinerarySkobbler:SKRoutePedestrian from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-                } else if (self.destinationAddress.stopAreas.count > 0) {
-                    MPStopArea *stopArea = [self.destinationAddress.stopAreas firstObject];
-                    [self.destinationAddress.itineraryToStopAreas addObject:[NSMutableArray array]];
-                    [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-                } else {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-                    NSLog(@"C'est fini !");
-                }
-            }
-        } else {
-            [self.startAddress.itineraryToStopAreas addObject:[NSMutableArray arrayWithObject:routeInformation]];
-            MPStopArea *stopArea = [self.startAddress.stopAreas objectAtIndex:self.startAddress.itineraryToStopAreas.count];
-            [self calculItinerarySkobbler:SKRoutePedestrian from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-        }
-    } else if (self.destinationAddress.itineraryToStopAreas.count < self.destinationAddress.stopAreas.count || [itinerariesDestination count] < 3) {
-        if ([itinerariesDestination count] < 3) {
-            [[self.destinationAddress.itineraryToStopAreas lastObject] addObject:routeInformation];
-            
-            
-            // On calcul avec un nouveau mode de deplacement si on a pas déjà fait les 3
-            if ([self.destinationAddress.itineraryToStopAreas.lastObject count] == 1) {
-                MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count-1];
-                [self calculItinerarySkobbler:SKRouteCarFastest from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-            } else if ([self.destinationAddress.itineraryToStopAreas.lastObject count] == 2) {
-                MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count-1];
-                [self calculItinerarySkobbler:SKRouteBicycleFastest from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-            } else {
-                // On repart d'un nouveau StopArea
-                if (self.destinationAddress.itineraryToStopAreas.count+1 < self.destinationAddress.stopAreas.count) {
-                    MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count];
-                    [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-                } else {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-                    NSLog(@"C'est fini !");
-                }
-            }
-            
-        } else {
-            [self.destinationAddress.itineraryToStopAreas addObject:[NSMutableArray arrayWithObject:routeInformation]];
-            MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count];
-            [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
-        }
-    } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-        NSLog(@"C'est fini !");
-    }
-}
-
 - (void)traitementOnlyPieton:(SKRouteInformation *)routeInformation {
     if (self.startAddress.itineraryToStopAreas.count < self.startAddress.stopAreas.count) {
         [self.startAddress.itineraryToStopAreas addObject:routeInformation];
@@ -202,9 +130,17 @@
     }
 }
 
+#pragma mark - SKRoutingDelegate
+
+- (void)routingService:(SKRoutingService *)routingService didFinishRouteCalculationWithInfo:(SKRouteInformation *)routeInformation {
+    [self traitementOnlyPieton:routeInformation];
+}
+
 - (void)routingService:(SKRoutingService *)routingService didFailWithErrorCode:(SKRoutingErrorCode)errorCode {
     
     NSLog(@"Route calculation failed.");
 }
+
+
 
 @end

@@ -20,6 +20,7 @@
 @dynamic id_network;
 @dynamic network;
 @dynamic stop_areas;
+@dynamic routes;
 
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
     self = [NSEntityDescription insertNewObjectForEntityForName:@"MPLine" inManagedObjectContext:managedObjectContext];
@@ -82,6 +83,28 @@
         if (results.count == 1) {
             return [results firstObject];
         }
+    }
+    
+    return nil;
+}
+
+
++ (NSArray *)findByStopAreaId:(NSNumber *)id_stop_area {
+    // Fetching
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    
+    // Create Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"stop_areas.id_stop_area == %@", id_stop_area];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *results = [[AppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error != nil) {
+        NSLog(@"Failed to retrieve record: \(e!.localizedDescription)");
+    } else {
+        return results;
     }
     
     return nil;

@@ -46,7 +46,13 @@
 
 - (void)findStopAreasAround {
     if (self.stopArea == nil && CLLocationCoordinate2DIsValid(self.coordinate)) {
-        self.stopAreas = [MPStopArea findByDistanceInMeter:STOP_AREA_DISTANCE_MAX fromLatitude:self.coordinate.latitude fromLongitude:self.coordinate.longitude];
+        self.stopAreas = [NSArray array];
+        NSInteger distance = STOP_AREA_DISTANCE_DEFAULT;
+        while (self.stopAreas.count < 2) {
+            self.stopAreas = [MPStopArea findByDistanceInMeter:distance fromLatitude:self.coordinate.latitude fromLongitude:self.coordinate.longitude];
+            distance +=100;
+
+        }
     }
 }
 

@@ -31,9 +31,11 @@
         MPStopArea *stopArea = [MPStopArea findById:self.id_stop_area];
         MPLine *line = [MPLine findById:self.id_line];
         if (stopArea != nil && line != nil) {
-            [line.stop_areas addObject:stopArea];
-            [stopArea.lines addObject:line];
+//            [line.stop_areas addObject:stopArea];
+            [[stopArea mutableSetValueForKey:@"lines"] addObject:line];
         }
+        NSError *error;
+        [managedObjectContext save:&error];
 
     }
     return self;
