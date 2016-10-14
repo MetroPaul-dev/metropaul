@@ -301,9 +301,22 @@ static SKListLevel listLevel;
 }
 
 - (void)addAnnotationWithStopArea:(MPStopArea*)stopArea {
-    UIImageView *coloredView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
     
-    coloredView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ligne%@",[(MPLine*)[stopArea.lines.allObjects firstObject] code]]];
+    NSMutableArray *lineTypes = [NSMutableArray array];
+
+    for (MPLine *line in stopArea.lines) {
+        if (![lineTypes containsObject:line.transport_type]) {
+            [lineTypes addObject:line.transport_type];
+        }
+    }
+    NSMutableString *iconName = [NSMutableString stringWithString:@"icon-"];
+    for (NSString *transport_type in [lineTypes sortedArrayUsingSelector:@selector(compare:)]) {
+        [iconName appendFormat:@"%@+",[[transport_type substringToIndex:1] uppercaseString]];
+    }
+    
+    UIImageView *coloredView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0*lineTypes.count, 20.0*lineTypes.count)];
+    coloredView.contentMode = UIViewContentModeScaleAspectFit;
+    coloredView.image = [UIImage imageNamed:[iconName substringWithRange:NSMakeRange(0, iconName.length-1)]];
     
     //create the SKAnnotationView
     SKAnnotationView *view = [[SKAnnotationView alloc] initWithView:coloredView reuseIdentifier:[NSString stringWithFormat:@"stopAreaAnnotation-%@", stopArea.id_stop_area]];
