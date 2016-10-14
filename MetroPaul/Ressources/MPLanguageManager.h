@@ -11,5 +11,6 @@
 @interface MPLanguageManager : NSObject
 + (instancetype)sharedManager;
 - (void)setLanguage:(NSString *)language;
+- (NSString *)getStringWithKey:(NSString*)key;
 - (NSString *)getStringWithKey:(NSString*)key comment:(NSString*)comment;
 @end

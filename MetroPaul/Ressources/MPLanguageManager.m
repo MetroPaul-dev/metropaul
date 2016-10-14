@@ -58,6 +58,11 @@
     }
 }
 
+- (NSString *)getStringWithKey:(NSString*)key {
+    
+    return [self getStringWithKey:key comment:nil];
+}
+
 - (NSString *)getStringWithKey:(NSString*)key comment:(NSString*)comment {
     return [self.localeBundle localizedStringForKey:key value:@"" table:nil];
 }

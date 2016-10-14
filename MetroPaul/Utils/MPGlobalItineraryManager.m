@@ -8,6 +8,8 @@
 
 #import "MPGlobalItineraryManager.h"
 #import "MPStopArea.h"
+#import "MPItinerary.h"
+#import "MPGlobalItinerary.h"
 
 @interface MPGlobalItineraryManager () <SKRoutingDelegate>
 @end
@@ -29,6 +31,7 @@
     self = [super init];
     if (self) {
         [SKRoutingService sharedInstance].routingDelegate = self;
+        self.globalItineraryList = [NSMutableArray array];
     }
     
     return self;
@@ -72,20 +75,19 @@
     
     if (self.startAddress.stopAreas.count > 0) {
         MPStopArea *stopArea = [self.startAddress.stopAreas firstObject];
-        // [self.startAddress.itineraryToStopAreas addObject:[NSMutableArray array]];
+//        [self.startAddress.itineraryToStopAreas addObject:[NSMutableArray array]];
         [self calculItinerarySkobbler:SKRoutePedestrian from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
     } else if (self.destinationAddress.stopAreas.count > 0) {
         MPStopArea *stopArea = [self.destinationAddress.stopAreas firstObject];
-        // [self.destinationAddress.itineraryToStopAreas addObject:[NSMutableArray array]];
+//        [self.destinationAddress.itineraryToStopAreas addObject:[NSMutableArray array]];
         [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-        NSLog(@"Rien a calculer avec Skobbler");
+        [self calculAllMetroItinerary];
+        
     }
 }
 
 - (void)calculItinerarySkobbler:(SKRouteMode)routeMode from:(CLLocationCoordinate2D)from to:(CLLocationCoordinate2D)to {
-    
     SKRouteSettings* route = [[SKRouteSettings alloc]init];
     route.startCoordinate=from;
     route.destinationCoordinate=to;
@@ -110,8 +112,7 @@
             MPStopArea *stopArea = [self.destinationAddress.stopAreas firstObject];
             [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-            NSLog(@"C'est fini !");
+            [self calculAllMetroItinerary];
         }
     } else if (self.destinationAddress.itineraryToStopAreas.count < self.destinationAddress.stopAreas.count) {
         [self.destinationAddress.itineraryToStopAreas addObject:routeInformation];
@@ -121,12 +122,12 @@
             MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count];
             [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
         } else {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-            NSLog(@"C'est fini !");
+            [self calculAllMetroItinerary];
+            
         }
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
-        NSLog(@"C'est fini !");
+        [self calculAllMetroItinerary];
+        
     }
 }
 
@@ -141,6 +142,81 @@
     NSLog(@"Route calculation failed.");
 }
 
+- (void)calculAllMetroItinerary {
+    if (self.startAddress.stopArea == nil) {
+        for (int i = 0; i < self.startAddress.stopAreas.count; i++) {
+            MPStopArea *startStopArea = [self.startAddress.stopAreas objectAtIndex:i];
+            if (self.destinationAddress.stopArea == nil) {
+                for (int j = 0; j < self.startAddress.stopAreas.count; j++) {
+                    MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
+                    MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
+                    if (itineraire != nil) {
+                        MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+                        globalItinerary.startStopArea = startStopArea;
+                        globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
+                        globalItinerary.destinationRouteInformation = [self.destinationAddress.itineraryToStopAreas objectAtIndex:j];
+                        globalItinerary.destinationStopArea = destinationStopArea;
+                        globalItinerary.itineraryMetro = itineraire;
+                        [self.globalItineraryList addObject:globalItinerary];
+                    }
+                }
+            } else {
+                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
+                if (itineraire != nil) {
+                    MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+                    globalItinerary.startStopArea = startStopArea;
+                    globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
+                    globalItinerary.destinationRouteInformation = nil;
+                    globalItinerary.destinationStopArea = self.destinationAddress.stopArea;
+                    globalItinerary.itineraryMetro = itineraire;
+                    [self.globalItineraryList addObject:globalItinerary];
+                }
+            }
+        }
+    } else {
+        if (self.destinationAddress.stopArea == nil) {
+            for (int j = 0; j < self.destinationAddress.stopAreas.count; j++) {
+                MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
+                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
+                if (itineraire != nil) {
+                    MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+                    globalItinerary.startStopArea = self.startAddress.stopArea;
+                    globalItinerary.startRouteInformation = nil;
+                    globalItinerary.destinationRouteInformation = [self.destinationAddress.itineraryToStopAreas objectAtIndex:j];
+                    globalItinerary.destinationStopArea = destinationStopArea;
+                    globalItinerary.itineraryMetro = itineraire;
+                    [self.globalItineraryList addObject:globalItinerary];
+                }
+            }
+        } else {
+            MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
+            if (itineraire != nil) {
+                MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+                globalItinerary.startStopArea = self.startAddress.stopArea;
+                globalItinerary.startRouteInformation = nil;
+                globalItinerary.destinationRouteInformation = nil;
+                globalItinerary.destinationStopArea = self.destinationAddress.stopArea;
+                globalItinerary.itineraryMetro = itineraire;
+                [self.globalItineraryList addObject:globalItinerary];
+            }
+        }
+    }
+    
+    
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"duration" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    self.globalItineraryList = [NSMutableArray arrayWithArray:[self.globalItineraryList sortedArrayUsingDescriptors:sortDescriptors]];
+    
+    if (self.globalItineraryList.count > 4) {
+        self.globalItineraryList = [NSMutableArray arrayWithArray:[self.globalItineraryList subarrayWithRange:NSMakeRange(0, 4)]];
+    }
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculated object:nil];
+    NSLog(@"C'est fini !");
+}
 
 
 @end

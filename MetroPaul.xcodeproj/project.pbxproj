@@ -15,6 +15,7 @@
 		7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7611DA6BE350078B456 /* MPItineraryViewController.m */; };
 		7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */; };
 		7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */; };
+		714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */; };
 		714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A9B1DA7F3F2002D003B /* MPItinerary.m */; };
 		714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA41DA7FCC2002D003B /* MPRoute.m */; };
 		714B8AA81DA7FE0F002D003B /* MPStopPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA71DA7FE0F002D003B /* MPStopPoint.m */; };
@@ -41,7 +42,6 @@
 		71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AEC6651DA29779002ED428 /* MPStopAreaLine.m */; };
 		71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C5567F1D9E8B79002D1BCB /* MPLanguageManager.m */; };
 		71C556871D9EC472002D1BCB /* MPSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C556861D9EC472002D1BCB /* MPSwitchCell.m */; };
-		71CDE9381DA164830003C683 /* SKMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9371DA164830003C683 /* SKMaps.framework */; };
 		71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71CDE9391DA164E80003C683 /* SKMaps.bundle */; };
 		71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71CDE93B1DA164F30003C683 /* SKAdvisorResources.bundle */; };
 		71CDE93E1DA165240003C683 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE93D1DA165240003C683 /* UIKit.framework */; };
@@ -69,6 +69,7 @@
 		71E6DAFC1D9D05E60008EC19 /* MPRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAFB1D9D05E60008EC19 /* MPRevealController.m */; };
 		71E6DB001D9D0DAC0008EC19 /* MPCGUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAFF1D9D0DAC0008EC19 /* MPCGUViewController.m */; };
 		71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DB031D9D10A10008EC19 /* MPLanguageViewController.m */; };
+		71F4F5581DB0D37C00205ED3 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F4F5571DB0D37C00205ED3 /* LoadingView.m */; };
 		71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB3EE31D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m */; };
 		71FB3EE71D9D1F4B00BD0D6A /* Constantes.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FB3EE61D9D1F4B00BD0D6A /* Constantes.m */; };
 		71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71FB3EE81D9D1FD100BD0D6A /* Roboto-Black.otf */; };
@@ -144,6 +145,8 @@
 		7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryCell.m; sourceTree = "<group>"; };
 		7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItineraryManager.h; sourceTree = "<group>"; };
 		7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItineraryManager.m; sourceTree = "<group>"; };
+		714AE8B71DAFD89500ACCE5D /* MPGlobalItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItinerary.h; sourceTree = "<group>"; };
+		714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItinerary.m; sourceTree = "<group>"; };
 		714B8A951DA7AA3E002D003B /* MPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPAddress.h; sourceTree = "<group>"; };
 		714B8A961DA7AA3E002D003B /* MPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPAddress.m; sourceTree = "<group>"; };
 		714B8A9A1DA7F3F2002D003B /* MPItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItinerary.h; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 		71E6DAFF1D9D0DAC0008EC19 /* MPCGUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCGUViewController.m; sourceTree = "<group>"; };
 		71E6DB021D9D10A10008EC19 /* MPLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLanguageViewController.h; sourceTree = "<group>"; };
 		71E6DB031D9D10A10008EC19 /* MPLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLanguageViewController.m; sourceTree = "<group>"; };
+		71F4F5561DB0D37C00205ED3 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		71F4F5571DB0D37C00205ED3 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		71FB3EE21D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLanguageCollectionViewCell.h; sourceTree = "<group>"; };
 		71FB3EE31D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLanguageCollectionViewCell.m; sourceTree = "<group>"; };
 		71FB3EE51D9D1F4B00BD0D6A /* Constantes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constantes.h; sourceTree = "<group>"; };
@@ -272,7 +277,6 @@
 				71CDE9401DA1652F0003C683 /* Foundation.framework in Frameworks */,
 				71CDE93E1DA165240003C683 /* UIKit.framework in Frameworks */,
 				0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */,
-				71CDE9381DA164830003C683 /* SKMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +481,8 @@
 				714B8AA71DA7FE0F002D003B /* MPStopPoint.m */,
 				714B8AA91DA7FF99002D003B /* MPStopAreaRoute.h */,
 				714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */,
+				714AE8B71DAFD89500ACCE5D /* MPGlobalItinerary.h */,
+				714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,6 +549,7 @@
 		71E6DAE91D9CF8710008EC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				71F4F5551DB0D35900205ED3 /* LoadingView */,
 				7143A75F1DA6BE130078B456 /* Itinerary */,
 				71CE668F1DA6813200F599EE /* Home-Map */,
 				717024B01DA1515F007BA803 /* MapDownload */,
@@ -601,6 +608,15 @@
 				71FB3EE31D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		71F4F5551DB0D35900205ED3 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				71F4F5561DB0D37C00205ED3 /* LoadingView.h */,
+				71F4F5571DB0D37C00205ED3 /* LoadingView.m */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		9ACCA59A555E5209DB9115A2 /* Frameworks */ = {
@@ -951,12 +967,14 @@
 				71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */,
 				7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */,
 				71C556871D9EC472002D1BCB /* MPSwitchCell.m in Sources */,
+				714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */,
 				71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */,
 				71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */,
 				71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */,
 				714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */,
 				7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */,
 				714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */,
+				71F4F5581DB0D37C00205ED3 /* LoadingView.m in Sources */,
 				7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */,
 				71E6DB001D9D0DAC0008EC19 /* MPCGUViewController.m in Sources */,
 				71FB3EE71D9D1F4B00BD0D6A /* Constantes.m in Sources */,

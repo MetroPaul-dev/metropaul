@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPGlobalItinerary.h"
 
 @interface MPItineraryCell : UITableViewCell
-
+@property(nonatomic, strong) MPGlobalItinerary *globalItinerary;
 @end

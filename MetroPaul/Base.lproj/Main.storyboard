@@ -158,9 +158,15 @@
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="JRy-9B-ys2">
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3ey-uA-vV0" id="KkE-66-g9v"/>
+                                </connections>
                             </searchBar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ImY-7X-9It">
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3ey-uA-vV0" id="kb9-P6-PvR"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GiW-Jp-jzl">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -178,7 +184,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icv-ep-ES1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icv-ep-ES1">
                                                     <frame key="frameInset" minX="8" minY="37" width="359" height="78"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -224,6 +230,11 @@
                             <constraint firstAttribute="trailing" secondItem="JRy-9B-ys2" secondAttribute="trailing" id="rcr-cc-zhM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="destinationSearchBar" destination="ImY-7X-9It" id="asN-SM-G81"/>
+                        <outlet property="startSearchBar" destination="JRy-9B-ys2" id="CB6-zK-Q34"/>
+                        <outlet property="tableView" destination="GiW-Jp-jzl" id="oPM-uu-q83"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aV7-U5-6PJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -299,6 +310,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionview" destination="t49-Uo-ENl" id="iHt-2X-Rj9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFh-y3-hYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

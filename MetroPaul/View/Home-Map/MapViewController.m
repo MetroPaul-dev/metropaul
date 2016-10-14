@@ -41,6 +41,7 @@ static SKListLevel listLevel;
 @property(nonatomic, strong) SKMultiStepSearchSettings *multiStepSearchObject;
 @property(nonatomic, strong) NSArray *stopAreas;
 
+@property(nonatomic, strong) NSArray *downloadPackage;
 @property(nonatomic, strong) SKSearchResult *searchResult;
 @property(nonatomic, strong) MPStopArea *stopArea;
 
@@ -114,22 +115,28 @@ static SKListLevel listLevel;
     [SKMapsService sharedInstance].connectivityMode = SKConnectivityModeOffline;
     
     self.stopAreas = [MPStopArea findAll];
-
+    
     self.infoView.backgroundColor = [Constantes blueBackGround];
     self.imageInfoView.tintColor = [UIColor whiteColor];
     self.labelInfoView.font = [UIFont fontWithName:FONT_MEDIUM size:13.0f];
     [self.buttonInfoView.titleLabel setFont:[UIFont fontWithName:FONT_MEDIUM size:16.0f]];
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:@"Plan"];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    NSArray *oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages];
-    if (oldPackages.count <= 0) {
-        [self alertViewDownloadMap];
 
+    self.downloadPackage = [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages];
+    if (self.downloadPackage.count <= 0) {
+        [self alertViewDownloadMap];
+        
         [self.searchBar setUserInteractionEnabled:NO];
     } else {
         [self.searchBar setUserInteractionEnabled:YES];
@@ -248,19 +255,20 @@ static SKListLevel listLevel;
 }
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
+    
     if (![self.searchController.searchBar.text  isEqual: @""]) {
-        listLevel = SKStreetList;
-        
-        self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
-        self.multiStepSearchObject.listLevel = listLevel;
-        self.multiStepSearchObject.offlinePackageCode = @"FRCITY02"; // Paris package has to be downloaded
-        self.multiStepSearchObject.searchTerm = searchText;
-        //self.multiStepSearchObject.parentIndex = -1;
-        [[SKSearchService sharedInstance] startMultiStepSearchWithSettings:self.multiStepSearchObject];
-        
-        NSArray *stopArea = [MPStopArea findByName:searchText];
-        [self.searchResultsStopArea removeAllObjects];
-        [self.searchResultsStopArea addObjectsFromArray:stopArea];
+            listLevel = SKStreetList;
+            
+            self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
+            self.multiStepSearchObject.listLevel = listLevel;
+            self.multiStepSearchObject.offlinePackageCode = [(SKMapPackage*)[self.downloadPackage firstObject] name]; // Paris package has to be downloaded
+            self.multiStepSearchObject.searchTerm = searchText;
+            //self.multiStepSearchObject.parentIndex = -1;
+            [[SKSearchService sharedInstance] startMultiStepSearchWithSettings:self.multiStepSearchObject];
+            
+            NSArray *stopArea = [MPStopArea findByName:searchText];
+            [self.searchResultsStopArea removeAllObjects];
+            [self.searchResultsStopArea addObjectsFromArray:stopArea];
     } else {
         [self.searchResultsStopArea removeAllObjects];
         [self.searchResultsSkobbler removeAllObjects];
@@ -294,7 +302,7 @@ static SKListLevel listLevel;
 
 - (void)addAnnotationWithStopArea:(MPStopArea*)stopArea {
     UIImageView *coloredView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 20.0, 20.0)];
-
+    
     coloredView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ligne%@",[(MPLine*)[stopArea.lines.allObjects firstObject] code]]];
     
     //create the SKAnnotationView
@@ -385,7 +393,7 @@ static SKListLevel listLevel;
     [self setDestinationWithSearchResult:searchObject];
 }
 
-- (void)mapView:(SKMapView *)mapView didDoubleTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
+- (void)mapView:(SKMapView *)mapView didLongTapAtCoordinate:(CLLocationCoordinate2D)coordinate {
     SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: coordinate];
     [self setDestinationWithSearchResult:searchObject];
 }

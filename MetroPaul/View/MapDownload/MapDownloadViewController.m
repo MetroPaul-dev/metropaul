@@ -31,7 +31,11 @@
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
     
     AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
-    self.packageList = [NSArray arrayWithObjects:[appDelegate.skMapsObject packageForCode:@"FRJ"], [appDelegate.skMapsObject packageForCode:@"FRCITY02"], [appDelegate.skMapsObject packageForCode:@"FRCITY01"], [appDelegate.skMapsObject packageForCode:@"FRCITY13"], nil];
+    self.packageList = [NSArray arrayWithObjects:[appDelegate.skMapsObject packageForCode:@"FRJ"],
+                        //[appDelegate.skMapsObject packageForCode:@"FRCITY02"],
+                        //[appDelegate.skMapsObject packageForCode:@"FRCITY01"],
+                        //[appDelegate.skMapsObject packageForCode:@"FRCITY13"],
+                        nil];
     
     // SKMapPackage* package = packages[0];
     // Do any additional setup after loading the view.
@@ -42,6 +46,9 @@
     else {
         [self showDownloadUI];
     }
+    
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download" comment:nil]];
+
 }
 
 - (void)didReceiveMemoryWarning {

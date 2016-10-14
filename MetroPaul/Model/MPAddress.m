@@ -56,4 +56,8 @@
     }
 }
 
+- (BOOL)checkAddressValidity {
+    return (self.stopArea != nil || (CLLocationCoordinate2DIsValid(self.coordinate) && self.name != nil));
+}
+
 @end

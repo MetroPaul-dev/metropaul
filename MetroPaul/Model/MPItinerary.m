@@ -20,11 +20,11 @@
     if (self) {
         if ([dict objectForKey:@"id_stop_area_from"] != nil) {
             self.id_stop_area_from = [NSNumber numberWithInteger:[[dict objectForKey:@"id_stop_area_from"] integerValue]];
-           // self.stopAreaFrom = [MPStopArea findById:self.id_stop_area_from];
+            // self.stopAreaFrom = [MPStopArea findById:self.id_stop_area_from];
         }
         if ([dict objectForKey:@"id_stop_area_to"] != nil) {
             self.id_stop_area_to = [NSNumber numberWithInteger:[[dict objectForKey:@"id_stop_area_to"] integerValue]];
-           // self.stopAreaTo = [MPStopArea findById:self.id_stop_area_to];
+            // self.stopAreaTo = [MPStopArea findById:self.id_stop_area_to];
         }
         if ([dict objectForKey:@"itineraire"] != nil) {
             self.itineraire = [dict objectForKey:@"itineraire"];
@@ -34,13 +34,48 @@
 }
 
 + (NSArray*)initWithArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext*)managedObjectContext {
-//    int i = 0;
+    //    int i = 0;
     NSMutableArray *arrayMPItinerary = [NSMutableArray array];
     for (NSDictionary *dict in array) {
         [arrayMPItinerary addObject:[[MPItinerary alloc] initWithDictionary:dict managedObjectContext:managedObjectContext]];
-//        i++;
-//        NSLog(@"itinerary : %i", i);
+        //        i++;
+        //        NSLog(@"itinerary : %i", i);
     }
     return [NSArray arrayWithArray:arrayMPItinerary];
 }
+
++ (MPItinerary *)findByStartStopAreaId:(NSNumber *)startId destinationId:(NSNumber*)destinationId {
+    NSLog(@"MPItinerary request findByStartStop: %@ %@", startId, destinationId);
+    
+    // Fetching
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    
+    // Create Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"id_stop_area_from == %@ AND id_stop_area_to == %@", startId, destinationId];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *results = [[AppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error != nil) {
+        NSLog(@"Failed to retrieve record: \(e!.localizedDescription)");
+    } else {
+        
+        if (results.count > 0) {
+            return [results firstObject];
+        }
+    }
+    
+    return nil;
+}
+
+- (void)readItinerary {
+    NSArray *sectionStrings = [self.itineraire componentsSeparatedByString:@"|"];
+    for (NSString *sectionString in sectionStrings) {
+        NSString *type = [sectionString substringToIndex:2];
+    }
+}
+
+
 @end

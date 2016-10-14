@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, MPAddressToReplace) {
 @property(nonatomic, strong) MPAddress *startAddress;
 @property(nonatomic, strong) MPAddress *destinationAddress;
 @property(nonatomic) MPAddressToReplace addressToReplace;
+@property(nonatomic, strong) NSMutableArray *globalItineraryList;
 
 + (instancetype)sharedManager;
 - (void)calculAllItinerary;

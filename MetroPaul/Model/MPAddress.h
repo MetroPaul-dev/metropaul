@@ -22,5 +22,5 @@
 
 - (instancetype)initWithSKSearchResult:(SKSearchResult*)searchResult;
 - (void)findStopAreasAround;
-
+- (BOOL)checkAddressValidity;
 @end

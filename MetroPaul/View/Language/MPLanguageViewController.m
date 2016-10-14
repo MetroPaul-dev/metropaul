@@ -9,7 +9,10 @@
 #import "MPLanguageViewController.h"
 #import "MPLanguageCollectionViewCell.h"
 
+#define CELL_SPACE 30.0
+
 @interface MPLanguageViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionview;
 @property(nonatomic, strong) NSArray *dataCollection;
 @property(nonatomic, strong) NSArray *dataLanguages;
 
@@ -22,7 +25,8 @@
     
     self.dataCollection = [NSArray arrayWithObjects:@"Français", @"English", @"Espanol", @"Italiano", nil];
     self.dataLanguages = [NSArray arrayWithObjects:@"fr", @"en", @"es", @"it", nil];
-    // Do any additional setup after loading the view.
+    
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.language" comment:nil]];
 }
 
 #pragma mark - UICollectionView Datasource
@@ -46,6 +50,7 @@
 {    
     NSString *language = [self.dataLanguages objectAtIndex:indexPath.row];
     [[MPLanguageManager sharedManager] setLanguage:language];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.language" comment:nil]];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     // TODO: Deselect item
@@ -55,17 +60,21 @@
 
 // 1
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(155, 155);
+    CGFloat sizeMax = collectionView.frame.size.width;
+    CGFloat cellSize = sizeMax/2-CELL_SPACE*1.5;
+    return CGSizeMake(cellSize, cellSize);
 }
 
 // 3
-/*- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    CGFloat sizeMax = self.collectionView.frame.size.width;
-    NSInteger nbElement = sizeMax/CELL_WIDTH;
-    NSInteger border = (sizeMax - CELL_WIDTH*nbElement)/nbElement;
-    return UIEdgeInsetsMake(border*1.5, border, border*1.5, border);
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(CELL_SPACE, CELL_SPACE, CELL_SPACE, CELL_SPACE);
 }
- */
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return CELL_SPACE;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
