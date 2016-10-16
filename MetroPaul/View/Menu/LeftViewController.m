@@ -12,6 +12,7 @@
 #import "MPCGUViewController.h"
 #import "MPSwitchCell.h"
 #import "MapDownloadViewController.h"
+#import "MPMapsViewController.h"
 
 #import <MessageUI/MessageUI.h>
 
@@ -120,6 +121,8 @@
                     break;
                 }
                 case 3: {
+                    [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPMapsViewController class])] animated:YES];
+                    [revealController showFrontViewController];
                     break;
                 }
                 case 4: {

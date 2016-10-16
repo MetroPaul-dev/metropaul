@@ -34,6 +34,7 @@
     // Override point for customization after application launch.
     
     SKMapsInitSettings *settings = [SKMapsInitSettings mapsInitSettings];
+    settings.mapDetailLevel = SKMapDetailLevelLight;
     [[SKMapsService sharedInstance] initializeSKMapsWithAPIKey:@"5a738a0ca4d8138a7e826ecff13dac6cce1e22192280a54ee92dcc5236a7e85c" settings:settings];
     [[SKPositionerService sharedInstance] startLocationUpdate];
     [SKMapsService sharedInstance].mapsVersioningManager.delegate= self;

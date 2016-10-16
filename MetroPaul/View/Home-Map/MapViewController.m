@@ -128,6 +128,15 @@ static SKListLevel listLevel;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
+    self.navigationItem.leftBarButtonItems = nil;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
+                                             style:UIBarButtonItemStylePlain
+                                             target:[MPRevealController sharedInstance]
+                                             action:@selector(showLeftController)];
+    
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -469,7 +478,7 @@ static SKListLevel listLevel;
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
-            
+            [address setName:[[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]];
             [[MPGlobalItineraryManager sharedManager] setAddress:address];
         }
         MPAddress *address = [[MPAddress alloc] init];

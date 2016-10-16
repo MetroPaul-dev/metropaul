@@ -7,7 +7,9 @@
 */
 
 "menu.plan" = "Plan";
-"menu.itinerary" = "Plan + Itinéraire";
+"menu.maps" = "Plans";
+"menu.itinerary" = "Itinéraire";
+"menu.map_itinerary" = "Plan + Itinéraire";
 "menu.note" = "Noter MetroPaul";
 "menu.share" = "Partager MetroPaul";
 "menu.map" = "Cartes";
@@ -19,7 +21,7 @@
 "menu.pmr" = "Tout accessible";
 "menu.language" = "Langues";
 
-
+"searchBar.yourPosition" = "Votre position";
 
 
 

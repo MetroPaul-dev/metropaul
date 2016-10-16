@@ -68,9 +68,11 @@
     
     if (self.startAddress.stopArea == nil) {
         [self.startAddress findStopAreasAround];
+        self.startAddress.itineraryToStopAreas = [NSMutableArray array];
     }
     if (self.destinationAddress.stopArea == nil) {
         [self.destinationAddress findStopAreasAround];
+        self.destinationAddress.itineraryToStopAreas = [NSMutableArray array];
     }
     
     if (self.startAddress.stopAreas.count > 0) {
@@ -110,7 +112,7 @@
             [self calculItinerarySkobbler:SKRoutePedestrian from:self.startAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
         } else if (self.destinationAddress.stopAreas.count > 0) {
             MPStopArea *stopArea = [self.destinationAddress.stopAreas firstObject];
-            [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
+            [self calculItinerarySkobbler:SKRoutePedestrian from:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]) to:self.destinationAddress.coordinate];
         } else {
             [self calculAllMetroItinerary];
         }
@@ -120,7 +122,7 @@
         // On repart d'un nouveau StopArea
         if (self.destinationAddress.itineraryToStopAreas.count < self.destinationAddress.stopAreas.count) {
             MPStopArea *stopArea = [self.destinationAddress.stopAreas objectAtIndex:self.destinationAddress.itineraryToStopAreas.count];
-            [self calculItinerarySkobbler:SKRoutePedestrian from:self.destinationAddress.coordinate to:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue])];
+            [self calculItinerarySkobbler:SKRoutePedestrian from:CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]) to:self.destinationAddress.coordinate];
         } else {
             [self calculAllMetroItinerary];
             
@@ -143,11 +145,12 @@
 }
 
 - (void)calculAllMetroItinerary {
+    self.globalItineraryList = [NSMutableArray array];
     if (self.startAddress.stopArea == nil) {
         for (int i = 0; i < self.startAddress.stopAreas.count; i++) {
             MPStopArea *startStopArea = [self.startAddress.stopAreas objectAtIndex:i];
             if (self.destinationAddress.stopArea == nil) {
-                for (int j = 0; j < self.startAddress.stopAreas.count; j++) {
+                for (int j = 0; j < self.destinationAddress.stopAreas.count; j++) {
                     MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
                     MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
                     if (itineraire != nil) {

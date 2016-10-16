@@ -20,7 +20,7 @@
 
 + (NSArray*)rowMenu {
     NSArray *section0 = [NSArray arrayWithObjects:
-                         [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-search"], KEY_IMAGE_ROW, nil],
+                         [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map_itinerary" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-search"], KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.note" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-rate"], KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.share" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-share"], KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-map"], KEY_IMAGE_ROW, nil],

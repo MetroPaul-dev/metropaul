@@ -11,9 +11,14 @@
 #import "MPGlobalItineraryManager.h"
 #import "MPGlobalItinerary.h"
 
-@interface MPItineraryViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UISearchBar *startSearchBar;
-@property (weak, nonatomic) IBOutlet UISearchBar *destinationSearchBar;
+@interface MPItineraryViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UIImageView *startIconImage;
+@property (weak, nonatomic) IBOutlet UIButton *startAddressButton;
+@property (weak, nonatomic) IBOutlet UIButton *startExchangeButton;
+@property (weak, nonatomic) IBOutlet UIImageView *destinationIconImage;
+@property (weak, nonatomic) IBOutlet UIButton *destinationAddressButton;
+@property (weak, nonatomic) IBOutlet UIButton *destinationExchangeButton;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) NSArray *globalItineraries;
 @end
@@ -26,94 +31,31 @@
     self.globalItineraries = [NSArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
-    if ([MPGlobalItineraryManager sharedManager].startAddress == nil || [[MPGlobalItineraryManager sharedManager].startAddress checkAddressValidity]) {
+    if ([MPGlobalItineraryManager sharedManager].startAddress == nil || ![[MPGlobalItineraryManager sharedManager].startAddress checkAddressValidity]) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noStart"]];
     }
-    if ([MPGlobalItineraryManager sharedManager].destinationAddress == nil || [[MPGlobalItineraryManager sharedManager].destinationAddress checkAddressValidity]) {
+    if ([MPGlobalItineraryManager sharedManager].destinationAddress == nil || ![[MPGlobalItineraryManager sharedManager].destinationAddress checkAddressValidity]) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noDestination"]];
     }
     [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
-    
-    self.startSearchBar.delegate = self;
-    self.startSearchBar.showsCancelButton = NO;
-    self.startSearchBar.barTintColor = [Constantes blueBackGround];
-    self.startSearchBar.tintColor = [UIColor whiteColor];
-    self.startSearchBar.layer.borderWidth = 1;
-    self.startSearchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
-    
-    NSArray *searchBarSubViews = [[self.startSearchBar.subviews objectAtIndex:0] subviews];
-    for (UIView *view in searchBarSubViews) {
-        if([view isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)view;
-            [textField setBorderStyle:UITextBorderStyleNone];
-            textField.layer.cornerRadius = 0;
-            
-            [textField setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4]];
-            [textField setTextColor:[UIColor whiteColor]];
-            
-            UIImageView *imgView = (UIImageView*)textField.leftView;
-            [imgView setWidth:24.0];
-            imgView.contentMode = UIViewContentModeScaleAspectFit;
-            imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            imgView.tintColor = [UIColor whiteColor];
-            textField.leftViewMode = UITextFieldViewModeAlways;
-            
-            UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
-            
-            btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-            btnClear.tintColor = [UIColor whiteColor];
-        }
-    }
-    
-    [self.startSearchBar reloadInputViews];
-    
-    self.destinationSearchBar.delegate = self;
-    self.destinationSearchBar.showsCancelButton = NO;
-    self.destinationSearchBar.barTintColor = [Constantes blueBackGround];
-    self.destinationSearchBar.tintColor = [UIColor whiteColor];
-    self.destinationSearchBar.layer.borderWidth = 1;
-    self.destinationSearchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
-    
-    searchBarSubViews = [[self.destinationSearchBar.subviews objectAtIndex:0] subviews];
-    for (UIView *view in searchBarSubViews) {
-        if([view isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)view;
-            [textField setBorderStyle:UITextBorderStyleNone];
-            textField.layer.cornerRadius = 0;
-            
-            [textField setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4]];
-            [textField setTextColor:[UIColor whiteColor]];
-            
-            UIImageView *imgView = (UIImageView*)textField.leftView;
-            [imgView setWidth:24.0];
-            imgView.contentMode = UIViewContentModeScaleAspectFit;
-            imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            imgView.tintColor = [UIColor whiteColor];
-            textField.leftViewMode = UITextFieldViewModeAlways;
-            
-            UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
-            
-            btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-            btnClear.tintColor = [UIColor whiteColor];
-        }
-    }
-    
-    [self.destinationSearchBar reloadInputViews];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.startSearchBar.text = [[[MPGlobalItineraryManager sharedManager] startAddress] name];
-    self.destinationSearchBar.text = [[[MPGlobalItineraryManager sharedManager] destinationAddress] name];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil]];
 
+    [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
+    if ([[[MPGlobalItineraryManager sharedManager] startAddress] name] == [[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]) {
+        self.startIconImage.image = [UIImage imageNamed:@"icon-pin"];
+    } else {
+        self.startIconImage.image = [UIImage imageNamed:@"icon-search"];
+    }
+    [self.destinationAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] destinationAddress] name] forState:UIControlStateNormal];
+    if ([[[MPGlobalItineraryManager sharedManager] destinationAddress] name] == [[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]) {
+        self.destinationIconImage.image = [UIImage imageNamed:@"icon-pin"];
+    } else {
+        self.destinationIconImage.image = [UIImage imageNamed:@"icon-search"];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -143,11 +85,15 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 132.0;
+}
+
 - (void)calculAllItineraryFinish {
     self.globalItineraries = [[MPGlobalItineraryManager sharedManager] globalItineraryList];
     [self.tableView reloadData];
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
-
+    
     if (self.globalItineraries == nil || self.globalItineraries.count == 0) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noItinerary"]];
     }
@@ -156,5 +102,29 @@
 - (void)alertViewError:(NSString*)title message:(NSString*)message {
     [[[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
+- (IBAction)tapOnAddressButton:(UIButton*)sender {
+    switch (sender.tag) {
+        case 0:
+            [[MPGlobalItineraryManager sharedManager] setAddressToReplace:MPAddressToReplaceStart];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        case 1:
+            [[MPGlobalItineraryManager sharedManager] setAddressToReplace:MPAddressToReplaceDestination];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)tapOnExchangeButton:(UIButton*)sender {
+    MPAddress *tmp = [[MPGlobalItineraryManager sharedManager] startAddress];
+    [[MPGlobalItineraryManager sharedManager] setStartAddress:[[MPGlobalItineraryManager sharedManager] destinationAddress]];
+    [[MPGlobalItineraryManager sharedManager] setDestinationAddress:tmp];
+    [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
+    [self.destinationAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] destinationAddress] name] forState:UIControlStateNormal];
+    [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
+}
+
 
 @end

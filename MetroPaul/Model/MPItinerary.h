@@ -19,4 +19,7 @@
 - (id)initWithDictionary:(NSDictionary *)dict managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 + (NSArray*)initWithArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 + (MPItinerary *)findByStartStopAreaId:(NSNumber *)startId destinationId:(NSNumber *)destinationId;
+
+- (NSArray*)readItinerary;
+
 @end

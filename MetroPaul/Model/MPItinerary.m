@@ -7,6 +7,7 @@
 //
 
 #import "MPItinerary.h"
+#import "MPSectionItinerary.h"
 
 @implementation MPItinerary
 @dynamic id_stop_area_from;
@@ -70,11 +71,14 @@
     return nil;
 }
 
-- (void)readItinerary {
+- (NSArray*)readItinerary {
     NSArray *sectionStrings = [self.itineraire componentsSeparatedByString:@"|"];
+    NSMutableArray *sections = [NSMutableArray array];
     for (NSString *sectionString in sectionStrings) {
-        NSString *type = [sectionString substringToIndex:2];
+        [sections addObject:[[MPSectionItinerary alloc] initWithString:sectionString]];
     }
+    
+    return [NSArray arrayWithArray:sections];
 }
 
 
