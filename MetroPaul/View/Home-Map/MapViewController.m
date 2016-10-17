@@ -26,7 +26,7 @@ static SKListLevel listLevel;
 static SKListLevel listLevelLimit;
 
 
-@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MPSearchResultDestinationCellDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
@@ -210,14 +210,12 @@ static SKListLevel listLevelLimit;
     if (cell == nil) {
         cell = [[MPSearchResultDestinationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MPSearchResultDestinationCell"];
     }
+    cell.delegate = self;
+
     if (indexPath.section == 0) {
-        MPStopArea *stopArea = [self.searchResultsStopArea objectAtIndex:indexPath.row];
-        cell.textLabel.text = [stopArea name];
-        cell.imageView.image = [UIImage imageNamed:@"icon-metro"];
+        [cell setStopArea:[self.searchResultsStopArea objectAtIndex:indexPath.row]];
     } else {
-        SKSearchResult *searchResult = [self.searchResultsSkobbler objectAtIndex:indexPath.row];
-        cell.imageView.image = [UIImage imageNamed:@"icon-pin"];
-        cell.textLabel.text = [searchResult toString];
+        [cell setSearchResult:[self.searchResultsSkobbler objectAtIndex:indexPath.row]];
     }
     
     return cell;
@@ -358,7 +356,7 @@ static SKListLevel listLevelLimit;
         self.searchResultSelected = searchResult;
         self.stopAreaSelected = nil;
         
-        [self.mapView hideCallout];
+//        [self.mapView hideCallout];
         
         
         [self setTexteInfoView:[searchResult toString] image:[UIImage imageNamed:@"icon-pin"]];
@@ -376,7 +374,7 @@ static SKListLevel listLevelLimit;
         self.searchResultSelected = nil;
         self.stopAreaSelected = stopArea;
         
-        [self.mapView hideCallout];
+//        [self.mapView hideCallout];
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
         [self centerOnCoordinate:coordinate];
@@ -428,19 +426,20 @@ static SKListLevel listLevelLimit;
 
 -(void)mapView:(SKMapView *)mapView didSelectAnnotation:(SKAnnotation *)annotation{
     if (annotation.identifier != ANNOTATION_IDENTIFIER_USER_LOCATION) {
-        MPStopArea *stopArea = [MPStopArea findById:[NSNumber numberWithInt:annotation.identifier]];
-        if (stopArea != nil) {
-            mapView.calloutView.titleLabel.text = stopArea.name;
-            mapView.calloutView.titleLabel.font = [UIFont fontWithName:FONT_REGULAR size:12.0];
-            mapView.calloutView.subtitleLabel.text = @"";
-            [mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 10) animated:YES];
-            
-            if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
-                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-metro"]];
-            } else {
-                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-pin"]];
-            }
-        }
+        [self setDestinationWithStopArea:[MPStopArea findById:[NSNumber numberWithInt:annotation.identifier]]];
+        
+//        if (stopArea != nil) {
+//            mapView.calloutView.titleLabel.text = stopArea.name;
+//            mapView.calloutView.titleLabel.font = [UIFont fontWithName:FONT_REGULAR size:12.0];
+//            mapView.calloutView.subtitleLabel.text = @"";
+//            [mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 10) animated:YES];
+//            
+//            if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
+//                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-metro"]];
+//            } else {
+//                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-pin"]];
+//            }
+//        }
     }
 }
 
@@ -499,6 +498,20 @@ static SKListLevel listLevelLimit;
 - (void)searchServiceDidFailToRetrieveMultiStepSearchResults:(SKSearchService *)searchService {
     NSLog(@"Search failed");
     [self alertViewDownloadMap];
+}
+
+#pragma mark - MPSearchResultDestinationCellDelegate
+
+- (void)searchResultDestinationCellTapOnStopArea:(MPStopArea *)stopArea {
+    self.stopAreaSelected = stopArea;
+    self.searchResultSelected = nil;
+    [self tapOnGoButton:nil];
+}
+
+- (void)searchResultDestinationCellTapOnSearchResult:(SKSearchResult *)searchResult {
+    self.stopAreaSelected = nil;
+    self.searchResultSelected = searchResult;
+    [self tapOnGoButton:nil];
 }
 
 
@@ -574,5 +587,7 @@ static SKListLevel listLevelLimit;
 - (void)alertViewDownloadMap {
     [[[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 }
+
+
 
 @end

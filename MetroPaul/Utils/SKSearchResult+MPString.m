@@ -11,7 +11,7 @@
 @implementation SKSearchResult (MPString)
 - (NSString *)toString {
     NSMutableString *string = [NSMutableString stringWithString:self.name];
-    if (self.type == SKSearchResultCountry) {
+    if ([self.parentSearchResults[0] isKindOfClass:[SKSearchResult class]]) {
         SKSearchResult *streetResult = (SKSearchResult*)self.parentSearchResults[0];
         [string appendFormat:@" %@", [streetResult name]];
         for (SKSearchResultParent *parent in [streetResult parentSearchResults]) {

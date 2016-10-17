@@ -7,6 +7,7 @@
 //
 
 #import "MPSearchResultDestinationCell.h"
+#import "SKSearchResult+MPString.h"
 
 @implementation MPSearchResultDestinationCell
 
@@ -19,12 +20,29 @@
     self.textLabel.numberOfLines = 2;
     
     self.button.titleLabel.font = [UIFont fontWithName:FONT_MEDIUM size:16.0];
+    [self.button setHidden:YES];
     // Initialization code
+}
+
+- (void)setStopArea:(MPStopArea *)stopArea {
+    _stopArea = stopArea;
+    _searchResult = nil;
+    self.textLabel.text = [stopArea name];
+    self.imageView.image = [UIImage imageNamed:@"icon-metro"];
+    [self.button setHidden:NO];
+}
+
+- (void)setSearchResult:(SKSearchResult *)searchResult {
+    _searchResult = searchResult;
+    _stopArea = nil;
+    self.imageView.image = [UIImage imageNamed:@"icon-pin"];
+    self.textLabel.text = [searchResult toString];
+    [self.button setHidden:NO];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -34,6 +52,11 @@
 }
 
 - (IBAction)tapOnButton:(id)sender {
+    if (self.searchResult != nil && self.delegate && [self.delegate respondsToSelector:@selector(searchResultDestinationCellTapOnSearchResult:)]) {
+        [self.delegate searchResultDestinationCellTapOnSearchResult:self.searchResult];
+    } else if (self.stopArea != nil && self.delegate && [self.delegate respondsToSelector:@selector(searchResultDestinationCellTapOnStopArea:)]) {
+        [self.delegate searchResultDestinationCellTapOnStopArea:self.stopArea];
+    }
 }
 
 @end

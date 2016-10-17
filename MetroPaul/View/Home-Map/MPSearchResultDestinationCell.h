@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPStopArea.h"
+#import <SKMaps/SKMaps.h>
+
+@protocol MPSearchResultDestinationCellDelegate <NSObject>
+@required
+- (void)searchResultDestinationCellTapOnSearchResult:(SKSearchResult*)searchResult;
+- (void)searchResultDestinationCellTapOnStopArea:(MPStopArea*)stopArea;
+@end
 
 @interface MPSearchResultDestinationCell : UITableViewCell
+@property(nonatomic, weak) id <MPSearchResultDestinationCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property(nonatomic, strong) MPStopArea *stopArea;
+@property(nonatomic, strong) SKSearchResult *searchResult;
 
 @end
