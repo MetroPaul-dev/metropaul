@@ -7,6 +7,7 @@
 //
 
 #import "MPAddress.h"
+#import "SKSearchResult+MPString.h"
 
 @interface MPAddress ()
 @property(nonatomic) NSInteger nbItineraryToWait;
@@ -17,13 +18,7 @@
 - (instancetype)initWithSKSearchResult:(SKSearchResult*)searchResult {
     self = [self init];
     if (self) {
-        NSMutableString *mutableString = [NSMutableString stringWithString:searchResult.name];
-        for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
-            if (parent.type < SKSearchResultStreet) {
-                [mutableString appendString:[NSString stringWithFormat:@", %@", parent.name]];
-            }
-        }
-        self.name = mutableString;
+        self.name = [searchResult toString];
         self.coordinate = searchResult.coordinate;
     }
     

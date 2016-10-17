@@ -15,6 +15,7 @@
 #import "MPSearchResultDestinationCell.h"
 #import "MPItineraryViewController.h"
 #import "MPGlobalItineraryManager.h"
+#import "SKSearchResult+MPString.h"
 
 #define CELL_HEIGHT 50
 #define INFOVIEW_HEIGHT 70
@@ -22,14 +23,13 @@
 #define RESULT_LIMIT 7
 
 static SKListLevel listLevel;
+static SKListLevel listLevelLimit;
+
 
 @interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
-@property(nonatomic, strong) UISearchController *searchController;
-@property(nonatomic, strong) NSMutableArray *searchResultsSkobbler;
-@property(nonatomic, strong) NSMutableArray *searchResultsStopArea;
 
 @property (strong, nonatomic) IBOutlet SKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIView *infoView;
@@ -38,12 +38,21 @@ static SKListLevel listLevel;
 @property (weak, nonatomic) IBOutlet UILabel *labelInfoView;
 @property (weak, nonatomic) IBOutlet UIButton *buttonInfoView;
 
-@property(nonatomic, strong) SKMultiStepSearchSettings *multiStepSearchObject;
 @property(nonatomic, strong) NSArray *stopAreas;
 
+
+
 @property(nonatomic, strong) NSArray *downloadPackage;
-@property(nonatomic, strong) SKSearchResult *searchResult;
-@property(nonatomic, strong) MPStopArea *stopArea;
+@property(nonatomic, strong) SKSearchResult *searchResultSelected;
+@property(nonatomic, strong) MPStopArea *stopAreaSelected;
+
+@property(nonatomic, strong) SKMultiStepSearchSettings *multiStepSearchObject;
+@property(nonatomic, strong) NSMutableArray *searchResultsSkobbler;
+@property(nonatomic, strong) NSMutableArray *searchResultsStopArea;
+@property(nonatomic, strong) NSString *houseNumber;
+@property(nonatomic, strong) NSArray *searchStreetResults;
+
+
 
 @end
 
@@ -64,6 +73,7 @@ static SKListLevel listLevel;
     
     self.searchResultsSkobbler = [NSMutableArray array];
     self.searchResultsStopArea = [NSMutableArray array];
+    self.searchStreetResults = [NSArray array];
     
     self.searchBar.delegate = self;
     self.searchBar.showsCancelButton = NO;
@@ -141,7 +151,7 @@ static SKListLevel listLevel;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    
     self.downloadPackage = [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages];
     if (self.downloadPackage.count <= 0) {
         [self alertViewDownloadMap];
@@ -150,8 +160,6 @@ static SKListLevel listLevel;
     } else {
         [self.searchBar setUserInteractionEnabled:YES];
     }
-    
-    // self.tableViewBottomConstraint.constant = self.view.frame.size.height-self.searchController.searchBar.frame.size.height;
     
     [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
     
@@ -208,14 +216,8 @@ static SKListLevel listLevel;
         cell.imageView.image = [UIImage imageNamed:@"icon-metro"];
     } else {
         SKSearchResult *searchResult = [self.searchResultsSkobbler objectAtIndex:indexPath.row];
-        NSMutableString *labelCell = [NSMutableString stringWithString:searchResult.name];
-        for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
-            if (parent.type < SKSearchResultStreet) {
-                [labelCell appendString:[NSString stringWithFormat:@", %@", parent.name]];
-            }
-        }
         cell.imageView.image = [UIImage imageNamed:@"icon-pin"];
-        cell.textLabel.text = labelCell;
+        cell.textLabel.text = [searchResult toString];
     }
     
     return cell;
@@ -265,19 +267,29 @@ static SKListLevel listLevel;
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     
-    if (![self.searchController.searchBar.text  isEqual: @""]) {
-            listLevel = SKStreetList;
-            
-            self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
-            self.multiStepSearchObject.listLevel = listLevel;
-            self.multiStepSearchObject.offlinePackageCode = [(SKMapPackage*)[self.downloadPackage firstObject] name]; // Paris package has to be downloaded
-            self.multiStepSearchObject.searchTerm = searchText;
-            //self.multiStepSearchObject.parentIndex = -1;
-            [[SKSearchService sharedInstance] startMultiStepSearchWithSettings:self.multiStepSearchObject];
-            
-            NSArray *stopArea = [MPStopArea findByName:searchText];
-            [self.searchResultsStopArea removeAllObjects];
-            [self.searchResultsStopArea addObjectsFromArray:stopArea];
+    if (![searchText isEqualToString: @""] && searchText.length > 2) {
+        NSScanner *scanner = [NSScanner scannerWithString:[[searchText componentsSeparatedByString:@" "] firstObject]];
+        BOOL isNumeric = [scanner scanInteger:NULL] && [scanner isAtEnd];
+        if (isNumeric) {
+            self.houseNumber = [[searchText componentsSeparatedByString:@" "] firstObject];
+            searchText = [searchText substringFromIndex:self.houseNumber.length+1];
+            listLevelLimit = SKHouseNumberList;
+        } else {
+            self.houseNumber = nil;
+            listLevelLimit = SKStreetList;
+        }
+        listLevel = SKStreetList;
+        
+        self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
+        self.multiStepSearchObject.listLevel = listLevel;
+        self.multiStepSearchObject.offlinePackageCode = [(SKMapPackage*)[self.downloadPackage firstObject] name]; // Paris package has to be downloaded
+        self.multiStepSearchObject.searchTerm = searchText;
+        self.multiStepSearchObject.parentIndex = -1;
+        [[SKSearchService sharedInstance] startMultiStepSearchWithSettings:self.multiStepSearchObject];
+        
+        NSArray *stopArea = [MPStopArea findByName:searchText];
+        [self.searchResultsStopArea removeAllObjects];
+        [self.searchResultsStopArea addObjectsFromArray:stopArea];
     } else {
         [self.searchResultsStopArea removeAllObjects];
         [self.searchResultsSkobbler removeAllObjects];
@@ -312,7 +324,7 @@ static SKListLevel listLevel;
 - (void)addAnnotationWithStopArea:(MPStopArea*)stopArea {
     
     NSMutableArray *lineTypes = [NSMutableArray array];
-
+    
     for (MPLine *line in stopArea.lines) {
         if (![lineTypes containsObject:line.transport_type]) {
             [lineTypes addObject:line.transport_type];
@@ -343,19 +355,13 @@ static SKListLevel listLevel;
 
 - (void)setDestinationWithSearchResult:(SKSearchResult*)searchResult {
     if (searchResult != nil) {
-        self.searchResult = searchResult;
-        self.stopArea = nil;
+        self.searchResultSelected = searchResult;
+        self.stopAreaSelected = nil;
         
         [self.mapView hideCallout];
         
-        NSMutableString *mutableString = [NSMutableString stringWithString:searchResult.name];
-        for (SKSearchResultParent *parent in searchResult.parentSearchResults) {
-            if (parent.type < SKSearchResultStreet) {
-                [mutableString appendString:[NSString stringWithFormat:@", %@", parent.name]];
-            }
-        }
         
-        [self setTexteInfoView:mutableString image:[UIImage imageNamed:@"icon-pin"]];
+        [self setTexteInfoView:[searchResult toString] image:[UIImage imageNamed:@"icon-pin"]];
         
         [self centerOnCoordinate:searchResult.coordinate];
         [self addAnnotationDestination:searchResult.coordinate];
@@ -367,8 +373,8 @@ static SKListLevel listLevel;
 
 - (void)setDestinationWithStopArea:(MPStopArea*)stopArea {
     if (stopArea != nil) {
-        self.searchResult = nil;
-        self.stopArea = stopArea;
+        self.searchResultSelected = nil;
+        self.stopAreaSelected = stopArea;
         
         [self.mapView hideCallout];
         
@@ -441,26 +447,52 @@ static SKListLevel listLevel;
 #pragma mark - SKSearchServiceDelegate
 
 - (void)searchService:(SKSearchService *)searchService didRetrieveMultiStepSearchResults:(NSArray *)searchResults {
-    if ([searchResults count] != 0 && listLevel < SKHouseNumberList )  {
-        if(listLevel == SKStreetList ){  // only US has states
-            //listLevel = SKCityList;
-            //SKSearchResult *searchResult = searchResults[0];
+    // Si on a atteint le fond de la recherche
+    if(listLevel == listLevelLimit ){
+        if (listLevel == SKHouseNumberList) {
+            // Si différent de 0, on ajoute le numero de maison, sinon la rue
+            if ([searchResults count] != 0)  {
+                SKSearchResult *houseResult = searchResults[0];
+                [houseResult setParentSearchResults:[NSMutableArray arrayWithObject:self.searchStreetResults[self.searchResultsSkobbler.count]]];
+                [self.searchResultsSkobbler addObject:houseResult];
+            } else {
+                [self.searchResultsSkobbler addObject:self.searchStreetResults[self.searchResultsSkobbler.count]];
+            }
+            
+            // Si on est arrivé à la fin de la liste des rues
+            if (self.searchResultsSkobbler.count == self.searchStreetResults.count) {
+                [self.tableView reloadData];
+                [self showTableView:YES];
+            } else {
+                [self completeStreetWithHouseNumber];
+            }
+            
+        } else {
             [self.searchResultsSkobbler removeAllObjects];
             [self.searchResultsSkobbler addObjectsFromArray:searchResults];
             [self.tableView reloadData];
             [self showTableView:YES];
-            
-        } else{
-            listLevel++;
-            SKSearchResult *searchResult = searchResults[0]; // the first result will be used for next level search
-            
-            self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
-            self.multiStepSearchObject.listLevel = listLevel++;
-            self.multiStepSearchObject.offlinePackageCode = searchResult.offlinePackageCode; // the package in which map   data is stored
-            self.multiStepSearchObject.searchTerm = @"";
-            self.multiStepSearchObject.parentIndex = searchResult.identifier; // used for searching children of the selected result
-            [[SKSearchService sharedInstance]startMultiStepSearchWithSettings:self.multiStepSearchObject];
         }
+    } else if(listLevel == SKStreetList ){
+        if ([searchResults count] != 0)  {
+            [self.searchResultsSkobbler removeAllObjects];
+            listLevel++;
+            self.searchStreetResults = searchResults;
+            [self completeStreetWithHouseNumber];
+        }
+    }
+}
+
+- (void)completeStreetWithHouseNumber {
+    if (self.searchResultsSkobbler.count < self.searchStreetResults.count) {
+        SKSearchResult *searchResult = self.searchStreetResults[self.searchResultsSkobbler.count]; // the result will be used for next level search
+        
+        self.multiStepSearchObject = [SKMultiStepSearchSettings multiStepSearchSettings];
+        self.multiStepSearchObject.listLevel = SKHouseNumberList;
+        self.multiStepSearchObject.offlinePackageCode = searchResult.offlinePackageCode; // the package in which map   data is stored
+        self.multiStepSearchObject.searchTerm = self.houseNumber;
+        self.multiStepSearchObject.parentIndex = searchResult.identifier; // used for searching children of the selected result
+        [[SKSearchService sharedInstance]startMultiStepSearchWithSettings:self.multiStepSearchObject];
     }
 }
 
@@ -474,7 +506,7 @@ static SKListLevel listLevel;
 
 - (IBAction)tapOnGoButton:(id)sender {
     
-    if (self.searchResult != nil || self.stopArea != nil) {
+    if (self.searchResultSelected != nil || self.stopAreaSelected != nil) {
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
@@ -483,10 +515,10 @@ static SKListLevel listLevel;
         }
         MPAddress *address = [[MPAddress alloc] init];
         
-        if (self.searchResult != nil) {
-            address = [[MPAddress alloc] initWithSKSearchResult:self.searchResult];
-        } else if (self.stopArea != nil) {
-            address.stopArea = self.stopArea;
+        if (self.searchResultSelected != nil) {
+            address = [[MPAddress alloc] initWithSKSearchResult:self.searchResultSelected];
+        } else if (self.stopAreaSelected != nil) {
+            address.stopArea = self.stopAreaSelected;
         }
         
         [[MPGlobalItineraryManager sharedManager] setAddress:address];

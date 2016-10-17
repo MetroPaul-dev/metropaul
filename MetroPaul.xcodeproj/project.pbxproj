@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */; };
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
+		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
 		713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A11DB3CD8300E05F75 /* MPMapsViewController.m */; };
 		713132A51DB3DE3000E05F75 /* MPMapsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A41DB3DE3000E05F75 /* MPMapsCell.m */; };
 		7142C08A1DA3BC1800F4CB95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B038271DA2A06200B8229C /* CoreData.framework */; };
@@ -140,6 +141,8 @@
 		544E59710622FF32A05DBC5F /* Pods-MetroPaulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulTests/Pods-MetroPaulTests.debug.xcconfig"; sourceTree = "<group>"; };
 		54A057CB81B4E01D8BBBB6DD /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
 		56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
+		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
 		713132A01DB3CD8300E05F75 /* MPMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsViewController.h; sourceTree = "<group>"; };
 		713132A11DB3CD8300E05F75 /* MPMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMapsViewController.m; sourceTree = "<group>"; };
 		713132A31DB3DE3000E05F75 /* MPMapsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsCell.h; sourceTree = "<group>"; };
@@ -560,6 +563,8 @@
 				71CE668C1DA6646600F599EE /* UIView+CPSize.m */,
 				7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */,
 				7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */,
+				71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */,
+				71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -730,6 +735,7 @@
 				7178C52C1D9B91F200ED775B /* Frameworks */,
 				7178C52D1D9B91F200ED775B /* Resources */,
 				57CA98F8E073D15343D21AFD /* [CP] Copy Pods Resources */,
+				868E8FFDD60B32A42232641E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -863,7 +869,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		0BABB8A9E20E0C1FA48F832E /* [CP] Embed Pods Frameworks */ = {
@@ -893,7 +899,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		57CA98F8E073D15343D21AFD /* [CP] Copy Pods Resources */ = {
@@ -952,6 +958,21 @@
 			shellPath = /bin/sh;
 			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name 'SKMaps.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
 		};
+		868E8FFDD60B32A42232641E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D3CA7DEAB3E337B8B311F49F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -994,7 +1015,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1013,6 +1034,7 @@
 				71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */,
 				7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */,
 				71C556871D9EC472002D1BCB /* MPSwitchCell.m in Sources */,
+				71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */,
 				714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */,
 				71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */,
 				71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */,
