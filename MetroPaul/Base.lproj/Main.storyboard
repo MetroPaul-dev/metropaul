@@ -497,7 +497,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ha2-5c-HZk" id="X9t-26-I3q">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E53-VY-Ccw">
@@ -604,6 +604,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mtk-O7-crg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="594.39999999999998" y="2774.6626686656673"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="ypO-Cv-bi3">
+            <objects>
+                <viewController storyboardIdentifier="MPWebViewController" id="Ydt-tc-ziY" customClass="MPWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wzi-SX-bN5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sjh-wy-OZ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uaz-ns-5W3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="center" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AwC-5S-CXn">
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ydt-tc-ziY" id="Or7-C9-SWl"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AwC-5S-CXn" firstAttribute="top" secondItem="uaz-ns-5W3" secondAttribute="top" id="3fe-I4-Xpm"/>
+                            <constraint firstItem="AwC-5S-CXn" firstAttribute="leading" secondItem="uaz-ns-5W3" secondAttribute="leading" id="QSh-8x-85p"/>
+                            <constraint firstAttribute="trailing" secondItem="AwC-5S-CXn" secondAttribute="trailing" id="jWu-Cc-Q98"/>
+                            <constraint firstItem="Sjh-wy-OZ2" firstAttribute="top" secondItem="AwC-5S-CXn" secondAttribute="bottom" id="yfC-At-Rxt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="AwC-5S-CXn" id="1Nq-aP-UbM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypo-iX-zAm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="2774.6626686656673"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="QA8-Hu-MA2">

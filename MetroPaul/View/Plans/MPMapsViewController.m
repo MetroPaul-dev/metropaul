@@ -8,6 +8,8 @@
 
 #import "MPMapsViewController.h"
 #import "MPMapsCell.h"
+#import "MPWebViewController.h"
+#import "MPRevealController.h"
 
 @interface MPMapsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -66,6 +68,35 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MPWebViewController *webVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPWebViewController class])];
+    switch (indexPath.section) {
+        case 0:{
+            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"metro_tram_simple" withExtension:@"pdf"];
+            break;
+        }
+        case 1:{
+            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"metro_tram_simple" withExtension:@"pdf"];
+            break;
+        }
+        case 2:{
+            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"bus_paris_simple" withExtension:@"pdf"];
+            break;
+        }
+        case 3:{
+            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"noctilien_simple" withExtension:@"pdf"];
+            break;
+        }
+        default:
+            break;
+    }
+    MPRevealController *revealController = [MPRevealController sharedInstance];
+     [(UINavigationController*)revealController.frontViewController pushViewController:webVC animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

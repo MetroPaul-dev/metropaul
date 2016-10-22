@@ -36,6 +36,10 @@
 		7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7178C51C1D9B91F200ED775B /* LaunchScreen.storyboard */; };
 		7178C5291D9B91F200ED775B /* MetroPaulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5281D9B91F200ED775B /* MetroPaulTests.m */; };
 		7178C5341D9B91F200ED775B /* MetroPaulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5331D9B91F200ED775B /* MetroPaulUITests.m */; };
+		719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CF81DBB5E7400F86593 /* metro_tram_simple.pdf */; };
+		719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CFA1DBB5E8800F86593 /* noctilien_simple.pdf */; };
+		719A5CFD1DBB5EB000F86593 /* bus_paris_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CFC1DBB5EB000F86593 /* bus_paris_simple.pdf */; };
+		719A5D041DBB5F5900F86593 /* MPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 719A5D031DBB5F5900F86593 /* MPWebViewController.m */; };
 		71AA93371DB13AD9003BD674 /* MPSectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA93361DB13AD9003BD674 /* MPSectionView.m */; };
 		71AA93391DB13AE8003BD674 /* MPSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AA93381DB13AE8003BD674 /* MPSectionView.xib */; };
 		71AA933F1DB2166F003BD674 /* MPSectionItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AA933E1DB2166F003BD674 /* MPSectionItinerary.m */; };
@@ -189,6 +193,11 @@
 		7178C52F1D9B91F200ED775B /* MetroPaulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroPaulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178C5331D9B91F200ED775B /* MetroPaulUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetroPaulUITests.m; sourceTree = "<group>"; };
 		7178C5351D9B91F200ED775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		719A5CF81DBB5E7400F86593 /* metro_tram_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = metro_tram_simple.pdf; sourceTree = "<group>"; };
+		719A5CFA1DBB5E8800F86593 /* noctilien_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = noctilien_simple.pdf; sourceTree = "<group>"; };
+		719A5CFC1DBB5EB000F86593 /* bus_paris_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bus_paris_simple.pdf; sourceTree = "<group>"; };
+		719A5D021DBB5F5900F86593 /* MPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWebViewController.h; sourceTree = "<group>"; };
+		719A5D031DBB5F5900F86593 /* MPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWebViewController.m; sourceTree = "<group>"; };
 		71AA93351DB13AD9003BD674 /* MPSectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSectionView.h; sourceTree = "<group>"; };
 		71AA93361DB13AD9003BD674 /* MPSectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSectionView.m; sourceTree = "<group>"; };
 		71AA93381DB13AE8003BD674 /* MPSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPSectionView.xib; sourceTree = "<group>"; };
@@ -480,6 +489,25 @@
 			path = MetroPaulUITests;
 			sourceTree = "<group>";
 		};
+		719A5CF71DBB5E5900F86593 /* Plans */ = {
+			isa = PBXGroup;
+			children = (
+				719A5CFC1DBB5EB000F86593 /* bus_paris_simple.pdf */,
+				719A5CF81DBB5E7400F86593 /* metro_tram_simple.pdf */,
+				719A5CFA1DBB5E8800F86593 /* noctilien_simple.pdf */,
+			);
+			path = Plans;
+			sourceTree = "<group>";
+		};
+		719A5CFE1DBB5F2300F86593 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				719A5D021DBB5F5900F86593 /* MPWebViewController.h */,
+				719A5D031DBB5F5900F86593 /* MPWebViewController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		71AEC60C1DA1A643002ED428 /* MapXMLParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +612,7 @@
 		71E6DAE91D9CF8710008EC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				719A5CFE1DBB5F2300F86593 /* WebView */,
 				7131329F1DB3CD4B00E05F75 /* Plans */,
 				71F4F5551DB0D35900205ED3 /* LoadingView */,
 				7143A75F1DA6BE130078B456 /* Itinerary */,
@@ -600,6 +629,7 @@
 		71E6DAF01D9CFF810008EC19 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				719A5CF71DBB5E5900F86593 /* Plans */,
 				71674B3F1DAE2A3F00096F8E /* BDD */,
 				7142C0991DA3EA0500F4CB95 /* Skobbler */,
 				7142C0981DA3E9F600F4CB95 /* Font */,
@@ -822,11 +852,14 @@
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
 				71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */,
 				715B7B8D1DAE8AC2003E229E /* MetroPaul.sqlite in Resources */,
+				719A5CFD1DBB5EB000F86593 /* bus_paris_simple.pdf in Resources */,
 				71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */,
 				71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */,
 				71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */,
+				719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */,
 				71FB3EF51D9D1FD100BD0D6A /* Roboto-BoldItalic.otf in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
+				719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */,
 				7178C51B1D9B91F200ED775B /* Assets.xcassets in Resources */,
 				71FB3EF71D9D1FD100BD0D6A /* Roboto-Light.otf in Resources */,
 				71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */,
@@ -1041,6 +1074,7 @@
 				71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */,
 				714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */,
 				7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */,
+				719A5D041DBB5F5900F86593 /* MPWebViewController.m in Sources */,
 				714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */,
 				71F4F5581DB0D37C00205ED3 /* LoadingView.m in Sources */,
 				713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */,
