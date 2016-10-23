@@ -62,6 +62,11 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdU-Wl-HHw">
+                                        <connections>
+                                            <action selector="tapOnInfoBarSms" destination="XjB-br-dk0" eventType="touchUpInside" id="ewE-D2-LNw"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wfb-Od-h0y">
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -78,13 +83,17 @@
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="W1v-AD-Anx" secondAttribute="bottom" id="BVo-17-PUV"/>
+                                    <constraint firstAttribute="bottom" secondItem="vdU-Wl-HHw" secondAttribute="bottom" id="CrI-l6-YWN"/>
                                     <constraint firstItem="Wfb-Od-h0y" firstAttribute="top" secondItem="vK9-aA-kAz" secondAttribute="top" id="Ehe-mP-niD"/>
                                     <constraint firstAttribute="height" constant="100" id="ISZ-Dq-08p"/>
                                     <constraint firstItem="IOQ-u3-AtA" firstAttribute="leading" secondItem="vK9-aA-kAz" secondAttribute="leading" constant="15" id="Lkn-pu-Z6u"/>
                                     <constraint firstAttribute="trailing" secondItem="Wfb-Od-h0y" secondAttribute="trailing" id="QgB-7B-5gS"/>
+                                    <constraint firstItem="vdU-Wl-HHw" firstAttribute="top" secondItem="vK9-aA-kAz" secondAttribute="top" id="U2V-mL-o0C"/>
                                     <constraint firstItem="Wfb-Od-h0y" firstAttribute="leading" secondItem="W1v-AD-Anx" secondAttribute="trailing" id="Zm9-Ma-HOZ"/>
                                     <constraint firstAttribute="bottom" secondItem="Wfb-Od-h0y" secondAttribute="bottom" id="fAu-iE-UcB"/>
+                                    <constraint firstItem="vdU-Wl-HHw" firstAttribute="leading" secondItem="IOQ-u3-AtA" secondAttribute="trailing" id="fpK-o8-g3Q"/>
                                     <constraint firstItem="IOQ-u3-AtA" firstAttribute="height" secondItem="vK9-aA-kAz" secondAttribute="height" multiplier="1/3" id="kEQ-hA-lzq"/>
+                                    <constraint firstItem="Wfb-Od-h0y" firstAttribute="leading" secondItem="vdU-Wl-HHw" secondAttribute="trailing" id="ljd-SH-oMv"/>
                                     <constraint firstItem="W1v-AD-Anx" firstAttribute="top" secondItem="vK9-aA-kAz" secondAttribute="top" id="n04-r8-g4x"/>
                                     <constraint firstItem="W1v-AD-Anx" firstAttribute="leading" secondItem="IOQ-u3-AtA" secondAttribute="trailing" constant="15" id="rmL-vJ-KtC"/>
                                     <constraint firstItem="IOQ-u3-AtA" firstAttribute="centerY" secondItem="vK9-aA-kAz" secondAttribute="centerY" id="xk8-HR-jQd"/>

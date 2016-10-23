@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class SKTMapsObject;
 
@@ -24,6 +25,8 @@
 
 @property(nonatomic,strong) NSMutableArray *cachedMapRegions;
 @property (nonatomic, strong) SKTMapsObject *skMapsObject;
+
+@property(nonatomic) CLLocationCoordinate2D coordinateReceived;
 
 + (AppDelegate *)sharedAppDelegate;
 - (void)saveContext;

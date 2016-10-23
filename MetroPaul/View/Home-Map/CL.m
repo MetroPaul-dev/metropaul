@@ -61,6 +61,8 @@ static SKListLevel listLevelLimit;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedPosition:) name:@"SchemePosition" object:nil];
+    
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"icon-menu"]
@@ -132,6 +134,13 @@ static SKListLevel listLevelLimit;
     [self.buttonInfoView.titleLabel setFont:[UIFont fontWithName:FONT_MEDIUM size:16.0f]];
     
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
+    
+    AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
+    if (CLLocationCoordinate2DIsValid(appDelegate.coordinateReceived)) {
+        SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: appDelegate.coordinateReceived];
+        [self setDestinationWithSearchResult:searchObject];
+        appDelegate.coordinateReceived = kCLLocationCoordinate2DInvalid;
+    }
     
 }
 
@@ -211,7 +220,7 @@ static SKListLevel listLevelLimit;
         cell = [[MPSearchResultDestinationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MPSearchResultDestinationCell"];
     }
     cell.delegate = self;
-
+    
     if (indexPath.section == 0) {
         [cell setStopArea:[self.searchResultsStopArea objectAtIndex:indexPath.row]];
     } else {
@@ -356,7 +365,7 @@ static SKListLevel listLevelLimit;
         self.searchResultSelected = searchResult;
         self.stopAreaSelected = nil;
         
-//        [self.mapView hideCallout];
+        //        [self.mapView hideCallout];
         
         
         [self setTexteInfoView:[searchResult toString] image:[UIImage imageNamed:@"icon-pin"]];
@@ -374,7 +383,7 @@ static SKListLevel listLevelLimit;
         self.searchResultSelected = nil;
         self.stopAreaSelected = stopArea;
         
-//        [self.mapView hideCallout];
+        //        [self.mapView hideCallout];
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
         [self centerOnCoordinate:coordinate];
@@ -428,18 +437,18 @@ static SKListLevel listLevelLimit;
     if (annotation.identifier != ANNOTATION_IDENTIFIER_USER_LOCATION) {
         [self setDestinationWithStopArea:[MPStopArea findById:[NSNumber numberWithInt:annotation.identifier]]];
         
-//        if (stopArea != nil) {
-//            mapView.calloutView.titleLabel.text = stopArea.name;
-//            mapView.calloutView.titleLabel.font = [UIFont fontWithName:FONT_REGULAR size:12.0];
-//            mapView.calloutView.subtitleLabel.text = @"";
-//            [mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 10) animated:YES];
-//            
-//            if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
-//                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-metro"]];
-//            } else {
-//                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-pin"]];
-//            }
-//        }
+        //        if (stopArea != nil) {
+        //            mapView.calloutView.titleLabel.text = stopArea.name;
+        //            mapView.calloutView.titleLabel.font = [UIFont fontWithName:FONT_REGULAR size:12.0];
+        //            mapView.calloutView.subtitleLabel.text = @"";
+        //            [mapView showCalloutForAnnotation:annotation withOffset:CGPointMake(0, 10) animated:YES];
+        //
+        //            if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
+        //                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-metro"]];
+        //            } else {
+        //                [self setTexteInfoView:stopArea.name image:[UIImage imageNamed:@"icon-pin"]];
+        //            }
+        //        }
     }
 }
 
@@ -586,6 +595,32 @@ static SKListLevel listLevelLimit;
 
 - (void)alertViewDownloadMap {
     [[[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+}
+
+- (IBAction)tapOnInfoBarSms {
+    CLLocationCoordinate2D coordinate;
+    if (_searchResultSelected != nil) {
+        coordinate = _searchResultSelected.coordinate;
+    } else if(_stopAreaSelected != nil) {
+        coordinate = CLLocationCoordinate2DMake([_stopAreaSelected.latitude doubleValue], [_stopAreaSelected.longitude doubleValue]);
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"metropaul://map/position?lat=%f&long=%f", coordinate.latitude, coordinate.longitude]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    else {
+        //Display error
+        [[[UIAlertView alloc] initWithTitle:@"Receiver Not Found" message:@"The Receiver App is not installed. It must be installed to send text." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    }
+}
+
+- (void)receivedPosition:(NSNotification*)notification {
+    AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
+    if (CLLocationCoordinate2DIsValid(appDelegate.coordinateReceived)) {
+        SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: appDelegate.coordinateReceived];
+        [self setDestinationWithSearchResult:searchObject];
+        appDelegate.coordinateReceived = kCLLocationCoordinate2DInvalid;
+    }
 }
 
 

@@ -57,6 +57,15 @@
 //        [userDefault synchronize];
 //    }
     
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] != nil) {
+        NSURL *url = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
+        if ([[url host] isEqualToString:@"map"]) {
+            NSDictionary *dict = [self parseQueryString:[url query]];
+            self.coordinateReceived = CLLocationCoordinate2DMake([[dict objectForKey:@"lat"] doubleValue], [[dict objectForKey:@"long"] doubleValue]);
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"SchemePosition" object:nil];
+        }
+    }
+    
     return YES;
 }
 
@@ -89,6 +98,46 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    if ([[url host] isEqualToString:@"map"]) {
+        NSDictionary *dict = [self parseQueryString:[url query]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SchemePosition" object:dict];
+    }
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[url host] isEqualToString:@"map"]) {
+        NSDictionary *dict = [self parseQueryString:[url query]];
+        self.coordinateReceived = CLLocationCoordinate2DMake([[dict objectForKey:@"lat"] doubleValue], [[dict objectForKey:@"long"] doubleValue]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SchemePosition" object:nil];
+    }
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[url host] isEqualToString:@"map"]) {
+        NSDictionary *dict = [self parseQueryString:[url query]];
+        self.coordinateReceived = CLLocationCoordinate2DMake([[dict objectForKey:@"lat"] doubleValue], [[dict objectForKey:@"long"] doubleValue]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"SchemePosition" object:nil];
+    }
+    return YES;
+}
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSArray *pairs = [query componentsSeparatedByString:@"&"];
+    
+    for (NSString *pair in pairs) {
+        NSArray *elements = [pair componentsSeparatedByString:@"="];
+        NSString *key = [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *val = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        
+        [dict setObject:val forKey:key];
+    }
+    return dict;
 }
 
 #pragma mark - PKRevealController

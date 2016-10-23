@@ -73,7 +73,7 @@
 		71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE668C1DA6646600F599EE /* UIView+CPSize.m */; };
 		71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */; };
 		71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */; };
-		71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */; };
+		71E6DAEC1D9CF8A60008EC19 /* CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEB1D9CF8A60008EC19 /* CL.m */; };
 		71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEE1D9CF9270008EC19 /* LeftViewController.m */; };
 		71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E6DAF71D9CFFEF0008EC19 /* Localizable.strings */; };
 		71E6DAFC1D9D05E60008EC19 /* MPRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAFB1D9D05E60008EC19 /* MPRevealController.m */; };
@@ -248,7 +248,7 @@
 		71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPSearchResultDestinationCell.xib; sourceTree = "<group>"; };
 		71E6DAE81D9CF5510008EC19 /* MetroPaul-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MetroPaul-PrefixHeader.pch"; sourceTree = "<group>"; };
 		71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		71E6DAEB1D9CF8A60008EC19 /* CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL.m; sourceTree = "<group>"; };
 		71E6DAED1D9CF9270008EC19 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		71E6DAEE1D9CF9270008EC19 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		71E6DAF31D9CFFE40008EC19 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -601,7 +601,7 @@
 			isa = PBXGroup;
 			children = (
 				71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */,
-				71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */,
+				71E6DAEB1D9CF8A60008EC19 /* CL.m */,
 				71CE66901DA6818900F599EE /* MPSearchResultDestinationCell.h */,
 				71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */,
 				71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */,
@@ -1091,7 +1091,7 @@
 				71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */,
 				71AEC61B1DA247BC002ED428 /* MPMapDownloadCell.m in Sources */,
 				71CE668A1DA64C3E00F599EE /* MPNavigationController.m in Sources */,
-				71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */,
+				71E6DAEC1D9CF8A60008EC19 /* CL.m in Sources */,
 				71AA933F1DB2166F003BD674 /* MPSectionItinerary.m in Sources */,
 				71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */,
 				7178C50D1D9B91F200ED775B /* main.m in Sources */,
