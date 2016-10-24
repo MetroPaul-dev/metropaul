@@ -10,6 +10,15 @@
 		0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */; };
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
 		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
+		713019B91DBE3E4C0061DD36 /* itineraires.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B11DBE3E4C0061DD36 /* itineraires.json */; };
+		713019BA1DBE3E4C0061DD36 /* lines.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B21DBE3E4C0061DD36 /* lines.json */; };
+		713019BB1DBE3E4C0061DD36 /* networks.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B31DBE3E4C0061DD36 /* networks.json */; };
+		713019BC1DBE3E4C0061DD36 /* routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B41DBE3E4C0061DD36 /* routes.json */; };
+		713019BD1DBE3E4C0061DD36 /* stopAreas.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B51DBE3E4C0061DD36 /* stopAreas.json */; };
+		713019BE1DBE3E4C0061DD36 /* stopAreasLine.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B61DBE3E4C0061DD36 /* stopAreasLine.json */; };
+		713019BF1DBE3E4C0061DD36 /* stopAreasRoute.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */; };
+		713019C01DBE3E4C0061DD36 /* stopPoints.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B81DBE3E4C0061DD36 /* stopPoints.json */; };
+		713019C21DBE40490061DD36 /* MetroPaul.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 713019C11DBE40490061DD36 /* MetroPaul.sqlite */; };
 		713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A11DB3CD8300E05F75 /* MPMapsViewController.m */; };
 		713132A51DB3DE3000E05F75 /* MPMapsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A41DB3DE3000E05F75 /* MPMapsCell.m */; };
 		7142C08A1DA3BC1800F4CB95 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71B038271DA2A06200B8229C /* CoreData.framework */; };
@@ -23,9 +32,6 @@
 		714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA41DA7FCC2002D003B /* MPRoute.m */; };
 		714B8AA81DA7FE0F002D003B /* MPStopPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AA71DA7FE0F002D003B /* MPStopPoint.m */; };
 		714B8AAB1DA7FF99002D003B /* MPStopAreaRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */; };
-		715B7B8D1DAE8AC2003E229E /* MetroPaul.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */; };
-		715B7B8E1DAE8AC2003E229E /* MetroPaul.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */; };
-		715B7B8F1DAE8AC2003E229E /* MetroPaul.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */; };
 		71674B3E1DAE1A9400096F8E /* MPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A961DA7AA3E002D003B /* MPAddress.m */; };
 		717024B61DA151F5007BA803 /* MapDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717024B51DA151F5007BA803 /* MapDownloadViewController.m */; };
 		7178C50D1D9B91F200ED775B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C50C1D9B91F200ED775B /* main.m */; };
@@ -73,7 +79,7 @@
 		71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE668C1DA6646600F599EE /* UIView+CPSize.m */; };
 		71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */; };
 		71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */; };
-		71E6DAEC1D9CF8A60008EC19 /* CL.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEB1D9CF8A60008EC19 /* CL.m */; };
+		71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */; };
 		71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAEE1D9CF9270008EC19 /* LeftViewController.m */; };
 		71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71E6DAF71D9CFFEF0008EC19 /* Localizable.strings */; };
 		71E6DAFC1D9D05E60008EC19 /* MPRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E6DAFB1D9D05E60008EC19 /* MPRevealController.m */; };
@@ -147,6 +153,15 @@
 		56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
 		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
+		713019B11DBE3E4C0061DD36 /* itineraires.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = itineraires.json; sourceTree = "<group>"; };
+		713019B21DBE3E4C0061DD36 /* lines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lines.json; sourceTree = "<group>"; };
+		713019B31DBE3E4C0061DD36 /* networks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = networks.json; sourceTree = "<group>"; };
+		713019B41DBE3E4C0061DD36 /* routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = routes.json; sourceTree = "<group>"; };
+		713019B51DBE3E4C0061DD36 /* stopAreas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreas.json; sourceTree = "<group>"; };
+		713019B61DBE3E4C0061DD36 /* stopAreasLine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreasLine.json; sourceTree = "<group>"; };
+		713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreasRoute.json; sourceTree = "<group>"; };
+		713019B81DBE3E4C0061DD36 /* stopPoints.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopPoints.json; sourceTree = "<group>"; };
+		713019C11DBE40490061DD36 /* MetroPaul.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetroPaul.sqlite; sourceTree = "<group>"; };
 		713132A01DB3CD8300E05F75 /* MPMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsViewController.h; sourceTree = "<group>"; };
 		713132A11DB3CD8300E05F75 /* MPMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMapsViewController.m; sourceTree = "<group>"; };
 		713132A31DB3DE3000E05F75 /* MPMapsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsCell.h; sourceTree = "<group>"; };
@@ -173,9 +188,6 @@
 		714B8AA71DA7FE0F002D003B /* MPStopPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopPoint.m; sourceTree = "<group>"; };
 		714B8AA91DA7FF99002D003B /* MPStopAreaRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStopAreaRoute.h; sourceTree = "<group>"; };
 		714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopAreaRoute.m; sourceTree = "<group>"; };
-		715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetroPaul.sqlite; sourceTree = "<group>"; };
-		715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MetroPaul.sqlite-shm"; sourceTree = "<group>"; };
-		715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MetroPaul.sqlite-wal"; sourceTree = "<group>"; };
 		717024B41DA151F5007BA803 /* MapDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDownloadViewController.h; sourceTree = "<group>"; };
 		717024B51DA151F5007BA803 /* MapDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDownloadViewController.m; sourceTree = "<group>"; };
 		7178C5081D9B91F200ED775B /* MetroPaul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroPaul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,7 +260,7 @@
 		71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPSearchResultDestinationCell.xib; sourceTree = "<group>"; };
 		71E6DAE81D9CF5510008EC19 /* MetroPaul-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MetroPaul-PrefixHeader.pch"; sourceTree = "<group>"; };
 		71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		71E6DAEB1D9CF8A60008EC19 /* CL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CL.m; sourceTree = "<group>"; };
+		71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		71E6DAED1D9CF9270008EC19 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		71E6DAEE1D9CF9270008EC19 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		71E6DAF31D9CFFE40008EC19 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -352,6 +364,14 @@
 		7142C0971DA3E9E600F4CB95 /* jsonData */ = {
 			isa = PBXGroup;
 			children = (
+				713019B11DBE3E4C0061DD36 /* itineraires.json */,
+				713019B21DBE3E4C0061DD36 /* lines.json */,
+				713019B31DBE3E4C0061DD36 /* networks.json */,
+				713019B41DBE3E4C0061DD36 /* routes.json */,
+				713019B51DBE3E4C0061DD36 /* stopAreas.json */,
+				713019B61DBE3E4C0061DD36 /* stopAreasLine.json */,
+				713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */,
+				713019B81DBE3E4C0061DD36 /* stopPoints.json */,
 			);
 			name = jsonData;
 			sourceTree = "<group>";
@@ -400,9 +420,7 @@
 		71674B3F1DAE2A3F00096F8E /* BDD */ = {
 			isa = PBXGroup;
 			children = (
-				715B7B8A1DAE8AC2003E229E /* MetroPaul.sqlite */,
-				715B7B8B1DAE8AC2003E229E /* MetroPaul.sqlite-shm */,
-				715B7B8C1DAE8AC2003E229E /* MetroPaul.sqlite-wal */,
+				713019C11DBE40490061DD36 /* MetroPaul.sqlite */,
 			);
 			name = BDD;
 			sourceTree = "<group>";
@@ -601,7 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				71E6DAEA1D9CF8A60008EC19 /* MapViewController.h */,
-				71E6DAEB1D9CF8A60008EC19 /* CL.m */,
+				71E6DAEB1D9CF8A60008EC19 /* MapViewController.m */,
 				71CE66901DA6818900F599EE /* MPSearchResultDestinationCell.h */,
 				71CE66911DA6818900F599EE /* MPSearchResultDestinationCell.m */,
 				71CE66921DA6818900F599EE /* MPSearchResultDestinationCell.xib */,
@@ -847,19 +865,21 @@
 			files = (
 				71FB3EF31D9D1FD100BD0D6A /* Roboto-BlackItalic.otf in Resources */,
 				7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */,
-				715B7B8E1DAE8AC2003E229E /* MetroPaul.sqlite-shm in Resources */,
 				71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */,
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
 				71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */,
-				715B7B8D1DAE8AC2003E229E /* MetroPaul.sqlite in Resources */,
 				719A5CFD1DBB5EB000F86593 /* bus_paris_simple.pdf in Resources */,
 				71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */,
+				713019B91DBE3E4C0061DD36 /* itineraires.json in Resources */,
+				713019BB1DBE3E4C0061DD36 /* networks.json in Resources */,
 				71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */,
 				71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */,
 				719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */,
 				71FB3EF51D9D1FD100BD0D6A /* Roboto-BoldItalic.otf in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
 				719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */,
+				713019BE1DBE3E4C0061DD36 /* stopAreasLine.json in Resources */,
+				713019C01DBE3E4C0061DD36 /* stopPoints.json in Resources */,
 				7178C51B1D9B91F200ED775B /* Assets.xcassets in Resources */,
 				71FB3EF71D9D1FD100BD0D6A /* Roboto-Light.otf in Resources */,
 				71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */,
@@ -868,8 +888,12 @@
 				71AA93391DB13AE8003BD674 /* MPSectionView.xib in Resources */,
 				71FB3EF61D9D1FD100BD0D6A /* Roboto-Italic.otf in Resources */,
 				7178C5161D9B91F200ED775B /* Main.storyboard in Resources */,
+				713019BA1DBE3E4C0061DD36 /* lines.json in Resources */,
+				713019BD1DBE3E4C0061DD36 /* stopAreas.json in Resources */,
+				713019BF1DBE3E4C0061DD36 /* stopAreasRoute.json in Resources */,
+				713019C21DBE40490061DD36 /* MetroPaul.sqlite in Resources */,
+				713019BC1DBE3E4C0061DD36 /* routes.json in Resources */,
 				71FB3EF91D9D1FD100BD0D6A /* Roboto-Medium.otf in Resources */,
-				715B7B8F1DAE8AC2003E229E /* MetroPaul.sqlite-wal in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,7 +1115,7 @@
 				71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */,
 				71AEC61B1DA247BC002ED428 /* MPMapDownloadCell.m in Sources */,
 				71CE668A1DA64C3E00F599EE /* MPNavigationController.m in Sources */,
-				71E6DAEC1D9CF8A60008EC19 /* CL.m in Sources */,
+				71E6DAEC1D9CF8A60008EC19 /* MapViewController.m in Sources */,
 				71AA933F1DB2166F003BD674 /* MPSectionItinerary.m in Sources */,
 				71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */,
 				7178C50D1D9B91F200ED775B /* main.m in Sources */,

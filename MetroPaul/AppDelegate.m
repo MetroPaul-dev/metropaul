@@ -34,7 +34,7 @@
     // Override point for customization after application launch.
     
     SKMapsInitSettings *settings = [SKMapsInitSettings mapsInitSettings];
-    settings.mapDetailLevel = SKMapDetailLevelLight;
+    settings.mapDetailLevel = SKMapDetailLevelFull;
     [[SKMapsService sharedInstance] initializeSKMapsWithAPIKey:@"5a738a0ca4d8138a7e826ecff13dac6cce1e22192280a54ee92dcc5236a7e85c" settings:settings];
     [[SKPositionerService sharedInstance] startLocationUpdate];
     [SKMapsService sharedInstance].mapsVersioningManager.delegate= self;
@@ -49,13 +49,13 @@
     [SKTDownloadManager sharedInstance];
     self.cachedMapRegions = [NSMutableArray array];
     
-//    NSLog(@"path +++++ %@", self.applicationDocumentsDirectory.path);
-//    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//    if (![userDefault boolForKey:@"isPreloaded"]) {
-//        [[[MPDataLoader alloc] init] preloadData];
-//        [userDefault setBool:YES forKey:@"isPreloaded"];
-//        [userDefault synchronize];
-//    }
+    //    NSLog(@"path +++++ %@", self.applicationDocumentsDirectory.path);
+    //    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    //    if (![userDefault boolForKey:@"isPreloaded"]) {
+    //        [[[MPDataLoader alloc] init] preloadData];
+    //        [userDefault setBool:YES forKey:@"isPreloaded"];
+    //        [userDefault synchronize];
+    //    }
     
     if ([launchOptions objectForKey:UIApplicationLaunchOptionsURLKey] != nil) {
         NSURL *url = [launchOptions objectForKey:UIApplicationLaunchOptionsURLKey];
@@ -191,104 +191,107 @@
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
 - (NSManagedObjectContext *)managedObjectContext
 {
-//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-//        return self.persistentContainer.viewContext;
-//    } else {
-        if (_managedObjectContext != nil) {
-            return _managedObjectContext;
-        }
-        
-        NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-        if (coordinator != nil) {
-            _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-            [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-        }
+    //    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+    //        return self.persistentContainer.viewContext;
+    //    } else {
+    if (_managedObjectContext != nil) {
         return _managedObjectContext;
-//    }
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    return _managedObjectContext;
+    //    }
 }
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
 - (NSManagedObjectModel *)managedObjectModel
 {
-//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-//        return self.persistentContainer.managedObjectModel;
-//    } else {
-        if (_managedObjectModel != nil) {
-            return _managedObjectModel;
-        }
-        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"momd"];
-        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    //    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+    //        return self.persistentContainer.managedObjectModel;
+    //    } else {
+    if (_managedObjectModel != nil) {
         return _managedObjectModel;
-//    }
+    }
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+    //    }
 }
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-//    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
-//        return self.persistentContainer.persistentStoreCoordinator;
-//    } else {
-        if (_persistentStoreCoordinator != nil) {
-            return _persistentStoreCoordinator;
-        }
-        
-        [self loadExistingSQLite];
-        
-        NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
-        NSError *error = nil;
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-        NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
-        [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
-        [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
-        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-                                                       configuration:nil
-                                                                 URL:storeURL
-                                                             options:options
-                                                               error:&error]) {
-            /*
-             Replace this implementation with code to handle the error appropriately.
-             
-             abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-             
-             Typical reasons for an error here include:
-             * The persistent store is not accessible;
-             * The schema for the persistent store is incompatible with current managed object model.
-             Check the error message to determine what the actual problem was.
-             
-             
-             If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-             
-             If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-             * Simply deleting the existing store:
-             [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-             
-             * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-             @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-             
-             Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-             
-             */
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        }
-        
+    //    if(SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"10.0")) {
+    //        return self.persistentContainer.persistentStoreCoordinator;
+    //    } else {
+    if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
-//    }
+    }
+    
+    [self loadExistingSQLite];
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
+    NSError *error = nil;
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    NSMutableDictionary *options = [[NSMutableDictionary alloc] init];
+    [options setObject:[NSNumber numberWithBool:YES] forKey:NSMigratePersistentStoresAutomaticallyOption];
+    [options setObject:[NSNumber numberWithBool:YES] forKey:NSInferMappingModelAutomaticallyOption];
+    [options setObject:@{@"journal_mode" : @"DELETE"} forKey:NSSQLitePragmasOption];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:options
+                                                           error:&error]) {
+        /*
+         Replace this implementation with code to handle the error appropriately.
+         
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         
+         Typical reasons for an error here include:
+         * The persistent store is not accessible;
+         * The schema for the persistent store is incompatible with current managed object model.
+         Check the error message to determine what the actual problem was.
+         
+         
+         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
+         
+         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
+         * Simply deleting the existing store:
+         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
+         
+         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
+         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
+         
+         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
+         
+         */
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    return _persistentStoreCoordinator;
+    //    }
 }
 
 - (void)loadExistingSQLite {
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"];
     // Load the existing database
     if (![[NSFileManager defaultManager] fileExistsAtPath:storeURL.path]) {
-        NSArray *sourceSqliteURLs = @[[[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite"],
-                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-wal"],
-                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-shm"]
+        NSArray *sourceSqliteURLs = @[[[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite"]
+//                                      ,
+//                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-wal"],
+//                                      [[NSBundle mainBundle] URLForResource:@"MetroPaul" withExtension:@"sqlite-shm"]
                                       ];
-        NSArray *destSqliteURLs = @[[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"],
-                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-wal"],
-                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-shm"]
+        NSArray *destSqliteURLs = @[[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite"]
+//                                    ,
+//                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-wal"],
+//                                    [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"MetroPaul.sqlite-shm"]
                                     ];
         
         for (int index = 0; index < sourceSqliteURLs.count; index++) {

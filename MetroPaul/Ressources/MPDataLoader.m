@@ -35,7 +35,7 @@
     [self removeAllData];
     
     // Retrieve data from the source file
-    NSString* networkDataPath = [[NSBundle mainBundle] pathForResource:@"T_NETWORK" ofType:@"json"];
+    NSString* networkDataPath = [[NSBundle mainBundle] pathForResource:@"networks" ofType:@"json"];
     if (networkDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:networkDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -45,7 +45,10 @@
         }
     }
     
-    NSString* stopAreaDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_AREA" ofType:@"json"];
+    NSLog(@"Data networks finish");
+
+    
+    NSString* stopAreaDataPath = [[NSBundle mainBundle] pathForResource:@"stopAreas" ofType:@"json"];
     if (stopAreaDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -55,7 +58,10 @@
         }
     }
     
-    NSString* lineDataPath = [[NSBundle mainBundle] pathForResource:@"T_LINE" ofType:@"json"];
+    NSLog(@"Data stopAreas finish");
+
+    
+    NSString* lineDataPath = [[NSBundle mainBundle] pathForResource:@"lines" ofType:@"json"];
     if (lineDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:lineDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -64,7 +70,10 @@
             [self saveContext];
         }
     }
-    NSString* stopAreaLineDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_AREA_LINE" ofType:@"json"];
+    
+    NSLog(@"Data line finish");
+
+    NSString* stopAreaLineDataPath = [[NSBundle mainBundle] pathForResource:@"stopAreasLine" ofType:@"json"];
     if (stopAreaLineDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaLineDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -73,8 +82,10 @@
             [self saveContext];
         }
     }
+    NSLog(@"Data stopAreaLine finish");
+
     
-    NSString* routeDataPath = [[NSBundle mainBundle] pathForResource:@"T_ROUTE" ofType:@"json"];
+    NSString* routeDataPath = [[NSBundle mainBundle] pathForResource:@"routes" ofType:@"json"];
     if (routeDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:routeDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -83,8 +94,10 @@
             [self saveContext];
         }
     }
+    NSLog(@"Data routes finish");
 
-    NSString *stopAreaRouteDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_AREA_ROUTE" ofType:@"json"];
+
+    NSString *stopAreaRouteDataPath = [[NSBundle mainBundle] pathForResource:@"stopAreasRoute" ofType:@"json"];
     if (stopAreaRouteDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopAreaRouteDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -93,8 +106,10 @@
             [self saveContext];
         }
     }
+    NSLog(@"Data stopAreaRoute finish");
+
     
-    NSString *stopPointDataPath = [[NSBundle mainBundle] pathForResource:@"T_STOP_POINT" ofType:@"json"];
+    NSString *stopPointDataPath = [[NSBundle mainBundle] pathForResource:@"stopPoints" ofType:@"json"];
     if (stopPointDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:stopPointDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -103,8 +118,10 @@
             [self saveContext];
         }
     }
+    NSLog(@"Data stopPoint finish");
+
     
-    NSString* itineraryDataPath = [[NSBundle mainBundle] pathForResource:@"T_ITINERAIRES" ofType:@"json"];
+    NSString* itineraryDataPath = [[NSBundle mainBundle] pathForResource:@"itineraires" ofType:@"json"];
     if (stopAreaLineDataPath != nil) {
         NSArray *datas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:itineraryDataPath] options:kNilOptions error:nil];
         if (datas != nil) {
@@ -113,7 +130,8 @@
             [self saveContext];
         }
     }
-   
+    NSLog(@"Data itineraire finish");
+
     
     NSLog(@"Data Preload finish");
 }
