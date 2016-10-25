@@ -88,6 +88,29 @@
     return nil;
 }
 
++ (MPLine *)findByCode:(NSString *)code {
+    // Fetching
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([self class])];
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
+    
+    // Create Predicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", @"code", code];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSError *error;
+    NSArray *results = [[AppDelegate sharedAppDelegate].managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error != nil) {
+        NSLog(@"Failed to retrieve record: \(e!.localizedDescription)");
+    } else {
+        if (results.count == 1) {
+            return [results firstObject];
+        }
+    }
+    
+    return nil;
+}
+
 
 + (NSArray *)findByStopAreaId:(NSNumber *)id_stop_area {
     // Fetching

@@ -277,7 +277,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itineraireCellBG" translatesAutoresizingMaskIntoConstraints="NO" id="krS-3o-zK5"/>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-jx-a4g">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="sli-Gs-wNw"/>
+                                                        <constraint firstAttribute="height" constant="25" id="sli-Gs-wNw"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -285,51 +285,64 @@
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdl-hH-Qvv" customClass="MPSectionView">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="Q5N-VD-qFB"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rrw-lV-NhT" customClass="MPSectionView">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="qPa-FM-c5n"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xwf-Go-s2w" customClass="MPSectionView">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81.5" id="gWr-TT-U4N"/>
+                                                    </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ym-5v-Xqx" customClass="MPSectionView">
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="cRR-zT-MCX"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="Rdl-hH-Qvv" firstAttribute="top" secondItem="TzH-jx-a4g" secondAttribute="bottom" id="01j-go-ZEJ"/>
+                                                <constraint firstItem="Rdl-hH-Qvv" firstAttribute="top" secondItem="TzH-jx-a4g" secondAttribute="bottom" constant="12" id="01j-go-ZEJ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Rdl-hH-Qvv" secondAttribute="bottom" constant="14" id="05I-yC-O6R"/>
                                                 <constraint firstItem="rrw-lV-NhT" firstAttribute="top" secondItem="Rdl-hH-Qvv" secondAttribute="top" id="1ZL-Ed-4DP"/>
                                                 <constraint firstItem="1Ym-5v-Xqx" firstAttribute="leading" secondItem="Xwf-Go-s2w" secondAttribute="trailing" id="6zj-aj-g1Q"/>
-                                                <constraint firstAttribute="trailing" secondItem="1Ym-5v-Xqx" secondAttribute="trailing" constant="26" id="8jJ-5k-8bq"/>
-                                                <constraint firstItem="rrw-lV-NhT" firstAttribute="width" secondItem="Rdl-hH-Qvv" secondAttribute="width" id="CME-Mh-CKM"/>
-                                                <constraint firstItem="Xwf-Go-s2w" firstAttribute="width" secondItem="rrw-lV-NhT" secondAttribute="width" id="D9U-7J-sZ7"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Ym-5v-Xqx" secondAttribute="trailing" constant="25" id="8jJ-5k-8bq"/>
                                                 <constraint firstItem="rrw-lV-NhT" firstAttribute="bottom" secondItem="Rdl-hH-Qvv" secondAttribute="bottom" id="G66-oL-g7f"/>
-                                                <constraint firstItem="TzH-jx-a4g" firstAttribute="leading" secondItem="ae2-Bg-gGY" secondAttribute="leading" id="GEC-bX-Fe8"/>
+                                                <constraint firstItem="TzH-jx-a4g" firstAttribute="leading" secondItem="ae2-Bg-gGY" secondAttribute="leading" constant="25" id="GEC-bX-Fe8"/>
                                                 <constraint firstItem="rrw-lV-NhT" firstAttribute="leading" secondItem="Rdl-hH-Qvv" secondAttribute="trailing" id="Gz4-9F-03K"/>
                                                 <constraint firstItem="1Ym-5v-Xqx" firstAttribute="top" secondItem="Xwf-Go-s2w" secondAttribute="top" id="KX0-yY-ZsS"/>
                                                 <constraint firstAttribute="trailing" secondItem="krS-3o-zK5" secondAttribute="trailing" constant="11" id="POg-oI-W3R"/>
-                                                <constraint firstItem="1Ym-5v-Xqx" firstAttribute="width" secondItem="Xwf-Go-s2w" secondAttribute="width" id="Uiq-HN-Yxr"/>
                                                 <constraint firstItem="krS-3o-zK5" firstAttribute="leading" secondItem="ae2-Bg-gGY" secondAttribute="leading" constant="11" id="ZNr-CZ-kol"/>
                                                 <constraint firstItem="Xwf-Go-s2w" firstAttribute="bottom" secondItem="rrw-lV-NhT" secondAttribute="bottom" id="ZaB-Vf-E1W"/>
                                                 <constraint firstItem="Xwf-Go-s2w" firstAttribute="leading" secondItem="rrw-lV-NhT" secondAttribute="trailing" id="hsw-GH-GMy"/>
-                                                <constraint firstAttribute="trailing" secondItem="TzH-jx-a4g" secondAttribute="trailing" id="k1L-cW-MHd"/>
+                                                <constraint firstAttribute="trailing" secondItem="TzH-jx-a4g" secondAttribute="trailing" constant="25" id="k1L-cW-MHd"/>
                                                 <constraint firstItem="krS-3o-zK5" firstAttribute="top" secondItem="ae2-Bg-gGY" secondAttribute="top" id="lMd-9A-IJ4"/>
                                                 <constraint firstItem="Xwf-Go-s2w" firstAttribute="top" secondItem="rrw-lV-NhT" secondAttribute="top" id="nEl-1l-FCd"/>
-                                                <constraint firstItem="TzH-jx-a4g" firstAttribute="top" secondItem="ae2-Bg-gGY" secondAttribute="top" id="oCx-7K-rS8"/>
+                                                <constraint firstItem="TzH-jx-a4g" firstAttribute="top" secondItem="ae2-Bg-gGY" secondAttribute="top" constant="12" id="oCx-7K-rS8"/>
                                                 <constraint firstItem="1Ym-5v-Xqx" firstAttribute="bottom" secondItem="Xwf-Go-s2w" secondAttribute="bottom" id="r7z-fo-JrO"/>
                                                 <constraint firstAttribute="bottom" secondItem="krS-3o-zK5" secondAttribute="bottom" id="vPB-Qq-odf"/>
-                                                <constraint firstItem="Rdl-hH-Qvv" firstAttribute="leading" secondItem="ae2-Bg-gGY" secondAttribute="leading" constant="26" id="zDH-V8-N1D"/>
+                                                <constraint firstItem="Rdl-hH-Qvv" firstAttribute="leading" secondItem="ae2-Bg-gGY" secondAttribute="leading" constant="25" id="zDH-V8-N1D"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="durationLabel" destination="TzH-jx-a4g" id="Bvb-Xd-bAp"/>
                                             <outlet property="firstSectionView" destination="Rdl-hH-Qvv" id="kTE-Uz-ydO"/>
+                                            <outlet property="firstSectionviewWidthConstraint" destination="Q5N-VD-qFB" id="p6O-60-9aa"/>
                                             <outlet property="fourthSectionView" destination="1Ym-5v-Xqx" id="eSN-Dz-ReD"/>
+                                            <outlet property="fourthSectionviewWidthConstraint" destination="cRR-zT-MCX" id="kb4-vO-aOo"/>
                                             <outlet property="secondSectionView" destination="rrw-lV-NhT" id="bcf-Hn-J31"/>
+                                            <outlet property="secondSectionviewWidthConstraint" destination="qPa-FM-c5n" id="jkz-WH-8qw"/>
                                             <outlet property="thirdSectionView" destination="Xwf-Go-s2w" id="FLa-8q-4fp"/>
+                                            <outlet property="thirdSectionviewWidthConstraint" destination="gWr-TT-U4N" id="Cxj-cc-ofv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

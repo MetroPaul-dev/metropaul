@@ -10,6 +10,7 @@
 #import "MPItineraryCell.h"
 #import "MPGlobalItineraryManager.h"
 #import "MPGlobalItinerary.h"
+#import "MPRevealController.h"
 
 @interface MPItineraryViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *startIconImage;
@@ -30,6 +31,18 @@
     // Do any additional setup after loading the view.
     self.globalItineraries = [NSArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
+    
+    self.navigationItem.leftBarButtonItems = nil;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
+                                             style:UIBarButtonItemStylePlain
+                                             target:[MPRevealController sharedInstance]
+                                             action:@selector(showLeftController)];
+    
+    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    self.navigationController.navigationBar.translucent = NO;
+    
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
     if ([MPGlobalItineraryManager sharedManager].startAddress == nil || ![[MPGlobalItineraryManager sharedManager].startAddress checkAddressValidity]) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noStart"]];
@@ -85,6 +98,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 132.0;
 }
@@ -97,6 +114,11 @@
     if (self.globalItineraries == nil || self.globalItineraries.count == 0) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noItinerary"]];
     }
+}
+
+- (void)calculAllItineraryFailed {
+    MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
+    [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.itinerary.problem"]];
 }
 
 - (void)alertViewError:(NSString*)title message:(NSString*)message {

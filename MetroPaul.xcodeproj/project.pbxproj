@@ -9,15 +9,8 @@
 /* Begin PBXBuildFile section */
 		0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */; };
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
+		7110AC8C1DBF3BD900774340 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7110AC8B1DBF3BD900774340 /* MessageUI.framework */; };
 		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
-		713019B91DBE3E4C0061DD36 /* itineraires.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B11DBE3E4C0061DD36 /* itineraires.json */; };
-		713019BA1DBE3E4C0061DD36 /* lines.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B21DBE3E4C0061DD36 /* lines.json */; };
-		713019BB1DBE3E4C0061DD36 /* networks.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B31DBE3E4C0061DD36 /* networks.json */; };
-		713019BC1DBE3E4C0061DD36 /* routes.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B41DBE3E4C0061DD36 /* routes.json */; };
-		713019BD1DBE3E4C0061DD36 /* stopAreas.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B51DBE3E4C0061DD36 /* stopAreas.json */; };
-		713019BE1DBE3E4C0061DD36 /* stopAreasLine.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B61DBE3E4C0061DD36 /* stopAreasLine.json */; };
-		713019BF1DBE3E4C0061DD36 /* stopAreasRoute.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */; };
-		713019C01DBE3E4C0061DD36 /* stopPoints.json in Resources */ = {isa = PBXBuildFile; fileRef = 713019B81DBE3E4C0061DD36 /* stopPoints.json */; };
 		713019C21DBE40490061DD36 /* MetroPaul.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 713019C11DBE40490061DD36 /* MetroPaul.sqlite */; };
 		713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A11DB3CD8300E05F75 /* MPMapsViewController.m */; };
 		713132A51DB3DE3000E05F75 /* MPMapsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A41DB3DE3000E05F75 /* MPMapsCell.m */; };
@@ -151,16 +144,9 @@
 		544E59710622FF32A05DBC5F /* Pods-MetroPaulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulTests/Pods-MetroPaulTests.debug.xcconfig"; sourceTree = "<group>"; };
 		54A057CB81B4E01D8BBBB6DD /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
 		56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7110AC8B1DBF3BD900774340 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
 		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
-		713019B11DBE3E4C0061DD36 /* itineraires.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = itineraires.json; sourceTree = "<group>"; };
-		713019B21DBE3E4C0061DD36 /* lines.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lines.json; sourceTree = "<group>"; };
-		713019B31DBE3E4C0061DD36 /* networks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = networks.json; sourceTree = "<group>"; };
-		713019B41DBE3E4C0061DD36 /* routes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = routes.json; sourceTree = "<group>"; };
-		713019B51DBE3E4C0061DD36 /* stopAreas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreas.json; sourceTree = "<group>"; };
-		713019B61DBE3E4C0061DD36 /* stopAreasLine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreasLine.json; sourceTree = "<group>"; };
-		713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopAreasRoute.json; sourceTree = "<group>"; };
-		713019B81DBE3E4C0061DD36 /* stopPoints.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stopPoints.json; sourceTree = "<group>"; };
 		713019C11DBE40490061DD36 /* MetroPaul.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetroPaul.sqlite; sourceTree = "<group>"; };
 		713132A01DB3CD8300E05F75 /* MPMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsViewController.h; sourceTree = "<group>"; };
 		713132A11DB3CD8300E05F75 /* MPMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMapsViewController.m; sourceTree = "<group>"; };
@@ -300,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7110AC8C1DBF3BD900774340 /* MessageUI.framework in Frameworks */,
 				7142C08A1DA3BC1800F4CB95 /* CoreData.framework in Frameworks */,
 				71CDEA541DA1A4780003C683 /* libSDKTools.a in Frameworks */,
 				71CDE95C1DA166C90003C683 /* CoreTelephony.framework in Frameworks */,
@@ -364,14 +351,6 @@
 		7142C0971DA3E9E600F4CB95 /* jsonData */ = {
 			isa = PBXGroup;
 			children = (
-				713019B11DBE3E4C0061DD36 /* itineraires.json */,
-				713019B21DBE3E4C0061DD36 /* lines.json */,
-				713019B31DBE3E4C0061DD36 /* networks.json */,
-				713019B41DBE3E4C0061DD36 /* routes.json */,
-				713019B51DBE3E4C0061DD36 /* stopAreas.json */,
-				713019B61DBE3E4C0061DD36 /* stopAreasLine.json */,
-				713019B71DBE3E4C0061DD36 /* stopAreasRoute.json */,
-				713019B81DBE3E4C0061DD36 /* stopPoints.json */,
 			);
 			name = jsonData;
 			sourceTree = "<group>";
@@ -706,6 +685,7 @@
 		9ACCA59A555E5209DB9115A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7110AC8B1DBF3BD900774340 /* MessageUI.framework */,
 				71B038271DA2A06200B8229C /* CoreData.framework */,
 				71CDE95B1DA166C90003C683 /* CoreTelephony.framework */,
 				71CDE9591DA166BE0003C683 /* AVFoundation.framework */,
@@ -870,16 +850,12 @@
 				71CE66941DA6818900F599EE /* MPSearchResultDestinationCell.xib in Resources */,
 				719A5CFD1DBB5EB000F86593 /* bus_paris_simple.pdf in Resources */,
 				71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */,
-				713019B91DBE3E4C0061DD36 /* itineraires.json in Resources */,
-				713019BB1DBE3E4C0061DD36 /* networks.json in Resources */,
 				71E6DAF51D9CFFEF0008EC19 /* Localizable.strings in Resources */,
 				71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */,
 				719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */,
 				71FB3EF51D9D1FD100BD0D6A /* Roboto-BoldItalic.otf in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
 				719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */,
-				713019BE1DBE3E4C0061DD36 /* stopAreasLine.json in Resources */,
-				713019C01DBE3E4C0061DD36 /* stopPoints.json in Resources */,
 				7178C51B1D9B91F200ED775B /* Assets.xcassets in Resources */,
 				71FB3EF71D9D1FD100BD0D6A /* Roboto-Light.otf in Resources */,
 				71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */,
@@ -888,11 +864,7 @@
 				71AA93391DB13AE8003BD674 /* MPSectionView.xib in Resources */,
 				71FB3EF61D9D1FD100BD0D6A /* Roboto-Italic.otf in Resources */,
 				7178C5161D9B91F200ED775B /* Main.storyboard in Resources */,
-				713019BA1DBE3E4C0061DD36 /* lines.json in Resources */,
-				713019BD1DBE3E4C0061DD36 /* stopAreas.json in Resources */,
-				713019BF1DBE3E4C0061DD36 /* stopAreasRoute.json in Resources */,
 				713019C21DBE40490061DD36 /* MetroPaul.sqlite in Resources */,
-				713019BC1DBE3E4C0061DD36 /* routes.json in Resources */,
 				71FB3EF91D9D1FD100BD0D6A /* Roboto-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

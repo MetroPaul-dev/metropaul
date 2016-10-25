@@ -17,7 +17,7 @@
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 @property(nonatomic, strong) MPStopArea *stopArea;
-@property(nonatomic, strong) NSArray *stopAreas;
+@property(nonatomic, strong) NSMutableArray *stopAreas;
 @property(nonatomic, strong) NSMutableArray *itineraryToStopAreas;
 
 - (instancetype)initWithSKSearchResult:(SKSearchResult*)searchResult;

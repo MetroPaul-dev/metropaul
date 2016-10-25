@@ -13,4 +13,5 @@
 @interface MPSectionView : UIView
 @property(nonatomic, strong) SKRouteInformation *routeInformation;
 @property(nonatomic, strong) MPSectionItinerary *sectionItinerary;
+- (void)isLastSection:(BOOL)last;
 @end

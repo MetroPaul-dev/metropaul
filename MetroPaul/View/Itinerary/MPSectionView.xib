@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -13,11 +14,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MPSectionView">
             <connections>
+                <outlet property="firstImageHrozontalAlignmentConstraint" destination="4kt-np-5EW" id="QoP-bY-Sra"/>
                 <outlet property="firstImageView" destination="7kW-IE-Rup" id="zV1-tK-EOa"/>
                 <outlet property="label" destination="V78-2X-u51" id="wuK-mf-sNs"/>
                 <outlet property="secondImageView" destination="1a0-3g-GkC" id="bwZ-Db-ryF"/>
-                <outlet property="secondImageViewHeightConstraint" destination="TTa-Td-hZ6" id="F7Z-uu-w5a"/>
-                <outlet property="secondImageViewWidthConstraint" destination="uX0-0l-Ahx" id="WPO-s4-YcJ"/>
+                <outlet property="secondImageWidthConstraint" destination="uX0-0l-Ahx" id="gGb-fh-LdM"/>
                 <outlet property="separatorWidthConstraint" destination="SIt-UO-tDa" id="IEK-ND-v00"/>
                 <outlet property="view" destination="iN0-l3-epB" id="sid-9Q-DwM"/>
             </connections>
@@ -32,12 +33,12 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-IE-Rup">
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="35z-Lk-jTa"/>
-                                <constraint firstAttribute="height" constant="25" id="BUp-Cq-wVr"/>
+                                <constraint firstAttribute="width" secondItem="7kW-IE-Rup" secondAttribute="height" multiplier="1:1" id="XCw-nT-AS0"/>
                             </constraints>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1a0-3g-GkC">
                             <constraints>
-                                <constraint firstAttribute="height" constant="25" id="TTa-Td-hZ6"/>
+                                <constraint firstAttribute="width" secondItem="1a0-3g-GkC" secondAttribute="height" multiplier="1:1" id="b9H-gB-hG3"/>
                                 <constraint firstAttribute="width" constant="25" id="uX0-0l-Ahx"/>
                             </constraints>
                         </imageView>
@@ -52,17 +53,16 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="1a0-3g-GkC" firstAttribute="leading" secondItem="7kW-IE-Rup" secondAttribute="trailing" id="2n7-9T-IQB"/>
-                        <constraint firstItem="7kW-IE-Rup" firstAttribute="centerX" secondItem="mlC-YL-xQJ" secondAttribute="centerX" constant="-12" id="4kt-np-5EW"/>
+                        <constraint firstItem="1a0-3g-GkC" firstAttribute="leading" secondItem="7kW-IE-Rup" secondAttribute="trailing" constant="2" id="2n7-9T-IQB"/>
+                        <constraint firstItem="7kW-IE-Rup" firstAttribute="centerX" secondItem="mlC-YL-xQJ" secondAttribute="centerX" constant="-13" id="4kt-np-5EW"/>
                         <constraint firstAttribute="bottom" secondItem="V78-2X-u51" secondAttribute="bottom" id="8V4-xP-Wuq"/>
                         <constraint firstItem="7kW-IE-Rup" firstAttribute="top" secondItem="mlC-YL-xQJ" secondAttribute="top" constant="7" id="QGW-OQ-aXI"/>
                         <constraint firstItem="1a0-3g-GkC" firstAttribute="bottom" secondItem="7kW-IE-Rup" secondAttribute="bottom" id="bbO-Tq-m4x"/>
-                        <constraint firstItem="1a0-3g-GkC" firstAttribute="top" secondItem="7kW-IE-Rup" secondAttribute="top" id="eec-xq-Kad"/>
                         <constraint firstAttribute="trailing" secondItem="V78-2X-u51" secondAttribute="trailing" id="k3B-6r-D3y"/>
                         <constraint firstItem="V78-2X-u51" firstAttribute="leading" secondItem="mlC-YL-xQJ" secondAttribute="leading" id="kWb-JJ-6Zu"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itinerarySectionSeparator" translatesAutoresizingMaskIntoConstraints="NO" id="VKB-QN-IDf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itinerarySectionSeparatorClear" translatesAutoresizingMaskIntoConstraints="NO" id="VKB-QN-IDf">
                     <constraints>
                         <constraint firstAttribute="width" constant="11" id="SIt-UO-tDa"/>
                     </constraints>
@@ -84,6 +84,6 @@
         </view>
     </objects>
     <resources>
-        <image name="itinerarySectionSeparator" width="11" height="60"/>
+        <image name="itinerarySectionSeparatorClear" width="11" height="60"/>
     </resources>
 </document>

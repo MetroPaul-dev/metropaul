@@ -61,5 +61,6 @@
 "alert.message.noStart" = "Le point de départ n’est pas défini";
 "alert.message.noDestination" = "La destination n’est pas définie";
 "alert.message.noItinerary" = "Aucun itinéraire ne correspond à votre demande";
+"alert.message.itinerary.problem" = "Un problème est survenu pendant le calcul de votre itinéraire";
 "alert.message.noItinerary.accessible" = "Aucun itinéraire accessible ne correspond à votre demande";
 "alert.message.outside" = "Votre point de départ ou de destination est en dehors de la ville";

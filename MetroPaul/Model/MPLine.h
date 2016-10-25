@@ -27,6 +27,7 @@
 + (NSArray*)initWithArray:(NSArray *)array managedObjectContext:(NSManagedObjectContext*)managedObjectContext;
 
 + (MPLine*)findById:(NSNumber*)id_line;
++ (MPLine *)findByCode:(NSString *)code;
 + (NSArray *)findByStopAreaId:(NSNumber *)id_stop_area;
 + (NSArray *)findAll;
 @end

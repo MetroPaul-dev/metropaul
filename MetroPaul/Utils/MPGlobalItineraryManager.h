@@ -13,6 +13,8 @@
 #define KEY_TITLE @"KEY_TITLE"
 
 #define kNotifItineraryCalculated @"kNotifItineraryCalculated"
+#define kNotifItineraryCalculFailed @"kNotifItineraryCalculFailed"
+
 
 typedef NS_ENUM(NSInteger, MPAddressToReplace) {
     MPAddressToReplaceNull = 0,
@@ -29,6 +31,7 @@ typedef NS_ENUM(NSInteger, MPAddressToReplace) {
 
 + (instancetype)sharedManager;
 - (void)calculAllItinerary;
+- (void)reset;
 - (void)setAddress:(MPAddress*)address;
 
 @end

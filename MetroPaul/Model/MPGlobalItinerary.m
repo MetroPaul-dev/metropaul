@@ -7,21 +7,16 @@
 //
 
 #import "MPGlobalItinerary.h"
+#import "MPSectionItinerary.h"
 
 @implementation MPGlobalItinerary
-
-- (NSInteger)getDuration {
-    NSInteger duration = 0;
-    duration += self.startRouteInformation.estimatedTime;
-    //duration += self.itineraryMetro
-    duration += self.destinationRouteInformation.estimatedTime;
-    
-    return duration;
-}
 
 - (NSInteger)duration {
     NSInteger duration = 0;
     duration += self.startRouteInformation.estimatedTime;
+    for (MPSectionItinerary *section in [self.itineraryMetro readItinerary]) {
+        duration += section.duration;
+    }
     //duration += self.itineraryMetro
     duration += self.destinationRouteInformation.estimatedTime;
     

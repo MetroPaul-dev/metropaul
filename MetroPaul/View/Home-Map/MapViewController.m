@@ -16,6 +16,7 @@
 #import "MPItineraryViewController.h"
 #import "MPGlobalItineraryManager.h"
 #import "SKSearchResult+MPString.h"
+#import <MessageUI/MessageUI.h>
 
 #define CELL_HEIGHT 50
 #define INFOVIEW_HEIGHT 70
@@ -26,7 +27,7 @@ static SKListLevel listLevel;
 static SKListLevel listLevelLimit;
 
 
-@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MPSearchResultDestinationCellDelegate>
+@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MPSearchResultDestinationCellDelegate, MFMessageComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
@@ -546,6 +547,7 @@ static SKListLevel listLevelLimit;
     
     if (self.searchResultSelected != nil || self.stopAreaSelected != nil) {
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
+            [[MPGlobalItineraryManager sharedManager] reset];
             SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
             [address setName:[[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]];
@@ -620,14 +622,22 @@ static SKListLevel listLevelLimit;
     } else if(_stopAreaSelected != nil) {
         coordinate = CLLocationCoordinate2DMake([_stopAreaSelected.latitude doubleValue], [_stopAreaSelected.longitude doubleValue]);
     }
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"metropaul://map/position?lat=%f&long=%f", coordinate.latitude, coordinate.longitude]];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
+    if(![MFMessageComposeViewController canSendText]) {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+        return;
     }
-    else {
-        //Display error
-        [[[UIAlertView alloc] initWithTitle:@"Receiver Not Found" message:@"The Receiver App is not installed. It must be installed to send text." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
-    }
+    
+    NSArray *recipents = [NSArray array];
+    NSString *message = [NSString stringWithFormat:@"metropaul://map/position?lat=%f&long=%f", coordinate.latitude, coordinate.longitude];
+    
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    [messageController setRecipients:recipents];
+    [messageController setBody:message];
+    
+    // Present message view controller on screen
+    [self presentViewController:messageController animated:YES completion:nil];
 }
 
 - (void)receivedPosition:(NSNotification*)notification {
@@ -637,6 +647,27 @@ static SKListLevel listLevelLimit;
         [self setDestinationWithSearchResult:searchObject];
         appDelegate.coordinateReceived = kCLLocationCoordinate2DInvalid;
     }
+}
+
+#pragma mark - MFMessageComposeViewControllerDelegate
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
+        }
+        case MessageComposeResultSent:
+            break;
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
