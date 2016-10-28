@@ -504,12 +504,20 @@
                                     <constraint firstAttribute="height" constant="2" id="OQ4-EP-fSu"/>
                                 </constraints>
                             </progressView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnQ-dY-TMq">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnQ-dY-TMq">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="aKy-OK-8HK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sk6-Sn-ja1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="dU8-GE-UQw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zfg-yo-0YM">
@@ -549,20 +557,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zfg-yo-0YM" secondAttribute="trailing" id="BrF-5V-aJR"/>
-                            <constraint firstItem="zfg-yo-0YM" firstAttribute="top" secondItem="OnQ-dY-TMq" secondAttribute="bottom" constant="31" id="Cdn-UJ-9f8"/>
                             <constraint firstItem="2Pv-X0-Hv2" firstAttribute="top" secondItem="zfg-yo-0YM" secondAttribute="bottom" id="DP3-UM-opV"/>
                             <constraint firstAttribute="trailing" secondItem="OnQ-dY-TMq" secondAttribute="trailing" constant="8" id="HIq-RG-2sI"/>
+                            <constraint firstItem="Sk6-Sn-ja1" firstAttribute="top" secondItem="OnQ-dY-TMq" secondAttribute="bottom" constant="2" id="JkZ-XF-jbo"/>
                             <constraint firstItem="8fe-oG-ERb" firstAttribute="top" secondItem="fhm-Ao-eMS" secondAttribute="bottom" constant="38" id="L0I-Zz-iXx"/>
                             <constraint firstItem="OnQ-dY-TMq" firstAttribute="leading" secondItem="tOv-qD-9qQ" secondAttribute="leading" constant="8" id="PSH-iv-nyF"/>
+                            <constraint firstItem="Sk6-Sn-ja1" firstAttribute="leading" secondItem="tOv-qD-9qQ" secondAttribute="leading" id="SzV-he-xfs"/>
                             <constraint firstItem="zfg-yo-0YM" firstAttribute="leading" secondItem="tOv-qD-9qQ" secondAttribute="leading" id="UTX-Lq-B4C"/>
                             <constraint firstItem="8fe-oG-ERb" firstAttribute="leading" secondItem="tOv-qD-9qQ" secondAttribute="leadingMargin" constant="35" id="Zg2-d1-m4d"/>
                             <constraint firstItem="OnQ-dY-TMq" firstAttribute="top" secondItem="8fe-oG-ERb" secondAttribute="bottom" constant="8" id="bkI-rR-eW7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8fe-oG-ERb" secondAttribute="trailing" constant="36" id="nHF-bg-dRH"/>
+                            <constraint firstItem="zfg-yo-0YM" firstAttribute="top" secondItem="Sk6-Sn-ja1" secondAttribute="bottom" constant="15" id="sMX-JR-ba6"/>
+                            <constraint firstAttribute="trailing" secondItem="Sk6-Sn-ja1" secondAttribute="trailing" id="zgM-t7-PAS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="percentLabel" destination="OnQ-dY-TMq" id="unJ-Ky-wqR"/>
                         <outlet property="progressView" destination="8fe-oG-ERb" id="e5E-lJ-d6B"/>
+                        <outlet property="speedLabel" destination="Sk6-Sn-ja1" id="wag-CF-Nil"/>
                         <outlet property="tableView" destination="zfg-yo-0YM" id="CYm-bU-5Mf"/>
                     </connections>
                 </viewController>

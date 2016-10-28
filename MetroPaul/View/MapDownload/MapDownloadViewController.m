@@ -12,13 +12,14 @@
 #import "SKTMapsObject.h"
 #import "MPMapDownloadCell.h"
 
-@interface MapDownloadViewController () <SKTDownloadManagerDelegate, SKTDownloadManagerDataSource, UITableViewDelegate, UITableViewDataSource>
+@interface MapDownloadViewController () <SKTDownloadManagerDelegate, SKTDownloadManagerDataSource, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet UIProgressView *progressView;
 @property (nonatomic, strong) IBOutlet UILabel *percentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 
 @property(nonatomic,strong) SKTPackage* regionToDownload;
-@property(nonatomic,strong) NSArray *packageList;
+@property(nonatomic,strong) NSMutableArray *packageList;
 @property(nonatomic,strong) NSArray* oldPackages;
 
 @end
@@ -29,27 +30,31 @@
     [super viewDidLoad];
     
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
+    self.packageList = [NSMutableArray array];
     
     AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
-    self.packageList = @[[appDelegate.skMapsObject packageForCode:@"FRJ"]
-//                         ,
-//                        [appDelegate.skMapsObject packageForCode:@"FRCITY02"],
-//                        [appDelegate.skMapsObject packageForCode:@"FRCITY01"],
-//                        [appDelegate.skMapsObject packageForCode:@"FRCITY13"]
-                        ];
-    
-    // SKMapPackage* package = packages[0];
-    // Do any additional setup after loading the view.
+    SKTPackage *ileDeFrance = [appDelegate.skMapsObject packageForCode:@"FRJ"];
+    if (ileDeFrance != nil) {
+        [self.packageList addObject:ileDeFrance];
+    }
     
     if (![XMLParser sharedInstance].isParsingFinished) {
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showDownloadUI) name:kParsingFinishedNotificationName object:nil];
     }
     else {
-        [self showDownloadUI];
+        [[SKTDownloadManager sharedInstance] cancelDownload];
     }
     
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download" comment:nil]];
+    
+    if ([[SKTDownloadManager sharedInstance] isDownloadPaused]) {
+        [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"Un téléchargement est en pause" delegate:self cancelButtonTitle:@"Supprimer" otherButtonTitles:@"Reprendre", nil] show];
+    }
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+        [super viewWillDisappear:animated];
+        [[SKTDownloadManager sharedInstance] cancelDownload];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,9 +81,15 @@
 
 - (void)notEnoughDiskSpace {
     NSLog(@"not enough space");
+    [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"L'espace disque est insuffisant" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [[SKTDownloadManager sharedInstance] cancelDownload];
 }
 
 - (void)didCancelDownload {
+    NSLog(@"didCancelDownload");
+    self.progressView.progress = 0;
+    self.percentLabel.text = @"";
+    self.speedLabel.text = @"";
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
     [self.tableView reloadData];
     // [self.startButton setEnabled:YES];
@@ -87,6 +98,7 @@
 - (void)downloadManager:(SKTDownloadManager *)downloadManager didPauseDownloadForDownloadHelper:(SKTDownloadObjectHelper *)downloadHelper {
     NSLog(@"didPauseDownloadForDownloadHelper");
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
+    [[SKTDownloadManager sharedInstance] cancelDownload];
     [self.tableView reloadData];
     // [self.startButton setEnabled:YES];
     
@@ -96,7 +108,6 @@
     NSLog(@"didResumeDownloadForDownloadHelper");
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
     [self.tableView reloadData];
-    // [self.startButton setEnabled:NO];
 }
 
 - (void)downloadManager:(SKTDownloadManager *)downloadManager internetAvailabilityChanged:(BOOL)isAvailable {
@@ -108,7 +119,7 @@
 }
 
 - (void)downloadManager:(SKTDownloadManager *)downloadManager didUpdateDownloadSpeed:(NSString *)speed andRemainingTime:(NSString *)remainingTime {
-    
+    self.speedLabel.text = remainingTime;
 }
 
 - (void)downloadManager:(SKTDownloadManager *)downloadManager didUpdateCurrentDownloadProgress:(NSString *)currentPorgressString currentDownloadPercentage:(float)currentPercentage overallDownloadProgress:(NSString *)overallProgressString overallDownloadPercentage:(float)overallPercentage forDownloadHelper:(SKTDownloadObjectHelper *)downloadHelper {
@@ -129,7 +140,7 @@
 }
 
 - (void)operationsCancelledByOSDownloadManager:(SKTDownloadManager *)downloadManager {
-    
+    NSLog(@"operationsCancelledByOSDownloadManager");
 }
 
 #pragma mark - SKTDownloadManagerDataSource
@@ -150,7 +161,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SKTPackage *package = [self.packageList objectAtIndex:indexPath.row];
-
+    
     MPMapDownloadCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([MPMapDownloadCell class])];
     cell.button.tag = [indexPath row];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@ - %0lldMB",[package nameForLanguageCode:@"en"], package.size/1000000]];
@@ -190,7 +201,7 @@
 
 - (void)didTapButtonDeletePackage:(UIButton*)sender {
     SKTPackage *package = [self.packageList objectAtIndex:sender.tag];
-
+    
     [[[SKMapsService sharedInstance] packagesManager] deleteOfflineMapPackageNamed:package.packageCode];
     self.oldPackages =   [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages] ; // all installed packages for all versions
     [self.tableView reloadData];

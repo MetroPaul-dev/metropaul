@@ -100,6 +100,10 @@ static XMLParser* instance = nil;
     [self parseJSON];
 }
 
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"didFailWithError : %@", error);
+}
+
 
 #pragma mark - XML parsing
 
@@ -127,14 +131,15 @@ static XMLParser* instance = nil;
 - (void)parseJSON
 {
     NSString *jsonString = [[NSString alloc] initWithBytes:[self.jsonData bytes] length:[self.jsonData length] encoding:NSUTF8StringEncoding];
-    
-    SKTMapsObject *skMaps = [SKTMapsObject convertFromJSON:jsonString];
-    
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    [appDelegate setSkMapsObject:skMaps];
-    
-    self.isParsingFinished = YES;
-    [[NSNotificationCenter defaultCenter]postNotificationName:kParsingFinishedNotificationName object:nil];
+    if (jsonString != nil && ![jsonString isEqualToString:@""]) {
+        SKTMapsObject *skMaps = [SKTMapsObject convertFromJSON:jsonString];
+        
+        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        [appDelegate setSkMapsObject:skMaps];
+        
+        self.isParsingFinished = YES;
+        [[NSNotificationCenter defaultCenter]postNotificationName:kParsingFinishedNotificationName object:nil];
+    }
 }
 
 - (void) traverseWorldStructureForElement:(TBXMLElement *)element
