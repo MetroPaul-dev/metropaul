@@ -81,5 +81,9 @@
     return [NSArray arrayWithArray:sections];
 }
 
+- (BOOL)containsPublicTransport {
+    return [self.itineraire containsString:@"p_t"];
+}
+
 
 @end

@@ -21,5 +21,5 @@
 + (MPItinerary *)findByStartStopAreaId:(NSNumber *)startId destinationId:(NSNumber *)destinationId;
 
 - (NSArray*)readItinerary;
-
+- (BOOL)containsPublicTransport;
 @end

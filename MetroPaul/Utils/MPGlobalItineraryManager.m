@@ -195,7 +195,7 @@
                     }
                     MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
                     MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
-                    if (itineraire != nil) {
+                    if (itineraire != nil && [itineraire containsPublicTransport]) {
                         MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
                         globalItinerary.startStopArea = startStopArea;
                         globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
@@ -207,7 +207,7 @@
                 }
             } else {
                 MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
-                if (itineraire != nil) {
+                if (itineraire != nil && [itineraire containsPublicTransport]) {
                     MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
                     globalItinerary.startStopArea = startStopArea;
                     globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
@@ -226,7 +226,7 @@
                 }
                 MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
                 MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
-                if (itineraire != nil) {
+                if (itineraire != nil && [itineraire containsPublicTransport]) {
                     MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
                     globalItinerary.startStopArea = self.startAddress.stopArea;
                     globalItinerary.startRouteInformation = nil;
@@ -238,7 +238,7 @@
             }
         } else {
             MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
-            if (itineraire != nil) {
+            if (itineraire != nil && [itineraire containsPublicTransport]) {
                 MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
                 globalItinerary.startStopArea = self.startAddress.stopArea;
                 globalItinerary.startRouteInformation = nil;

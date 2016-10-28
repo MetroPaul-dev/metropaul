@@ -39,9 +39,9 @@
     }
     
     if (![XMLParser sharedInstance].isParsingFinished) {
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showDownloadUI) name:kParsingFinishedNotificationName object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showDownloadUI) name:kParsingFinishedNotificationName object:nil];
     }
-    else {
+    else if ([[SKTDownloadManager sharedInstance] isDownloadRunning] || [[SKTDownloadManager sharedInstance] isDownloadPaused]) {
         [[SKTDownloadManager sharedInstance] cancelDownload];
     }
     
@@ -53,8 +53,10 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-        [super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
+    if ([[SKTDownloadManager sharedInstance] isDownloadRunning] || [[SKTDownloadManager sharedInstance] isDownloadPaused]) {
         [[SKTDownloadManager sharedInstance] cancelDownload];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -82,7 +84,9 @@
 - (void)notEnoughDiskSpace {
     NSLog(@"not enough space");
     [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"L'espace disque est insuffisant" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
-    [[SKTDownloadManager sharedInstance] cancelDownload];
+    if ([[SKTDownloadManager sharedInstance] isDownloadRunning] || [[SKTDownloadManager sharedInstance] isDownloadPaused]) {
+        [[SKTDownloadManager sharedInstance] cancelDownload];
+    }
 }
 
 - (void)didCancelDownload {
