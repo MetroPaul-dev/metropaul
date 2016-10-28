@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0465E1EDE1ADED2F887A3AC0909F2D85 /* PKAnimating.h in Headers */ = {isa = PBXBuildFile; fileRef = 86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0465E1EDE1ADED2F887A3AC0909F2D85 /* PKAnimating.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D8E62A4C370D34772F114F52BD2613A /* PKAnimating.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07E636373546F8C93CEF55C1D2BE6EBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */; };
-		28BA9576237D42BCBC712DD192B91963 /* CALayer+PKConvenienceAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2A26880EE73AD208DE059BEE5A1E9F3A /* CAAnimation+PKIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28BA9576237D42BCBC712DD192B91963 /* CALayer+PKConvenienceAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = 441A1A6E06D022E04E01D4D1AD99E3AD /* CALayer+PKConvenienceAnimations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2A26880EE73AD208DE059BEE5A1E9F3A /* CAAnimation+PKIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = E53272EE4B01B8154DF269BF35B92E2C /* CAAnimation+PKIdentifier.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B75C6FBDA841C12DF0B1372396E61DE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */; };
-		416D0A72DA9CC74A401C9668E8D51DD3 /* PKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B91568F412148F0348213EDCCD4F56F /* PKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43A1B84FB52C1A01B0EA11B425EBED69 /* NSObject+PKBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */; };
-		4BCFADD30E7543AD2669CE0FBDB97BA6 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */; };
-		4CA5F664B288C59F8FD8A2B4233CF276 /* UIViewController+PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		416D0A72DA9CC74A401C9668E8D51DD3 /* PKLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD37A08D2C3BE0578DD50978BFC59E3 /* PKLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43A1B84FB52C1A01B0EA11B425EBED69 /* NSObject+PKBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A166EEF66F54D3299677E0597F1861 /* NSObject+PKBlocks.m */; };
+		4BCFADD30E7543AD2669CE0FBDB97BA6 /* UIViewController+PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FCE2D1C9222873F6FA86C7084396A5 /* UIViewController+PKRevealController.m */; };
+		4CA5F664B288C59F8FD8A2B4233CF276 /* UIViewController+PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A89672D51E529000B0A8E2F17326804 /* UIViewController+PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D857C085F646BD05E50A95422586BAD /* Pods-MetroPaul-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C19FF275AA34F26B6C99C24C4FAF4CC3 /* Pods-MetroPaul-dummy.m */; };
-		617B7AAB1309E322E5296F3D8B62D614 /* PKRevealControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */; };
+		617B7AAB1309E322E5296F3D8B62D614 /* PKRevealControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AAD7A4345678C9BDF012ED99E409078 /* PKRevealControllerView.m */; };
 		6ACA43888B157B3D42EBED12284D5025 /* Pods-MetroPaulTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6DD72E4D8DEF7A88FC6DCD7E928821 /* Pods-MetroPaulTests-dummy.m */; };
-		6E9431A9BFC7BD576E33EDE0592AB760 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */; };
-		7346AFE2ADF807B274D8032DD22A1944 /* NSObject+PKBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D67145B586704DA45F85253B28A8769 /* PKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F7DCFD1286F227630B122413551C913A /* PKLog.m */; };
-		7E63A419697566705D261E76E5A7F83C /* PKLayerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */; };
-		82AC15A18BEEBE13F046C2C4D8FCE9F2 /* CALayer+PKConvenienceAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */; };
-		82EE8238A057F98EBA920103797491A8 /* PKSequentialAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8678150AF78626A5891012D8533978F1 /* PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87E2EA4886855404E8AA906281A47936 /* PKRevealController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */; };
-		90D1D6619AB83971AD0FF11225FC277C /* PKAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E9431A9BFC7BD576E33EDE0592AB760 /* PKRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = 999EF301D077B64AEDC4D0108DF07B88 /* PKRevealController.m */; };
+		7346AFE2ADF807B274D8032DD22A1944 /* NSObject+PKBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7741448B34B467216D9E84E8A93795C9 /* NSObject+PKBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D67145B586704DA45F85253B28A8769 /* PKLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A3CAB4BE744162F76617C11D552403 /* PKLog.m */; };
+		7E63A419697566705D261E76E5A7F83C /* PKLayerAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3601B435996EA25C838415B0E3F8108B /* PKLayerAnimator.m */; };
+		82AC15A18BEEBE13F046C2C4D8FCE9F2 /* CALayer+PKConvenienceAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D7ED1350452FB2A41853A6CB5F0C808 /* CALayer+PKConvenienceAnimations.m */; };
+		82EE8238A057F98EBA920103797491A8 /* PKSequentialAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F86DF8B36D500F2F15F60A6E5D56EAF /* PKSequentialAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8678150AF78626A5891012D8533978F1 /* PKRevealController.h in Headers */ = {isa = PBXBuildFile; fileRef = D5BCE925CC8283E5D54AB566AACF0556 /* PKRevealController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87E2EA4886855404E8AA906281A47936 /* PKRevealController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F8EE0967FC993D60FB9B5D38C51583 /* PKRevealController-dummy.m */; };
+		90D1D6619AB83971AD0FF11225FC277C /* PKAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = F8DCF10A7CF2E434B51A2BC24F58A231 /* PKAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9290B7BBA07834A8A8C0D6A06851F849 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
-		93959D14EB4C406D44D10B8555A2B3F3 /* PKRevealController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9478F12E19EBD7E66211802BE635BB45 /* PKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */; };
+		93959D14EB4C406D44D10B8555A2B3F3 /* PKRevealController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 834F37C83066722BAAA79457D807026A /* PKRevealController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9478F12E19EBD7E66211802BE635BB45 /* PKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F80495B88F18A27891B84EFFBCB00D86 /* PKAnimation.m */; };
 		9530FC2AAFC01101562FE69F721B8BCC /* Pods-MetroPaulUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EFF0FA1C4BD185A8FC232389CFC790 /* Pods-MetroPaulUITests-dummy.m */; };
-		B13E907566BEE4F1F189F9CC4D913096 /* PKSequentialAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */; };
+		B13E907566BEE4F1F189F9CC4D913096 /* PKSequentialAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DD962D66A98074C84E135540D11EF21 /* PKSequentialAnimation.m */; };
 		B446E6D5E5CC1B1CF1985FF88E3F62EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
 		C72969991F51315268FFED8D0B28B80C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
 		C8F84D422977315E55C9C42E9D671D43 /* Pods-MetroPaulTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3A654A85611A0C98616F921DC607102 /* Pods-MetroPaulTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CBF48F18B3D4E47F8C814646A6645D9F /* PKLayerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CBF48F18B3D4E47F8C814646A6645D9F /* PKLayerAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B42F6D25B9532A72E931448A8A8F07A /* PKLayerAnimator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D12413EA93DE074D3C680EABC00BB7BD /* Pods-MetroPaulUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F5338B7AE988ECB6607AC9011C511EC4 /* Pods-MetroPaulUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E46BCAF97EB78422360B3E64E82C38AF /* PKRevealControllerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E46BCAF97EB78422360B3E64E82C38AF /* PKRevealControllerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F9D51DE0129E4D9AA3BB39FD4FE976A /* PKRevealControllerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA1BB5C5F95CFAF299EFA6D5255065A6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */; };
-		EFF681ADF5C355E22EF3A0A6496DEC02 /* CAAnimation+PKIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */; };
+		EFF681ADF5C355E22EF3A0A6496DEC02 /* CAAnimation+PKIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 354990D14386B1F7BA38F2D4340EF251 /* CAAnimation+PKIdentifier.m */; };
 		FF6D378D78CC9E111E2FA654C4FCDE51 /* Pods-MetroPaul-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90146B1EF8CAC67A92EF479C58BB1357 /* Pods-MetroPaul-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -55,106 +55,107 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealControllerView.m; path = Source/PKRevealController/Classes/PKRevealControllerView.m; sourceTree = "<group>"; };
-		0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+PKBlocks.h"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.h"; sourceTree = "<group>"; };
+		08CE93BD6CD95902B4E721818E7C41E2 /* GGLAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLAnalytics.framework; path = Frameworks/GGLAnalytics.framework; sourceTree = "<group>"; };
+		08D8A30F166D24DC92A6323929F92C37 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
 		091D54A73E1E8BB182C9D7D245AF1C2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.m; sourceTree = "<group>"; };
+		09E712A7474DA30CF825AA6DE8FA87E6 /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
+		0AAD7A4345678C9BDF012ED99E409078 /* PKRevealControllerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealControllerView.m; path = Source/PKRevealController/Classes/PKRevealControllerView.m; sourceTree = "<group>"; };
 		0DEA66A6AD78FD157F5B9478114FCE07 /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
-		113CCF421848F48B483CA15B427EFA6D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		0F5830139201819013B29B1B37302464 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		0F9D51DE0129E4D9AA3BB39FD4FE976A /* PKRevealControllerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealControllerView.h; path = Source/PKRevealController/Classes/PKRevealControllerView.h; sourceTree = "<group>"; };
+		12F6F9985313F77610BEB33EB369BFBE /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Sources/GAITracker.h; sourceTree = "<group>"; };
 		1393BACB70BBDD2D467D5225C1ABFB06 /* Pods-MetroPaulUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-umbrella.h"; sourceTree = "<group>"; };
-		1812419C05C15090E5444E0F7D5DE77E /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
-		18FEBFE1D452E872CB0280148532799D /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
 		1A69488288271836BFB7B3504DE83847 /* Pods_MetroPaulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLayerAnimator.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.m; sourceTree = "<group>"; };
+		1E142C1C1B2223A59367696ACF15C449 /* PKRevealController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PKRevealController.xcconfig; sourceTree = "<group>"; };
+		2020B5620F63331200E50AF71BBA2342 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Sources/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		22BF06CF8319C9BDF9B22BE22C8B9778 /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Sources/GAITrackedViewController.h; sourceTree = "<group>"; };
 		23016F69B2480F44D0BB5526B39192FA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		26525BDD0260D9289C5F008DEE9D6B79 /* GGLCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLCore.framework; path = Frameworks/GGLCore.framework; sourceTree = "<group>"; };
-		2885C76277EF59F9CDC08DD6E5550F08 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
-		298DB4B7CDFA45EDEC47F8FAF0752D6B /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
-		2AF701343AC4BD200973B1EBEEA208B5 /* GGLAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLAnalytics.framework; path = Frameworks/GGLAnalytics.framework; sourceTree = "<group>"; };
-		2B91568F412148F0348213EDCCD4F56F /* PKLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLog.h; path = Source/PKRevealController/Modules/PKLog/PKLog.h; sourceTree = "<group>"; };
-		2C6A4B3136C03CFFC241D1E96079BCBC /* GAITrackedViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Sources/GAITrackedViewController.h; sourceTree = "<group>"; };
-		2E56D9E40CA16E0BB75D62511196FCCA /* Core-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Core-Module.h"; path = "Headers/ModuleHeaders/Core-Module.h"; sourceTree = "<group>"; };
-		2F707FDE715B19345B9E6253F023D4E7 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		23A166EEF66F54D3299677E0597F1861 /* NSObject+PKBlocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PKBlocks.m"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.m"; sourceTree = "<group>"; };
+		2A9176B11EDAAF927CF68272CF4474F8 /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
+		2D56FD10CD70D4EAD29A61D033990679 /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
+		2DD37A08D2C3BE0578DD50978BFC59E3 /* PKLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLog.h; path = Source/PKRevealController/Modules/PKLog/PKLog.h; sourceTree = "<group>"; };
+		2F86DF8B36D500F2F15F60A6E5D56EAF /* PKSequentialAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKSequentialAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.h; sourceTree = "<group>"; };
 		303612BFBF893E40A55DC7ECC5E79339 /* Pods-MetroPaulTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulTests.release.xcconfig"; sourceTree = "<group>"; };
 		316300D295F834A47263C3086A6C609F /* Pods-MetroPaulTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaulTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		385873C12318337A15E6D8460663A134 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/Analytics.h; sourceTree = "<group>"; };
-		3A0DBC9477C2EBCEFDE088F650A94EE6 /* GAITracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Sources/GAITracker.h; sourceTree = "<group>"; };
+		354990D14386B1F7BA38F2D4340EF251 /* CAAnimation+PKIdentifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+PKIdentifier.m"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.m"; sourceTree = "<group>"; };
+		3597547DF01353414A21A0D3A2D8AD23 /* Analytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Analytics.h; path = Headers/Analytics.h; sourceTree = "<group>"; };
+		359EF634E49BD476E8D5951B4C62513F /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
+		3601B435996EA25C838415B0E3F8108B /* PKLayerAnimator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLayerAnimator.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.m; sourceTree = "<group>"; };
+		38F8EE0967FC993D60FB9B5D38C51583 /* PKRevealController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PKRevealController-dummy.m"; sourceTree = "<group>"; };
+		3AAED38F6B8B2C8939F533B7845B3513 /* PKRevealController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PKRevealController.modulemap; sourceTree = "<group>"; };
 		3C8A7900AFE2476E7DC73FE5AEF30D57 /* Pods_MetroPaulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C9EA9A62B0BD80A407BECA895652F95 /* PKRevealController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PKRevealController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D7ED1350452FB2A41853A6CB5F0C808 /* CALayer+PKConvenienceAnimations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+PKConvenienceAnimations.m"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.m"; sourceTree = "<group>"; };
 		3E28C07F0405622B0548AFDB135B9363 /* Pods-MetroPaulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaulTests.debug.xcconfig"; sourceTree = "<group>"; };
-		3EAE41B41332EF734A1C62CB179EE363 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
-		4838753977B3D72CDB097FEE550F15EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealControllerView.h; path = Source/PKRevealController/Classes/PKRevealControllerView.h; sourceTree = "<group>"; };
-		4D0E9E4B967982DFDF75D53C4DC7AB1F /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
+		43225E8E60EB50394F5B3C072DCFE7D1 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Sources/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		441A1A6E06D022E04E01D4D1AD99E3AD /* CALayer+PKConvenienceAnimations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+PKConvenienceAnimations.h"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.h"; sourceTree = "<group>"; };
+		4660AC54D8666D368DAEEAB9B26F7EE7 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
+		47BF3ADC40D1EEAFCA2B3FC0A76BDB2B /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
+		4B42F6D25B9532A72E931448A8A8F07A /* PKLayerAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLayerAnimator.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.h; sourceTree = "<group>"; };
+		4EC67F19E92BE10241A688CF918D7E22 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Sources/GAILogger.h; sourceTree = "<group>"; };
 		52456FF59162C4F6644D8BAB36336479 /* Pods-MetroPaul-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaul-resources.sh"; sourceTree = "<group>"; };
-		5299270C39E754584B0B538AF3854304 /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/Core.h; sourceTree = "<group>"; };
-		52C35C16175FF551BB151017014E2FD7 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Sources/GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		56861ABC45E34505A8AC21BC60D77A38 /* PKRevealController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PKRevealController.modulemap; sourceTree = "<group>"; };
+		5728DA96169834956253199131F2847C /* libGoogleAnalytics.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libGoogleAnalytics.a; path = Libraries/libGoogleAnalytics.a; sourceTree = "<group>"; };
 		5C3401C5F235F79CD80451D6AEAE1D94 /* Pods-MetroPaulTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaulTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		5C38EA0088C6B6B1A39615002BA3F4BB /* Pods-MetroPaulUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulUITests-resources.sh"; sourceTree = "<group>"; };
-		632D0843E002B06181861F2DFC1021EA /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Sources/GAI.h; sourceTree = "<group>"; };
+		5DD962D66A98074C84E135540D11EF21 /* PKSequentialAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKSequentialAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.m; sourceTree = "<group>"; };
+		5E0EF45C0AB119C5F261EA6E2FF82F5A /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		61B661BCA323EF0F9EF9260947195491 /* SignIn-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SignIn-Module.h"; path = "Headers/ModuleHeaders/SignIn-Module.h"; sourceTree = "<group>"; };
 		681D294E7DE7D5C327B2F4597CAF78D5 /* Pods-MetroPaulTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulTests-frameworks.sh"; sourceTree = "<group>"; };
-		692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.h; sourceTree = "<group>"; };
-		6BB2906901F9C31C8E688B7B1F168E9D /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
-		6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Source/PKRevealController/PKRevealController.h; sourceTree = "<group>"; };
+		6D8E62A4C370D34772F114F52BD2613A /* PKAnimating.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimating.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimating.h; sourceTree = "<group>"; };
+		72E955AE2940ECD4DA1C69C66C2F6724 /* GAI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Sources/GAI.h; sourceTree = "<group>"; };
 		75ECC0B048B1B0CAC54493CDBC8E68DE /* Pods-MetroPaul.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaul.modulemap"; sourceTree = "<group>"; };
-		76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PKRevealController-dummy.m"; sourceTree = "<group>"; };
-		782C3CBA0F742E2B18E34CCF7E43983A /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Sources/GAIFields.h; sourceTree = "<group>"; };
-		78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
-		791190CCD6E6386EA582D91B5F7CD7C8 /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
-		81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PKRevealController.m"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
-		846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKSequentialAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.m; sourceTree = "<group>"; };
-		86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimating.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimating.h; sourceTree = "<group>"; };
-		87D2C5F165E01FC9BC931EEBDFB5F6A0 /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Sources/FIRInstanceID.h; sourceTree = "<group>"; };
-		8BAE64D521311F4FD8861D28F3657F22 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Sources/GAIEcommerceFields.h; sourceTree = "<group>"; };
-		8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+PKBlocks.m"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.m"; sourceTree = "<group>"; };
+		7741448B34B467216D9E84E8A93795C9 /* NSObject+PKBlocks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+PKBlocks.h"; path = "Source/PKRevealController/Categories/NSObject+PKBlocks.h"; sourceTree = "<group>"; };
+		7DD66BF9124E1C22D433FAB5B1C7033A /* CLSStackFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSStackFrame.h; path = iOS/Crashlytics.framework/Headers/CLSStackFrame.h; sourceTree = "<group>"; };
+		7E41AFC3BDDB138E84474FB7C6E27F35 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Sources/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		834F37C83066722BAAA79457D807026A /* PKRevealController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-umbrella.h"; sourceTree = "<group>"; };
+		87F7E2BAC120C169D0EB45ED0E88982D /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		89FCE2D1C9222873F6FA86C7084396A5 /* UIViewController+PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+PKRevealController.m"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.m"; sourceTree = "<group>"; };
+		8A0AC0C60F2C420D6AD1FDCE4D649381 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = iOS/Crashlytics.framework; sourceTree = "<group>"; };
+		8A89672D51E529000B0A8E2F17326804 /* UIViewController+PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+PKRevealController.h"; path = "Source/PKRevealController/Categories/UIViewController+PKRevealController.h"; sourceTree = "<group>"; };
+		8FD3766157E4F255DD02588B9B8FF690 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		90146B1EF8CAC67A92EF479C58BB1357 /* Pods-MetroPaul-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaul-umbrella.h"; sourceTree = "<group>"; };
-		90551A37C113FEFFA2EF9B6D42C4C518 /* GAILogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Sources/GAILogger.h; sourceTree = "<group>"; };
 		91EFF0FA1C4BD185A8FC232389CFC790 /* Pods-MetroPaulUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaulUITests-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9798273F071A790AC35D1E43209E0DC2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97DB11C93DE81C71B1E1758C55AE9D61 /* Pods-MetroPaul-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaul-frameworks.sh"; sourceTree = "<group>"; };
+		999EF301D077B64AEDC4D0108DF07B88 /* PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealController.m; path = Source/PKRevealController/PKRevealController.m; sourceTree = "<group>"; };
 		9A6DD72E4D8DEF7A88FC6DCD7E928821 /* Pods-MetroPaulTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaulTests-dummy.m"; sourceTree = "<group>"; };
-		9A79AAC0B323847F99C0F851755339BF /* FABAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FABAttributes.h; path = iOS/Fabric.framework/Headers/FABAttributes.h; sourceTree = "<group>"; };
 		9B753B247E0982FA052EE97ADBB5328D /* Pods-MetroPaulUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaulUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKRevealController.m; path = Source/PKRevealController/PKRevealController.m; sourceTree = "<group>"; };
-		9F3C7A2A863D8A50DC8D8BB4C9D1F681 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Sources/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		9DC1E657D1342536B2A958B6BCC2F890 /* GAIFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Sources/GAIFields.h; sourceTree = "<group>"; };
+		9EEF001EED1A6FC48FD3602A25CF62E0 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Sources/GAIEcommerceFields.h; sourceTree = "<group>"; };
 		A10AF54DBD1C3DF2E20D5AE59CC987AB /* Pods-MetroPaulUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaulUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		A203E308507B2BA10F1F11420C750BC8 /* CLSAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSAttributes.h; path = iOS/Crashlytics.framework/Headers/CLSAttributes.h; sourceTree = "<group>"; };
 		A301F440CE42F5DA1804473F2BEE2F5C /* Pods-MetroPaul.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaul.release.xcconfig"; sourceTree = "<group>"; };
 		A817CAE99C81EE68006DC1E60E295C0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		AD8E0E76899B54FDED4179DB3372C4B2 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PKRevealController.xcconfig; sourceTree = "<group>"; };
 		B3A654A85611A0C98616F921DC607102 /* Pods-MetroPaulTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaulTests-umbrella.h"; sourceTree = "<group>"; };
+		B4D92286C19681E209A2B86BB61BBCE3 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		B59169BBBB80C1CFBBEE924299E497E9 /* Pods-MetroPaulTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaulTests.modulemap"; sourceTree = "<group>"; };
-		B7AD29FA587B8DA372A0F503E1C4227D /* Answers.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Answers.h; path = iOS/Crashlytics.framework/Headers/Answers.h; sourceTree = "<group>"; };
-		B8C634E329A7C6304A1DC83C8FBC64D3 /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
-		BBF214323A1C895D5C76B5D7DFEFA12B /* ANSCompatibility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ANSCompatibility.h; path = iOS/Crashlytics.framework/Headers/ANSCompatibility.h; sourceTree = "<group>"; };
-		BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CALayer+PKConvenienceAnimations.h"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.h"; sourceTree = "<group>"; };
+		B5CF02E4C29E7994C32BBE5EFAEAC516 /* GGLCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GGLCore.framework; path = Frameworks/GGLCore.framework; sourceTree = "<group>"; };
 		BE657B0F3839DAE68B65C2C6C7B7D06E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE861D5AB6506B155027C7ABAAC636EF /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
 		C19FF275AA34F26B6C99C24C4FAF4CC3 /* Pods-MetroPaul-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MetroPaul-dummy.m"; sourceTree = "<group>"; };
 		C416398B446B703037BF2D37D6BD8159 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C43C81A0344B3684C4A4A6147CFCA7A1 /* Pods-MetroPaul-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MetroPaul-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C5252A3F978B4844F0728FBAEA5890EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		C6B9A4AFA62322AE143B22B0274B06E1 /* Pods-MetroPaul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MetroPaul.debug.xcconfig"; sourceTree = "<group>"; };
 		C9CC2F96D8AF07E3C04DADFD0FEE149B /* Pods-MetroPaulUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MetroPaulUITests.modulemap"; sourceTree = "<group>"; };
-		D1BB3A940ADDE255FC611B087E5EACA6 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		CAA3274B53B24D2679DDDEE4E858AB24 /* CLSLogging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSLogging.h; path = iOS/Crashlytics.framework/Headers/CLSLogging.h; sourceTree = "<group>"; };
+		CDF2AD1DCCBA4995C3793B3CA9910CD9 /* CLSReport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CLSReport.h; path = iOS/Crashlytics.framework/Headers/CLSReport.h; sourceTree = "<group>"; };
+		D22C471F0D42D72821A8A01198C1D2D4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D280E320B7581FD6BECA3DF39D93614E /* Pods-MetroPaul-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MetroPaul-acknowledgements.plist"; sourceTree = "<group>"; };
-		D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+PKIdentifier.h"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.h"; sourceTree = "<group>"; };
-		D38F3575F958E439135265F5FA3B41FB /* PKRevealController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-prefix.pch"; sourceTree = "<group>"; };
-		DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CAAnimation+PKIdentifier.m"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.m"; sourceTree = "<group>"; };
-		DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKLayerAnimator.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKLayerAnimator.h; sourceTree = "<group>"; };
+		D5BCE925CC8283E5D54AB566AACF0556 /* PKRevealController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKRevealController.h; path = Source/PKRevealController/PKRevealController.h; sourceTree = "<group>"; };
+		DC56F787BEC4CD376E229A3D8FBCE2B7 /* Fabric.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Fabric.h; path = iOS/Fabric.framework/Headers/Fabric.h; sourceTree = "<group>"; };
+		DCB7F5832967C18B422036AA8FDC8AD6 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Sources/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		DCBB818AF2800CC5A04B2BB6F7326AC4 /* PKRevealController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PKRevealController-prefix.pch"; sourceTree = "<group>"; };
 		E130D2486FBB9F9E91CA22FA0C52C2D2 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5393C2998A714E721F8BDC881CFE49A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Sources/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		E26737688627BD9D071B3201E6C1A824 /* Analytics-Module.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Analytics-Module.h"; path = "Headers/ModuleHeaders/Analytics-Module.h"; sourceTree = "<group>"; };
+		E53272EE4B01B8154DF269BF35B92E2C /* CAAnimation+PKIdentifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CAAnimation+PKIdentifier.h"; path = "Source/PKRevealController/Categories/CAAnimation+PKIdentifier.h"; sourceTree = "<group>"; };
+		E9A3CAB4BE744162F76617C11D552403 /* PKLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLog.m; path = Source/PKRevealController/Modules/PKLog/PKLog.m; sourceTree = "<group>"; };
 		E9EC87B74BDF07058918096470BAD55B /* Pods-MetroPaulUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulUITests-frameworks.sh"; sourceTree = "<group>"; };
-		ED3FECB7D2730A48E2235DB3FD5716E9 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Sources/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		F337964C03D424B5D2CD8870C6A3FCFC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
+		F41D41B19EEB6110BD9DB6579AEAD12E /* Core.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Core.h; path = Headers/Core.h; sourceTree = "<group>"; };
 		F5338B7AE988ECB6607AC9011C511EC4 /* Pods-MetroPaulUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MetroPaulUITests-umbrella.h"; sourceTree = "<group>"; };
-		F7DCFD1286F227630B122413551C913A /* PKLog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKLog.m; path = Source/PKRevealController/Modules/PKLog/PKLog.m; sourceTree = "<group>"; };
+		F80495B88F18A27891B84EFFBCB00D86 /* PKAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PKAnimation.m; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.m; sourceTree = "<group>"; };
+		F8DCF10A7CF2E434B51A2BC24F58A231 /* PKAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKAnimation.h; sourceTree = "<group>"; };
 		FA29A33F3F2B11CBED8456ECEBE7E5B7 /* Pods-MetroPaulTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MetroPaulTests-resources.sh"; sourceTree = "<group>"; };
-		FBBB4C6D2D38315DA30A086E8707A3D6 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PKSequentialAnimation.h; path = Source/PKRevealController/Modules/PKLayerAnimator/PKSequentialAnimation.h; sourceTree = "<group>"; };
-		FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CALayer+PKConvenienceAnimations.m"; path = "Source/PKRevealController/Categories/CALayer+PKConvenienceAnimations.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,14 +196,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01AD42A71171BC313FA5E132BAB0083C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				113CCF421848F48B483CA15B427EFA6D /* Crashlytics.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		06739DFB471E4E3E94213B5FBFD140CA /* Pods-MetroPaul */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,58 +214,12 @@
 			path = "Target Support Files/Pods-MetroPaul";
 			sourceTree = "<group>";
 		};
-		095842B53FF37ADAAEC6B6702022C95E /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				385873C12318337A15E6D8460663A134 /* Analytics.h */,
-				2D4CBA90FF09DDBB64C07AC6764131B4 /* Frameworks */,
-			);
-			name = Analytics;
-			sourceTree = "<group>";
-		};
-		0C438EBED0C83A6B9F4D5E3F88B3D149 /* Crashlytics */ = {
-			isa = PBXGroup;
-			children = (
-				BBF214323A1C895D5C76B5D7DFEFA12B /* ANSCompatibility.h */,
-				B7AD29FA587B8DA372A0F503E1C4227D /* Answers.h */,
-				3EAE41B41332EF734A1C62CB179EE363 /* CLSAttributes.h */,
-				1812419C05C15090E5444E0F7D5DE77E /* CLSLogging.h */,
-				BE861D5AB6506B155027C7ABAAC636EF /* CLSReport.h */,
-				791190CCD6E6386EA582D91B5F7CD7C8 /* CLSStackFrame.h */,
-				6BB2906901F9C31C8E688B7B1F168E9D /* Crashlytics.h */,
-				01AD42A71171BC313FA5E132BAB0083C /* Frameworks */,
-			);
-			path = Crashlytics;
-			sourceTree = "<group>";
-		};
 		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1244B6B5575BBD059DBF0335A01B1579 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D1BB3A940ADDE255FC611B087E5EACA6 /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1420F4D00D3DA79696F1DF3BCC375A9A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4838753977B3D72CDB097FEE550F15EB /* Info.plist */,
-				56861ABC45E34505A8AC21BC60D77A38 /* PKRevealController.modulemap */,
-				B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */,
-				76982D5F754C0ECC5ABC411EC1B0FE96 /* PKRevealController-dummy.m */,
-				D38F3575F958E439135265F5FA3B41FB /* PKRevealController-prefix.pch */,
-				17B0993EC063B9DCDD5E74CEBBF0CC94 /* PKRevealController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/PKRevealController";
 			sourceTree = "<group>";
 		};
 		1699DE3EC8BEA0E484B97B05DE499256 /* Pods-MetroPaulUITests */ = {
@@ -293,38 +240,92 @@
 			path = "Target Support Files/Pods-MetroPaulUITests";
 			sourceTree = "<group>";
 		};
-		1F45AC2FAE1385AB00E78B09EE4455E1 /* Google */ = {
+		17C9B0655C7CC943B764F23A335F82B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				095842B53FF37ADAAEC6B6702022C95E /* Analytics */,
-				A3D51211EE1FABBE7C5F8388EF90886D /* Core */,
-			);
-			path = Google;
-			sourceTree = "<group>";
-		};
-		2D4CBA90FF09DDBB64C07AC6764131B4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2AF701343AC4BD200973B1EBEEA208B5 /* GGLAnalytics.framework */,
+				C5252A3F978B4844F0728FBAEA5890EC /* Fabric.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2E06DF32A6B0CF6BF186FD5277494B43 /* GoogleInterchangeUtilities */ = {
+		229F7D5BD63CEE90F140DC52AF15EC93 /* FirebaseAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				93ED00991EB3E8DD0F863733B9CA05D3 /* Frameworks */,
+				ED3D57223F9137992E86D0528339FF53 /* Frameworks */,
 			);
-			path = GoogleInterchangeUtilities;
+			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
-		65B54BEE3923E0E620C321536552728D /* FirebaseInstanceID */ = {
+		3AF919A4DE541FFCDFEE99A8F3C0DECA /* Crashlytics */ = {
 			isa = PBXGroup;
 			children = (
-				87D2C5F165E01FC9BC931EEBDFB5F6A0 /* FIRInstanceID.h */,
-				1244B6B5575BBD059DBF0335A01B1579 /* Frameworks */,
+				359EF634E49BD476E8D5951B4C62513F /* ANSCompatibility.h */,
+				2D56FD10CD70D4EAD29A61D033990679 /* Answers.h */,
+				A203E308507B2BA10F1F11420C750BC8 /* CLSAttributes.h */,
+				CAA3274B53B24D2679DDDEE4E858AB24 /* CLSLogging.h */,
+				CDF2AD1DCCBA4995C3793B3CA9910CD9 /* CLSReport.h */,
+				7DD66BF9124E1C22D433FAB5B1C7033A /* CLSStackFrame.h */,
+				2A9176B11EDAAF927CF68272CF4474F8 /* Crashlytics.h */,
+				733ED69BF71D96F41F5ECB7C0324C6FE /* Frameworks */,
 			);
-			path = FirebaseInstanceID;
+			path = Crashlytics;
+			sourceTree = "<group>";
+		};
+		3D9641D01155B169068EE597B830B2BE /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				BC2C14BC31B5F48BB603EFDDC0C38E6E /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		4EE37795FC6B9EC53DDD4AA433F941F5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D22C471F0D42D72821A8A01198C1D2D4 /* Info.plist */,
+				3AAED38F6B8B2C8939F533B7845B3513 /* PKRevealController.modulemap */,
+				1E142C1C1B2223A59367696ACF15C449 /* PKRevealController.xcconfig */,
+				38F8EE0967FC993D60FB9B5D38C51583 /* PKRevealController-dummy.m */,
+				DCBB818AF2800CC5A04B2BB6F7326AC4 /* PKRevealController-prefix.pch */,
+				834F37C83066722BAAA79457D807026A /* PKRevealController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PKRevealController";
+			sourceTree = "<group>";
+		};
+		733ED69BF71D96F41F5ECB7C0324C6FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A0AC0C60F2C420D6AD1FDCE4D649381 /* Crashlytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		74D7B358AA752CD5AB7CAFF4DF6E3C0D /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				BDC3BD8836DE04C234A9CD0ADAB2A481 /* Analytics */,
+				C70DDF49540360B028725E4C407EC16E /* Core */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		79DB92BE086452B1859808AD821CB163 /* Fabric */ = {
+			isa = PBXGroup;
+			children = (
+				47BF3ADC40D1EEAFCA2B3FC0A76BDB2B /* FABAttributes.h */,
+				DC56F787BEC4CD376E229A3D8FBCE2B7 /* Fabric.h */,
+				17C9B0655C7CC943B764F23A335F82B3 /* Frameworks */,
+			);
+			path = Fabric;
+			sourceTree = "<group>";
+		};
+		7D79BA76212E3F12D83054BE71913A07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FD3766157E4F255DD02588B9B8FF690 /* FirebaseCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -332,32 +333,16 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				9A8A089B948C57BD3BC62FB8F828D67A /* Pods */,
+				F1CEC13C9A8B3AF9C2530B43AD8FDCD8 /* Pods */,
 				A11D5906174BD930F8EAAFF761705B81 /* Products */,
 				D05CB2CEFB2ECA162523E8EEA932F902 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		82053B2673CCD6DBF27A1CC6EC75E802 /* Frameworks */ = {
+		936D30F0F71366423E0056169E16314C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F337964C03D424B5D2CD8870C6A3FCFC /* Fabric.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		9003D233630D37D526F82969B2BBBDCC /* GoogleSymbolUtilities */ = {
-			isa = PBXGroup;
-			children = (
-				9B5251369A02D2D28440825D7ECC4050 /* Frameworks */,
-			);
-			path = GoogleSymbolUtilities;
-			sourceTree = "<group>";
-		};
-		93ED00991EB3E8DD0F863733B9CA05D3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AD8E0E76899B54FDED4179DB3372C4B2 /* GoogleInterchangeUtilities.framework */,
+				08D8A30F166D24DC92A6323929F92C37 /* GoogleUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -380,31 +365,6 @@
 			path = "Target Support Files/Pods-MetroPaulTests";
 			sourceTree = "<group>";
 		};
-		9A8A089B948C57BD3BC62FB8F828D67A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0C438EBED0C83A6B9F4D5E3F88B3D149 /* Crashlytics */,
-				C265CED3F14A0BCEE7530095AB41F756 /* Fabric */,
-				EF8944F11566106E45BCE45089E2E8B8 /* FirebaseAnalytics */,
-				65B54BEE3923E0E620C321536552728D /* FirebaseInstanceID */,
-				1F45AC2FAE1385AB00E78B09EE4455E1 /* Google */,
-				E3002E1141D53CEC9ABE5600EEE471E9 /* GoogleAnalytics */,
-				2E06DF32A6B0CF6BF186FD5277494B43 /* GoogleInterchangeUtilities */,
-				9003D233630D37D526F82969B2BBBDCC /* GoogleSymbolUtilities */,
-				E9367F86D5DC8A25958C5DC6B6E20026 /* GoogleUtilities */,
-				F3A4D37E81BD75519CE844D2A648B8D3 /* PKRevealController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9B5251369A02D2D28440825D7ECC4050 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FBBB4C6D2D38315DA30A086E8707A3D6 /* GoogleSymbolUtilities.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A11D5906174BD930F8EAAFF761705B81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,48 +376,81 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A3D51211EE1FABBE7C5F8388EF90886D /* Core */ = {
+		A34378BCF820CA683523EDE2F9A82FF7 /* GoogleUtilities */ = {
 			isa = PBXGroup;
 			children = (
-				B8C634E329A7C6304A1DC83C8FBC64D3 /* Analytics-Module.h */,
-				5299270C39E754584B0B538AF3854304 /* Core.h */,
-				2E56D9E40CA16E0BB75D62511196FCCA /* Core-Module.h */,
-				18FEBFE1D452E872CB0280148532799D /* SignIn-Module.h */,
-				AF3DCEF78FB998DDA48446E0BF311840 /* Frameworks */,
+				936D30F0F71366423E0056169E16314C /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		BC2C14BC31B5F48BB603EFDDC0C38E6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0EF45C0AB119C5F261EA6E2FF82F5A /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDC3BD8836DE04C234A9CD0ADAB2A481 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				3597547DF01353414A21A0D3A2D8AD23 /* Analytics.h */,
+				D61AFD4A609B3327A13A3FDEFFFDE9A2 /* Frameworks */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		C0D2C25A137128BCA0577C84CB967A97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5CF02E4C29E7994C32BBE5EFAEAC516 /* GGLCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4120130A43CB6368E0F7333EB28F4A7 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				CD1DC163F97BD7FFBB84B5EAC27BC4D7 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		C70DDF49540360B028725E4C407EC16E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E26737688627BD9D071B3201E6C1A824 /* Analytics-Module.h */,
+				F41D41B19EEB6110BD9DB6579AEAD12E /* Core.h */,
+				09E712A7474DA30CF825AA6DE8FA87E6 /* Core-Module.h */,
+				61B661BCA323EF0F9EF9260947195491 /* SignIn-Module.h */,
+				C0D2C25A137128BCA0577C84CB967A97 /* Frameworks */,
 			);
 			name = Core;
 			sourceTree = "<group>";
 		};
-		A44F8EB9A4AEF7B9331EDCC1196C20D0 /* Frameworks */ = {
+		C9480BF60C25C2EBD03C7739F4475585 /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				2885C76277EF59F9CDC08DD6E5550F08 /* GoogleUtilities.framework */,
+				72E955AE2940ECD4DA1C69C66C2F6724 /* GAI.h */,
+				DCB7F5832967C18B422036AA8FDC8AD6 /* GAIDictionaryBuilder.h */,
+				9EEF001EED1A6FC48FD3602A25CF62E0 /* GAIEcommerceFields.h */,
+				7E41AFC3BDDB138E84474FB7C6E27F35 /* GAIEcommerceProduct.h */,
+				43225E8E60EB50394F5B3C072DCFE7D1 /* GAIEcommerceProductAction.h */,
+				2020B5620F63331200E50AF71BBA2342 /* GAIEcommercePromotion.h */,
+				9DC1E657D1342536B2A958B6BCC2F890 /* GAIFields.h */,
+				4EC67F19E92BE10241A688CF918D7E22 /* GAILogger.h */,
+				22BF06CF8319C9BDF9B22BE22C8B9778 /* GAITrackedViewController.h */,
+				12F6F9985313F77610BEB33EB369BFBE /* GAITracker.h */,
+				DA6F56844291EC9F96B30A767BED0384 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
-		AF3DCEF78FB998DDA48446E0BF311840 /* Frameworks */ = {
+		CD1DC163F97BD7FFBB84B5EAC27BC4D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				26525BDD0260D9289C5F008DEE9D6B79 /* GGLCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C265CED3F14A0BCEE7530095AB41F756 /* Fabric */ = {
-			isa = PBXGroup;
-			children = (
-				9A79AAC0B323847F99C0F851755339BF /* FABAttributes.h */,
-				298DB4B7CDFA45EDEC47F8FAF0752D6B /* Fabric.h */,
-				82053B2673CCD6DBF27A1CC6EC75E802 /* Frameworks */,
-			);
-			path = Fabric;
-			sourceTree = "<group>";
-		};
-		CF05E6A6A8D97A9603418B8EFD4E52FA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4D0E9E4B967982DFDF75D53C4DC7AB1F /* libGoogleAnalytics.a */,
+				87F7E2BAC120C169D0EB45ED0E88982D /* GoogleInterchangeUtilities.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -472,6 +465,30 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		D61AFD4A609B3327A13A3FDEFFFDE9A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08CE93BD6CD95902B4E721818E7C41E2 /* GGLAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA6F56844291EC9F96B30A767BED0384 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5728DA96169834956253199131F2847C /* libGoogleAnalytics.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBDF9A77F8BA6903172F36CFD1D6AFA0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4D92286C19681E209A2B86BB61BBCE3 /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DFDE779C6E5D3445E0CB8CCB8D424449 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,75 +499,76 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E3002E1141D53CEC9ABE5600EEE471E9 /* GoogleAnalytics */ = {
+		E0A246DEF956297C8936FC26ADECCCF8 /* FirebaseCore */ = {
 			isa = PBXGroup;
 			children = (
-				632D0843E002B06181861F2DFC1021EA /* GAI.h */,
-				E5393C2998A714E721F8BDC881CFE49A /* GAIDictionaryBuilder.h */,
-				8BAE64D521311F4FD8861D28F3657F22 /* GAIEcommerceFields.h */,
-				52C35C16175FF551BB151017014E2FD7 /* GAIEcommerceProduct.h */,
-				ED3FECB7D2730A48E2235DB3FD5716E9 /* GAIEcommerceProductAction.h */,
-				9F3C7A2A863D8A50DC8D8BB4C9D1F681 /* GAIEcommercePromotion.h */,
-				782C3CBA0F742E2B18E34CCF7E43983A /* GAIFields.h */,
-				90551A37C113FEFFA2EF9B6D42C4C518 /* GAILogger.h */,
-				2C6A4B3136C03CFFC241D1E96079BCBC /* GAITrackedViewController.h */,
-				3A0DBC9477C2EBCEFDE088F650A94EE6 /* GAITracker.h */,
-				CF05E6A6A8D97A9603418B8EFD4E52FA /* Frameworks */,
+				7D79BA76212E3F12D83054BE71913A07 /* Frameworks */,
 			);
-			path = GoogleAnalytics;
+			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
-		E9367F86D5DC8A25958C5DC6B6E20026 /* GoogleUtilities */ = {
+		ED3D57223F9137992E86D0528339FF53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A44F8EB9A4AEF7B9331EDCC1196C20D0 /* Frameworks */,
+				0F5830139201819013B29B1B37302464 /* FirebaseAnalytics.framework */,
 			);
-			path = GoogleUtilities;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EF8944F11566106E45BCE45089E2E8B8 /* FirebaseAnalytics */ = {
+		F1CEC13C9A8B3AF9C2530B43AD8FDCD8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FFFDD21562A0A0E37D197C9C5113CFE7 /* Frameworks */,
+				3AF919A4DE541FFCDFEE99A8F3C0DECA /* Crashlytics */,
+				79DB92BE086452B1859808AD821CB163 /* Fabric */,
+				229F7D5BD63CEE90F140DC52AF15EC93 /* FirebaseAnalytics */,
+				E0A246DEF956297C8936FC26ADECCCF8 /* FirebaseCore */,
+				F9A765E3D678B08F0C37E2F930FBD2ED /* FirebaseInstanceID */,
+				74D7B358AA752CD5AB7CAFF4DF6E3C0D /* Google */,
+				C9480BF60C25C2EBD03C7739F4475585 /* GoogleAnalytics */,
+				C4120130A43CB6368E0F7333EB28F4A7 /* GoogleInterchangeUtilities */,
+				3D9641D01155B169068EE597B830B2BE /* GoogleSymbolUtilities */,
+				A34378BCF820CA683523EDE2F9A82FF7 /* GoogleUtilities */,
+				F55D8FF0B8FD7ABCFA55FBE7FB88EFBA /* PKRevealController */,
 			);
-			path = FirebaseAnalytics;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		F3A4D37E81BD75519CE844D2A648B8D3 /* PKRevealController */ = {
+		F55D8FF0B8FD7ABCFA55FBE7FB88EFBA /* PKRevealController */ = {
 			isa = PBXGroup;
 			children = (
-				D29C9418BC3AC0EE7FB8F900622FA555 /* CAAnimation+PKIdentifier.h */,
-				DB3DC1FBD75C31D698F904C3679C1326 /* CAAnimation+PKIdentifier.m */,
-				BDC1BCD6AE44DD2332EC171095D47346 /* CALayer+PKConvenienceAnimations.h */,
-				FFE29AE13745EEAC89CAAC91F3083A20 /* CALayer+PKConvenienceAnimations.m */,
-				0911DB80078EA0CE6F1A07925BA7951B /* NSObject+PKBlocks.h */,
-				8DA918E9B812DE878CF167E0AD036804 /* NSObject+PKBlocks.m */,
-				86D6C4A7D648A00C6A40A8151BB559DD /* PKAnimating.h */,
-				692B438F5202D0782249C43DA64A0B9D /* PKAnimation.h */,
-				0BB86481B3D3C713541241A8DAC8A8F8 /* PKAnimation.m */,
-				DE6454A2E5015D464F40B9C33A66AA31 /* PKLayerAnimator.h */,
-				1F3EE24939FEAECD687964BDE300FE87 /* PKLayerAnimator.m */,
-				2B91568F412148F0348213EDCCD4F56F /* PKLog.h */,
-				F7DCFD1286F227630B122413551C913A /* PKLog.m */,
-				6E9A7A316E1D4B63E84531787B6F7108 /* PKRevealController.h */,
-				9C9380EE7F34824B0841E12A0BAE467E /* PKRevealController.m */,
-				49A4C105C61DCB10217B2C42A7B73E87 /* PKRevealControllerView.h */,
-				056ED4D45E809AEB4DFD097AFECAAAF9 /* PKRevealControllerView.m */,
-				FC6BB380AB36AB25C4B6A6BD9223CC00 /* PKSequentialAnimation.h */,
-				846C29D7C543D1B2AC96C2A73E6065F2 /* PKSequentialAnimation.m */,
-				78F1672181F9978BBA1D4BF5D5EB6CE2 /* UIViewController+PKRevealController.h */,
-				81C073CB7D6731D9534DC2C97CA950FD /* UIViewController+PKRevealController.m */,
-				1420F4D00D3DA79696F1DF3BCC375A9A /* Support Files */,
+				E53272EE4B01B8154DF269BF35B92E2C /* CAAnimation+PKIdentifier.h */,
+				354990D14386B1F7BA38F2D4340EF251 /* CAAnimation+PKIdentifier.m */,
+				441A1A6E06D022E04E01D4D1AD99E3AD /* CALayer+PKConvenienceAnimations.h */,
+				3D7ED1350452FB2A41853A6CB5F0C808 /* CALayer+PKConvenienceAnimations.m */,
+				7741448B34B467216D9E84E8A93795C9 /* NSObject+PKBlocks.h */,
+				23A166EEF66F54D3299677E0597F1861 /* NSObject+PKBlocks.m */,
+				6D8E62A4C370D34772F114F52BD2613A /* PKAnimating.h */,
+				F8DCF10A7CF2E434B51A2BC24F58A231 /* PKAnimation.h */,
+				F80495B88F18A27891B84EFFBCB00D86 /* PKAnimation.m */,
+				4B42F6D25B9532A72E931448A8A8F07A /* PKLayerAnimator.h */,
+				3601B435996EA25C838415B0E3F8108B /* PKLayerAnimator.m */,
+				2DD37A08D2C3BE0578DD50978BFC59E3 /* PKLog.h */,
+				E9A3CAB4BE744162F76617C11D552403 /* PKLog.m */,
+				D5BCE925CC8283E5D54AB566AACF0556 /* PKRevealController.h */,
+				999EF301D077B64AEDC4D0108DF07B88 /* PKRevealController.m */,
+				0F9D51DE0129E4D9AA3BB39FD4FE976A /* PKRevealControllerView.h */,
+				0AAD7A4345678C9BDF012ED99E409078 /* PKRevealControllerView.m */,
+				2F86DF8B36D500F2F15F60A6E5D56EAF /* PKSequentialAnimation.h */,
+				5DD962D66A98074C84E135540D11EF21 /* PKSequentialAnimation.m */,
+				8A89672D51E529000B0A8E2F17326804 /* UIViewController+PKRevealController.h */,
+				89FCE2D1C9222873F6FA86C7084396A5 /* UIViewController+PKRevealController.m */,
+				4EE37795FC6B9EC53DDD4AA433F941F5 /* Support Files */,
 			);
 			path = PKRevealController;
 			sourceTree = "<group>";
 		};
-		FFFDD21562A0A0E37D197C9C5113CFE7 /* Frameworks */ = {
+		F9A765E3D678B08F0C37E2F930FBD2ED /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
-				2F707FDE715B19345B9E6253F023D4E7 /* FirebaseAnalytics.framework */,
+				4660AC54D8666D368DAEEAB9B26F7EE7 /* FIRInstanceID.h */,
+				DBDF9A77F8BA6903172F36CFD1D6AFA0 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -871,7 +889,7 @@
 		};
 		2794871FD2F057087CA4B287A1F8721F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */;
+			baseConfigurationReference = 1E142C1C1B2223A59367696ACF15C449 /* PKRevealController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1082,7 +1100,7 @@
 		};
 		FD45A724AE98A8F328E11CE231BF5D16 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B22A2734351809556C0A99CB4A293577 /* PKRevealController.xcconfig */;
+			baseConfigurationReference = 1E142C1C1B2223A59367696ACF15C449 /* PKRevealController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

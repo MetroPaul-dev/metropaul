@@ -53,7 +53,7 @@
 
 /** Last heading information reported by the location manager.
  */
-@property(nonatomic, readonly, assign) CLHeading *currentHeading;
+@property(nonatomic, readonly, assign) CLLocationDirection currentHeading;
 
 /** Current speed information reported by the location manager.
  */
@@ -91,10 +91,10 @@
  */
 - (void)reportGPSLocation:(CLLocation *)location;
 
-/** Reports device heading in order to simulate the current heading. The positionerMode property needs to previously be set to SKPositionerModePositionSimulation. The course property of a CLLocation object can also be used as input.
+/** Reports device heading in order to simulate the current heading. The positionerMode property needs to be previously set to SKPositionerModePositionSimulation. We recommend using the trueHeading property of a CLHeading object. The course property of a CLLocation object can also be used as input.
  @param heading The heading that will be used as current device heading.
  */
-- (void)reportDeviceHeading:(CLHeading *)heading;
+- (void)reportDeviceHeading:(CLLocationDirection)heading;
 
 /** Starts replaying a log file that was previously recorded. Positions saved there will be used instead of those received from the GPS hardware.
  @param logFileNameWithPath The path to the log file.

@@ -42,19 +42,19 @@
  
  @return SKAddPackageResult mask representing the result of adding the package. If the return value suggests that you are missing a .txg or .syn file, you can consider it as a success and all the offline functionalities will work for that package.
  */
-- (SKAddPackageResult)addOfflineMapPackageNamed:(NSString *)packageName inContainingFolderPath:(NSString *)containingFolderPath;
+- (SKAddPackageResult)addOfflineMapPackageNamed:(NSString * _Nonnull)packageName inContainingFolderPath:(NSString * _Nonnull)containingFolderPath;
 
 /** Deletes an offline map package. When a package is added, the files are moved to the SKMaps' file structure. On deletion, the files on the disk are also deleted.
  @param packageName The name of the package to be deleted. Ex: RO , DE, etc. , without any extension.
  @return YES on success, NO on failure.
  */
-- (BOOL)deleteOfflineMapPackageNamed:(NSString *)packageName;
+- (BOOL)deleteOfflineMapPackageNamed:(NSString * _Nonnull)packageName;
 
 /** Checks if an offline map file ( .skm file ) is valid. Can be used before installing offline map packages.
  @param path Path of the .skm file.
  @return YES for a valid package, NO otherwise.
  */
-- (BOOL)validateMapFileAtPath:(NSString *)path;
+- (BOOL)validateMapFileAtPath:(NSString * _Nonnull)path;
 
 #pragma mark - URLs
 
@@ -62,19 +62,19 @@
  @param version Map version for the maps XML. If the parameter is nil, the current version of the map will be used.
  @return The URL to the maps XML for the desired version.
  */
-- (NSString *)mapsXMLURLForVersion:(NSString *)version;
+- (NSString * _Nullable)mapsXMLURLForVersion:(NSString * _Nullable)version;
 
 /** URL of the maps JSON for the given version. The version has to be a string ("version" property of a SKVersionInformation).
  @param version Map version for the maps JSON. If the parameter is nil, the current version of the map will be used.
  @return The URL to the maps JSON for the desired version.
  */
-- (NSString *)mapsJSONURLForVersion:(NSString *)version;
+- (NSString * _Nullable)mapsJSONURLForVersion:(NSString * _Nullable)version;
 
 /** Download information (required URLs) for an offline map package code.
  @param packageCode The package code (RO, DE, etc.) used to generate the package download info.
  @param mapVersion The map version (for example "20160426") used to generate the wanted package download info. Use nil for current map version.
  @return The download info for the given package and version.
  */
-- (SKMapPackageDownloadInfo *)downloadInfoForPackageWithCode:(NSString *)packageCode forMapVersion:(NSString * _Nullable)mapVersion;
+- (SKMapPackageDownloadInfo * _Nullable)downloadInfoForPackageWithCode:(NSString * _Nonnull)packageCode forMapVersion:(NSString * _Nullable)mapVersion;
 
 @end

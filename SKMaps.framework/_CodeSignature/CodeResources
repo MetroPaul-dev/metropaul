@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/SKDefinitions.h</key>
 		<data>
-		RoDNEB0lfGX3axdNw+ooQnEabGk=
+		YyruNVI/1wBXya3x11SBiBGP9Os=
 		</data>
 		<key>Headers/SKDetectedPOI.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Headers/SKMapPOI.h</key>
 		<data>
-		Yzqod5XuKw2Wcz+TmVuCru6wdIw=
+		RV7aXj00TOVk6KR3anlq5JBnbxw=
 		</data>
 		<key>Headers/SKMapPackage.h</key>
 		<data>
@@ -106,7 +106,7 @@
 		</data>
 		<key>Headers/SKMapSettings.h</key>
 		<data>
-		s8nqQbxqe5nGFRyaRl8oPhP8+kA=
+		qKdFXmtw3S4naApVh01RZ56mZfM=
 		</data>
 		<key>Headers/SKMapVersioningDelegate.h</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Headers/SKMapView+RealReach.h</key>
 		<data>
-		mz75nj+7ZKGC8ClYtLsIFVLNEeE=
+		U/rAfwfRFmllS8K9Ub3nc0U3x8g=
 		</data>
 		<key>Headers/SKMapView+Style.h</key>
 		<data>
@@ -138,19 +138,19 @@
 		</data>
 		<key>Headers/SKMapView.h</key>
 		<data>
-		IJMNMMekF28bz5yIXVMO3Bd5ugU=
+		Qn5TtpAGqyHnwcBDPaqqDTARYv8=
 		</data>
 		<key>Headers/SKMapViewDelegate.h</key>
 		<data>
-		omoQLdkNNj4oFCii66AHuuGxhLA=
+		XXyKRzl4BkT5ziPs2q0yfqiWmZI=
 		</data>
 		<key>Headers/SKMapViewStyle.h</key>
 		<data>
-		gZL+6fZlWv3LjZRUXEP+s1As170=
+		qZ3aOhcWDBxwtL1xhgXK8XwCCoA=
 		</data>
 		<key>Headers/SKMaps.h</key>
 		<data>
-		9prQDdBl4f/vrAoEj1/aGkAcAJQ=
+		tVrx9dsk8BfVhnfE+gWXxHYuQbI=
 		</data>
 		<key>Headers/SKMapsInitSettings.h</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Headers/SKMapsService.h</key>
 		<data>
-		bfH5ZBbW2/W3Vdd18VOsjmChHp0=
+		QluJgTNLpDy6GL17NFen35mw2H0=
 		</data>
 		<key>Headers/SKMapsVersioningManager.h</key>
 		<data>
@@ -170,11 +170,11 @@
 		</data>
 		<key>Headers/SKNavigationDelegate.h</key>
 		<data>
-		AIsRnFo9M2mZ0Zw9gIOS/sSQ3G8=
+		RNQPy5BX8f2kP/SmpNGzlU+aPWo=
 		</data>
 		<key>Headers/SKNavigationSettings.h</key>
 		<data>
-		rYu/cMfcLGP9kolC5ZUpi4ZEUag=
+		/14xQdV+2GYMtEBt2Dkn/aiQueE=
 		</data>
 		<key>Headers/SKNearbySearchSettings.h</key>
 		<data>
@@ -182,11 +182,11 @@
 		</data>
 		<key>Headers/SKOfflinePackagesManager.h</key>
 		<data>
-		Up/VEakZVNhquupJ+iUPlqJItpM=
+		NN8UPSVtVnUiJ4Z2mxcRrYIQK9w=
 		</data>
 		<key>Headers/SKOneLineSearchSettings.h</key>
 		<data>
-		k8xyQsO7KSD4fTSwjjhqaijDX+M=
+		4btksXsh1BXeYL674gPmvOtS7ZU=
 		</data>
 		<key>Headers/SKOverlay.h</key>
 		<data>
@@ -210,11 +210,11 @@
 		</data>
 		<key>Headers/SKPositionerService.h</key>
 		<data>
-		7yfS5bJjm/CAZAlEVxX9cVFZZ8A=
+		74tuOlRktP+N9T6oEuoUj5FCdxQ=
 		</data>
 		<key>Headers/SKPositionerServiceDelegate.h</key>
 		<data>
-		ytHCWPLKl11yE4RMOENol8vNWd0=
+		ODykhxFqcPhdd4zlqe/2krn01PA=
 		</data>
 		<key>Headers/SKPositionsLoggingService.h</key>
 		<data>
@@ -246,15 +246,15 @@
 		</data>
 		<key>Headers/SKRouteAlternativeSettings.h</key>
 		<data>
-		nJBkBSYyE1tWIVzjWfRFAzj+ZGU=
+		0fqqxrpstTepzRQ8UhWea5ZFw9Y=
 		</data>
 		<key>Headers/SKRouteInformation.h</key>
 		<data>
-		EMCHJqSHBBS/v1uMvwLu7rilyXI=
+		xdai2OHwNDSETAAWq8zTf9+SaRw=
 		</data>
 		<key>Headers/SKRouteSettings.h</key>
 		<data>
-		pKmx012SrqsqyerX3WovAxQSil8=
+		6TfcEr+7cXSUH9ft1JVt9tn4Q+U=
 		</data>
 		<key>Headers/SKRouteState.h</key>
 		<data>
@@ -266,7 +266,7 @@
 		</data>
 		<key>Headers/SKRoutingDelegate.h</key>
 		<data>
-		C5VDwchzku+W38r6haK+h9qMFVQ=
+		3pJOPg2+8Jff1MorMHQKZjL7pdM=
 		</data>
 		<key>Headers/SKRoutingService+GPSFiles.h</key>
 		<data>
@@ -278,15 +278,15 @@
 		</data>
 		<key>Headers/SKRoutingService.h</key>
 		<data>
-		j1uhCQVcfUsF18X0HNWY5pxgin8=
+		FzY/9PDj5qcIWOTjvJPIcBDJ/ak=
 		</data>
 		<key>Headers/SKSearch.h</key>
 		<data>
-		rEqTbL/bDMUzmYsITUk6BQ7PSiY=
+		UoB4jfE+rUPzwCCALbaIKllS4KU=
 		</data>
 		<key>Headers/SKSearchResult.h</key>
 		<data>
-		P6+w4DFomObKBYihSug2cwAhbXA=
+		EFJvAe3mYE5W1n5oNeW9/k6uGb8=
 		</data>
 		<key>Headers/SKSearchResultParent.h</key>
 		<data>
@@ -294,11 +294,11 @@
 		</data>
 		<key>Headers/SKSearchService.h</key>
 		<data>
-		oCMiO9b0Madv53AzV5p1I4ZEY3c=
+		SJTkEdyRkPG/kQzaQ6Rms2WM57Y=
 		</data>
 		<key>Headers/SKSearchServiceDelegate.h</key>
 		<data>
-		LT1yiBzQgUB4pZTtwPlikJMWTC4=
+		2gQQheQtcrcMlCn6Qycvj3PJizw=
 		</data>
 		<key>Headers/SKTTSPlayer.h</key>
 		<data>
@@ -346,7 +346,7 @@
 		</data>
 		<key>Headers/SKVersionInformation.h</key>
 		<data>
-		uEV+GVJN9th3ZcC4CqSTj0CryCo=
+		wrG+zPdfXnsob+eR7PGH9z45J0w=
 		</data>
 		<key>Headers/SKViaPoint.h</key>
 		<data>
@@ -394,7 +394,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		s8QhESq+cb95aHZfgbHF0eej9Tc=
+		EhOr6o+WdMCHdbAoOQDGImXoiZI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -550,11 +550,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RoDNEB0lfGX3axdNw+ooQnEabGk=
+			YyruNVI/1wBXya3x11SBiBGP9Os=
 			</data>
 			<key>hash2</key>
 			<data>
-			HmBgiiFLekLF3zZETU+ABAOV5rwgGJiWFZP/OicWiN4=
+			HpY0X+tP4lrDRKi6sOkZZFpbBMda3Zrc6QM6hRy+lrk=
 			</data>
 		</dict>
 		<key>Headers/SKDetectedPOI.h</key>
@@ -638,11 +638,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Yzqod5XuKw2Wcz+TmVuCru6wdIw=
+			RV7aXj00TOVk6KR3anlq5JBnbxw=
 			</data>
 			<key>hash2</key>
 			<data>
-			vAeLwwVuyDq6GMehaFUYAFP1N8Zx9UkQJV6eMV6eZ+I=
+			KdPcLOimO9VkQ4AupGGHN0L84Wo8iZ98ylL0u451Ias=
 			</data>
 		</dict>
 		<key>Headers/SKMapPackage.h</key>
@@ -682,11 +682,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s8nqQbxqe5nGFRyaRl8oPhP8+kA=
+			qKdFXmtw3S4naApVh01RZ56mZfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			SeeU7oOQnuONRlcZ2qZON0QO10LOu5MxKM6o/ty8WQQ=
+			oip7/MYcSx6Tj3ok5vltZayhv4URyvfxNAl7p7OxOII=
 			</data>
 		</dict>
 		<key>Headers/SKMapVersioningDelegate.h</key>
@@ -737,11 +737,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mz75nj+7ZKGC8ClYtLsIFVLNEeE=
+			U/rAfwfRFmllS8K9Ub3nc0U3x8g=
 			</data>
 			<key>hash2</key>
 			<data>
-			slwrreMF6tHTnN+Orc+9NWKBKBTr9hbarpH9yk7/C4Y=
+			wkERj3x3laIXW8loPU4Pd1TBiH7lyfNxWl8oKmI/a/o=
 			</data>
 		</dict>
 		<key>Headers/SKMapView+Style.h</key>
@@ -770,44 +770,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IJMNMMekF28bz5yIXVMO3Bd5ugU=
+			Qn5TtpAGqyHnwcBDPaqqDTARYv8=
 			</data>
 			<key>hash2</key>
 			<data>
-			rtP38HK8xVco+0zSRkjo7zqT4IDo5Iza+yx6Aj1xfMo=
+			iecLNmN4Uu5A6tc2PgdGOQBzYwQ4WXFwwhO2qIzm30M=
 			</data>
 		</dict>
 		<key>Headers/SKMapViewDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			omoQLdkNNj4oFCii66AHuuGxhLA=
+			XXyKRzl4BkT5ziPs2q0yfqiWmZI=
 			</data>
 			<key>hash2</key>
 			<data>
-			56VeW9i9VoS6ZjIdBtbkgchVSikDlPT4M4Vooe2lXIs=
+			w3NOG927wu6fqkgpoBD02nEUSsNsm21guHCZmKLlTmw=
 			</data>
 		</dict>
 		<key>Headers/SKMapViewStyle.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gZL+6fZlWv3LjZRUXEP+s1As170=
+			qZ3aOhcWDBxwtL1xhgXK8XwCCoA=
 			</data>
 			<key>hash2</key>
 			<data>
-			lVYTrwkaCMSIn+n6VVApAPtAhMXaUIodnqLwtaUVakU=
+			aZRbIqrPFWbC0lkfMUSKvD3GpzJSyzUDCjGz0/Vcc1c=
 			</data>
 		</dict>
 		<key>Headers/SKMaps.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9prQDdBl4f/vrAoEj1/aGkAcAJQ=
+			tVrx9dsk8BfVhnfE+gWXxHYuQbI=
 			</data>
 			<key>hash2</key>
 			<data>
-			WbcNovlmpWZ3ee19sqBmz0i8RzlxUbVi0GeR6K+p9/0=
+			C43yMB5wwbyHr5dIcCj6oQwJdJVLcwr4pKRYLYk6pBA=
 			</data>
 		</dict>
 		<key>Headers/SKMapsInitSettings.h</key>
@@ -825,11 +825,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bfH5ZBbW2/W3Vdd18VOsjmChHp0=
+			QluJgTNLpDy6GL17NFen35mw2H0=
 			</data>
 			<key>hash2</key>
 			<data>
-			KzrGU4+A59GA4x6jR7WCWVdPELYqzV9k/Har7+Le5uk=
+			yF5PtqILYC+fJaZeB20CdcIkXcYQPG5CHHCstYZOWqo=
 			</data>
 		</dict>
 		<key>Headers/SKMapsVersioningManager.h</key>
@@ -858,22 +858,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AIsRnFo9M2mZ0Zw9gIOS/sSQ3G8=
+			RNQPy5BX8f2kP/SmpNGzlU+aPWo=
 			</data>
 			<key>hash2</key>
 			<data>
-			t//J6h+GqkHRviJ63yLYkqHC4kxG9LvkaUwTL0qHJyM=
+			4H1NE9KIqjW2jzLIKJmyNtZks9bCOvUXb6YJJxxloWw=
 			</data>
 		</dict>
 		<key>Headers/SKNavigationSettings.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rYu/cMfcLGP9kolC5ZUpi4ZEUag=
+			/14xQdV+2GYMtEBt2Dkn/aiQueE=
 			</data>
 			<key>hash2</key>
 			<data>
-			4TvoI3Zy0Ur5HFS5cARm3/ttFBvYSxA74KuUUySwLDM=
+			Spo0fub3ed3Qb43Zfzjt5xZ9BrV5q0gIlc1GG38CHh0=
 			</data>
 		</dict>
 		<key>Headers/SKNearbySearchSettings.h</key>
@@ -891,22 +891,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Up/VEakZVNhquupJ+iUPlqJItpM=
+			NN8UPSVtVnUiJ4Z2mxcRrYIQK9w=
 			</data>
 			<key>hash2</key>
 			<data>
-			2Yi4VLx3k6BANbV6BJVjN8dfX1zwEPrcTxkv+b1wArI=
+			wNv9aodfKbdfbmEnUUTxAQ8LDpSpWOsDnymT+CckDV0=
 			</data>
 		</dict>
 		<key>Headers/SKOneLineSearchSettings.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			k8xyQsO7KSD4fTSwjjhqaijDX+M=
+			4btksXsh1BXeYL674gPmvOtS7ZU=
 			</data>
 			<key>hash2</key>
 			<data>
-			TSp2qHWo0vNe8uTwiNXNHX4UKD1vhcJPpuIgNQdsrM4=
+			7zSZ9v3lzE9ziDnH6Y78MTAdrfmnrlWPVFC/xAFj1Ec=
 			</data>
 		</dict>
 		<key>Headers/SKOverlay.h</key>
@@ -968,22 +968,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7yfS5bJjm/CAZAlEVxX9cVFZZ8A=
+			74tuOlRktP+N9T6oEuoUj5FCdxQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			G+ACnuPoazee9BKdi84NYm+/EL/f+oRMW2zcftzmO0s=
+			h3N46UP2Rl8ZclWtr64ZoHdeSIrrb+YaBpVTANOXGBM=
 			</data>
 		</dict>
 		<key>Headers/SKPositionerServiceDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ytHCWPLKl11yE4RMOENol8vNWd0=
+			ODykhxFqcPhdd4zlqe/2krn01PA=
 			</data>
 			<key>hash2</key>
 			<data>
-			qOv8Fhva3ZwtMad2X1tiZtFTrobrsyGlgG2woW13QwQ=
+			EiW1B4ZM1Gq1BAhaan3MgdjACjzksNQ0ErUza5+TBJo=
 			</data>
 		</dict>
 		<key>Headers/SKPositionsLoggingService.h</key>
@@ -1067,33 +1067,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nJBkBSYyE1tWIVzjWfRFAzj+ZGU=
+			0fqqxrpstTepzRQ8UhWea5ZFw9Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			FVBeCkJBmH5FRH7ZZiRDElOcBphx1x9HqC+QfBSUjE0=
+			apgcDlFIs0TknxObHjSx5ZYWrPoUEfeYgASi9fBdNDc=
 			</data>
 		</dict>
 		<key>Headers/SKRouteInformation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EMCHJqSHBBS/v1uMvwLu7rilyXI=
+			xdai2OHwNDSETAAWq8zTf9+SaRw=
 			</data>
 			<key>hash2</key>
 			<data>
-			32NIG/BTYxUjrwgwqeYjDFgsqMNmnTmgt+mRh/oAOpk=
+			t4XWv81eBd41eeSS14LeQMwodbsABhelnB1tcBRay+k=
 			</data>
 		</dict>
 		<key>Headers/SKRouteSettings.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pKmx012SrqsqyerX3WovAxQSil8=
+			6TfcEr+7cXSUH9ft1JVt9tn4Q+U=
 			</data>
 			<key>hash2</key>
 			<data>
-			8Pj5aUT+e6woyrHt9kF+t6Q5IPGMevnh/UkJM3N28lc=
+			+KM3zHSKJuNO3Mm0ev7m0Ap0SP8x+5MZiLvkYU0YfBQ=
 			</data>
 		</dict>
 		<key>Headers/SKRouteState.h</key>
@@ -1122,11 +1122,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			C5VDwchzku+W38r6haK+h9qMFVQ=
+			3pJOPg2+8Jff1MorMHQKZjL7pdM=
 			</data>
 			<key>hash2</key>
 			<data>
-			0g0NMcKq7tnzXpThXrjX0SPYR+SK6U0/yVk6dUU2ljU=
+			mmVhOnJvfFERJoxHSbwMLWg4/WqtcFCxO6KJBruxZMU=
 			</data>
 		</dict>
 		<key>Headers/SKRoutingService+GPSFiles.h</key>
@@ -1155,33 +1155,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j1uhCQVcfUsF18X0HNWY5pxgin8=
+			FzY/9PDj5qcIWOTjvJPIcBDJ/ak=
 			</data>
 			<key>hash2</key>
 			<data>
-			aAcHtYVFcMlX/ZjNh2ydmwWRaxdPQbeCqkcy8C8vj34=
+			yXf7G9oZGfy/jY2JV86QXUkM5MVUjoSGip1fcswfJU8=
 			</data>
 		</dict>
 		<key>Headers/SKSearch.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rEqTbL/bDMUzmYsITUk6BQ7PSiY=
+			UoB4jfE+rUPzwCCALbaIKllS4KU=
 			</data>
 			<key>hash2</key>
 			<data>
-			JC+ULLpEN4MKWuaGjeBKrbTL2Ee5aEsYtiU7U6cc5d8=
+			hNzDC/RUffOHze3hkk83KYTi3LCBm7Xq/3YHgGec1eQ=
 			</data>
 		</dict>
 		<key>Headers/SKSearchResult.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P6+w4DFomObKBYihSug2cwAhbXA=
+			EFJvAe3mYE5W1n5oNeW9/k6uGb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			GUfUukylD6hrOu9bdVrlydwI/flwrEH4C4EysCEfBV4=
+			k77A985nAEB0sPQTU/91GaGvNMOArjSlMRtX30f73Qw=
 			</data>
 		</dict>
 		<key>Headers/SKSearchResultParent.h</key>
@@ -1199,22 +1199,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oCMiO9b0Madv53AzV5p1I4ZEY3c=
+			SJTkEdyRkPG/kQzaQ6Rms2WM57Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			iI17fZ4DPPXOrdCbpcqN4IUwXfPM3dDC1lR3ANVBgjk=
+			swvRkfeoviqXJW9dL0zL84Ajx0MPOC+9NSunSdiK7Rc=
 			</data>
 		</dict>
 		<key>Headers/SKSearchServiceDelegate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LT1yiBzQgUB4pZTtwPlikJMWTC4=
+			2gQQheQtcrcMlCn6Qycvj3PJizw=
 			</data>
 			<key>hash2</key>
 			<data>
-			H9mKmFW+bSPwk6UCN9o1XzxTkaobka7M/P/K2O5ZTd4=
+			7xPfnSB0AFBaFia90CfYm8E3ReQCwggBF8gXja8/MQc=
 			</data>
 		</dict>
 		<key>Headers/SKTTSPlayer.h</key>
@@ -1342,11 +1342,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uEV+GVJN9th3ZcC4CqSTj0CryCo=
+			wrG+zPdfXnsob+eR7PGH9z45J0w=
 			</data>
 			<key>hash2</key>
 			<data>
-			eHWcSbwYdNUrHopAI16lR6t84+VzfL+Qe9lEFzKbqEs=
+			ftyAuULneIk0/NjnnfI4cKw/ECm0+zZ/RL1lOxFiIzM=
 			</data>
 		</dict>
 		<key>Headers/SKViaPoint.h</key>
