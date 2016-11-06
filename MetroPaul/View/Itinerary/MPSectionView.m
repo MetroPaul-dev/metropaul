@@ -85,10 +85,14 @@
 
 - (void)isLastSection:(BOOL)last {
     if (last) {
-        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
+//        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
+        self.separatorImageView.hidden = YES;
+        self.separatorWidthConstraint.constant = 0.0;
         //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparatorClear"];
     } else {
-        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
+//        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
+        self.separatorImageView.hidden = NO;
+        self.separatorWidthConstraint.constant = 11.0;
         //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparator"];
     }
 }

@@ -1,9 +1,8 @@
 //
 //  XMLParser.h
-//  MetroPaul
+//  FrameworkIOSDemo
 //
-//  Created by Antoine Cointepas on 02/10/2016.
-//  Copyright © 2016 Antoine Cointepas. All rights reserved.
+//  Copyright (c) 2016 Skobbler. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

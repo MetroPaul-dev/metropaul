@@ -127,7 +127,7 @@ static SKListLevel listLevelLimit;
     [SKSearchService sharedInstance].searchResultsNumber = 7;
     [SKMapsService sharedInstance].connectivityMode = SKConnectivityModeOffline;
     
-    self.stopAreas = [MPStopArea findAll];
+//    self.stopAreas = [MPStopArea findAll];
     
     self.infoView.backgroundColor = [Constantes blueBackGround];
     self.imageInfoView.tintColor = [UIColor whiteColor];
@@ -173,9 +173,9 @@ static SKListLevel listLevelLimit;
     
     [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
     
-    for (MPStopArea *stopArea in self.stopAreas) {
-        [self addAnnotationWithStopArea:stopArea];
-    }
+//    for (MPStopArea *stopArea in self.stopAreas) {
+//        [self addAnnotationWithStopArea:stopArea];
+//    }
 }
 
 #pragma mark - UITableViewDataSource

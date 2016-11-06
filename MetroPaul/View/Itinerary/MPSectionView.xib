@@ -19,6 +19,7 @@
                 <outlet property="label" destination="V78-2X-u51" id="wuK-mf-sNs"/>
                 <outlet property="secondImageView" destination="1a0-3g-GkC" id="bwZ-Db-ryF"/>
                 <outlet property="secondImageWidthConstraint" destination="uX0-0l-Ahx" id="gGb-fh-LdM"/>
+                <outlet property="separatorImageView" destination="VKB-QN-IDf" id="AUZ-cf-5Iz"/>
                 <outlet property="separatorWidthConstraint" destination="SIt-UO-tDa" id="IEK-ND-v00"/>
                 <outlet property="view" destination="iN0-l3-epB" id="sid-9Q-DwM"/>
             </connections>

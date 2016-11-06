@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SKTDownloadAPI.h>
 
 @interface MapDownloadViewController : UIViewController
 @end

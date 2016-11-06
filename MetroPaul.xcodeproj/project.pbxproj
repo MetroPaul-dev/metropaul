@@ -19,6 +19,11 @@
 		7142C0961DA3E7F800F4CB95 /* MPNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 7142C0951DA3E7F800F4CB95 /* MPNetwork.m */; };
 		7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7611DA6BE350078B456 /* MPItineraryViewController.m */; };
 		7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */; };
+		7144A90A1DCCE81B00D43C72 /* MapVisibleRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7144A9091DCCE81B00D43C72 /* MapVisibleRegion.m */; };
+		7144A9101DCCEB3D00D43C72 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A90D1DCCEB3D00D43C72 /* libc++.dylib */; };
+		7144A9111DCCEB3D00D43C72 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A90E1DCCEB3D00D43C72 /* libstdc++.dylib */; };
+		7144A9121DCCEB3D00D43C72 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A90F1DCCEB3D00D43C72 /* libz.dylib */; };
+		7144A9141DCCEB5B00D43C72 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A9131DCCEB5B00D43C72 /* SystemConfiguration.framework */; };
 		7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */; };
 		714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */; };
 		714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A9B1DA7F3F2002D003B /* MPItinerary.m */; };
@@ -60,8 +65,6 @@
 		71CDE9461DA1654C0003C683 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9451DA1654C0003C683 /* QuartzCore.framework */; };
 		71CDE9481DA165530003C683 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9471DA165530003C683 /* CoreGraphics.framework */; };
 		71CDE94A1DA1655F0003C683 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9491DA1655F0003C683 /* CoreMotion.framework */; };
-		71CDE94C1DA1657E0003C683 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE94B1DA1657E0003C683 /* libz.tbd */; };
-		71CDE94E1DA165890003C683 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE94D1DA165890003C683 /* libc++.tbd */; };
 		71CDE9561DA1666A0003C683 /* SKTNavigationResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71CDE9551DA1666A0003C683 /* SKTNavigationResources.bundle */; };
 		71CDE95A1DA166BE0003C683 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE9591DA166BE0003C683 /* AVFoundation.framework */; };
 		71CDE95C1DA166C90003C683 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71CDE95B1DA166C90003C683 /* CoreTelephony.framework */; };
@@ -160,6 +163,13 @@
 		7143A7611DA6BE350078B456 /* MPItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryViewController.m; sourceTree = "<group>"; };
 		7143A7631DA6BE5E0078B456 /* MPItineraryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItineraryCell.h; sourceTree = "<group>"; };
 		7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryCell.m; sourceTree = "<group>"; };
+		7144A9081DCCE81B00D43C72 /* MapVisibleRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVisibleRegion.h; sourceTree = "<group>"; };
+		7144A9091DCCE81B00D43C72 /* MapVisibleRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVisibleRegion.m; sourceTree = "<group>"; };
+		7144A90B1DCCE9E000D43C72 /* SKOneBoxSearchBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SKOneBoxSearchBundle.bundle; path = MetroPaul/Ressources/SKOneBoxSearchBundle.bundle; sourceTree = "<group>"; };
+		7144A90D1DCCEB3D00D43C72 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "../../../Desktop/libc++.dylib"; sourceTree = "<group>"; };
+		7144A90E1DCCEB3D00D43C72 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "../../../Desktop/libstdc++.dylib"; sourceTree = "<group>"; };
+		7144A90F1DCCEB3D00D43C72 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = ../../../Desktop/libz.dylib; sourceTree = "<group>"; };
+		7144A9131DCCEB5B00D43C72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItineraryManager.h; sourceTree = "<group>"; };
 		7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItineraryManager.m; sourceTree = "<group>"; };
 		714AE8B71DAFD89500ACCE5D /* MPGlobalItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItinerary.h; sourceTree = "<group>"; };
@@ -286,14 +296,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71CDE9671DA169D00003C683 /* SKMaps.framework in Frameworks */,
+				7144A9141DCCEB5B00D43C72 /* SystemConfiguration.framework in Frameworks */,
+				7144A9101DCCEB3D00D43C72 /* libc++.dylib in Frameworks */,
+				7144A9111DCCEB3D00D43C72 /* libstdc++.dylib in Frameworks */,
+				7144A9121DCCEB3D00D43C72 /* libz.dylib in Frameworks */,
 				7110AC8C1DBF3BD900774340 /* MessageUI.framework in Frameworks */,
 				7142C08A1DA3BC1800F4CB95 /* CoreData.framework in Frameworks */,
 				71CDEA541DA1A4780003C683 /* libSDKTools.a in Frameworks */,
 				71CDE95C1DA166C90003C683 /* CoreTelephony.framework in Frameworks */,
-				71CDE9671DA169D00003C683 /* SKMaps.framework in Frameworks */,
 				71CDE95A1DA166BE0003C683 /* AVFoundation.framework in Frameworks */,
-				71CDE94E1DA165890003C683 /* libc++.tbd in Frameworks */,
-				71CDE94C1DA1657E0003C683 /* libz.tbd in Frameworks */,
 				71CDE94A1DA1655F0003C683 /* CoreMotion.framework in Frameworks */,
 				71CDE9481DA165530003C683 /* CoreGraphics.framework in Frameworks */,
 				71CDE9461DA1654C0003C683 /* QuartzCore.framework in Frameworks */,
@@ -519,6 +531,8 @@
 			children = (
 				71AEC6111DA1A6CA002ED428 /* MapRegion.h */,
 				71AEC6121DA1A6CA002ED428 /* MapRegion.m */,
+				7144A9081DCCE81B00D43C72 /* MapVisibleRegion.h */,
+				7144A9091DCCE81B00D43C72 /* MapVisibleRegion.m */,
 				71AEC65E1DA29746002ED428 /* MPStopArea.h */,
 				71AEC65F1DA29746002ED428 /* MPStopArea.m */,
 				71AEC6611DA29759002ED428 /* MPLine.h */,
@@ -685,6 +699,11 @@
 		9ACCA59A555E5209DB9115A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7144A9131DCCEB5B00D43C72 /* SystemConfiguration.framework */,
+				7144A90D1DCCEB3D00D43C72 /* libc++.dylib */,
+				7144A90E1DCCEB3D00D43C72 /* libstdc++.dylib */,
+				7144A90F1DCCEB3D00D43C72 /* libz.dylib */,
+				7144A90B1DCCE9E000D43C72 /* SKOneBoxSearchBundle.bundle */,
 				7110AC8B1DBF3BD900774340 /* MessageUI.framework */,
 				71B038271DA2A06200B8229C /* CoreData.framework */,
 				71CDE95B1DA166C90003C683 /* CoreTelephony.framework */,
@@ -721,7 +740,7 @@
 				6F7F7DA3D7C673BEF15DB4B2 /* [CP] Copy Pods Resources */,
 				7178C5411D9B954900ED775B /* ShellScript */,
 				71CDE9691DA169D10003C683 /* Embed Frameworks */,
-				71F4F5591DB1005200205ED3 /* ShellScript */,
+				7144A9151DCCEE2C00D43C72 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -961,6 +980,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MetroPaul/Pods-MetroPaul-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7144A9151DCCEE2C00D43C72 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name 'SKMaps.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
 		7178C5411D9B954900ED775B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -973,19 +1005,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2c211217fd430e8f37700eeef7c39366fb89761c cb43aaea20e0004eb5c0bb65a3ca2b4df3fad76589835f6aea20f0d25d47af87";
-		};
-		71F4F5591DB1005200205ED3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name 'SKMaps.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
 		};
 		868E8FFDD60B32A42232641E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1095,6 +1114,7 @@
 				7178C5191D9B91F200ED775B /* MetroPaul.xcdatamodeld in Sources */,
 				7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */,
 				71AA93371DB13AD9003BD674 /* MPSectionView.m in Sources */,
+				7144A90A1DCCE81B00D43C72 /* MapVisibleRegion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1272,9 +1292,16 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MetroPaul/MetroPaul-PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					PREMIUM_FEATURES_TELENAV,
+					PREMIUM_FEATURES,
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/SDKTools/**",
 					"$(inherited)",
@@ -1339,6 +1366,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MetroPaul/MetroPaul-PrefixHeader.pch";

@@ -15,6 +15,7 @@
 @end
 
 @implementation MPAddress
+@synthesize name = _name;
 
 - (instancetype)initWithSKSearchResult:(SKSearchResult*)searchResult {
     self = [self init];
@@ -34,6 +35,14 @@
         self.nbItineraryToWait = 0;
     }
     return self;
+}
+
+- (NSString *)name {
+    if ((_name == nil || [_name isEqualToString:@""]) && self.stopArea != nil) {
+        return self.stopArea.name;
+    } else {
+        return _name;
+    }
 }
 
 -(void)dealloc {

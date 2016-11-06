@@ -1,9 +1,8 @@
 //
 //  XMLParser.m
-//  MetroPaul
+//  FrameworkIOSDemo
 //
-//  Created by Antoine Cointepas on 02/10/2016.
-//  Copyright © 2016 Antoine Cointepas. All rights reserved.
+//  Copyright (c) 2016 Skobbler. All rights reserved.
 //
 
 #import "XMLParser.h"
@@ -96,12 +95,8 @@ static XMLParser* instance = nil;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //    [self parseXML]; //when the XML is downloaded, start parsing
+//    [self parseXML]; //when the XML is downloaded, start parsing
     [self parseJSON];
-}
-
--(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError : %@", error);
 }
 
 
@@ -131,15 +126,14 @@ static XMLParser* instance = nil;
 - (void)parseJSON
 {
     NSString *jsonString = [[NSString alloc] initWithBytes:[self.jsonData bytes] length:[self.jsonData length] encoding:NSUTF8StringEncoding];
-    if (jsonString != nil && ![jsonString isEqualToString:@""]) {
-        SKTMapsObject *skMaps = [SKTMapsObject convertFromJSON:jsonString];
-        
-        AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-        [appDelegate setSkMapsObject:skMaps];
-        
-        self.isParsingFinished = YES;
-        [[NSNotificationCenter defaultCenter]postNotificationName:kParsingFinishedNotificationName object:nil];
-    }
+    
+    SKTMapsObject *skMaps = [SKTMapsObject convertFromJSON:jsonString];
+    
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    [appDelegate setSkMapsObject:skMaps];
+    
+    self.isParsingFinished = YES;
+    [[NSNotificationCenter defaultCenter]postNotificationName:kParsingFinishedNotificationName object:nil];
 }
 
 - (void) traverseWorldStructureForElement:(TBXMLElement *)element
@@ -253,11 +247,11 @@ static XMLParser* instance = nil;
             }
             
         }
-        
+
         [self.mapRegions addObject:currentRegion];
         
     } while (currentElement && ( currentElement = currentElement->nextSibling));
-    
+
     [_parentsDictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         MapRegion* region = [self cachedMapRegionWithID:(NSString *)key];
         MapRegion* parentRegion = [self cachedMapRegionWithID:(NSString *)obj];

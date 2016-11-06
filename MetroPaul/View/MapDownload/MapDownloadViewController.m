@@ -11,6 +11,9 @@
 #import <SKMaps/SKMaps.h>
 #import "SKTMapsObject.h"
 #import "MPMapDownloadCell.h"
+#import <SDKTools/SKTDownloadManager/Helper/SKTDownloadObjectHelper.h>
+#import <SDKTools/SKTDownloadManager/SKTDownloadAPI.h>
+
 
 @interface MapDownloadViewController () <SKTDownloadManagerDelegate, SKTDownloadManagerDataSource, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
