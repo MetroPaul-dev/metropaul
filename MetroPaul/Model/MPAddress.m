@@ -27,6 +27,16 @@
     return self;
 }
 
+- (instancetype)initWithHistory:(MPHistory*)history {
+    self = [self init];
+    if (self) {
+        self.name = history.name;
+        self.coordinate = history.coordinate;
+    }
+    
+    return self;
+}
+
 - (instancetype)init {
     self = [super init];
     if (self) {

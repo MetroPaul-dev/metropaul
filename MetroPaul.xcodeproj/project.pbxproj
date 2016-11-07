@@ -54,6 +54,7 @@
 		71AEC6601DA29746002ED428 /* MPStopArea.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AEC65F1DA29746002ED428 /* MPStopArea.m */; };
 		71AEC6631DA29759002ED428 /* MPLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AEC6621DA29759002ED428 /* MPLine.m */; };
 		71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 71AEC6651DA29779002ED428 /* MPStopAreaLine.m */; };
+		71BC122A1DD0AFE200896C87 /* MPHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC12291DD0AFE200896C87 /* MPHistory.m */; };
 		71C556801D9E8B79002D1BCB /* MPLanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C5567F1D9E8B79002D1BCB /* MPLanguageManager.m */; };
 		71C556871D9EC472002D1BCB /* MPSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C556861D9EC472002D1BCB /* MPSwitchCell.m */; };
 		71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71CDE9391DA164E80003C683 /* SKMaps.bundle */; };
@@ -226,6 +227,8 @@
 		71AEC6641DA29779002ED428 /* MPStopAreaLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStopAreaLine.h; sourceTree = "<group>"; };
 		71AEC6651DA29779002ED428 /* MPStopAreaLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopAreaLine.m; sourceTree = "<group>"; };
 		71B038271DA2A06200B8229C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		71BC12281DD0AFE200896C87 /* MPHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPHistory.h; sourceTree = "<group>"; };
+		71BC12291DD0AFE200896C87 /* MPHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPHistory.m; sourceTree = "<group>"; };
 		71C5567E1D9E8B79002D1BCB /* MPLanguageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLanguageManager.h; sourceTree = "<group>"; };
 		71C5567F1D9E8B79002D1BCB /* MPLanguageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLanguageManager.m; sourceTree = "<group>"; };
 		71C556851D9EC472002D1BCB /* MPSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSwitchCell.h; sourceTree = "<group>"; };
@@ -555,6 +558,8 @@
 				714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */,
 				71AA933D1DB2166F003BD674 /* MPSectionItinerary.h */,
 				71AA933E1DB2166F003BD674 /* MPSectionItinerary.m */,
+				71BC12281DD0AFE200896C87 /* MPHistory.h */,
+				71BC12291DD0AFE200896C87 /* MPHistory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1113,6 +1118,7 @@
 				71AEC6131DA1A6CA002ED428 /* MapRegion.m in Sources */,
 				7178C5191D9B91F200ED775B /* MetroPaul.xcdatamodeld in Sources */,
 				7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */,
+				71BC122A1DD0AFE200896C87 /* MPHistory.m in Sources */,
 				71AA93371DB13AD9003BD674 /* MPSectionView.m in Sources */,
 				7144A90A1DCCE81B00D43C72 /* MapVisibleRegion.m in Sources */,
 			);

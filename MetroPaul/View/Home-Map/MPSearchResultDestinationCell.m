@@ -24,20 +24,34 @@
     // Initialization code
 }
 
+- (void)setHistory:(MPHistory *)history {
+    _stopArea = nil;
+    _searchResult = nil;
+    _history = history;
+    self.textLabel.text = [history name];
+    self.imageView.image = [UIImage imageNamed:@"icon-history"];
+    [self.button setHidden:NO];
+    [self layoutIfNeeded];
+}
+
 - (void)setStopArea:(MPStopArea *)stopArea {
     _stopArea = stopArea;
     _searchResult = nil;
+    _history = nil;
     self.textLabel.text = [stopArea name];
     self.imageView.image = [UIImage imageNamed:@"icon-metro"];
     [self.button setHidden:NO];
+    [self layoutIfNeeded];
 }
 
 - (void)setSearchResult:(SKSearchResult *)searchResult {
     _searchResult = searchResult;
     _stopArea = nil;
+    _history = nil;
     self.imageView.image = [UIImage imageNamed:@"icon-pin"];
     self.textLabel.text = [searchResult toString];
     [self.button setHidden:NO];
+    [self layoutIfNeeded];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -56,6 +70,8 @@
         [self.delegate searchResultDestinationCellTapOnSearchResult:self.searchResult];
     } else if (self.stopArea != nil && self.delegate && [self.delegate respondsToSelector:@selector(searchResultDestinationCellTapOnStopArea:)]) {
         [self.delegate searchResultDestinationCellTapOnStopArea:self.stopArea];
+    } else if (self.history != nil && self.delegate && [self.delegate respondsToSelector:@selector(searchResultDestinationCellTapOnHistory:)]) {
+        [self.delegate searchResultDestinationCellTapOnHistory:self.history];
     }
 }
 

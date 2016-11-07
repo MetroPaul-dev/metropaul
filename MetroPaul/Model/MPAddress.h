@@ -11,6 +11,7 @@
 #import <SKMaps/SKMaps.h>
 
 #import "MPStopArea.h"
+#import "MPHistory.h"
 
 @interface MPAddress : NSObject
 
@@ -21,6 +22,7 @@
 @property(nonatomic, strong) NSMutableArray *itineraryToStopAreas;
 
 - (instancetype)initWithSKSearchResult:(SKSearchResult*)searchResult;
+- (instancetype)initWithHistory:(MPHistory*)history;
 - (void)findStopAreasAround;
 - (BOOL)checkAddressValidity;
 @end

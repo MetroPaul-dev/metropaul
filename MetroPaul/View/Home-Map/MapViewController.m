@@ -17,6 +17,7 @@
 #import "MPGlobalItineraryManager.h"
 #import "SKSearchResult+MPString.h"
 #import <MessageUI/MessageUI.h>
+#import "MPHistory.h"
 
 #define CELL_HEIGHT 50
 #define INFOVIEW_HEIGHT 70
@@ -46,10 +47,12 @@ static SKListLevel listLevelLimit;
 @property(nonatomic, strong) NSArray *downloadPackage;
 @property(nonatomic, strong) SKSearchResult *searchResultSelected;
 @property(nonatomic, strong) MPStopArea *stopAreaSelected;
+@property(nonatomic, strong) MPHistory *historySelected;
 
 @property(nonatomic, strong) SKMultiStepSearchSettings *multiStepSearchObject;
 @property(nonatomic, strong) NSMutableArray *searchResultsSkobbler;
 @property(nonatomic, strong) NSMutableArray *searchResultsStopArea;
+@property(nonatomic, strong) NSMutableArray *searchResultsHistory;
 @property(nonatomic, strong) NSString *houseNumber;
 @property(nonatomic, strong) NSArray *searchStreetResults;
 
@@ -61,7 +64,6 @@ static SKListLevel listLevelLimit;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedPosition:) name:@"SchemePosition" object:nil];
     
     self.navigationItem.leftBarButtonItems = nil;
@@ -76,6 +78,7 @@ static SKListLevel listLevelLimit;
     
     self.searchResultsSkobbler = [NSMutableArray array];
     self.searchResultsStopArea = [NSMutableArray array];
+    self.searchResultsHistory = [NSMutableArray array];
     self.searchStreetResults = [NSArray array];
     
     self.searchBar.delegate = self;
@@ -181,38 +184,60 @@ static SKListLevel listLevelLimit;
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (![self.searchBar.text isEqual: @""]) {
-        if (self.searchResultsStopArea.count + self.searchResultsSkobbler.count > RESULT_LIMIT) {
+        if (self.searchResultsHistory.count + self.searchResultsStopArea.count + self.searchResultsSkobbler.count > RESULT_LIMIT) {
             NSInteger i = 0;
             NSInteger j = 0;
+            NSInteger k = 0;
             
-            while (i + j < RESULT_LIMIT) {
-                if (i < self.searchResultsStopArea.count && i + j < RESULT_LIMIT) {
+            while (i + j + k < RESULT_LIMIT) {
+                if (i < self.searchResultsStopArea.count && i + j + k < RESULT_LIMIT) {
                     i++;
                 }
-                if (j < self.searchResultsSkobbler.count && i + j < RESULT_LIMIT) {
+                if (j < self.searchResultsSkobbler.count && i + j + k < RESULT_LIMIT) {
                     j++;
                 }
+                if (k < self.searchResultsHistory.count && i + j + k < RESULT_LIMIT) {
+                    k++;
+                }
             }
-            if (section == 0) {
-                return i;
-            } else {
-                return j;
+            switch (section) {
+                case 0:
+                    return k;
+                    break;
+                case 1:
+                    return i;
+                    break;
+                case 2:
+                    return j;
+                    break;
+                    
+                default:
+                    break;
             }
         } else {
-            if (section == 0) {
-                return self.searchResultsStopArea.count;
-            } else {
-                return self.searchResultsSkobbler.count;
+            switch (section) {
+                case 0:
+                    return self.searchResultsHistory.count;
+                    break;
+                case 1:
+                    return self.searchResultsStopArea.count;
+                    break;
+                case 2:
+                    return self.searchResultsSkobbler.count;
+                    break;
+                    
+                default:
+                    break;
             }
         }
-    } else {
-        return 0;
     }
+    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -222,22 +247,47 @@ static SKListLevel listLevelLimit;
     }
     cell.delegate = self;
     
-    if (indexPath.section == 0) {
-        [cell setStopArea:[self.searchResultsStopArea objectAtIndex:indexPath.row]];
-    } else {
-        [cell setSearchResult:[self.searchResultsSkobbler objectAtIndex:indexPath.row]];
+    
+    switch (indexPath.section) {
+        case 0: {
+            [cell setHistory:[self.searchResultsHistory objectAtIndex:indexPath.row]];
+            break;
+        }
+        case 1: {
+            [cell setStopArea:[self.searchResultsStopArea objectAtIndex:indexPath.row]];
+            break;
+        }
+        case 2:{
+            [cell setSearchResult:[self.searchResultsSkobbler objectAtIndex:indexPath.row]];
+            break;
+        }
+            
+        default:
+            break;
     }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        MPStopArea *stopArea = [self.searchResultsStopArea objectAtIndex:indexPath.row];
-        [self setDestinationWithStopArea:stopArea];
-    } else {
-        SKSearchResult *searchResult = [self.searchResultsSkobbler objectAtIndex:indexPath.row];
-        [self setDestinationWithSearchResult:searchResult];
+    switch (indexPath.section) {
+        case 0: {
+            MPHistory *history = [self.searchResultsHistory objectAtIndex:indexPath.row];
+            [self setDestinationWithHistory:history];
+            break;
+        }
+        case 1: {
+            MPStopArea *stopArea = [self.searchResultsStopArea objectAtIndex:indexPath.row];
+            [self setDestinationWithStopArea:stopArea];
+            break;
+        }
+        case 2: {
+            SKSearchResult *searchResult = [self.searchResultsSkobbler objectAtIndex:indexPath.row];
+            [self setDestinationWithSearchResult:searchResult];
+            break;
+        }
+        default:
+            break;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.searchBar resignFirstResponder];
@@ -298,10 +348,20 @@ static SKListLevel listLevelLimit;
         NSArray *stopArea = [MPStopArea findByName:searchText];
         [self.searchResultsStopArea removeAllObjects];
         [self.searchResultsStopArea addObjectsFromArray:stopArea];
+        
+        // History
+        NSDictionary *dict = [[MPHistoryManager sharedManager] getHistory];
+        [self.searchResultsHistory removeAllObjects];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS[cd] %@", searchText];
+        NSArray *selectedKeys = [[dict allKeys] filteredArrayUsingPredicate:predicate];
+        for (NSString *key in selectedKeys) {
+            MPHistory *history = [NSKeyedUnarchiver unarchiveObjectWithData:[dict objectForKey:key]];
+            [self.searchResultsHistory addObject:history];
+        }
     } else {
+        [self.searchResultsHistory removeAllObjects];
         [self.searchResultsStopArea removeAllObjects];
         [self.searchResultsSkobbler removeAllObjects];
-        [self.tableView reloadData];
     }
     
     [self.tableView reloadData];
@@ -381,6 +441,7 @@ static SKListLevel listLevelLimit;
     if (searchResult != nil) {
         self.searchResultSelected = searchResult;
         self.stopAreaSelected = nil;
+        self.historySelected = nil;
         
         //        [self.mapView hideCallout];
         
@@ -399,6 +460,7 @@ static SKListLevel listLevelLimit;
     if (stopArea != nil) {
         self.searchResultSelected = nil;
         self.stopAreaSelected = stopArea;
+        self.historySelected = nil;
         
         //        [self.mapView hideCallout];
         
@@ -416,6 +478,27 @@ static SKListLevel listLevelLimit;
             [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-metro"]];
         } else {
             [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-pin"]];
+        }
+        
+        [self showInfoView:YES];
+    }
+}
+
+- (void)setDestinationWithHistory:(MPHistory*)history {
+    if (history != nil) {
+        self.searchResultSelected = nil;
+        self.stopAreaSelected = nil;
+        self.historySelected = history;
+        
+        //        [self.mapView hideCallout];
+        
+        [self centerOnCoordinate:history.coordinate];
+        [self addAnnotationDestination:history.coordinate];
+        
+        if (history.typeStopArea) {
+            [self setTexteInfoView:[NSString stringWithFormat:@"%@\n%@", history.name, history.subTitle] image:[UIImage imageNamed:@"icon-metro"]];
+        } else {
+            [self setTexteInfoView:history.name image:[UIImage imageNamed:@"icon-pin"]];
         }
         
         [self showInfoView:YES];
@@ -531,12 +614,21 @@ static SKListLevel listLevelLimit;
 - (void)searchResultDestinationCellTapOnStopArea:(MPStopArea *)stopArea {
     self.stopAreaSelected = stopArea;
     self.searchResultSelected = nil;
+    self.historySelected = nil;
     [self tapOnGoButton:nil];
 }
 
 - (void)searchResultDestinationCellTapOnSearchResult:(SKSearchResult *)searchResult {
     self.stopAreaSelected = nil;
     self.searchResultSelected = searchResult;
+    self.historySelected = nil;
+    [self tapOnGoButton:nil];
+}
+
+- (void)searchResultDestinationCellTapOnHistory:(MPHistory *)history {
+    self.stopAreaSelected = nil;
+    self.searchResultSelected = nil;
+    self.historySelected = history;
     [self tapOnGoButton:nil];
 }
 
@@ -545,7 +637,7 @@ static SKListLevel listLevelLimit;
 
 - (IBAction)tapOnGoButton:(id)sender {
     
-    if (self.searchResultSelected != nil || self.stopAreaSelected != nil) {
+    if (self.searchResultSelected != nil || self.stopAreaSelected != nil || self.historySelected) {
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             [[MPGlobalItineraryManager sharedManager] reset];
             SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
@@ -557,8 +649,12 @@ static SKListLevel listLevelLimit;
         
         if (self.searchResultSelected != nil) {
             address = [[MPAddress alloc] initWithSKSearchResult:self.searchResultSelected];
+            [[MPHistoryManager sharedManager] saveSearchResult:self.searchResultSelected];
         } else if (self.stopAreaSelected != nil) {
             address.stopArea = self.stopAreaSelected;
+            [[MPHistoryManager sharedManager] saveStopArea:self.stopAreaSelected];
+        } else if(self.historySelected != nil) {
+            address = [[MPAddress alloc] initWithHistory:self.historySelected];
         }
         
         [[MPGlobalItineraryManager sharedManager] setAddress:address];
@@ -621,7 +717,10 @@ static SKListLevel listLevelLimit;
         coordinate = _searchResultSelected.coordinate;
     } else if(_stopAreaSelected != nil) {
         coordinate = CLLocationCoordinate2DMake([_stopAreaSelected.latitude doubleValue], [_stopAreaSelected.longitude doubleValue]);
+    } else if(_historySelected != nil) {
+        coordinate = _historySelected.coordinate;
     }
+    
     if(![MFMessageComposeViewController canSendText]) {
         UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [warningAlert show];

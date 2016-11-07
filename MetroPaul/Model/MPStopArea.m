@@ -12,6 +12,10 @@
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
 
+@interface MPStopArea () <NSCoding>
+
+@end
+
 @implementation MPStopArea
 
 @dynamic id_stop_area;
@@ -152,6 +156,33 @@
     NSArray *result = [NSArray arrayWithObjects:[NSNumber numberWithFloat:minLat], [NSNumber numberWithFloat:minLong], [NSNumber numberWithFloat:maxLat], [NSNumber numberWithFloat:maxLong], nil];
 
     return result;
+}
+
+#pragma mark - NSCoding
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+            self.id_stop_area = [aDecoder decodeObjectForKey:@"id_stop_area"];
+            self.name = [aDecoder decodeObjectForKey:@"name"];
+            self.id_navitia = [aDecoder decodeObjectForKey:@"id_navitia"];
+            self.latitude = [aDecoder decodeObjectForKey:@"latitude"];
+            self.longitude = [aDecoder decodeObjectForKey:@"longitude"];
+            self.last_update = [aDecoder decodeObjectForKey:@"last_update"];
+            self.calculated = [aDecoder decodeObjectForKey:@"calculated"];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.id_stop_area forKey:@"id_stop_area"];
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.id_navitia forKey:@"id_navitia"];
+    [aCoder encodeObject:self.latitude forKey:@"latitude"];
+    [aCoder encodeObject:self.longitude forKey:@"longitude"];
+    [aCoder encodeObject:self.last_update forKey:@"last_update"];
+    [aCoder encodeObject:self.calculated forKey:@"calculated"];
 }
 
 
