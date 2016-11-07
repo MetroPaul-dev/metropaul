@@ -33,40 +33,79 @@
 
 - (void)setGlobalItinerary:(MPGlobalItinerary *)globalItinerary {
     _globalItinerary = globalItinerary;
-    
+    [self reinitSectionView];
     [self.durationLabel setText:[NSString stringWithFormat:@"%imin", (int)(globalItinerary.duration/60)]];
     
-    [self.firstSectionView setRouteInformation:globalItinerary.startRouteInformation];
-    [self.fourthSectionView setRouteInformation:globalItinerary.destinationRouteInformation];
-    
-    for (MPSectionItinerary *sectionItinerary in [globalItinerary.itineraryMetro readItinerary]) {
-        if (sectionItinerary.type == MPStepItineraryTransport) {
-            if (self.secondSectionView.sectionItinerary == nil) {
-                [self.secondSectionView setSectionItinerary:sectionItinerary];
-            } else
-//                if (self.thirdSectionView.sectionItinerary == nil)
-                {
-                [self.thirdSectionView setSectionItinerary:sectionItinerary];
+    if (globalItinerary.startRouteInformation != nil && globalItinerary.startStopArea == nil && globalItinerary.itineraryMetro == nil && globalItinerary.destinationStopArea == nil && globalItinerary.destinationRouteInformation == nil) {
+        [self itineraryFullSkobbler];
+    } else {
+        NSArray *sectionsItinerary = [globalItinerary.itineraryMetro readItinerary];
+        
+        [self.firstSectionView setRouteInformation:globalItinerary.startRouteInformation];
+        [self.fourthSectionView setRouteInformation:globalItinerary.destinationRouteInformation];
+        
+        if (sectionsItinerary.count > 2) {
+            MPSectionItinerary *section = [sectionsItinerary firstObject];
+            if ([section type] == MPStepItineraryStreet) {
+                [self.firstSectionView addDuration:section.duration];
             }
-//            else {
-//                break;
-//            }
+            section = [sectionsItinerary lastObject];
+            if ([section type] == MPStepItineraryStreet) {
+                [self.fourthSectionView addDuration:section.duration];
+            }
         }
+        
+        for (MPSectionItinerary *sectionItinerary in sectionsItinerary) {
+            if (sectionItinerary.type == MPStepItineraryTransport) {
+                if (self.secondSectionView.sectionItinerary == nil) {
+                    [self.secondSectionView setSectionItinerary:sectionItinerary];
+                } else
+                    //                if (self.thirdSectionView.sectionItinerary == nil)
+                {
+                    [self.thirdSectionView setSectionItinerary:sectionItinerary];
+                }
+                //            else {
+                //                break;
+                //            }
+            }
+        }
+        [self sectionDisposition];
     }
-    [self sectionDisposition];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
 - (void)sectionDisposition {
-    NSInteger nbSection = 1;
-    nbSection = nbSection + (self.globalItinerary.destinationRouteInformation != nil ? 1 : 0);
+    NSArray *sectionsItinerary = [self.globalItinerary.itineraryMetro readItinerary];
+    NSInteger nbSection = 0;
+    
+    if (self.globalItinerary.startRouteInformation != nil) {
+        nbSection = nbSection + 1;
+    } else {
+        if (sectionsItinerary.count > 2) {
+            MPSectionItinerary *section = [sectionsItinerary firstObject];
+            if ([section type] == MPStepItineraryStreet) {
+                nbSection = nbSection + 1;
+            }
+        }
+    }
+    if (self.globalItinerary.destinationRouteInformation != nil ) {
+        nbSection = nbSection + 1;
+
+    } else {
+        if (sectionsItinerary.count > 2) {
+            MPSectionItinerary *section = [sectionsItinerary lastObject];
+            if ([section type] == MPStepItineraryStreet) {
+                nbSection = nbSection + 1;
+            }
+        }
+    }
     NSInteger nbSectionItinerary = 0;
-    for (MPSectionItinerary *sectionItinerary in [self.globalItinerary.itineraryMetro readItinerary]) {
+    for (MPSectionItinerary *sectionItinerary in sectionsItinerary) {
         if (sectionItinerary.type == MPStepItineraryTransport) {
             nbSectionItinerary++;
         }
@@ -129,6 +168,18 @@
             break;
     }
     [self layoutIfNeeded];
+}
+
+- (void)itineraryFullSkobbler {
+    [self.firstSectionView setRouteInformation:self.globalItinerary.startRouteInformation];
+    [self sectionDisposition];
+}
+
+- (void)reinitSectionView {
+    [self.firstSectionView reinit];
+    [self.secondSectionView reinit];
+    [self.thirdSectionView reinit];
+    [self.fourthSectionView reinit];
 }
 
 

@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImageHrozontalAlignmentConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *separatorWidthConstraint;
+
+@property(nonatomic) NSInteger duration;
+
 @end
 
 @implementation MPSectionView
@@ -35,66 +38,80 @@
     return self;
 }
 
+- (void)reinit {
+    self.routeInformation = nil;
+    self.sectionItinerary = nil;
+}
+
 - (void)setRouteInformation:(SKRouteInformation *)routeInformation {
     _routeInformation = routeInformation;
-    
+    self.duration = 0;
     if (routeInformation != nil) {
         self.firstImageHrozontalAlignmentConstraint.constant = 0.0;
         self.secondImageWidthConstraint.constant = 0.0;
+        self.duration = routeInformation.estimatedTime;
         
         switch (routeInformation.routeMode) {
             case SKRouteCarFastest: {
-                self.label.text = [NSString stringWithFormat:@"%imin", (int)(routeInformation.estimatedTime/60)];
                 self.firstImageView.image = [UIImage imageNamed:@"icon-car"];
                 break;
             }
             case SKRouteBicycleFastest: {
-                self.label.text = [NSString stringWithFormat:@"%imin", (int)(routeInformation.estimatedTime/60)];
                 self.firstImageView.image = [UIImage imageNamed:@"icon-velo"];
                 break;
             }
             case SKRoutePedestrian: {
-                self.label.text = [NSString stringWithFormat:@"%imin", (int)(routeInformation.estimatedTime/60)];
                 self.firstImageView.image = [UIImage imageNamed:@"icon-pieton"];
                 break;
             }
             default:
+                self.firstImageView.image = [UIImage imageNamed:@"icon-pieton"];
                 break;
         }
     } else {
-        
+        self.firstImageView.image = [UIImage imageNamed:@"icon-pieton"];
     }
+    
+    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
 }
 
 - (void)setSectionItinerary:(MPSectionItinerary *)sectionItinerary {
     _sectionItinerary = sectionItinerary;
+    self.duration = 0;
     if (sectionItinerary != nil) {
-    self.firstImageHrozontalAlignmentConstraint.constant = kFirstImageHrozontalAlignment;
-    self.secondImageWidthConstraint.constant = 25.0;
-    
-    self.label.text = [NSString stringWithFormat:@"%imin", (int)(_sectionItinerary.duration/60)];
-    MPLine *line = [MPLine findByCode:_sectionItinerary.codeLine];
-    if (line != nil) {
-        self.firstImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@", [[line.transport_type substringToIndex:1] uppercaseString]]];
-    }
-    self.secondImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ligne%@", _sectionItinerary.codeLine]];
+        self.firstImageHrozontalAlignmentConstraint.constant = kFirstImageHrozontalAlignment;
+        self.secondImageWidthConstraint.constant = 25.0;
+        self.duration = sectionItinerary.duration;
+        MPLine *line = [MPLine findByCode:_sectionItinerary.codeLine];
+        if (line != nil) {
+            self.firstImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@", [[line.transport_type substringToIndex:1] uppercaseString]]];
+        }
+        self.secondImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"ligne%@", _sectionItinerary.codeLine]];
     } else {
-        
+        self.duration = 0;
     }
+    
+    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
+
 }
 
 - (void)isLastSection:(BOOL)last {
     if (last) {
-//        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
+        //        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
         self.separatorImageView.hidden = YES;
         self.separatorWidthConstraint.constant = 0.0;
         //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparatorClear"];
     } else {
-//        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
+        //        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
         self.separatorImageView.hidden = NO;
         self.separatorWidthConstraint.constant = 11.0;
         //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparator"];
     }
+}
+
+- (void)addDuration:(NSInteger)durationToAdd {
+    self.duration +=durationToAdd;
+    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
 }
 
 @end
