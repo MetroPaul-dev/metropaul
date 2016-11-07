@@ -30,7 +30,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -45,19 +45,19 @@
             cell.textLabel.text = @"Plan de métro + tram";
             break;
         }
+//        case 1:{
+//            cell.imageView.image = [UIImage imageNamed:@"icon-plan-velib"];
+//            cell.textLabel.text = @"Stations vélib";
+//
+//            break;
+//        }
         case 1:{
-            cell.imageView.image = [UIImage imageNamed:@"icon-plan-velib"];
-            cell.textLabel.text = @"Stations vélib";
-
-            break;
-        }
-        case 2:{
             cell.imageView.image = [UIImage imageNamed:@"icon-plan-bus"];
             cell.textLabel.text = @"Plan des bus";
 
             break;
         }
-        case 3:{
+        case 2:{
             cell.imageView.image = [UIImage imageNamed:@"icon-plan-noctilien"];
             cell.textLabel.text = @"Plan des Noctiliens";
 
@@ -78,15 +78,15 @@
             webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"metro_tram_simple" withExtension:@"pdf"];
             break;
         }
+//        case 1:{
+//            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"metro_tram_simple" withExtension:@"pdf"];
+//            break;
+//        }
         case 1:{
-            webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"metro_tram_simple" withExtension:@"pdf"];
-            break;
-        }
-        case 2:{
             webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"bus_paris_simple" withExtension:@"pdf"];
             break;
         }
-        case 3:{
+        case 2:{
             webVC.mapFileURL = [[NSBundle mainBundle] URLForResource:@"noctilien_simple" withExtension:@"pdf"];
             break;
         }
