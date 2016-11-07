@@ -81,14 +81,14 @@
     self.itineraryMetroIsFinish = NO;
     self.nbItinerarySkobbler = 0;
     
-    if (self.startAddress.stopArea == nil) {
-        [self.startAddress findStopAreasAround];
-        self.startAddress.itineraryToStopAreas = [NSMutableArray array];
-    }
-    if (self.destinationAddress.stopArea == nil) {
-        [self.destinationAddress findStopAreasAround];
-        self.destinationAddress.itineraryToStopAreas = [NSMutableArray array];
-    }
+    //    if (self.startAddress.stopArea == nil) {
+    [self.startAddress findStopAreasAround];
+    self.startAddress.itineraryToStopAreas = [NSMutableArray array];
+    //    }
+    //    if (self.destinationAddress.stopArea == nil) {
+    [self.destinationAddress findStopAreasAround];
+    self.destinationAddress.itineraryToStopAreas = [NSMutableArray array];
+    //    }
     
     if (self.startAddress.stopAreas.count > 0) {
         MPStopArea *stopArea = [self.startAddress.stopAreas firstObject];
@@ -169,67 +169,38 @@
 }
 
 - (void)routingService:(SKRoutingService *)routingService didFailWithErrorCode:(SKRoutingErrorCode)errorCode {
-    NSLog(@"Route calculation failed.");
+    NSLog(@"Route calculation failed : %ld", (long)errorCode);
     
     if (self.itineraryMetroIsFinish) {
         self.nbItinerarySkobbler++;
         [self calculItineraryFullSkobbler];
     } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculFailed object:nil];
+        if (errorCode != SKRoutingErrorCodeSameStartAndDestinationCoordinate) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotifItineraryCalculFailed object:nil];
+        }
         [self traitementCallbackRoutingService:[[SKRouteInformation alloc] init]];
     }
 }
 
 - (void)calculAllMetroItinerary {
     self.globalItineraryList = [NSMutableArray array];
-    if (self.startAddress.stopArea == nil) {
-        for (int i = 0; i < self.startAddress.stopAreas.count; i++) {
-            if ([[self.startAddress.itineraryToStopAreas objectAtIndex:i] routeID] == 0) {
-                continue;
-            }
-            MPStopArea *startStopArea = [self.startAddress.stopAreas objectAtIndex:i];
-            if (self.destinationAddress.stopArea == nil) {
-                for (int j = 0; j < self.destinationAddress.stopAreas.count; j++) {
-                    if ([[self.destinationAddress.itineraryToStopAreas objectAtIndex:j] routeID] == 0) {
-                        continue;
-                    }
-                    MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
-                    MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
-                    if (itineraire != nil && [itineraire containsPublicTransport]) {
-                        MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
-                        globalItinerary.startStopArea = startStopArea;
-                        globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
-                        globalItinerary.destinationRouteInformation = [self.destinationAddress.itineraryToStopAreas objectAtIndex:j];
-                        globalItinerary.destinationStopArea = destinationStopArea;
-                        globalItinerary.itineraryMetro = itineraire;
-                        [self.globalItineraryList addObject:globalItinerary];
-                    }
-                }
-            } else {
-                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
-                if (itineraire != nil && [itineraire containsPublicTransport]) {
-                    MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
-                    globalItinerary.startStopArea = startStopArea;
-                    globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
-                    globalItinerary.destinationRouteInformation = nil;
-                    globalItinerary.destinationStopArea = self.destinationAddress.stopArea;
-                    globalItinerary.itineraryMetro = itineraire;
-                    [self.globalItineraryList addObject:globalItinerary];
-                }
-            }
+    //    if (self.startAddress.stopArea == nil) {
+    for (int i = 0; i < self.startAddress.stopAreas.count; i++) {
+        if ([[self.startAddress.itineraryToStopAreas objectAtIndex:i] routeID] == 0) {
+            continue;
         }
-    } else {
+        MPStopArea *startStopArea = [self.startAddress.stopAreas objectAtIndex:i];
         if (self.destinationAddress.stopArea == nil) {
             for (int j = 0; j < self.destinationAddress.stopAreas.count; j++) {
                 if ([[self.destinationAddress.itineraryToStopAreas objectAtIndex:j] routeID] == 0) {
                     continue;
                 }
                 MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
-                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
+                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
                 if (itineraire != nil && [itineraire containsPublicTransport]) {
                     MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
-                    globalItinerary.startStopArea = self.startAddress.stopArea;
-                    globalItinerary.startRouteInformation = nil;
+                    globalItinerary.startStopArea = startStopArea;
+                    globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
                     globalItinerary.destinationRouteInformation = [self.destinationAddress.itineraryToStopAreas objectAtIndex:j];
                     globalItinerary.destinationStopArea = destinationStopArea;
                     globalItinerary.itineraryMetro = itineraire;
@@ -237,11 +208,11 @@
                 }
             }
         } else {
-            MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
+            MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:startStopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
             if (itineraire != nil && [itineraire containsPublicTransport]) {
                 MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
-                globalItinerary.startStopArea = self.startAddress.stopArea;
-                globalItinerary.startRouteInformation = nil;
+                globalItinerary.startStopArea = startStopArea;
+                globalItinerary.startRouteInformation = [self.startAddress.itineraryToStopAreas objectAtIndex:i];
                 globalItinerary.destinationRouteInformation = nil;
                 globalItinerary.destinationStopArea = self.destinationAddress.stopArea;
                 globalItinerary.itineraryMetro = itineraire;
@@ -249,6 +220,37 @@
             }
         }
     }
+    //    } else {
+    //        if (self.destinationAddress.stopArea == nil) {
+    //            for (int j = 0; j < self.destinationAddress.stopAreas.count; j++) {
+    //                if ([[self.destinationAddress.itineraryToStopAreas objectAtIndex:j] routeID] == 0) {
+    //                    continue;
+    //                }
+    //                MPStopArea *destinationStopArea = [self.destinationAddress.stopAreas objectAtIndex:j];
+    //                MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:destinationStopArea.id_stop_area];
+    //                if (itineraire != nil && [itineraire containsPublicTransport]) {
+    //                    MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+    //                    globalItinerary.startStopArea = self.startAddress.stopArea;
+    //                    globalItinerary.startRouteInformation = nil;
+    //                    globalItinerary.destinationRouteInformation = [self.destinationAddress.itineraryToStopAreas objectAtIndex:j];
+    //                    globalItinerary.destinationStopArea = destinationStopArea;
+    //                    globalItinerary.itineraryMetro = itineraire;
+    //                    [self.globalItineraryList addObject:globalItinerary];
+    //                }
+    //            }
+    //        } else {
+    //            MPItinerary *itineraire = [MPItinerary findByStartStopAreaId:self.startAddress.stopArea.id_stop_area destinationId:self.destinationAddress.stopArea.id_stop_area];
+    //            if (itineraire != nil && [itineraire containsPublicTransport]) {
+    //                MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
+    //                globalItinerary.startStopArea = self.startAddress.stopArea;
+    //                globalItinerary.startRouteInformation = nil;
+    //                globalItinerary.destinationRouteInformation = nil;
+    //                globalItinerary.destinationStopArea = self.destinationAddress.stopArea;
+    //                globalItinerary.itineraryMetro = itineraire;
+    //                [self.globalItineraryList addObject:globalItinerary];
+    //            }
+    //        }
+    //    }
     
     
     

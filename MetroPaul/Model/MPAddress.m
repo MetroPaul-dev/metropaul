@@ -50,7 +50,10 @@
 }
 
 - (void)findStopAreasAround {
-    if (self.stopArea == nil && CLLocationCoordinate2DIsValid(self.coordinate)) {
+    if (self.stopArea != nil) {
+        self.coordinate = CLLocationCoordinate2DMake([self.stopArea.latitude floatValue], [self.stopArea.longitude floatValue]);
+    }
+    if (CLLocationCoordinate2DIsValid(self.coordinate)) {
         NSInteger distance = STOP_AREA_DISTANCE_DEFAULT;
         while (self.stopAreas.count < 2) {
             self.stopAreas = [NSMutableArray arrayWithArray:[MPStopArea findByDistanceInMeter:distance fromLatitude:self.coordinate.latitude fromLongitude:self.coordinate.longitude]];
