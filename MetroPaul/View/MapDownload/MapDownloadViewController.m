@@ -48,10 +48,14 @@
         [[SKTDownloadManager sharedInstance] cancelDownload];
     }
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download" comment:nil]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download"]];
     
     if ([[SKTDownloadManager sharedInstance] isDownloadPaused]) {
-        [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"Un téléchargement est en pause" delegate:self cancelButtonTitle:@"Supprimer" otherButtonTitles:@"Reprendre", nil] show];
+        [[[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.warning"]
+                                    message:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.message.download.pause"]
+                                   delegate:self
+                          cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.delete"]
+                          otherButtonTitles:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.resume"], nil] show];
     }
 }
 
@@ -86,7 +90,11 @@
 
 - (void)notEnoughDiskSpace {
     NSLog(@"not enough space");
-    [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"L'espace disque est insuffisant" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.warning"]
+                                message:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.message.diskspace"]
+                               delegate:nil
+                      cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.ok"]
+                      otherButtonTitles:nil] show];
     if ([[SKTDownloadManager sharedInstance] isDownloadRunning] || [[SKTDownloadManager sharedInstance] isDownloadPaused]) {
         [[SKTDownloadManager sharedInstance] cancelDownload];
     }
@@ -141,7 +149,7 @@
 
 - (void)downloadManager:(SKTDownloadManager *)downloadManager didDownloadDownloadHelper:(SKTDownloadObjectHelper *)downloadHelper withSuccess:(BOOL)success {
     self.progressView.progress = 1;
-    self.percentLabel.text = @"Download finished";
+    self.percentLabel.text = [[MPLanguageManager sharedManager] getStringWithKey:@"mapDownload.download.finish"];
     
     [self showDownloadUI];
 }
@@ -180,12 +188,12 @@
         }
     }
     if (find) {
-        [cell.button setTitle:@"Delete" forState:UIControlStateNormal];
+        [cell.button setTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"mapDownload.title.delete"] forState:UIControlStateNormal];
         [cell.button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [cell.button addTarget:self action:@selector(didTapButtonDeletePackage:) forControlEvents:UIControlEventTouchUpInside];
     } else {
         
-        [cell.button setTitle:@"Download" forState:UIControlStateNormal];
+        [cell.button setTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"mapDownload.title.download"] forState:UIControlStateNormal];
         [cell.button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
         [cell.button addTarget:self action:@selector(didTapButtonDownloadPackage:) forControlEvents:UIControlEventTouchUpInside];
     }

@@ -9,6 +9,7 @@
 #import "MPCGUViewController.h"
 
 @interface MPCGUViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -17,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.cgu" comment:nil]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.cgu"]];
+    
+    self.textView.text = [[MPLanguageManager sharedManager] getStringWithKey:@"cgu.content"];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -145,7 +145,11 @@
                         
                         [self presentViewController:mc animated:YES completion:NULL];
                     } else {
-                        [[[UIAlertView alloc] initWithTitle:@"Impossible" message:@"Veuillez configurer l'application Mail" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+                        [[[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.impossible"]
+                                                    message:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.message.configure.mail"]
+                                                   delegate:nil
+                                          cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.ok"]
+                                          otherButtonTitles:nil] show];
                     }
                     break;
                 }

@@ -1,29 +1,41 @@
-/* 
-  Localizable.strings
-  MetroPaul
-
-  Created by Antoine Cointepas on 29/09/2016.
-  Copyright © 2016 Antoine Cointepas. All rights reserved.
-*/
+/*
+ Localizable.strings
+ MetroPaul
+ 
+ Created by Antoine Cointepas on 29/09/2016.
+ Copyright © 2016 Antoine Cointepas. All rights reserved.
+ */
 
 "menu.plan" = "Plan";
 "menu.maps" = "Plans";
 "menu.itinerary" = "Itinéraire";
-"menu.map_itinerary" = "Plan + Itinéraire";
-"menu.note" = "Noter MetroPaul";
-"menu.share" = "Partager MetroPaul";
+"menu.map_itinerary" = "Plan + Itinéraire";"menu.note" = "Noter MetroPaul";
+"menu.share" = "Share MetroPaul";
 "menu.map" = "Cartes";
 "menu.contact" = "Nous contacter";
 "menu.cgu" = "C.G.U";
 
 "menu.parameters" = "Paramètres";
-"menu.download" = "Téléchargement";
+"menu.download" = "Download";
 "menu.pmr" = "Tout accessible";
-"menu.language" = "Langues";
+"menu.language" = "Language";
 
 "searchBar.yourPosition" = "Votre position";
 
+//MPMapsViewController
+"maps.metro_tram" = "Plan de métro + tram";
+"maps.bus" = "Plan des bus";
+"maps.noctilien" = "Plan des Noctiliens";
 
+
+//MapViewController
+"home.ligne_nb" = "%@\n%@\nLigne";
+"home.alert.download_map" = "Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités";
+
+//MapDownloadViewController
+"mapDownload.download.finish" = "Download finished";
+"mapDownload.title.delete" = "Supprimer";
+"mapDownload.title.download" = "Télécharger";
 
 
 "SDKTools.lessThanAMinuteKey" = "Less than a minute";
@@ -57,10 +69,23 @@
 "SDKTools.exitKey" = "Exit:";
 "SDKTools.pedestrianNavigationKey" = "Start pedestrian navigation";
 
+
 "alert.title.error" = "Erreur";
+"alert.title.warning" = "Attention";
+"alert.title.delete" = "Supprimer";
+"alert.title.resume" = "Reprendre";
+"alert.title.impossible" = "Impossible";
+"alert.title.ok" = "Ok";
 "alert.message.noStart" = "Le point de départ n’est pas défini";
 "alert.message.noDestination" = "La destination n’est pas définie";
 "alert.message.noItinerary" = "Aucun itinéraire ne correspond à votre demande";
 "alert.message.itinerary.problem" = "Un problème est survenu pendant le calcul de votre itinéraire";
 "alert.message.noItinerary.accessible" = "Aucun itinéraire accessible ne correspond à votre demande";
 "alert.message.outside" = "Votre point de départ ou de destination est en dehors de la ville";
+"alert.message.sms" = "Your device doesn't support SMS !";
+"alert.message.sms.failed" = "Failed to send SMS!";
+"alert.message.download.pause" = "Un téléchargement est en pause";
+"alert.message.diskspace" = "L'espace disque est insuffisant";
+"alert.message.configure.mail" = "Veuillez configurer l'application Mail";
+
+"cgu.content" = "Les CGU";

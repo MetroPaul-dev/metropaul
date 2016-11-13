@@ -137,7 +137,7 @@ static SKListLevel listLevelLimit;
     self.labelInfoView.font = [UIFont fontWithName:FONT_MEDIUM size:13.0f];
     [self.buttonInfoView.titleLabel setFont:[UIFont fontWithName:FONT_MEDIUM size:16.0f]];
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan"]];
     
     AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
     if (CLLocationCoordinate2DIsValid(appDelegate.coordinateReceived)) {
@@ -150,7 +150,7 @@ static SKListLevel listLevelLimit;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan" comment:nil]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan"]];
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"icon-menu"]
@@ -468,7 +468,7 @@ static SKListLevel listLevelLimit;
         [self centerOnCoordinate:coordinate];
         [self addAnnotationDestination:coordinate];
         
-        NSMutableString *text = [NSMutableString stringWithFormat:@"%@\n%@\nLigne", [stopArea name], [(MPLine*)[stopArea.lines.allObjects firstObject] transport_type]];
+        NSMutableString *text = [NSMutableString stringWithFormat:[[MPLanguageManager sharedManager] getStringWithKey:@"home.ligne_nb"], [stopArea name], [(MPLine*)[stopArea.lines.allObjects firstObject] transport_type]];
         for (MPLine *line in stopArea.lines) {
             [text appendFormat:@" %@,",line.code];
         }
@@ -708,7 +708,11 @@ static SKListLevel listLevelLimit;
 }
 
 - (void)alertViewDownloadMap {
-    [[[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.error"]
+                                message:[[MPLanguageManager sharedManager] getStringWithKey:@"home.alert.download_map"]
+                               delegate:self
+                      cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.ok"]
+                      otherButtonTitles:nil] show];
 }
 
 - (IBAction)tapOnInfoBarSms {
@@ -722,7 +726,11 @@ static SKListLevel listLevelLimit;
     }
     
     if(![MFMessageComposeViewController canSendText]) {
-        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.error"]
+                                                               message:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.message.sms"]
+                                                              delegate:nil
+                                                     cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.ok"]
+                                                     otherButtonTitles:nil];
         [warningAlert show];
         return;
     }
@@ -756,7 +764,11 @@ static SKListLevel listLevelLimit;
             break;
         case MessageComposeResultFailed:
         {
-            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.error"]
+                                                                   message:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.message.sms.failed"]
+                                                                  delegate:nil
+                                                         cancelButtonTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"alert.title.ok"]
+                                                         otherButtonTitles:nil];
             [warningAlert show];
             break;
         }

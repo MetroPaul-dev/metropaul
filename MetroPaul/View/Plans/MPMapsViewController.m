@@ -42,7 +42,7 @@
     switch (indexPath.section) {
         case 0:{
             cell.imageView.image = [UIImage imageNamed:@"icon-plan-metro"];
-            cell.textLabel.text = @"Plan de métro + tram";
+            cell.textLabel.text =  [[MPLanguageManager sharedManager] getStringWithKey:@"maps.metro_tram"];
             break;
         }
 //        case 1:{
@@ -53,13 +53,13 @@
 //        }
         case 1:{
             cell.imageView.image = [UIImage imageNamed:@"icon-plan-bus"];
-            cell.textLabel.text = @"Plan des bus";
+            cell.textLabel.text = [[MPLanguageManager sharedManager] getStringWithKey:@"maps.bus"];
 
             break;
         }
         case 2:{
             cell.imageView.image = [UIImage imageNamed:@"icon-plan-noctilien"];
-            cell.textLabel.text = @"Plan des Noctiliens";
+            cell.textLabel.text = [[MPLanguageManager sharedManager] getStringWithKey:@"maps.noctilien"];
 
             break;
         }
