@@ -9,14 +9,13 @@
 #import "MPSectionView.h"
 #import "MPLine.h"
 
-#define kFirstImageHrozontalAlignment -13.0
-
 @interface MPSectionView ()
 @property (strong, nonatomic) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *separatorImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImageWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondImageWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImageHrozontalAlignmentConstraint;
 
@@ -79,8 +78,10 @@
     _sectionItinerary = sectionItinerary;
     self.duration = 0;
     if (sectionItinerary != nil) {
-        self.firstImageHrozontalAlignmentConstraint.constant = kFirstImageHrozontalAlignment;
-        self.secondImageWidthConstraint.constant = 25.0;
+        CGFloat globalWidth = [self.view getWidth];
+        CGFloat width = globalWidth*0.3;
+        self.firstImageHrozontalAlignmentConstraint.constant = -(width/2);
+        self.firstImageWidthConstraint.constant = self.secondImageWidthConstraint.constant = width;
         self.duration = sectionItinerary.duration;
         MPLine *line = [MPLine findByCode:_sectionItinerary.codeLine];
         if (line != nil) {
