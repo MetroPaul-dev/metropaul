@@ -78,10 +78,6 @@
     _sectionItinerary = sectionItinerary;
     self.duration = 0;
     if (sectionItinerary != nil) {
-        CGFloat globalWidth = [self.view getWidth];
-        CGFloat width = globalWidth*0.3;
-        self.firstImageHrozontalAlignmentConstraint.constant = -(width/2);
-        self.firstImageWidthConstraint.constant = self.secondImageWidthConstraint.constant = width;
         self.duration = sectionItinerary.duration;
         MPLine *line = [MPLine findByCode:_sectionItinerary.codeLine];
         if (line != nil) {
@@ -93,6 +89,17 @@
     }
     
     self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if (self.sectionItinerary != nil) {
+        CGFloat globalWidth = [self.view getWidth];
+        CGFloat width = globalWidth*0.3 > 25 ? 25 : globalWidth*0.3;
+        self.firstImageHrozontalAlignmentConstraint.constant = -(width/2);
+        self.firstImageWidthConstraint.constant = self.secondImageWidthConstraint.constant = width;
+    }
+    [self layoutIfNeeded];
 
 }
 

@@ -11,6 +11,8 @@
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
 		7110AC8C1DBF3BD900774340 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7110AC8B1DBF3BD900774340 /* MessageUI.framework */; };
 		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
+		712765571DF491AC006BAD8A /* MPLoadOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 712765561DF491AC006BAD8A /* MPLoadOverlay.m */; };
+		712765591DF491C1006BAD8A /* MPLoadOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712765581DF491C1006BAD8A /* MPLoadOverlay.xib */; };
 		713019C21DBE40490061DD36 /* MetroPaul.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 713019C11DBE40490061DD36 /* MetroPaul.sqlite */; };
 		713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A11DB3CD8300E05F75 /* MPMapsViewController.m */; };
 		713132A51DB3DE3000E05F75 /* MPMapsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713132A41DB3DE3000E05F75 /* MPMapsCell.m */; };
@@ -151,6 +153,9 @@
 		7110AC8B1DBF3BD900774340 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
 		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
+		712765551DF491AC006BAD8A /* MPLoadOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLoadOverlay.h; sourceTree = "<group>"; };
+		712765561DF491AC006BAD8A /* MPLoadOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPLoadOverlay.m; sourceTree = "<group>"; };
+		712765581DF491C1006BAD8A /* MPLoadOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPLoadOverlay.xib; sourceTree = "<group>"; };
 		713019C11DBE40490061DD36 /* MetroPaul.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = MetroPaul.sqlite; sourceTree = "<group>"; };
 		713132A01DB3CD8300E05F75 /* MPMapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMapsViewController.h; sourceTree = "<group>"; };
 		713132A11DB3CD8300E05F75 /* MPMapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMapsViewController.m; sourceTree = "<group>"; };
@@ -185,6 +190,7 @@
 		714B8AA71DA7FE0F002D003B /* MPStopPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopPoint.m; sourceTree = "<group>"; };
 		714B8AA91DA7FF99002D003B /* MPStopAreaRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPStopAreaRoute.h; sourceTree = "<group>"; };
 		714B8AAA1DA7FF99002D003B /* MPStopAreaRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPStopAreaRoute.m; sourceTree = "<group>"; };
+		715E350D1DE6CF8D00AB414B /* MetroPaul.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MetroPaul.entitlements; sourceTree = "<group>"; };
 		717024B41DA151F5007BA803 /* MapDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDownloadViewController.h; sourceTree = "<group>"; };
 		717024B51DA151F5007BA803 /* MapDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDownloadViewController.m; sourceTree = "<group>"; };
 		7178C5081D9B91F200ED775B /* MetroPaul.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetroPaul.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -456,6 +462,7 @@
 		7178C50A1D9B91F200ED775B /* MetroPaul */ = {
 			isa = PBXGroup;
 			children = (
+				715E350D1DE6CF8D00AB414B /* MetroPaul.entitlements */,
 				71CE668E1DA6646A00F599EE /* Utils */,
 				71AEC6101DA1A6AB002ED428 /* Model */,
 				71AEC60C1DA1A643002ED428 /* MapXMLParser */,
@@ -668,6 +675,9 @@
 				71E6DAFB1D9D05E60008EC19 /* MPRevealController.m */,
 				71CE66881DA64C3E00F599EE /* MPNavigationController.h */,
 				71CE66891DA64C3E00F599EE /* MPNavigationController.m */,
+				712765551DF491AC006BAD8A /* MPLoadOverlay.h */,
+				712765561DF491AC006BAD8A /* MPLoadOverlay.m */,
+				712765581DF491C1006BAD8A /* MPLoadOverlay.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -812,6 +822,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = B5SDH4YU8C;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					7178C5231D9B91F200ED775B = {
 						CreatedOnToolsVersion = 8.0;
@@ -868,6 +883,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71FB3EF31D9D1FD100BD0D6A /* Roboto-BlackItalic.otf in Resources */,
+				712765591DF491C1006BAD8A /* MPLoadOverlay.xib in Resources */,
 				7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */,
 				71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */,
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
@@ -1115,6 +1131,7 @@
 				71AA933F1DB2166F003BD674 /* MPSectionItinerary.m in Sources */,
 				71CE668D1DA6646600F599EE /* UIView+CPSize.m in Sources */,
 				7178C50D1D9B91F200ED775B /* main.m in Sources */,
+				712765571DF491AC006BAD8A /* MPLoadOverlay.m in Sources */,
 				71AEC6131DA1A6CA002ED428 /* MapRegion.m in Sources */,
 				7178C5191D9B91F200ED775B /* MetroPaul.xcdatamodeld in Sources */,
 				7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */,
@@ -1291,6 +1308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MetroPaul/MetroPaul.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MetroPaul (B5SDH4YU8C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = B5SDH4YU8C;
@@ -1365,6 +1383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = MetroPaul/MetroPaul.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MetroPaul (B5SDH4YU8C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = B5SDH4YU8C;

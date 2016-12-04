@@ -25,7 +25,7 @@
         }
         [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
         self.subTitle = text;
-        self.coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
+        self.coordinate = CLLocationCoordinate2DMake([stopArea.latitude doubleValue], [stopArea.longitude doubleValue]);
         self.typeStopArea = YES;
     }
     

@@ -21,7 +21,7 @@
         }
     } else {
         for (SKSearchResultParent *parent in self.parentSearchResults) {
-            if (parent.type < SKSearchResultStreet) {
+            if (parent.type < SKSearchResultStreet && parent.type != SKSearchResultZipCode && parent.type != SKSearchResultState && parent.type != SKSearchResultCountry && parent.type != SKSearchResultCountryCode) {
                 [string appendString:[NSString stringWithFormat:@", %@", parent.name]];
             }
         }

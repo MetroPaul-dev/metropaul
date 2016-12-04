@@ -81,7 +81,7 @@
             cell.backgroundColor = [Constantes blueBackGround];
             cell.imageView.tintColor = [UIColor whiteColor];
             cell.textLabel.textColor = [UIColor whiteColor];
-            cell.textLabel.font = [UIFont fontWithName:FONT_MEDIUM size:18.0];
+            cell.textLabel.font = [UIFont fontWithName:FONT_MEDIUM size:16.0];
         }
         cell.textLabel.text = [[dict objectForKey:KEY_TITLE_ROW] uppercaseString];
         cell.imageView.image = [dict objectForKey:KEY_IMAGE_ROW];

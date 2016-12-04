@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPLoadOverlay.h"
 
 @interface MPItineraryViewController : UIViewController
+@property (nonatomic, strong) MPLoadOverlay *loadOverlay;
+
+@property(nonatomic, getter=isLoading) BOOL loading;
 
 @end

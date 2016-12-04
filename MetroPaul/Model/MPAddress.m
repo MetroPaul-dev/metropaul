@@ -22,6 +22,7 @@
     if (self) {
         self.name = [searchResult toString];
         self.coordinate = searchResult.coordinate;
+        self.searchResult = searchResult;
     }
     
     return self;
@@ -32,6 +33,7 @@
     if (self) {
         self.name = history.name;
         self.coordinate = history.coordinate;
+        self.history = history;
     }
     
     return self;
@@ -61,7 +63,7 @@
 
 - (void)findStopAreasAround {
     if (self.stopArea != nil) {
-        self.coordinate = CLLocationCoordinate2DMake([self.stopArea.latitude floatValue], [self.stopArea.longitude floatValue]);
+        self.coordinate = CLLocationCoordinate2DMake([self.stopArea.latitude doubleValue], [self.stopArea.longitude doubleValue]);
     }
     if (CLLocationCoordinate2DIsValid(self.coordinate)) {
         NSInteger distance = STOP_AREA_DISTANCE_DEFAULT;

@@ -18,6 +18,7 @@
 #import "SKSearchResult+MPString.h"
 #import <MessageUI/MessageUI.h>
 #import "MPHistory.h"
+#import "MPGlobalItineraryManager.h"
 
 #define CELL_HEIGHT 50
 #define INFOVIEW_HEIGHT 70
@@ -83,10 +84,12 @@ static SKListLevel listLevelLimit;
     
     self.searchBar.delegate = self;
     self.searchBar.showsCancelButton = NO;
+//    self.searchBar.placeholder = @"Saisir une destination";
     self.searchBar.barTintColor = [Constantes blueBackGround];
     self.searchBar.tintColor = [UIColor whiteColor];
     self.searchBar.layer.borderWidth = 1;
     self.searchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
+
     
     NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
     for (UIView *view in searchBarSubViews) {
@@ -100,11 +103,12 @@ static SKListLevel listLevelLimit;
             [textField setTextColor:[UIColor whiteColor]];
             
             UIImageView *imgView = (UIImageView*)textField.leftView;
-            [imgView setWidth:24.0];
+            [imgView setWidth:30.0];
             imgView.contentMode = UIViewContentModeScaleAspectFit;
             imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
             imgView.tintColor = [UIColor whiteColor];
             textField.leftViewMode = UITextFieldViewModeAlways;
+            textField.textAlignment = NSTextAlignmentLeft;
             
             UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
             [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -113,6 +117,28 @@ static SKListLevel listLevelLimit;
             
             btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
             btnClear.tintColor = [UIColor whiteColor];
+            switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
+                case MPAddressToReplaceStart: {
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir un point de départ                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                case MPAddressToReplaceDestination: {
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                case MPAddressToReplaceNull: {
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                default:{
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+            }
         }
     }
     
@@ -160,6 +186,55 @@ static SKListLevel listLevelLimit;
     
     [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
     self.navigationController.navigationBar.translucent = NO;
+    
+    NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
+    for (UIView *view in searchBarSubViews) {
+        if([view isKindOfClass:[UITextField class]])
+        {
+            UITextField *textField = (UITextField*)view;
+            switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
+                case MPAddressToReplaceStart: {
+                    MPAddress *address = [[MPGlobalItineraryManager sharedManager] startAddress];
+
+                    if ([address stopArea] != nil) {
+                        [self setDestinationWithStopArea:address.stopArea];
+                    } else if ([address searchResult] != nil) {
+                        [self setDestinationWithSearchResult:address.searchResult];
+                    } else if ([address history] != nil) {
+                        [self setDestinationWithHistory:address.history];
+                    }
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir un point de départ                                           "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                case MPAddressToReplaceDestination: {
+                    MPAddress *address = [[MPGlobalItineraryManager sharedManager] destinationAddress];
+                    if ([address stopArea] != nil) {
+                        [self setDestinationWithStopArea:address.stopArea];
+                    } else if ([address searchResult] != nil) {
+                        [self setDestinationWithSearchResult:address.searchResult];
+                    } else if ([address history] != nil) {
+                        [self setDestinationWithHistory:address.history];
+                    }
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                case MPAddressToReplaceNull: {
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+                default:{
+                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
+                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    break;
+                }
+            }
+        }
+    }
+    
+    [self.searchBar reloadInputViews];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -375,7 +450,8 @@ static SKListLevel listLevelLimit;
      region.zoomLevel = 17;
      [self.mapView setVisibleRegion:region];
      */
-    [self.mapView animateToZoomLevel:17];
+    [self.mapView animateToZoomLevel:15];
+    [self.mapView animateToBearing:0.0];
     [self.mapView animateToLocation:coordinate withPadding:CGPointZero duration:1.0];
 }
 
@@ -430,8 +506,9 @@ static SKListLevel listLevelLimit;
     SKAnnotation *viewAnnotation = [SKAnnotation annotation];
     //set the custom view
     viewAnnotation.annotationView = view;
+    viewAnnotation.minZoomLevel = 14;
     viewAnnotation.identifier = [stopArea.id_stop_area intValue];
-    viewAnnotation.location = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
+    viewAnnotation.location = CLLocationCoordinate2DMake([stopArea.latitude doubleValue], [stopArea.longitude doubleValue]);
     SKAnimationSettings *animationSettings = [SKAnimationSettings animationSettings];
     [self.mapView addAnnotation:viewAnnotation withAnimationSettings:animationSettings];
     
@@ -464,7 +541,7 @@ static SKListLevel listLevelLimit;
         
         //        [self.mapView hideCallout];
         
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude floatValue], [stopArea.longitude floatValue]);
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([stopArea.latitude doubleValue], [stopArea.longitude doubleValue]);
         [self centerOnCoordinate:coordinate];
         [self addAnnotationDestination:coordinate];
         

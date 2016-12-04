@@ -28,19 +28,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.loadOverlay = [[NSBundle mainBundle] loadNibNamed:@"MPLoadOverlay" owner:self options:nil][0];
+    (self.loadOverlay).frame = self.view.frame;
+
     self.globalItineraries = [NSArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
     
-    self.navigationItem.leftBarButtonItems = nil;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
-                                             style:UIBarButtonItemStylePlain
-                                             target:[MPRevealController sharedInstance]
-                                             action:@selector(showLeftController)];
+//    self.navigationItem.leftBarButtonItems = nil;
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+//                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
+//                                             style:UIBarButtonItemStylePlain
+//                                             target:[MPRevealController sharedInstance]
+//                                             action:@selector(showLeftController)];
     
-    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+//    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
     self.navigationController.navigationBar.translucent = NO;
     
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
@@ -55,6 +58,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self setLoading:YES];
+
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil]];
 
     [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
@@ -74,11 +80,7 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self setLoading:NO];
 }
 
 #pragma mark - UITableViewDataSource
@@ -107,6 +109,7 @@
 }
 
 - (void)calculAllItineraryFinish {
+    [self setLoading:NO];
     self.globalItineraries = [[MPGlobalItineraryManager sharedManager] globalItineraryList];
     [self.tableView reloadData];
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
@@ -117,6 +120,8 @@
 }
 
 - (void)calculAllItineraryFailed {
+    [self setLoading:NO];
+
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
     [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.itinerary.problem"]];
 }
@@ -146,6 +151,17 @@
     [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
     [self.destinationAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] destinationAddress] name] forState:UIControlStateNormal];
     [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
+}
+
+- (void)setLoading:(BOOL)loading {
+    _loading = loading;
+    if (self.loadOverlay != nil) {
+        [self.loadOverlay removeFromSuperview];
+        
+        if (loading) {
+            [self.view addSubview:self.loadOverlay];
+        }
+    }
 }
 
 

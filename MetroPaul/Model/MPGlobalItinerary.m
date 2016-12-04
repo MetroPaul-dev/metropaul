@@ -11,6 +11,7 @@
 
 @implementation MPGlobalItinerary
 
+
 - (NSInteger)duration {
     NSInteger duration = 0;
     duration += self.startRouteInformation.estimatedTime;

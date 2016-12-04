@@ -45,10 +45,10 @@
             self.name = [dict objectForKey:@"name"];
         }
         if ([dict objectForKey:@"latitude"] != nil) {
-            self.latitude = [NSNumber numberWithFloat:[[dict objectForKey:@"latitude"] floatValue]];
+            self.latitude = [NSNumber numberWithFloat:[[dict objectForKey:@"latitude"] doubleValue]];
         }
         if ([dict objectForKey:@"longitude"] != nil) {
-            self.longitude = [NSNumber numberWithFloat:[[dict objectForKey:@"longitude"] floatValue]];
+            self.longitude = [NSNumber numberWithFloat:[[dict objectForKey:@"longitude"] doubleValue]];
         }
         if ([dict objectForKey:@"last_update"] != nil) {
             self.last_update = [dict objectForKey:@"last_update"];

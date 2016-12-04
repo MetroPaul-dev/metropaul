@@ -42,10 +42,10 @@
             self.id_navitia = [NSNumber numberWithInteger:[[dict objectForKey:@"id_navitia"] integerValue]];
         }
         if ([dict objectForKey:@"latitude"] != nil) {
-            self.latitude = [NSNumber numberWithFloat:[[dict objectForKey:@"latitude"] floatValue]];
+            self.latitude = [NSNumber numberWithFloat:[[dict objectForKey:@"latitude"] doubleValue]];
         }
         if ([dict objectForKey:@"longitude"] != nil) {
-            self.longitude = [NSNumber numberWithFloat:[[dict objectForKey:@"longitude"] floatValue]];
+            self.longitude = [NSNumber numberWithFloat:[[dict objectForKey:@"longitude"] doubleValue]];
         }
         if ([dict objectForKey:@"last_update"] != nil) {
             self.last_update = [dict objectForKey:@"last_update"];
@@ -98,7 +98,16 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([self class])];
     
     // Create Predicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS[cd] %@", @"name", name];
+    NSArray *words = [name componentsSeparatedByString:@" "];
+    NSMutableString *request = [NSMutableString stringWithString:@""];
+    for (NSString *word in words) {
+        [request appendString:@"name CONTAINS[cd] %@ &&"];
+    }
+    
+    NSString *requestString = [request substringToIndex:[request length]-3];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:requestString argumentArray:words];
+    
+
     [fetchRequest setPredicate:predicate];
     
     
@@ -145,15 +154,15 @@
     return results;
 }
 
-+ (NSArray *)getBoundingBox:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude {
-    CGFloat R = 6371.0;
-    CGFloat radius = distanceInMeter/1000.0;
-    CGFloat maxLat = latitude + RADIANS_TO_DEGREES(radius/R);
-    CGFloat minLat = latitude - RADIANS_TO_DEGREES(radius/R);
-    CGFloat maxLong = longitude + RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
-    CGFloat minLong = longitude - RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
++ (NSArray *)getBoundingBox:(NSInteger)distanceInMeter fromLatitude:(double)latitude fromLongitude:(double)longitude {
+    double R = 6371.0;
+    double radius = distanceInMeter/1000.0;
+    double maxLat = latitude + RADIANS_TO_DEGREES(radius/R);
+    double minLat = latitude - RADIANS_TO_DEGREES(radius/R);
+    double maxLong = longitude + RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
+    double minLong = longitude - RADIANS_TO_DEGREES(asin(radius/R) / cos(DEGREES_TO_RADIANS(latitude)));
     
-    NSArray *result = [NSArray arrayWithObjects:[NSNumber numberWithFloat:minLat], [NSNumber numberWithFloat:minLong], [NSNumber numberWithFloat:maxLat], [NSNumber numberWithFloat:maxLong], nil];
+    NSArray *result = [NSArray arrayWithObjects:[NSNumber numberWithDouble:minLat], [NSNumber numberWithDouble:minLong], [NSNumber numberWithDouble:maxLat], [NSNumber numberWithDouble:maxLong], nil];
 
     return result;
 }

@@ -9,15 +9,15 @@
 "menu.plan" = "Plan";
 "menu.maps" = "Plans";
 "menu.itinerary" = "Itinéraire";
-"menu.map_itinerary" = "Plan + Itinéraire";"menu.note" = "Noter MetroPaul";
+"menu.map_itinerary" = "Carte + Itinéraire";"menu.note" = "Noter MetroPaul";
 "menu.share" = "Share MetroPaul";
-"menu.map" = "Cartes";
+"menu.map" = "Plans";
 "menu.contact" = "Nous contacter";
 "menu.cgu" = "C.G.U";
 
 "menu.parameters" = "Paramètres";
 "menu.download" = "Download";
-"menu.pmr" = "Tout accessible";
+"menu.pmr" = "";
 "menu.language" = "Language";
 
 "searchBar.yourPosition" = "Votre position";

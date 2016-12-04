@@ -17,6 +17,6 @@
 @property(nonatomic, strong) MPItinerary *itineraryMetro;
 @property(nonatomic, strong) MPStopArea *destinationStopArea;
 @property(nonatomic, strong) SKRouteInformation *destinationRouteInformation;
-
-- (NSInteger)duration;
+@property(nonatomic) NSInteger duration;
+//- (NSInteger)duration;
 @end

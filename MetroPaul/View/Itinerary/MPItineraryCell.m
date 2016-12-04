@@ -69,8 +69,9 @@
                 //            }
             }
         }
-        [self sectionDisposition];
     }
+    [self sectionDisposition];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
