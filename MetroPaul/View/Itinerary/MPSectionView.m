@@ -45,12 +45,12 @@
 - (void)setRouteInformation:(SKRouteInformation *)routeInformation {
     _routeInformation = routeInformation;
     self.duration = 0;
-    if (routeInformation != nil) {
+    if (_routeInformation != nil) {
         self.firstImageHrozontalAlignmentConstraint.constant = 0.0;
         self.secondImageWidthConstraint.constant = 0.0;
-        self.duration = routeInformation.estimatedTime;
+        self.duration += _routeInformation.estimatedTime;
         
-        switch (routeInformation.routeMode) {
+        switch (_routeInformation.routeMode) {
             case SKRouteCarFastest: {
                 self.firstImageView.image = [UIImage imageNamed:@"icon-car"];
                 break;
@@ -71,14 +71,14 @@
         self.firstImageView.image = [UIImage imageNamed:@"icon-pieton"];
     }
     
-    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
+    [self setDurationText];
 }
 
 - (void)setSectionItinerary:(MPSectionItinerary *)sectionItinerary {
     _sectionItinerary = sectionItinerary;
     self.duration = 0;
-    if (sectionItinerary != nil) {
-        self.duration = sectionItinerary.duration;
+    if (_sectionItinerary != nil) {
+        self.duration += _sectionItinerary.duration;
         MPLine *line = [MPLine findByCode:_sectionItinerary.codeLine];
         if (line != nil) {
             self.firstImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"icon-%@", [[line.transport_type substringToIndex:1] uppercaseString]]];
@@ -88,7 +88,7 @@
         self.duration = 0;
     }
     
-    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
+    [self setDurationText];
 }
 
 - (void)layoutSubviews {
@@ -100,26 +100,39 @@
         self.firstImageWidthConstraint.constant = self.secondImageWidthConstraint.constant = width;
     }
     [self layoutIfNeeded];
-
+    
 }
 
 - (void)isLastSection:(BOOL)last {
-    if (last) {
-        //        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
-        self.separatorImageView.hidden = YES;
-        self.separatorWidthConstraint.constant = 0.0;
-        //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparatorClear"];
-    } else {
-        //        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
-        self.separatorImageView.hidden = NO;
-        self.separatorWidthConstraint.constant = 11.0;
-        //        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparator"];
-    }
+    self.separatorImageView.hidden = last;
+    self.separatorWidthConstraint.constant = last ? 0.0 : 11.0;
+    
+    
+
+//    if (last) {
+//        self.backgroundColor = self.view.backgroundColor = [UIColor clearColor];
+//        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparatorClear"];
+//    } else {
+//        self.backgroundColor = self.view.backgroundColor = [UIColor whiteColor];
+//        self.separatorImageView.image = [UIImage imageNamed:@"itinerarySectionSeparator"];
+//    }
+}
+
+- (BOOL)durationIsNull {
+    return self.duration == 0;
 }
 
 - (void)addDuration:(NSInteger)durationToAdd {
     self.duration +=durationToAdd;
-    self.label.text = [NSString stringWithFormat:@"%limin", self.duration/60];
+    [self setDurationText];
+}
+
+- (void)setDurationText {
+    if (self.duration < 60) {
+        self.label.text = @"1min";
+    } else {
+        self.label.text = [NSString stringWithFormat:@"%limins", self.duration/60];
+    }
 }
 
 @end

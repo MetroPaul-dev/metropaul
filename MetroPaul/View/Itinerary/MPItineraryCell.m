@@ -34,15 +34,15 @@
 - (void)setGlobalItinerary:(MPGlobalItinerary *)globalItinerary {
     _globalItinerary = globalItinerary;
     [self reinitSectionView];
-    [self.durationLabel setText:[NSString stringWithFormat:@"%imin", (int)(globalItinerary.duration/60)]];
+    [self.durationLabel setText:[NSString stringWithFormat:@"%imin", (int)(_globalItinerary.duration/60)]];
     
-    if (globalItinerary.startRouteInformation != nil && globalItinerary.startStopArea == nil && globalItinerary.itineraryMetro == nil && globalItinerary.destinationStopArea == nil && globalItinerary.destinationRouteInformation == nil) {
+    if (_globalItinerary.startRouteInformation != nil && _globalItinerary.startStopArea == nil && _globalItinerary.itineraryMetro == nil && _globalItinerary.destinationStopArea == nil && _globalItinerary.destinationRouteInformation == nil) {
         [self itineraryFullSkobbler];
     } else {
-        NSArray *sectionsItinerary = [globalItinerary.itineraryMetro readItinerary];
+        NSArray *sectionsItinerary = [_globalItinerary.itineraryMetro readItinerary];
         
-        [self.firstSectionView setRouteInformation:globalItinerary.startRouteInformation];
-        [self.fourthSectionView setRouteInformation:globalItinerary.destinationRouteInformation];
+        [self.firstSectionView setRouteInformation:_globalItinerary.startRouteInformation];
+        [self.fourthSectionView setRouteInformation:_globalItinerary.destinationRouteInformation];
         
         if (sectionsItinerary.count > 2) {
             MPSectionItinerary *section = [sectionsItinerary firstObject];
@@ -120,11 +120,13 @@
             self.secondSectionviewWidthConstraint.constant = 0;
             self.thirdSectionviewWidthConstraint.constant = 0;
             self.fourthSectionviewWidthConstraint.constant = 0;
+            self.firstSectionView.hidden = NO;
+            self.secondSectionView.hidden = self.thirdSectionView.hidden = self.fourthSectionView.hidden = YES;
+
             [self.firstSectionView isLastSection:YES];
             [self.secondSectionView isLastSection:NO];
             [self.thirdSectionView isLastSection:NO];
             [self.fourthSectionView isLastSection:NO];
-            self.secondSectionView.hidden = self.thirdSectionView.hidden = self.fourthSectionView.hidden = YES;
             break;
         }
         case 2:{
@@ -132,12 +134,15 @@
             self.secondSectionviewWidthConstraint.constant = totalSize/2;
             self.thirdSectionviewWidthConstraint.constant = 0;
             self.fourthSectionviewWidthConstraint.constant = 0;
+            
+            self.firstSectionView.hidden = self.secondSectionView.hidden = NO;
+            self.thirdSectionView.hidden = self.fourthSectionView.hidden = YES;
+            
             [self.firstSectionView isLastSection:NO];
             [self.secondSectionView isLastSection:YES];
             [self.thirdSectionView isLastSection:NO];
             [self.fourthSectionView isLastSection:NO];
-            self.secondSectionView.hidden = NO;
-            self.thirdSectionView.hidden = self.fourthSectionView.hidden = YES;
+
             break;
         }
         case 3:{
@@ -145,12 +150,15 @@
             self.secondSectionviewWidthConstraint.constant = totalSize/3;
             self.thirdSectionviewWidthConstraint.constant = 0;
             self.fourthSectionviewWidthConstraint.constant = totalSize/3;
+            
+            self.thirdSectionView.hidden = YES;
+            self.firstSectionView.hidden = self.secondSectionView.hidden = self.fourthSectionView.hidden = NO;
+            
             [self.firstSectionView isLastSection:NO];
             [self.secondSectionView isLastSection:NO];
             [self.thirdSectionView isLastSection:NO];
             [self.fourthSectionView isLastSection:YES];
-            self.thirdSectionView.hidden = YES;
-            self.secondSectionView.hidden = self.fourthSectionView.hidden = NO;
+            
             break;
         }
         case 4:{
@@ -158,22 +166,67 @@
             self.secondSectionviewWidthConstraint.constant = totalSize/4;
             self.thirdSectionviewWidthConstraint.constant = totalSize/4;
             self.fourthSectionviewWidthConstraint.constant = totalSize/4;
+            
+            self.firstSectionView.hidden = self.secondSectionView.hidden = self.thirdSectionView.hidden = self.fourthSectionView.hidden = NO;
+
             [self.firstSectionView isLastSection:NO];
             [self.secondSectionView isLastSection:NO];
             [self.thirdSectionView isLastSection:NO];
             [self.fourthSectionView isLastSection:YES];
-            self.secondSectionView.hidden = self.thirdSectionView.hidden = self.fourthSectionView.hidden = NO;
             break;
         }
         default:
             break;
     }
+    
+    // Si il n'y a pas de temps de marche ni de transport alors on cache
+    if (nbSection >= 2 && [self.firstSectionView durationIsNull]) {
+        self.firstSectionView.hidden = YES;
+        self.firstSectionviewWidthConstraint.constant = 0;
+        switch (nbSection) {
+            case 2:{
+                self.secondSectionviewWidthConstraint.constant = totalSize;
+                [self.secondSectionView isLastSection:YES];
+                break;
+            }
+            case 3:{
+                self.secondSectionviewWidthConstraint.constant = totalSize/2;
+                self.fourthSectionviewWidthConstraint.constant = totalSize/2;
+                [self.fourthSectionView isLastSection:YES];
+                
+                break;
+            }
+            case 4:{
+                self.secondSectionviewWidthConstraint.constant = totalSize/3;
+                self.thirdSectionviewWidthConstraint.constant = totalSize/3;
+                self.fourthSectionviewWidthConstraint.constant = totalSize/3;
+                break;
+            }
+            default:
+                break;
+        }
+
+    }
+    if (nbSection >= 3 && [self.fourthSectionView durationIsNull]) {
+        self.fourthSectionView.hidden = YES;
+        self.fourthSectionviewWidthConstraint.constant = 0;
+        if (nbSection == 3) {
+            self.firstSectionviewWidthConstraint.constant = totalSize/2;
+            self.secondSectionviewWidthConstraint.constant = totalSize/2;
+            [self.secondSectionView isLastSection:YES];
+        } else if (nbSection == 4) {
+            self.firstSectionviewWidthConstraint.constant = totalSize/3;
+            self.secondSectionviewWidthConstraint.constant = totalSize/3;
+            self.thirdSectionviewWidthConstraint.constant = totalSize/3;
+            [self.thirdSectionView isLastSection:YES];
+        }
+    }
+    
     [self layoutIfNeeded];
 }
 
 - (void)itineraryFullSkobbler {
     [self.firstSectionView setRouteInformation:self.globalItinerary.startRouteInformation];
-    [self sectionDisposition];
 }
 
 - (void)reinitSectionView {

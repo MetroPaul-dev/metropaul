@@ -145,6 +145,8 @@
 }
 
 - (IBAction)tapOnExchangeButton:(UIButton*)sender {
+    [self setLoading:YES];
+    
     MPAddress *tmp = [[MPGlobalItineraryManager sharedManager] startAddress];
     [[MPGlobalItineraryManager sharedManager] setStartAddress:[[MPGlobalItineraryManager sharedManager] destinationAddress]];
     [[MPGlobalItineraryManager sharedManager] setDestinationAddress:tmp];

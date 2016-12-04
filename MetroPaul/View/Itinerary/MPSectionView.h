@@ -16,4 +16,5 @@
 - (void)reinit;
 - (void)isLastSection:(BOOL)last;
 - (void)addDuration:(NSInteger)durationToAdd;
+- (BOOL)durationIsNull;
 @end
