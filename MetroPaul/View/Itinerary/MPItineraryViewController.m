@@ -10,7 +10,8 @@
 #import "MPItineraryCell.h"
 #import "MPGlobalItineraryManager.h"
 #import "MPGlobalItinerary.h"
-#import "MPRevealController.h"
+
+#import "DetailItineraryViewController.h"
 
 @interface MPItineraryViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *startIconImage;
@@ -28,20 +29,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.globalItineraries = [NSArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
     
-//    self.navigationItem.leftBarButtonItems = nil;
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-//                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
-//                                             style:UIBarButtonItemStylePlain
-//                                             target:[MPRevealController sharedInstance]
-//                                             action:@selector(showLeftController)];
+    //    self.navigationItem.leftBarButtonItems = nil;
+    //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
+    //                                             initWithImage:[UIImage imageNamed:@"icon-menu"]
+    //                                             style:UIBarButtonItemStylePlain
+    //                                             target:[MPRevealController sharedInstance]
+    //                                             action:@selector(showLeftController)];
     
-//    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
+    //    [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
     self.navigationController.navigationBar.translucent = NO;
+    
+    self.startIconImage.tintColor = [UIColor whiteColor];
+    self.destinationIconImage.tintColor = [UIColor whiteColor];
     
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
     if ([MPGlobalItineraryManager sharedManager].startAddress == nil || ![[MPGlobalItineraryManager sharedManager].startAddress checkAddressValidity]) {
@@ -50,16 +54,16 @@
     if ([MPGlobalItineraryManager sharedManager].destinationAddress == nil || ![[MPGlobalItineraryManager sharedManager].destinationAddress checkAddressValidity]) {
         [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.noDestination"]];
     }
+    
+    [self setLoading:YES];
     [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self setLoading:YES];
-
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil]];
-
+    
     [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
     if ([[[MPGlobalItineraryManager sharedManager] startAddress] name] == [[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]) {
         self.startIconImage.image = [UIImage imageNamed:@"icon-pin"];
@@ -98,6 +102,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    DetailItineraryViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailItineraryViewController"];
+    MPItineraryCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    vc.itinerary = cell.globalItinerary;
+    
+    MPRevealController *revealController = [MPRevealController sharedInstance];
+    [(UINavigationController*)revealController.frontViewController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -122,7 +132,7 @@
 
 - (void)calculAllItineraryFailed {
     [self setLoading:NO];
-
+    
     MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
     [self alertViewError:[languageManager getStringWithKey:@"alert.title.error"] message:[languageManager getStringWithKey:@"alert.message.itinerary.problem"]];
 }

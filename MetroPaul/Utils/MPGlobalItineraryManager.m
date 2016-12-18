@@ -113,6 +113,7 @@
     SKRouteRestrictions routeRestrictions = route.routeRestrictions;
     routeRestrictions.avoidHighways = YES;
     route.routeRestrictions = routeRestrictions;
+    route.requestAdvices = YES;
     
     route.routeMode = routeMode;
     [[SKRoutingService sharedInstance] calculateRoute:route];
@@ -165,6 +166,8 @@
 #pragma mark - SKRoutingDelegate
 
 - (void)routingService:(SKRoutingService *)routingService didFinishRouteCalculationWithInfo:(SKRouteInformation *)routeInformation {
+//    NSArray *adviceList = [[SKRoutingService sharedInstance] routeAdviceListWithDistanceFormat:SKDistanceFormatMetric]; // array of SKRouteAdvice
+    NSArray *coor = [[SKRoutingService sharedInstance] routeCoordinatesForRouteWithId:routeInformation.routeID];
     [self traitementCallbackRoutingService:routeInformation];
 }
 

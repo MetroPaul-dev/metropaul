@@ -20,6 +20,8 @@
 "menu.pmr" = "";
 "menu.language" = "Language";
 
+"title.youritinerary" = "Votre trajet";
+
 "searchBar.yourPosition" = "Votre position";
 
 //MPMapsViewController

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MPLoadOverlay.h"
+#import "MPRevealController.h"
 
 @interface MPBaseViewController : UIViewController
 @property (nonatomic, strong) MPLoadOverlay *loadOverlay;

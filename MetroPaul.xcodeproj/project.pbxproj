@@ -43,6 +43,7 @@
 		7178C5291D9B91F200ED775B /* MetroPaulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5281D9B91F200ED775B /* MetroPaulTests.m */; };
 		7178C5341D9B91F200ED775B /* MetroPaulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5331D9B91F200ED775B /* MetroPaulUITests.m */; };
 		7187F2C21E06B3060089981F /* MPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187F2C11E06B3060089981F /* MPBaseViewController.m */; };
+		7187F2C61E06D43D0089981F /* DetailItineraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187F2C51E06D43D0089981F /* DetailItineraryViewController.m */; };
 		719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CF81DBB5E7400F86593 /* metro_tram_simple.pdf */; };
 		719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CFA1DBB5E8800F86593 /* noctilien_simple.pdf */; };
 		719A5CFD1DBB5EB000F86593 /* bus_paris_simple.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 719A5CFC1DBB5EB000F86593 /* bus_paris_simple.pdf */; };
@@ -210,6 +211,8 @@
 		7178C5351D9B91F200ED775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7187F2C01E06B3060089981F /* MPBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPBaseViewController.h; sourceTree = "<group>"; };
 		7187F2C11E06B3060089981F /* MPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPBaseViewController.m; sourceTree = "<group>"; };
+		7187F2C41E06D43D0089981F /* DetailItineraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailItineraryViewController.h; sourceTree = "<group>"; };
+		7187F2C51E06D43D0089981F /* DetailItineraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailItineraryViewController.m; sourceTree = "<group>"; };
 		719A5CF81DBB5E7400F86593 /* metro_tram_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = metro_tram_simple.pdf; sourceTree = "<group>"; };
 		719A5CFA1DBB5E8800F86593 /* noctilien_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = noctilien_simple.pdf; sourceTree = "<group>"; };
 		719A5CFC1DBB5EB000F86593 /* bus_paris_simple.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = bus_paris_simple.pdf; sourceTree = "<group>"; };
@@ -508,6 +511,15 @@
 			path = MetroPaulUITests;
 			sourceTree = "<group>";
 		};
+		7187F2C31E06D4160089981F /* DetailItinerary */ = {
+			isa = PBXGroup;
+			children = (
+				7187F2C41E06D43D0089981F /* DetailItineraryViewController.h */,
+				7187F2C51E06D43D0089981F /* DetailItineraryViewController.m */,
+			);
+			path = DetailItinerary;
+			sourceTree = "<group>";
+		};
 		719A5CF71DBB5E5900F86593 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,6 +647,7 @@
 		71E6DAE91D9CF8710008EC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7187F2C31E06D4160089981F /* DetailItinerary */,
 				719A5CFE1DBB5F2300F86593 /* WebView */,
 				7131329F1DB3CD4B00E05F75 /* Plans */,
 				7143A75F1DA6BE130078B456 /* Itinerary */,
@@ -1105,6 +1118,7 @@
 				719A5D041DBB5F5900F86593 /* MPWebViewController.m in Sources */,
 				714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */,
 				713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */,
+				7187F2C61E06D43D0089981F /* DetailItineraryViewController.m in Sources */,
 				7143A7651DA6BE5E0078B456 /* MPItineraryCell.m in Sources */,
 				71E6DB001D9D0DAC0008EC19 /* MPCGUViewController.m in Sources */,
 				713132A51DB3DE3000E05F75 /* MPMapsCell.m in Sources */,
@@ -1243,7 +1257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1287,7 +1301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1335,7 +1349,7 @@
 					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
 				);
 				INFOPLIST_FILE = MetroPaul/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -1404,7 +1418,7 @@
 					"\"${PODS_ROOT}/Headers/Public/GoogleUtilities\"",
 				);
 				INFOPLIST_FILE = MetroPaul/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
 					"$(inherited)",
