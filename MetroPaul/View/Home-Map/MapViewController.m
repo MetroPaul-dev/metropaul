@@ -153,6 +153,7 @@ static SKListLevel listLevelLimit;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan"]];
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]

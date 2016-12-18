@@ -28,9 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.loadOverlay = [[NSBundle mainBundle] loadNibNamed:@"MPLoadOverlay" owner:self options:nil][0];
-    (self.loadOverlay).frame = self.view.frame;
 
     self.globalItineraries = [NSArray array];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
@@ -108,6 +105,10 @@
     return 132.0;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
 - (void)calculAllItineraryFinish {
     [self setLoading:NO];
     self.globalItineraries = [[MPGlobalItineraryManager sharedManager] globalItineraryList];
@@ -153,17 +154,6 @@
     [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
     [self.destinationAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] destinationAddress] name] forState:UIControlStateNormal];
     [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
-}
-
-- (void)setLoading:(BOOL)loading {
-    _loading = loading;
-    if (self.loadOverlay != nil) {
-        [self.loadOverlay removeFromSuperview];
-        
-        if (loading) {
-            [self.view addSubview:self.loadOverlay];
-        }
-    }
 }
 
 

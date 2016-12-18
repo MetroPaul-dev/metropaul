@@ -6,8 +6,8 @@
 //  Copyright © 2016 Antoine Cointepas. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "MPBaseViewController.h"
 
-@interface MapViewController : UIViewController
+@interface MapViewController : MPBaseViewController
 
 @end

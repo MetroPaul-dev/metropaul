@@ -6,12 +6,8 @@
 //  Copyright © 2016 Antoine Cointepas. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "MPLoadOverlay.h"
+#import "MPBaseViewController.h"
 
-@interface MPItineraryViewController : UIViewController
-@property (nonatomic, strong) MPLoadOverlay *loadOverlay;
-
-@property(nonatomic, getter=isLoading) BOOL loading;
+@interface MPItineraryViewController : MPBaseViewController
 
 @end
