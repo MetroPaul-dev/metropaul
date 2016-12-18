@@ -84,12 +84,12 @@ static SKListLevel listLevelLimit;
     
     self.searchBar.delegate = self;
     self.searchBar.showsCancelButton = NO;
-//    self.searchBar.placeholder = @"Saisir une destination";
+    //    self.searchBar.placeholder = @"Saisir une destination";
     self.searchBar.barTintColor = [Constantes blueBackGround];
     self.searchBar.tintColor = [UIColor whiteColor];
     self.searchBar.layer.borderWidth = 1;
     self.searchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
-
+    
     
     NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
     for (UIView *view in searchBarSubViews) {
@@ -111,34 +111,11 @@ static SKListLevel listLevelLimit;
             textField.textAlignment = NSTextAlignmentLeft;
             
             UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateSelected];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateHighlighted];
+            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal|UIControlStateSelected|UIControlStateHighlighted];
             
             btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
             btnClear.tintColor = [UIColor whiteColor];
-            switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
-                case MPAddressToReplaceStart: {
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir un point de départ                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
-                    break;
-                }
-                case MPAddressToReplaceDestination: {
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
-                    break;
-                }
-                case MPAddressToReplaceNull: {
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
-                    break;
-                }
-                default:{
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
-                    break;
-                }
-            }
+   
         }
     }
     
@@ -192,45 +169,43 @@ static SKListLevel listLevelLimit;
         if([view isKindOfClass:[UITextField class]])
         {
             UITextField *textField = (UITextField*)view;
+            NSString *textFieldAttributed = @"";
+            MPAddress *address = nil;
             switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
                 case MPAddressToReplaceStart: {
-                    MPAddress *address = [[MPGlobalItineraryManager sharedManager] startAddress];
-
-                    if ([address stopArea] != nil) {
-                        [self setDestinationWithStopArea:address.stopArea];
-                    } else if ([address searchResult] != nil) {
-                        [self setDestinationWithSearchResult:address.searchResult];
-                    } else if ([address history] != nil) {
-                        [self setDestinationWithHistory:address.history];
-                    }
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir un point de départ                                           "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    address = [[MPGlobalItineraryManager sharedManager] startAddress];
+                    textFieldAttributed = @"Saisir un point de départ                                           ";
                     break;
                 }
                 case MPAddressToReplaceDestination: {
-                    MPAddress *address = [[MPGlobalItineraryManager sharedManager] destinationAddress];
-                    if ([address stopArea] != nil) {
-                        [self setDestinationWithStopArea:address.stopArea];
-                    } else if ([address searchResult] != nil) {
-                        [self setDestinationWithSearchResult:address.searchResult];
-                    } else if ([address history] != nil) {
-                        [self setDestinationWithHistory:address.history];
-                    }
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    address = [[MPGlobalItineraryManager sharedManager] destinationAddress];
+                    textFieldAttributed = @"Saisir une destination                                              ";
                     break;
                 }
                 case MPAddressToReplaceNull: {
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    textFieldAttributed = @"Saisir une destination                                              ";
+                    [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
                     break;
                 }
                 default:{
-                    textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Saisir une destination                                              "
-                                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+                    textFieldAttributed = @"Saisir une destination                                              ";
+                    [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
                     break;
                 }
             }
+            
+            if (address != nil) {
+                if ([address stopArea] != nil) {
+                    [self setDestinationWithStopArea:address.stopArea];
+                } else if ([address searchResult] != nil) {
+                    [self setDestinationWithSearchResult:address.searchResult];
+                } else if ([address history] != nil) {
+                    [self setDestinationWithHistory:address.history];
+                }
+            }
+            
+            textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textFieldAttributed
+                                                                              attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
         }
     }
     
@@ -248,8 +223,8 @@ static SKListLevel listLevelLimit;
     } else {
         [self.searchBar setUserInteractionEnabled:YES];
     }
-    
-    [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
+    if ([[MPGlobalItineraryManager sharedManager] addressToReplace] != MPAddressToReplaceStart && [[MPGlobalItineraryManager sharedManager] addressToReplace] != MPAddressToReplaceDestination)
+        [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
     
     for (MPStopArea *stopArea in self.stopAreas) {
         [self addAnnotationWithStopArea:stopArea];
@@ -736,6 +711,8 @@ static SKListLevel listLevelLimit;
         
         [[MPGlobalItineraryManager sharedManager] setAddress:address];
         MPRevealController *revealController = [MPRevealController sharedInstance];
+        
+        self.searchBar.text = @"";
         
         [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPItineraryViewController class])] animated:YES];
     }

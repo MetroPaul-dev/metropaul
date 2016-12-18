@@ -8,6 +8,10 @@
 
 #import "MPLoadOverlay.h"
 
+@interface MPLoadOverlay ()
+
+@end
+
 @implementation MPLoadOverlay
 
 /*

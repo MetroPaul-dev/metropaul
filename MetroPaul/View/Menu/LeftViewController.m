@@ -68,13 +68,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = [[tableData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
-    if (indexPath.section == 1 && indexPath.row == 1) {
-        MPSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPSwitchCell"];
-        BOOL valueSwitch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"PMR"] boolValue];
-        [cell setTitle:[[dict objectForKey:KEY_TITLE_ROW] uppercaseString] image:[dict objectForKey:KEY_IMAGE_ROW] switchState:valueSwitch];
-        cell.delegate = self;
-        return cell;
-    }else {
+//    if (indexPath.section == 1 && indexPath.row == 1) {
+//        MPSwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPSwitchCell"];
+//        BOOL valueSwitch = [[[NSUserDefaults standardUserDefaults] objectForKey:@"PMR"] boolValue];
+//        [cell setTitle:[[dict objectForKey:KEY_TITLE_ROW] uppercaseString] image:[dict objectForKey:KEY_IMAGE_ROW] switchState:valueSwitch];
+//        cell.delegate = self;
+//        return cell;
+//    }else {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
@@ -90,7 +90,7 @@
         }
         
         return cell;
-    }
+//    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -172,14 +172,20 @@
                     break;
                 }
                 case 1: {
-                    break;
-                }
-                case 2: {
                     [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPLanguageViewController class])] animated:YES];
                     [revealController showFrontViewController];
                     
                     break;
                 }
+//                case 1: {
+//                    break;
+//                }
+//                case 2: {
+//                    [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPLanguageViewController class])] animated:YES];
+//                    [revealController showFrontViewController];
+//                    
+//                    break;
+//                }
                 default:
                     break;
             }

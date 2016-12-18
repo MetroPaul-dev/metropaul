@@ -29,7 +29,7 @@
                          nil];
     NSArray *section1 = [NSArray arrayWithObjects:
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.download" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-download"], KEY_IMAGE_ROW, nil],
-                         [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.pmr" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-pmr"], KEY_IMAGE_ROW, nil],
+//                         [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.pmr" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-pmr"], KEY_IMAGE_ROW, nil],
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.language" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-flag"], KEY_IMAGE_ROW, nil],
                          nil];
     
