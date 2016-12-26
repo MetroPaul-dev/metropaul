@@ -9,6 +9,9 @@
 #import "DetailItineraryViewController.h"
 #import <SKMaps/SKMaps.h>
 #import "MPGlobalItineraryManager.h"
+#import "MPWalkCell.h"
+#import "MPMetroCell.h"
+#import "MPMetroChangeCell.h"
 
 @interface DetailItineraryViewController () <SKMapViewDelegate, SKSearchServiceDelegate, SKRoutingDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SKMapView *mapView;
@@ -92,11 +95,53 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    switch (indexPath.row) {
+        case 0: {
+            MPWalkCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPWalkCell"];
+            return cell;
+            break;
+        }
+        case 1: {
+            MPMetroCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPMetroCell"];
+            return cell;
+            break;
+        }
+        case 2: {
+            MPMetroChangeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPMetroChangeCell"];
+            return cell;
+            break;
+        }
+        default: {
+            MPMetroChangeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPMetroChangeCell"];
+            return cell;
+            break;
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: {
+            return 76;
+            break;
+        }
+        case 1: {
+            return 67;
+            break;
+        }
+        case 2: {
+            return 92;
+            break;
+        }
+        default: {
+            return 92;
+            break;
+        }
+    }
 }
 
 - (void)routingService:(SKRoutingService *)routingService didFinishRouteCalculationWithInfo:(SKRouteInformation*)routeInformation{
