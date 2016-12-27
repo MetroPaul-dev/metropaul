@@ -101,6 +101,7 @@
 		71FB3EF91D9D1FD100BD0D6A /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71FB3EEF1D9D1FD100BD0D6A /* Roboto-Medium.otf */; };
 		71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71FB3EF01D9D1FD100BD0D6A /* Roboto-MediumItalic.otf */; };
 		71FB3EFB1D9D1FD100BD0D6A /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71FB3EF11D9D1FD100BD0D6A /* Roboto-Regular.otf */; };
+		71FBC2221E1318570095A5C7 /* AIPOINTE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 71FBC2211E1318570095A5C7 /* AIPOINTE.TTF */; };
 		9B88CD9170F968AE9CC2F3EB /* Pods_MetroPaulUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A440BC05725DD0C085261BB4 /* Pods_MetroPaulUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -306,6 +307,7 @@
 		71FB3EEF1D9D1FD100BD0D6A /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
 		71FB3EF01D9D1FD100BD0D6A /* Roboto-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.otf"; sourceTree = "<group>"; };
 		71FB3EF11D9D1FD100BD0D6A /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
+		71FBC2211E1318570095A5C7 /* AIPOINTE.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = AIPOINTE.TTF; sourceTree = "<group>"; };
 		72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824CF67413F4DF2BAC010C87 /* Pods-MetroPaul.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaul.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaul/Pods-MetroPaul.debug.xcconfig"; sourceTree = "<group>"; };
 		A440BC05725DD0C085261BB4 /* Pods_MetroPaulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +393,7 @@
 		7142C0981DA3E9F600F4CB95 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				71FBC2211E1318570095A5C7 /* AIPOINTE.TTF */,
 				71FB3EE81D9D1FD100BD0D6A /* Roboto-Black.otf */,
 				71FB3EE91D9D1FD100BD0D6A /* Roboto-BlackItalic.otf */,
 				71FB3EEA1D9D1FD100BD0D6A /* Roboto-Bold.otf */,
@@ -914,6 +917,7 @@
 				71FB3EF21D9D1FD100BD0D6A /* Roboto-Black.otf in Resources */,
 				719A5CFB1DBB5E8800F86593 /* noctilien_simple.pdf in Resources */,
 				71FB3EF51D9D1FD100BD0D6A /* Roboto-BoldItalic.otf in Resources */,
+				71FBC2221E1318570095A5C7 /* AIPOINTE.TTF in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
 				719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */,
 				7178C51B1D9B91F200ED775B /* Assets.xcassets in Resources */,

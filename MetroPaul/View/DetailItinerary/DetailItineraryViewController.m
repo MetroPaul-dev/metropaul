@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet SKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property(nonatomic, strong) NSMutableArray *openedCell;
+
 @end
 
 @implementation DetailItineraryViewController
@@ -30,17 +32,19 @@
     [SKRoutingService sharedInstance].routingDelegate = self; // set for receiving routing callbacks
     [SKRoutingService sharedInstance].mapView = self.mapView;
     
-//    SKRouteSettings* route = [[SKRouteSettings alloc]init];
-//    
-//    route.startCoordinate = [MPGlobalItineraryManager sharedManager].startAddress.coordinate;
-//    route.destinationCoordinate = [MPGlobalItineraryManager sharedManager].destinationAddress.coordinate;
-//    route.shouldBeRendered = YES; // If NO, the route will not be rendered.
-//    route.routeMode = SKRouteCarFastest;
-//    route.maximumReturnedRoutes = 3;
-//    SKRouteRestrictions routeRestrictions = route.routeRestrictions;
-//    routeRestrictions.avoidHighways = YES;
-//    route.routeRestrictions = routeRestrictions;
-//    [[SKRoutingService sharedInstance] calculateRoute:route];
+    self.openedCell = [NSMutableArray array];
+    
+    //    SKRouteSettings* route = [[SKRouteSettings alloc]init];
+    //
+    //    route.startCoordinate = [MPGlobalItineraryManager sharedManager].startAddress.coordinate;
+    //    route.destinationCoordinate = [MPGlobalItineraryManager sharedManager].destinationAddress.coordinate;
+    //    route.shouldBeRendered = YES; // If NO, the route will not be rendered.
+    //    route.routeMode = SKRouteCarFastest;
+    //    route.maximumReturnedRoutes = 3;
+    //    SKRouteRestrictions routeRestrictions = route.routeRestrictions;
+    //    routeRestrictions.avoidHighways = YES;
+    //    route.routeRestrictions = routeRestrictions;
+    //    [[SKRoutingService sharedInstance] calculateRoute:route];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,18 +57,18 @@
     [super viewDidAppear:animated];
     [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
     
-//    SKPolygon *rhombus = [SKPolygon polygon];
-//    rhombus.identifier = 2;
-//    NSInteger routeId = self.itinerary.startRouteInformation.routeID;
+    //    SKPolygon *rhombus = [SKPolygon polygon];
+    //    rhombus.identifier = 2;
+    //    NSInteger routeId = self.itinerary.startRouteInformation.routeID;
     NSArray *coordinates = [[SKRoutingService sharedInstance] routeCoordinatesForRouteWithId:self.itinerary.startRouteInformation.routeID];
-//    rhombus.coordinates = coordinates;
-//    rhombus.fillColor = [UIColor redColor];
-//    rhombus.strokeColor = [UIColor greenColor];
-//    rhombus.borderWidth = 5;
-//    rhombus.borderDotsSize = 20;
-//    rhombus.borderDotsSpacingSize = 10;
-//    rhombus.isMask = NO;
-//    [self.mapView addPolygon:rhombus];
+    //    rhombus.coordinates = coordinates;
+    //    rhombus.fillColor = [UIColor redColor];
+    //    rhombus.strokeColor = [UIColor greenColor];
+    //    rhombus.borderWidth = 5;
+    //    rhombus.borderDotsSize = 20;
+    //    rhombus.borderDotsSpacingSize = 10;
+    //    rhombus.isMask = NO;
+    //    [self.mapView addPolygon:rhombus];
     
     //adding a polyline with the same coordinates as the polygon
     SKPolyline *polyline = [SKPolyline polyline];
@@ -123,6 +127,34 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0: {
+            // GoToGPS
+            break;
+        }
+        case 1: {
+            if ([self.openedCell containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
+                [self.openedCell removeObject:[NSNumber numberWithInteger:indexPath.row]];
+                
+            } else {
+                [self.openedCell addObject:[NSNumber numberWithInteger:indexPath.row]];
+            }
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+        }
+        case 2: {
+            // GoToGPS
+            break;
+        }
+        default: {
+            // GoToGPS
+            break;
+        }
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
@@ -130,7 +162,11 @@
             break;
         }
         case 1: {
-            return 67;
+            if ([self.openedCell containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
+                return 245;
+            } else {
+                return 65;
+            }
             break;
         }
         case 2: {
