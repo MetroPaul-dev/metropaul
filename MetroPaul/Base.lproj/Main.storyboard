@@ -565,7 +565,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-pieton" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-UA-n7q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="76"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="75"/>
                                                     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.59757760067114096" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="jZy-x7-Jao"/>
@@ -581,7 +581,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-hour" translatesAutoresizingMaskIntoConstraints="NO" id="2Ji-t9-TXD">
-                                                    <rect key="frame" x="60" y="40" width="17" height="17"/>
+                                                    <rect key="frame" x="60" y="39" width="17" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -589,22 +589,22 @@
                                                         <constraint firstAttribute="width" secondItem="2Ji-t9-TXD" secondAttribute="height" multiplier="1:1" id="h0v-pO-c9s"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDB-NA-Asf">
-                                                    <rect key="frame" x="80" y="40" width="34" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pDB-NA-Asf">
+                                                    <rect key="frame" x="80" y="39" width="34" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-hour" translatesAutoresizingMaskIntoConstraints="NO" id="n6X-bF-QxJ">
-                                                    <rect key="frame" x="124" y="40" width="17" height="17"/>
+                                                    <rect key="frame" x="124" y="39" width="17" height="17"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="n6X-bF-QxJ" secondAttribute="height" multiplier="1:1" id="XIs-ny-VDZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="103m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-8C-iWW">
-                                                    <rect key="frame" x="144" y="40" width="39" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDk-8C-iWW">
+                                                    <rect key="frame" x="144" y="39" width="22" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -639,8 +639,17 @@
                                                 <constraint firstItem="2Ji-t9-TXD" firstAttribute="leading" secondItem="55a-mG-H8Q" secondAttribute="leading" id="yHY-UR-GE4"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="arrowImageView" destination="Bw6-jo-ed7" id="tCZ-zm-Dz2"/>
+                                            <outlet property="distanceImageView" destination="n6X-bF-QxJ" id="B4W-86-k8O"/>
+                                            <outlet property="distanceLabel" destination="jDk-8C-iWW" id="rG5-3n-wB0"/>
+                                            <outlet property="durationImageView" destination="2Ji-t9-TXD" id="IV6-bG-3Ne"/>
+                                            <outlet property="durationLabel" destination="pDB-NA-Asf" id="kXV-AQ-wMw"/>
+                                            <outlet property="iconImageView" destination="bB9-UA-n7q" id="wkF-Ad-NAw"/>
+                                            <outlet property="titleLabel" destination="55a-mG-H8Q" id="kv9-eO-g3a"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MPMetroCell" rowHeight="245" id="NJZ-be-gtt" customClass="MPMetroCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MPMetroCell" rowHeight="245" id="NJZ-be-gtt" customClass="MPMetroCell">
                                         <rect key="frame" x="0.0" y="274" width="375" height="245"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NJZ-be-gtt" id="Ui1-TS-7zm">
@@ -669,7 +678,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYE-fY-KxM">
-                                                    <rect key="frame" x="124" y="12" width="200" height="41"/>
+                                                    <rect key="frame" x="124" y="12" width="199.5" height="41"/>
                                                     <string key="text">DIRECTION :
 CHARLES DE GAULLE ETOILE</string>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
@@ -693,7 +702,7 @@ CHARLES DE GAULLE ETOILE</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-ba-6Wx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWy-ba-6Wx">
                                                     <rect key="frame" x="62" y="88" width="30" height="16"/>
                                                     <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -713,7 +722,7 @@ CHARLES DE GAULLE ETOILE</string>
                                                     <color key="textColor" red="0.49803921569999998" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xna-LX-6lf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xna-LX-6lf">
                                                     <rect key="frame" x="127" y="88" width="30" height="16"/>
                                                     <color key="backgroundColor" red="0.27058823529999998" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -749,7 +758,7 @@ CHARLES DE GAULLE ETOILE</string>
                                                         <constraint firstAttribute="width" constant="17" id="KTJ-ED-oI1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gib-Xa-MlR">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gib-Xa-MlR">
                                                     <rect key="frame" x="82" y="152" width="34" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -765,7 +774,7 @@ CHARLES DE GAULLE ETOILE</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCENDEZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ih-dM-u7G">
-                                                    <rect key="frame" x="62" y="210" width="85" height="17"/>
+                                                    <rect key="frame" x="62" y="210" width="84.5" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="1H1-NK-lYh"/>
                                                     </constraints>
@@ -817,6 +826,20 @@ CHARLES DE GAULLE ETOILE</string>
                                                 <constraint firstItem="Gib-Xa-MlR" firstAttribute="bottom" secondItem="D2i-wd-SDC" secondAttribute="bottom" id="zgA-Je-zo8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="firstNextTransportLabel" destination="UWy-ba-6Wx" id="v6r-oE-SCt"/>
+                                            <outlet property="iconImageView" destination="4oe-9w-HQp" id="kbN-cZ-qPv"/>
+                                            <outlet property="itineraryImageView" destination="jGp-aY-QaP" id="dOE-o3-RMb"/>
+                                            <outlet property="ligneImageView" destination="61f-Xn-tF9" id="o2q-m3-Ohe"/>
+                                            <outlet property="secondNextTransportLabel" destination="xna-LX-6lf" id="kK8-qT-CLU"/>
+                                            <outlet property="startStationLabel" destination="IV9-6m-nlv" id="YxL-RY-76y"/>
+                                            <outlet property="stopStationLabel" destination="zra-Ni-aFo" id="M6o-is-Zje"/>
+                                            <outlet property="titleLabel" destination="AYE-fY-KxM" id="udC-7V-Wi0"/>
+                                            <outlet property="transportImageView" destination="V6L-uf-ZP5" id="SLJ-ve-gpb"/>
+                                            <outlet property="waitDurationImageView" destination="D2i-wd-SDC" id="y0Q-8F-rih"/>
+                                            <outlet property="waitDurationLabel" destination="Gib-Xa-MlR" id="vba-CC-Z6N"/>
+                                            <outlet property="waitStationLabel" destination="YqF-xG-XuB" id="cHc-C3-dYv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MPMetroChangeCell" rowHeight="92" id="2jX-7c-JAI" customClass="MPMetroChangeCell">
                                         <rect key="frame" x="0.0" y="519" width="375" height="92"/>
@@ -862,7 +885,7 @@ CHARLES DE GAULLE ETOILE</string>
                                                         <constraint firstAttribute="width" constant="17" id="BJq-xU-NVF"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ih0-b2-Rn1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ih0-b2-Rn1">
                                                     <rect key="frame" x="82" y="57" width="34" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
@@ -873,8 +896,8 @@ CHARLES DE GAULLE ETOILE</string>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <color key="tintColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="105m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-xO-dwq">
-                                                    <rect key="frame" x="146" y="57" width="39" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-xO-dwq">
+                                                    <rect key="frame" x="146" y="57" width="22" height="17"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
                                                     <color key="textColor" red="0.49803921568627452" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -915,6 +938,17 @@ CHARLES DE GAULLE ETOILE</string>
                                                 <constraint firstItem="1MY-Po-9Y1" firstAttribute="leading" secondItem="EIY-MM-dpt" secondAttribute="trailing" constant="2" id="yaC-PN-Q39"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="arrowImageView" destination="l5v-fx-Ike" id="15d-RR-yXj"/>
+                                            <outlet property="distanceImageView" destination="KSH-ht-uPh" id="KXj-YY-oQr"/>
+                                            <outlet property="distanceLabel" destination="aX0-xO-dwq" id="yAA-O4-jvV"/>
+                                            <outlet property="durationImageView" destination="KrZ-gs-CI1" id="qgW-fS-tUF"/>
+                                            <outlet property="durationLabel" destination="Ih0-b2-Rn1" id="70l-d8-y3H"/>
+                                            <outlet property="iconImageView" destination="EIY-MM-dpt" id="vY3-Wa-w2j"/>
+                                            <outlet property="ligneImageView" destination="lN3-uF-yxQ" id="TEp-nm-VtO"/>
+                                            <outlet property="titleLabel" destination="OFy-zZ-uUR" id="CSn-3a-SQ6"/>
+                                            <outlet property="transportImageView" destination="1MY-Po-9Y1" id="GBa-bV-FoN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -935,6 +969,9 @@ CHARLES DE GAULLE ETOILE</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actualHourLbael" destination="eDg-D7-YSi" id="qrq-XF-1yN"/>
+                        <outlet property="destinationHourLabel" destination="mu3-vo-szb" id="gyO-4Y-b6Z"/>
+                        <outlet property="durationLabel" destination="75j-4l-A7U" id="8kg-Mn-DcG"/>
                         <outlet property="mapView" destination="Gek-SP-l4p" id="7fr-Bc-bhT"/>
                         <outlet property="tableView" destination="Gz0-Il-dft" id="8PJ-DA-3QY"/>
                     </connections>

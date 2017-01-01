@@ -59,7 +59,7 @@
             if (sectionItinerary.type == MPStepItineraryTransport) {
                 if (self.secondSectionView.sectionItinerary == nil) {
                     [self.secondSectionView setSectionItinerary:sectionItinerary];
-                } else
+                } else if (sectionItinerary.type != MPStepItineraryOther)
                     //                if (self.thirdSectionView.sectionItinerary == nil)
                 {
                     [self.thirdSectionView setSectionItinerary:sectionItinerary];

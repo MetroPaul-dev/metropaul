@@ -12,6 +12,8 @@ typedef NS_ENUM(NSInteger, MPStepItineraryType) {
     MPStepItineraryStreet = 0,
     MPStepItineraryTransport = 1,
     MPStepItineraryTransfert = 2,
+    MPStepItineraryOther = 3,
+
 };
 
 @interface MPSectionItinerary : NSObject

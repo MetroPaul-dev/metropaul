@@ -42,6 +42,7 @@
 		7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7178C51C1D9B91F200ED775B /* LaunchScreen.storyboard */; };
 		7178C5291D9B91F200ED775B /* MetroPaulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5281D9B91F200ED775B /* MetroPaulTests.m */; };
 		7178C5341D9B91F200ED775B /* MetroPaulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5331D9B91F200ED775B /* MetroPaulUITests.m */; };
+		71873E1E1E193F5C002552BE /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 71873E1D1E193F5C002552BE /* Utilities.m */; };
 		718766521E11BB7400A00150 /* MPWalkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718766511E11BB7400A00150 /* MPWalkCell.m */; };
 		718766551E11BB8700A00150 /* MPMetroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718766541E11BB8700A00150 /* MPMetroCell.m */; };
 		718766581E11BB9D00A00150 /* MPMetroChangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718766571E11BB9D00A00150 /* MPMetroChangeCell.m */; };
@@ -213,6 +214,8 @@
 		7178C52F1D9B91F200ED775B /* MetroPaulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroPaulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178C5331D9B91F200ED775B /* MetroPaulUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetroPaulUITests.m; sourceTree = "<group>"; };
 		7178C5351D9B91F200ED775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71873E1C1E193F5C002552BE /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		71873E1D1E193F5C002552BE /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		718766501E11BB7400A00150 /* MPWalkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWalkCell.h; sourceTree = "<group>"; };
 		718766511E11BB7400A00150 /* MPWalkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWalkCell.m; sourceTree = "<group>"; };
 		718766531E11BB8700A00150 /* MPMetroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMetroCell.h; sourceTree = "<group>"; };
@@ -646,6 +649,8 @@
 				7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */,
 				71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */,
 				71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */,
+				71873E1C1E193F5C002552BE /* Utilities.h */,
+				71873E1D1E193F5C002552BE /* Utilities.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				71AEC60F1DA1A671002ED428 /* XMLParser.m in Sources */,
 				71AEC6601DA29746002ED428 /* MPStopArea.m in Sources */,
 				7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */,
+				71873E1E1E193F5C002552BE /* Utilities.m in Sources */,
 				71AEC6631DA29759002ED428 /* MPLine.m in Sources */,
 				71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */,
 				7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */,

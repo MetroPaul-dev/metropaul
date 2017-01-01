@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MPSectionItinerary.h"
 
 @interface MPMetroChangeCell : UITableViewCell
-
+@property(nonatomic, strong) MPSectionItinerary *sectionItinerary;
 @end

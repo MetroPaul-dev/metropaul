@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SKMaps/SKMaps.h>
 
 @interface MPWalkCell : UITableViewCell
-
+@property(nonatomic, strong) SKRouteInformation *routeInformation;
 @end

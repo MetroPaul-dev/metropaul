@@ -22,7 +22,10 @@
             self.type = MPStepItineraryTransport;
         } else if([[stepStrings objectAtIndex:0] isEqualToString:@"t_r"]) {
             self.type = MPStepItineraryTransfert;
+        } else if([[stepStrings objectAtIndex:0] isEqualToString:@"w_t"]) {
+            self.type = MPStepItineraryOther;
         }
+        
         self.openWeek = [[stepStrings objectAtIndex:1] integerValue];
         self.openWeekend = [[stepStrings objectAtIndex:2] integerValue];
         self.closeWeek = [[stepStrings objectAtIndex:3] integerValue];
