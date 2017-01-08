@@ -13,6 +13,7 @@
 #import "MPMetroCell.h"
 #import "MPMetroChangeCell.h"
 #import "MPSectionItinerary.h"
+#import "MPGPSViewController.h"
 
 @interface DetailItineraryViewController () <SKMapViewDelegate, SKSearchServiceDelegate, SKRoutingDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SKMapView *mapView;
@@ -176,6 +177,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
+            MPGPSViewController *vc = [[MPGPSViewController alloc] init];
+            vc.destination = CLLocationCoordinate2DMake([self.itinerary.startStopArea.latitude doubleValue], [self.itinerary.startStopArea.longitude doubleValue]);
+            [self.navigationController pushViewController:vc animated:YES];
             // GoToGPS
             break;
         }

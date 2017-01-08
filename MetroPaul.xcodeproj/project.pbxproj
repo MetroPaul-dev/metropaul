@@ -42,6 +42,7 @@
 		7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7178C51C1D9B91F200ED775B /* LaunchScreen.storyboard */; };
 		7178C5291D9B91F200ED775B /* MetroPaulTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5281D9B91F200ED775B /* MetroPaulTests.m */; };
 		7178C5341D9B91F200ED775B /* MetroPaulUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7178C5331D9B91F200ED775B /* MetroPaulUITests.m */; };
+		7185260F1E229A2000CE9177 /* MPGPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7185260E1E229A2000CE9177 /* MPGPSViewController.m */; };
 		71873E1E1E193F5C002552BE /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 71873E1D1E193F5C002552BE /* Utilities.m */; };
 		718766521E11BB7400A00150 /* MPWalkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718766511E11BB7400A00150 /* MPWalkCell.m */; };
 		718766551E11BB8700A00150 /* MPMetroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 718766541E11BB8700A00150 /* MPMetroCell.m */; };
@@ -214,6 +215,8 @@
 		7178C52F1D9B91F200ED775B /* MetroPaulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetroPaulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7178C5331D9B91F200ED775B /* MetroPaulUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MetroPaulUITests.m; sourceTree = "<group>"; };
 		7178C5351D9B91F200ED775B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7185260D1E229A2000CE9177 /* MPGPSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGPSViewController.h; sourceTree = "<group>"; };
+		7185260E1E229A2000CE9177 /* MPGPSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGPSViewController.m; sourceTree = "<group>"; };
 		71873E1C1E193F5C002552BE /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		71873E1D1E193F5C002552BE /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		718766501E11BB7400A00150 /* MPWalkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWalkCell.h; sourceTree = "<group>"; };
@@ -526,6 +529,15 @@
 			path = MetroPaulUITests;
 			sourceTree = "<group>";
 		};
+		7185260C1E2299CF00CE9177 /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				7185260D1E229A2000CE9177 /* MPGPSViewController.h */,
+				7185260E1E229A2000CE9177 /* MPGPSViewController.m */,
+			);
+			path = GPS;
+			sourceTree = "<group>";
+		};
 		7187F2C31E06D4160089981F /* DetailItinerary */ = {
 			isa = PBXGroup;
 			children = (
@@ -670,6 +682,7 @@
 		71E6DAE91D9CF8710008EC19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7185260C1E2299CF00CE9177 /* GPS */,
 				7187F2C31E06D4160089981F /* DetailItinerary */,
 				719A5CFE1DBB5F2300F86593 /* WebView */,
 				7131329F1DB3CD4B00E05F75 /* Plans */,
@@ -1143,6 +1156,7 @@
 				714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */,
 				7143A7621DA6BE350078B456 /* MPItineraryViewController.m in Sources */,
 				719A5D041DBB5F5900F86593 /* MPWebViewController.m in Sources */,
+				7185260F1E229A2000CE9177 /* MPGPSViewController.m in Sources */,
 				718766551E11BB8700A00150 /* MPMetroCell.m in Sources */,
 				714B8AA51DA7FCC2002D003B /* MPRoute.m in Sources */,
 				713132A21DB3CD8300E05F75 /* MPMapsViewController.m in Sources */,
