@@ -139,7 +139,7 @@ static SKListLevel listLevelLimit;
     self.labelInfoView.font = [UIFont fontWithName:FONT_MEDIUM size:13.0f];
     [self.buttonInfoView.titleLabel setFont:[UIFont fontWithName:FONT_MEDIUM size:16.0f]];
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan"]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map_itinerary"]];
     
     AppDelegate *appDelegate = [AppDelegate sharedAppDelegate];
     if (CLLocationCoordinate2DIsValid(appDelegate.coordinateReceived)) {
@@ -153,7 +153,7 @@ static SKListLevel listLevelLimit;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.plan"]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map_itinerary"]];
     self.navigationItem.leftBarButtonItems = nil;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"icon-menu"]

@@ -9,7 +9,8 @@
 "menu.plan" = "Plan";
 "menu.maps" = "Plans";
 "menu.itinerary" = "Itinéraire";
-"menu.map_itinerary" = "Carte + Itinéraire";"menu.note" = "Noter MetroPaul";
+"menu.map_itinerary" = "Carte + Itinéraire";
+"menu.note" = "Noter MetroPaul";
 "menu.share" = "Share MetroPaul";
 "menu.map" = "Plans";
 "menu.contact" = "Nous contacter";

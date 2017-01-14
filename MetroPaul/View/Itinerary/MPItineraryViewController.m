@@ -68,7 +68,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
     
     
-    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil]];
+    [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map_itinerary" comment:nil]];
     
     [self.startAddressButton setTitle:[[[MPGlobalItineraryManager sharedManager] startAddress] name] forState:UIControlStateNormal];
     if ([[[MPGlobalItineraryManager sharedManager] startAddress] name] == [[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]) {
