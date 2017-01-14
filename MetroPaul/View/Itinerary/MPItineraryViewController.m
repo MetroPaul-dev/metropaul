@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     self.globalItineraries = [NSArray array];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
     
@@ -57,10 +58,15 @@
     
     [self setLoading:YES];
     [[MPGlobalItineraryManager sharedManager] calculAllItinerary];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFinish) name:kNotifItineraryCalculated object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(calculAllItineraryFailed) name:kNotifItineraryCalculFailed object:nil];
+    
     
     [((MPNavigationController*)self.navigationController) prepareNavigationTitle:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.itinerary" comment:nil]];
     

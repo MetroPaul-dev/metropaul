@@ -291,7 +291,7 @@
                                 <rect key="frame" x="0.0" y="160" width="375" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MPItineraryCell" rowHeight="132" id="P80-nR-GJC" customClass="MPItineraryCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MPItineraryCell" rowHeight="132" id="P80-nR-GJC" customClass="MPItineraryCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P80-nR-GJC" id="ae2-Bg-gGY">

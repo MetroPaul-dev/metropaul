@@ -81,6 +81,9 @@
     self.itineraryMetroIsFinish = NO;
     self.nbItinerarySkobbler = 0;
     
+    [SKRoutingService sharedInstance].routingDelegate = self;
+
+    
     //    if (self.startAddress.stopArea == nil) {
     [self.startAddress findStopAreasAround];
     self.startAddress.itineraryToStopAreas = [NSMutableArray array];
@@ -117,9 +120,13 @@
     
     route.routeMode = routeMode;
     [[SKRoutingService sharedInstance] calculateRoute:route];
+    NSLog(@"Init [[SKRoutingService sharedInstance] calculateRoute:route]");
 }
 
 - (void)traitementCallbackRoutingService:(SKRouteInformation *)routeInformation {
+    NSLog(@"traitementCallbackRoutingService");
+
+    
     // Itineraire 100% skobbler
     if (self.itineraryMetroIsFinish) {
         MPGlobalItinerary *globalItinerary = [[MPGlobalItinerary alloc] init];
@@ -166,6 +173,8 @@
 #pragma mark - SKRoutingDelegate
 
 - (void)routingService:(SKRoutingService *)routingService didFinishRouteCalculationWithInfo:(SKRouteInformation *)routeInformation {
+    NSLog(@"Result [[SKRoutingService sharedInstance] calculateRoute:route]");
+
 //    NSArray *adviceList = [[SKRoutingService sharedInstance] routeAdviceListWithDistanceFormat:SKDistanceFormatMetric]; // array of SKRouteAdvice
     NSArray *coor = [[SKRoutingService sharedInstance] routeCoordinatesForRouteWithId:routeInformation.routeID];
     [self traitementCallbackRoutingService:routeInformation];
@@ -186,6 +195,8 @@
 }
 
 - (void)calculAllMetroItinerary {
+    NSLog(@"calculAllMetroItinerary");
+
     self.globalItineraryList = [NSMutableArray array];
     //    if (self.startAddress.stopArea == nil) {
     for (int i = 0; i < self.startAddress.stopAreas.count; i++) {
@@ -272,6 +283,7 @@
 }
 
 - (void)calculItineraryFullSkobbler {
+    NSLog(@"calculItineraryFullSkobbler");
     CLLocationCoordinate2D startCoordinate;
     if (self.startAddress.stopArea == nil) {
         startCoordinate = self.startAddress.coordinate;
