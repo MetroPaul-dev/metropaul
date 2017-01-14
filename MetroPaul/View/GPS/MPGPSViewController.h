@@ -7,7 +7,11 @@
 //
 
 #import "MPBaseViewController.h"
+#import <SKMaps/SKMaps.h>
+
 
 @interface MPGPSViewController : MPBaseViewController
+@property(nonatomic) CLLocationCoordinate2D start;
 @property(nonatomic) CLLocationCoordinate2D destination;
+@property(nonatomic) SKRouteMode routeMode;
 @end

@@ -8,6 +8,7 @@
 
 #import "MPSectionView.h"
 #import "MPLine.h"
+#import "Constantes.h"
 
 @interface MPSectionView ()
 @property (strong, nonatomic) IBOutlet UIView *view;
@@ -71,6 +72,8 @@
         self.firstImageView.image = [UIImage imageNamed:@"icon-pieton"];
     }
     
+    self.firstImageView.tintColor = [Constantes blueBackGround];
+    
     [self setDurationText];
 }
 
@@ -87,6 +90,9 @@
     } else {
         self.duration = 0;
     }
+    
+    self.firstImageView.tintColor = [UIColor clearColor];
+
     
     [self setDurationText];
 }

@@ -178,7 +178,9 @@
     switch (indexPath.section) {
         case 0: {
             MPGPSViewController *vc = [[MPGPSViewController alloc] init];
+            vc.start = [[SKPositionerService sharedInstance] currentCoordinate];
             vc.destination = CLLocationCoordinate2DMake([self.itinerary.startStopArea.latitude doubleValue], [self.itinerary.startStopArea.longitude doubleValue]);
+            vc.routeMode = self.itinerary.startRouteInformation.routeMode;
             [self.navigationController pushViewController:vc animated:YES];
             // GoToGPS
             break;
