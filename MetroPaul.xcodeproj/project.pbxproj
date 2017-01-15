@@ -10,6 +10,11 @@
 		0282F4EE8C1E083259B72A6E /* Pods_MetroPaul.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */; };
 		14AD8FF0D2BF8EB84BF22CA2 /* Pods_MetroPaulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B4DECDA19661F95AEB6EFE /* Pods_MetroPaulTests.framework */; };
 		7110AC8C1DBF3BD900774340 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7110AC8B1DBF3BD900774340 /* MessageUI.framework */; };
+		711506391E2BA2000079F2DB /* PedestrianNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506381E2BA2000079F2DB /* PedestrianNavigationViewController.m */; };
+		7115063C1E2BA2230079F2DB /* AudioService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7115063B1E2BA2230079F2DB /* AudioService.m */; };
+		7115063F1E2BA23A0079F2DB /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7115063E1E2BA23A0079F2DB /* MenuView.m */; };
+		711506431E2BA2D50079F2DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506421E2BA2D50079F2DB /* SettingsViewController.m */; };
+		711506461E2BA2F70079F2DB /* SettingsValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506451E2BA2F70079F2DB /* SettingsValuesViewController.m */; };
 		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
 		712765571DF491AC006BAD8A /* MPLoadOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 712765561DF491AC006BAD8A /* MPLoadOverlay.m */; };
 		712765591DF491C1006BAD8A /* MPLoadOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712765581DF491C1006BAD8A /* MPLoadOverlay.xib */; };
@@ -158,6 +163,16 @@
 		54A057CB81B4E01D8BBBB6DD /* Pods-MetroPaulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MetroPaulUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MetroPaulUITests/Pods-MetroPaulUITests.release.xcconfig"; sourceTree = "<group>"; };
 		56AC357BB0AA7DEDFF313569 /* Pods_MetroPaul.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MetroPaul.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7110AC8B1DBF3BD900774340 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		711506371E2BA2000079F2DB /* PedestrianNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedestrianNavigationViewController.h; sourceTree = "<group>"; };
+		711506381E2BA2000079F2DB /* PedestrianNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedestrianNavigationViewController.m; sourceTree = "<group>"; };
+		7115063A1E2BA2230079F2DB /* AudioService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioService.h; sourceTree = "<group>"; };
+		7115063B1E2BA2230079F2DB /* AudioService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioService.m; sourceTree = "<group>"; };
+		7115063D1E2BA23A0079F2DB /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		7115063E1E2BA23A0079F2DB /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		711506411E2BA2D50079F2DB /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		711506421E2BA2D50079F2DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		711506441E2BA2F70079F2DB /* SettingsValuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsValuesViewController.h; sourceTree = "<group>"; };
+		711506451E2BA2F70079F2DB /* SettingsValuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsValuesViewController.m; sourceTree = "<group>"; };
 		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
 		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
 		712765551DF491AC006BAD8A /* MPLoadOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLoadOverlay.h; sourceTree = "<group>"; };
@@ -378,6 +393,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		711506401E2BA2400079F2DB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7115063A1E2BA2230079F2DB /* AudioService.h */,
+				7115063B1E2BA2230079F2DB /* AudioService.m */,
+				7115063D1E2BA23A0079F2DB /* MenuView.h */,
+				7115063E1E2BA23A0079F2DB /* MenuView.m */,
+				711506411E2BA2D50079F2DB /* SettingsViewController.h */,
+				711506421E2BA2D50079F2DB /* SettingsViewController.m */,
+				711506441E2BA2F70079F2DB /* SettingsValuesViewController.h */,
+				711506451E2BA2F70079F2DB /* SettingsValuesViewController.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		7131329F1DB3CD4B00E05F75 /* Plans */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,8 +562,11 @@
 		7185260C1E2299CF00CE9177 /* GPS */ = {
 			isa = PBXGroup;
 			children = (
+				711506401E2BA2400079F2DB /* Utils */,
 				7185260D1E229A2000CE9177 /* MPGPSViewController.h */,
 				7185260E1E229A2000CE9177 /* MPGPSViewController.m */,
+				711506371E2BA2000079F2DB /* PedestrianNavigationViewController.h */,
+				711506381E2BA2000079F2DB /* PedestrianNavigationViewController.m */,
 			);
 			path = GPS;
 			sourceTree = "<group>";
@@ -1136,13 +1169,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				711506391E2BA2000079F2DB /* PedestrianNavigationViewController.m in Sources */,
 				71674B3E1DAE1A9400096F8E /* MPAddress.m in Sources */,
 				71CE66931DA6818900F599EE /* MPSearchResultDestinationCell.m in Sources */,
+				711506431E2BA2D50079F2DB /* SettingsViewController.m in Sources */,
 				71AEC60F1DA1A671002ED428 /* XMLParser.m in Sources */,
 				71AEC6601DA29746002ED428 /* MPStopArea.m in Sources */,
 				7142C0931DA3E67000F4CB95 /* MPDataLoader.m in Sources */,
 				71873E1E1E193F5C002552BE /* Utilities.m in Sources */,
+				7115063F1E2BA23A0079F2DB /* MenuView.m in Sources */,
 				71AEC6631DA29759002ED428 /* MPLine.m in Sources */,
+				7115063C1E2BA2230079F2DB /* AudioService.m in Sources */,
+				711506461E2BA2F70079F2DB /* SettingsValuesViewController.m in Sources */,
 				71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */,
 				7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */,
 				718766581E11BB9D00A00150 /* MPMetroChangeCell.m in Sources */,

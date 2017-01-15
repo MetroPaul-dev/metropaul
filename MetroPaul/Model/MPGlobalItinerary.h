@@ -11,7 +11,10 @@
 #import "MPStopArea.h"
 #import "MPItinerary.h"
 
+#import "MPAddress.h"
+
 @interface MPGlobalItinerary : NSObject
+
 @property(nonatomic, strong) SKRouteInformation *startRouteInformation;
 @property(nonatomic, strong) MPStopArea *startStopArea;
 @property(nonatomic, strong) MPItinerary *itineraryMetro;

@@ -18,6 +18,9 @@
 #import "SKTNavigationView.h"
 #import "SKTNavigationFreeDriveView.h"
 
+#import "SKTNavigationCalculatingRouteView.h"
+
+
 @class SKTAudioManager;
 @class SKTNavigationInfo;
 @class SKRouteState;
@@ -26,7 +29,7 @@
 
 /** Manages the entire navigation logic and triggers UI updates accordingly.
  */
-@interface SKTNavigationManager : NSObject
+@interface SKTNavigationManager : NSObject <SKTNavigationCalculatingRouteViewDelegate>
 
 #pragma mark - Public properties
 

@@ -980,6 +980,39 @@ CHARLES DE GAULLE ETOILE</string>
             </objects>
             <point key="canvasLocation" x="1976.8" y="148.87556221889056"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="sd1-PC-10z">
+            <objects>
+                <viewController storyboardIdentifier="MPGPSViewController" id="Sig-wh-pC9" customClass="MPGPSViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4z7-KF-g6r"/>
+                        <viewControllerLayoutGuide type="bottom" id="V1E-uJ-4ZL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b6b-6g-DbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxH-is-SAA" customClass="SKMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bxH-is-SAA" firstAttribute="leading" secondItem="b6b-6g-DbQ" secondAttribute="leading" id="EWV-dG-vlp"/>
+                            <constraint firstItem="V1E-uJ-4ZL" firstAttribute="top" secondItem="bxH-is-SAA" secondAttribute="bottom" id="Tl4-2f-Hwq"/>
+                            <constraint firstItem="bxH-is-SAA" firstAttribute="top" secondItem="b6b-6g-DbQ" secondAttribute="top" id="krH-Gd-gj8"/>
+                            <constraint firstAttribute="trailing" secondItem="bxH-is-SAA" secondAttribute="trailing" id="w6E-ae-N3e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="bxH-is-SAA" id="jde-f7-aAt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRl-Na-S1A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2676" y="148.87556221889056"/>
+        </scene>
         <!--Language View Controller-->
         <scene sceneID="rE1-52-D8b">
             <objects>

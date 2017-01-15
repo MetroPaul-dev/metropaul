@@ -43,7 +43,6 @@
 #import "SKTInsetLabel.h"
 #import "SKTNavigationVisualAdviceView.h"
 #import "SKTNavigationShortVisualAdviceView.h"
-#import "SKTNavigationCalculatingRouteView.h"
 #import "SKTReroutingInfoView.h"
 #import "SKTNavigationFreeDriveView.h"
 #import "SKTNavigationPanningView.h"
@@ -59,7 +58,7 @@ typedef NS_ENUM(NSUInteger, SKTNavigationAlert) {
     SKTNavigationAlertQuit
 };
 
-@interface SKTNavigationManager () <SKNavigationDelegate, SKRoutingDelegate, SKPositionerServiceDelegate, SKTWaitingGPSSignalViewDelegate, SKTNavigationSpeedLimitViewDelegate, SKTNavigationCalculatingRouteViewDelegate, UIAlertViewDelegate, SKMapViewDelegate, SKTNavigationPanningViewDelegate, SKTNavigationSettingsViewDelegate, SKTNavigationVisualAdviceViewDelegate, SKTActionSheetDelegate, SKTBaseViewDelegate, SKTNavigationFreeDriveViewDelegate, SKTNavigationViewDelegate>
+@interface SKTNavigationManager () <SKNavigationDelegate, SKRoutingDelegate, SKPositionerServiceDelegate, SKTWaitingGPSSignalViewDelegate, SKTNavigationSpeedLimitViewDelegate, UIAlertViewDelegate, SKMapViewDelegate, SKTNavigationPanningViewDelegate, SKTNavigationSettingsViewDelegate, SKTNavigationVisualAdviceViewDelegate, SKTActionSheetDelegate, SKTBaseViewDelegate, SKTNavigationFreeDriveViewDelegate, SKTNavigationViewDelegate>
 
 @property (nonatomic, assign) float previousMapBearing;
 @property (nonatomic, assign) BOOL previousIdleTimerDisabled;
@@ -506,6 +505,12 @@ typedef NS_ENUM(NSUInteger, SKTNavigationAlert) {
            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(removeReroutingState) object:nil];
            [self performSelector:@selector(removeReroutingState) withObject:nil afterDelay:kMinReroutingDisplayTime];
        }
+        
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"routingServiceDidFinishRouteCalculation" object:nil];
+//        [self.mainView.calculatingRouteView removeFromSuperview];
+//        self.mainView.calculatingRouteView = nil;
+//        [self beginNavigating];
     });
 }
 

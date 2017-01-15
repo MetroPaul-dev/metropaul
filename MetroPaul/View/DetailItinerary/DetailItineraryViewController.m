@@ -14,6 +14,9 @@
 #import "MPMetroChangeCell.h"
 #import "MPSectionItinerary.h"
 #import "MPGPSViewController.h"
+#import "PedestrianNavigationViewController.h"
+
+#import "MPGlobalItinerary.h"
 
 @interface DetailItineraryViewController () <SKMapViewDelegate, SKSearchServiceDelegate, SKRoutingDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet SKMapView *mapView;
@@ -177,9 +180,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.section) {
         case 0: {
-            MPGPSViewController *vc = [[MPGPSViewController alloc] init];
+//            MPGPSViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MPGPSViewController"];
+
+            PedestrianNavigationViewController *vc = [[PedestrianNavigationViewController alloc] init];
             vc.start = [[SKPositionerService sharedInstance] currentCoordinate];
-            vc.destination = CLLocationCoordinate2DMake([self.itinerary.startStopArea.latitude doubleValue], [self.itinerary.startStopArea.longitude doubleValue]);
+            
+            NSArray *sections = [self.itinerary.itineraryMetro readItinerary];
+            for (NSInteger i = 0; i < sections.count; i++) {
+                MPSectionItinerary *section = [sections objectAtIndex:i];
+                if (section.type == MPStepItineraryTransport) {
+                    MPStopArea *stopArea = section.stopAreas.firstObject;
+                    vc.destination = CLLocationCoordinate2DMake([stopArea.latitude doubleValue], [stopArea.longitude doubleValue]);
+                    break;
+                }
+            }
+
+            if (!CLLocationCoordinate2DIsValid(vc.destination) && CLLocationCoordinate2DIsValid([[MPGlobalItineraryManager sharedManager] destinationAddress].coordinate))  {
+                vc.destination = [[MPGlobalItineraryManager sharedManager] destinationAddress].coordinate;
+            }
+            
             vc.routeMode = self.itinerary.startRouteInformation.routeMode;
             [self.navigationController pushViewController:vc animated:YES];
             // GoToGPS
@@ -199,6 +218,25 @@
             break;
         }
         case 2: {
+            PedestrianNavigationViewController *vc = [[PedestrianNavigationViewController alloc] init];
+            
+            NSArray *sections = [self.itinerary.itineraryMetro readItinerary];
+            for (NSInteger i = sections.count-1; i >= 0; i--) {
+                MPSectionItinerary *section = [sections objectAtIndex:i];
+                if (section.type == MPStepItineraryTransport) {
+                    MPStopArea *stopArea = section.stopAreas.lastObject;
+                    vc.start = CLLocationCoordinate2DMake([stopArea.latitude doubleValue], [stopArea.longitude doubleValue]);
+                    break;
+                }
+            }
+            
+            if (!CLLocationCoordinate2DIsValid(vc.start)) {
+                vc.start = [[SKPositionerService sharedInstance] currentCoordinate];
+            }
+            
+            vc.destination = [[MPGlobalItineraryManager sharedManager] destinationAddress].coordinate;
+            vc.routeMode = self.itinerary.startRouteInformation.routeMode;
+            [self.navigationController pushViewController:vc animated:YES];
             // GoToGPS
             break;
         }
