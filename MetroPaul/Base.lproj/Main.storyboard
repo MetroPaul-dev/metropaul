@@ -376,6 +376,71 @@
                                             <outlet property="thirdSectionviewWidthConstraint" destination="gWr-TT-U4N" id="Cxj-cc-ofv"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MPItineraryCell2" rowHeight="132" id="r1r-QW-76R" customClass="MPItineraryCell2">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="132"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="r1r-QW-76R" id="a62-tE-pWH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itineraireCellBG" translatesAutoresizingMaskIntoConstraints="NO" id="zYS-Jg-YYg">
+                                                    <rect key="frame" x="11" y="0.0" width="353" height="132"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxT-Fs-1jh">
+                                                    <rect key="frame" x="25" y="12" width="325" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="uD4-Oe-ljr"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4BJ-bl-KtT">
+                                                    <rect key="frame" x="25" y="49" width="325" height="69"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIr-yG-IXI" customClass="MPSectionView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="81.5" height="69"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3Y-56-cEP" customClass="MPSectionView">
+                                                            <rect key="frame" x="81.5" y="0.0" width="81" height="69"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Oc-yU-VCV" customClass="MPSectionView">
+                                                            <rect key="frame" x="162.5" y="0.0" width="81.5" height="69"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2SZ-gF-Rcr" customClass="MPSectionView">
+                                                            <rect key="frame" x="244" y="0.0" width="81" height="69"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ZxT-Fs-1jh" secondAttribute="trailing" constant="25" id="Cz4-gp-Doi"/>
+                                                <constraint firstAttribute="bottom" secondItem="4BJ-bl-KtT" secondAttribute="bottom" constant="14" id="EOR-l9-4iu"/>
+                                                <constraint firstItem="4BJ-bl-KtT" firstAttribute="leading" secondItem="a62-tE-pWH" secondAttribute="leading" constant="25" id="Sn6-aa-P4K"/>
+                                                <constraint firstItem="zYS-Jg-YYg" firstAttribute="top" secondItem="a62-tE-pWH" secondAttribute="top" id="YRw-Th-d5V"/>
+                                                <constraint firstItem="ZxT-Fs-1jh" firstAttribute="leading" secondItem="a62-tE-pWH" secondAttribute="leading" constant="25" id="aTf-YC-zJh"/>
+                                                <constraint firstItem="zYS-Jg-YYg" firstAttribute="leading" secondItem="a62-tE-pWH" secondAttribute="leading" constant="11" id="keT-MO-hwq"/>
+                                                <constraint firstItem="ZxT-Fs-1jh" firstAttribute="top" secondItem="a62-tE-pWH" secondAttribute="top" constant="12" id="ljw-9i-He4"/>
+                                                <constraint firstAttribute="trailing" secondItem="zYS-Jg-YYg" secondAttribute="trailing" constant="11" id="lv6-ym-2b9"/>
+                                                <constraint firstItem="4BJ-bl-KtT" firstAttribute="top" secondItem="ZxT-Fs-1jh" secondAttribute="bottom" constant="12" id="rar-gB-xZH"/>
+                                                <constraint firstAttribute="trailing" secondItem="4BJ-bl-KtT" secondAttribute="trailing" constant="25" id="rcI-mJ-s4X"/>
+                                                <constraint firstAttribute="bottom" secondItem="zYS-Jg-YYg" secondAttribute="bottom" id="ykL-0Z-cBs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="durationLabel" destination="ZxT-Fs-1jh" id="2ve-HP-Rfd"/>
+                                            <outlet property="firstSectionView" destination="lIr-yG-IXI" id="hrQ-Xe-bsM"/>
+                                            <outlet property="fourthSectionView" destination="2SZ-gF-Rcr" id="P61-Nd-Txo"/>
+                                            <outlet property="secondSectionView" destination="h3Y-56-cEP" id="vtj-2q-JRC"/>
+                                            <outlet property="thirdSectionView" destination="6Oc-yU-VCV" id="FB3-FN-aIT"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="3ey-uA-vV0" id="JfD-zC-vOc"/>

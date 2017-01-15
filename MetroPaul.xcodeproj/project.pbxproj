@@ -15,6 +15,7 @@
 		7115063F1E2BA23A0079F2DB /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7115063E1E2BA23A0079F2DB /* MenuView.m */; };
 		711506431E2BA2D50079F2DB /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506421E2BA2D50079F2DB /* SettingsViewController.m */; };
 		711506461E2BA2F70079F2DB /* SettingsValuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506451E2BA2F70079F2DB /* SettingsValuesViewController.m */; };
+		711506491E2BE7480079F2DB /* MPItineraryCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 711506481E2BE7480079F2DB /* MPItineraryCell2.m */; };
 		71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */ = {isa = PBXBuildFile; fileRef = 71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */; };
 		712765571DF491AC006BAD8A /* MPLoadOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 712765561DF491AC006BAD8A /* MPLoadOverlay.m */; };
 		712765591DF491C1006BAD8A /* MPLoadOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712765581DF491C1006BAD8A /* MPLoadOverlay.xib */; };
@@ -173,6 +174,8 @@
 		711506421E2BA2D50079F2DB /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		711506441E2BA2F70079F2DB /* SettingsValuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsValuesViewController.h; sourceTree = "<group>"; };
 		711506451E2BA2F70079F2DB /* SettingsValuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsValuesViewController.m; sourceTree = "<group>"; };
+		711506471E2BE7480079F2DB /* MPItineraryCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPItineraryCell2.h; sourceTree = "<group>"; };
+		711506481E2BE7480079F2DB /* MPItineraryCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPItineraryCell2.m; sourceTree = "<group>"; };
 		71207B4A1DB5391800AA11C8 /* SKSearchResult+MPString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSearchResult+MPString.h"; sourceTree = "<group>"; };
 		71207B4B1DB5391800AA11C8 /* SKSearchResult+MPString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSearchResult+MPString.m"; sourceTree = "<group>"; };
 		712765551DF491AC006BAD8A /* MPLoadOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPLoadOverlay.h; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 				7143A7611DA6BE350078B456 /* MPItineraryViewController.m */,
 				7143A7631DA6BE5E0078B456 /* MPItineraryCell.h */,
 				7143A7641DA6BE5E0078B456 /* MPItineraryCell.m */,
+				711506471E2BE7480079F2DB /* MPItineraryCell2.h */,
+				711506481E2BE7480079F2DB /* MPItineraryCell2.m */,
 				71AA93351DB13AD9003BD674 /* MPSectionView.h */,
 				71AA93361DB13AD9003BD674 /* MPSectionView.m */,
 				71AA93381DB13AE8003BD674 /* MPSectionView.xib */,
@@ -1188,6 +1193,7 @@
 				71207B4C1DB5391800AA11C8 /* SKSearchResult+MPString.m in Sources */,
 				714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */,
 				71FB3EE41D9D1D3100BD0D6A /* MPLanguageCollectionViewCell.m in Sources */,
+				711506491E2BE7480079F2DB /* MPItineraryCell2.m in Sources */,
 				71AEC6661DA29779002ED428 /* MPStopAreaLine.m in Sources */,
 				718766521E11BB7400A00150 /* MPWalkCell.m in Sources */,
 				71E6DB041D9D10A10008EC19 /* MPLanguageViewController.m in Sources */,

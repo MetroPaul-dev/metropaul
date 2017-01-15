@@ -692,7 +692,9 @@ static SKListLevel listLevelLimit;
     if (self.searchResultSelected != nil || self.stopAreaSelected != nil || self.historySelected) {
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             [[MPGlobalItineraryManager sharedManager] reset];
-            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation:[[SKPositionerService sharedInstance] currentCoordinate]];
+            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: CLLocationCoordinate2DMake(48.862725, 2.287592)];
+
+//            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: [[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
             [address setName:[[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]];
             [[MPGlobalItineraryManager sharedManager] setAddress:address];

@@ -7,7 +7,7 @@
 //
 
 #import "MPItineraryViewController.h"
-#import "MPItineraryCell.h"
+#import "MPItineraryCell2.h"
 #import "MPGlobalItineraryManager.h"
 #import "MPGlobalItinerary.h"
 
@@ -101,7 +101,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MPItineraryCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPItineraryCell"];
+    MPItineraryCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"MPItineraryCell2"];
     MPGlobalItinerary *globalItinerary = [self.globalItineraries objectAtIndex:indexPath.section];
     [cell setGlobalItinerary:globalItinerary];
     return cell;
@@ -109,7 +109,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailItineraryViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"DetailItineraryViewController"];
-    MPItineraryCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    MPItineraryCell2 *cell = [tableView cellForRowAtIndexPath:indexPath];
     vc.itinerary = cell.globalItinerary;
     
     MPRevealController *revealController = [MPRevealController sharedInstance];
