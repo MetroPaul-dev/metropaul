@@ -7,11 +7,13 @@
 //
 
 #import "MPLoadOverlay.h"
+#import "Constantes.h"
 
 @interface MPLoadOverlay ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageAnimation;
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *centralImage;
 
 @end
 
@@ -23,6 +25,56 @@
     self.imageAnimation.animationImages = @[[UIImage imageNamed:@"load-animation1"], [UIImage imageNamed:@"load-animation2"], [UIImage imageNamed:@"load-animation3"]];
     self.imageAnimation.animationDuration = 1.0;
     [self.imageAnimation startAnimating];
+}
+
+- (void)randomLoadView {
+    NSInteger lowerBound = 0;
+    NSInteger upperBound = 4;
+    NSInteger rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
+    [self loadViewConfiguration:rndValue];
+}
+
+- (void)loadViewConfiguration:(NSInteger)configuration {
+    MPLanguageManager *languageManager = [MPLanguageManager sharedManager];
+
+    switch (configuration) {
+        case 0: {
+            self.backgroundColor = [Constantes purpleLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load1"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.1"];
+            break;
+        }
+        case 1: {
+            self.backgroundColor = [Constantes orangeLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load2"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.2"];
+            break;
+        }
+        case 2: {
+            self.backgroundColor = [Constantes blueLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load3"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.3"];
+            break;
+        }
+        case 3: {
+            self.backgroundColor = [Constantes greenLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load4"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.4"];
+            break;
+        }
+        case 4: {
+            self.backgroundColor = [Constantes redLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load5"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.5"];
+            break;
+        }
+        default:{
+            self.backgroundColor = [Constantes purpleLoading];
+            self.centralImage.image = [UIImage imageNamed:@"image-load1"];
+            self.messageLabel.text = [languageManager getStringWithKey:@"load.message.1"];
+            break;
+        }
+    }
 }
 
 - (void)dealloc {

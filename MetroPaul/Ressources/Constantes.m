@@ -18,6 +18,26 @@
     return [UIColor colorWithRed:(63/255.f) green:(63/255.f) blue:(63/255.f) alpha:1];
 }
 
++ (UIColor *)purpleLoading {
+    return [UIColor colorWithRed:(144/255.f) green:(91/255.f) blue:(161/255.f) alpha:1];
+}
+
++ (UIColor *)orangeLoading {
+    return [UIColor colorWithRed:(244/255.f) green:(156/255.f) blue:(20/255.f) alpha:1];
+}
+
++ (UIColor *)blueLoading {
+    return [UIColor colorWithRed:(57/255.f) green:(151/255.f) blue:(211/255.f) alpha:1];
+}
+
++ (UIColor *)greenLoading {
+    return [UIColor colorWithRed:(82/255.f) green:(179/255.f) blue:(110/255.f) alpha:1];
+}
+
++ (UIColor *)redLoading {
+    return [UIColor colorWithRed:(232/255.f) green:(76/255.f) blue:(60/255.f) alpha:1];
+}
+
 + (NSArray*)rowMenu {
     NSArray *section0 = [NSArray arrayWithObjects:
                          [NSDictionary dictionaryWithObjectsAndKeys:[[MPLanguageManager sharedManager] getStringWithKey:@"menu.map_itinerary" comment:nil], KEY_TITLE_ROW, [UIImage imageNamed:@"icon-search-menu"], KEY_IMAGE_ROW, nil],

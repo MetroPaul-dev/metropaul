@@ -28,8 +28,12 @@ static SKListLevel listLevel;
 static SKListLevel listLevelLimit;
 
 
-@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MPSearchResultDestinationCellDelegate, MFMessageComposeViewControllerDelegate>
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@interface MapViewController () <SKMapViewDelegate, SKSearchServiceDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, MPSearchResultDestinationCellDelegate, MFMessageComposeViewControllerDelegate, UITextFieldDelegate>
+//@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIView *textFieldBackgroundView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomConstraint;
 
@@ -81,44 +85,32 @@ static SKListLevel listLevelLimit;
     self.searchResultsHistory = [NSMutableArray array];
     self.searchStreetResults = [NSArray array];
     
-    self.searchBar.delegate = self;
-    self.searchBar.showsCancelButton = NO;
-    //    self.searchBar.placeholder = @"Saisir une destination";
-    self.searchBar.barTintColor = [Constantes blueBackGround];
-    self.searchBar.tintColor = [UIColor whiteColor];
-    self.searchBar.layer.borderWidth = 1;
-    self.searchBar.layer.borderColor = [[Constantes blueBackGround] CGColor];
+    self.textField.delegate = self;
+    self.textField.tintColor = [Constantes blueBackGround];
+    [self.textField setTextColor:[UIColor whiteColor]];
+    self.textField.borderStyle = UITextBorderStyleNone;
+    self.textField.layer.borderWidth = 1;
+    self.textField.layer.borderColor = [[Constantes blueBackGround] CGColor];
+    self.textField.layer.cornerRadius = 0;
+    [self.textField setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4]];
+    self.textFieldBackgroundView.backgroundColor = [Constantes blueBackGround];
     
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 8, 30, 14)];
+    imgView.contentMode = UIViewContentModeScaleAspectFit;
+    imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    imgView.tintColor = [UIColor whiteColor];
+    [self.textField setLeftViewMode: UITextFieldViewModeAlways];
+    [self.textField setLeftView:imgView];
     
-    NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
-    for (UIView *view in searchBarSubViews) {
-        if([view isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)view;
-            [textField setBorderStyle:UITextBorderStyleNone];
-            textField.layer.cornerRadius = 0;
-            
-            [textField setBackgroundColor:[[UIColor whiteColor] colorWithAlphaComponent:0.4]];
-            [textField setTextColor:[UIColor whiteColor]];
-            
-            UIImageView *imgView = (UIImageView*)textField.leftView;
-            [imgView setWidth:30.0];
-            imgView.contentMode = UIViewContentModeScaleAspectFit;
-            imgView.image = [[UIImage imageNamed:@"icon-search"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-            imgView.tintColor = [UIColor whiteColor];
-            textField.leftViewMode = UITextFieldViewModeAlways;
-            textField.textAlignment = NSTextAlignmentLeft;
-            
-            UIButton *btnClear = (UIButton*)[textField valueForKey:@"clearButton"];
-            [btnClear setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal|UIControlStateSelected|UIControlStateHighlighted];
-            
-            btnClear.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-            btnClear.tintColor = [UIColor whiteColor];
-   
-        }
-    }
-    
-    [self.searchBar reloadInputViews];
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [clearButton setImage:[[UIImage imageNamed:@"icon-cross"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    [clearButton setFrame:CGRectMake(0, 8, 30, 14 )];
+    clearButton.imageView.tintColor = [UIColor whiteColor];
+    clearButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [clearButton addTarget:self action:@selector(clearTextField:) forControlEvents:UIControlEventTouchUpInside];
+    [self.textField setRightView:clearButton];
+    self.textField.rightViewMode = UITextFieldViewModeWhileEditing;
+
     
     [self showTableView:NO];
     [self.tableView registerNib:[UINib nibWithNibName:@"MPSearchResultDestinationCell" bundle:nil] forCellReuseIdentifier:@"MPSearchResultDestinationCell"];
@@ -164,52 +156,44 @@ static SKListLevel listLevelLimit;
     [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
     self.navigationController.navigationBar.translucent = NO;
     
-    NSArray *searchBarSubViews = [[self.searchBar.subviews objectAtIndex:0] subviews];
-    for (UIView *view in searchBarSubViews) {
-        if([view isKindOfClass:[UITextField class]])
-        {
-            UITextField *textField = (UITextField*)view;
-            NSString *textFieldAttributed = @"";
-            MPAddress *address = nil;
-            switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
-                case MPAddressToReplaceStart: {
-                    address = [[MPGlobalItineraryManager sharedManager] startAddress];
-                    textFieldAttributed = @"Saisir un point de départ                                           ";
-                    break;
-                }
-                case MPAddressToReplaceDestination: {
-                    address = [[MPGlobalItineraryManager sharedManager] destinationAddress];
-                    textFieldAttributed = @"Saisir une destination                                              ";
-                    break;
-                }
-                case MPAddressToReplaceNull: {
-                    textFieldAttributed = @"Saisir une destination                                              ";
-                    [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
-                    break;
-                }
-                default:{
-                    textFieldAttributed = @"Saisir une destination                                              ";
-                    [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
-                    break;
-                }
-            }
-            
-            if (address != nil) {
-                if ([address stopArea] != nil) {
-                    [self setDestinationWithStopArea:address.stopArea];
-                } else if ([address searchResult] != nil) {
-                    [self setDestinationWithSearchResult:address.searchResult];
-                } else if ([address history] != nil) {
-                    [self setDestinationWithHistory:address.history];
-                }
-            }
-            
-            textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textFieldAttributed
-                                                                              attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
+    
+    NSString *textFieldAttributed = @"";
+    MPAddress *address = nil;
+    switch ([[MPGlobalItineraryManager sharedManager] addressToReplace]) {
+        case MPAddressToReplaceStart: {
+            address = [[MPGlobalItineraryManager sharedManager] startAddress];
+            textFieldAttributed = @"Saisir un point de départ";
+            break;
+        }
+        case MPAddressToReplaceDestination: {
+            address = [[MPGlobalItineraryManager sharedManager] destinationAddress];
+            textFieldAttributed = @"Saisir une destination";
+            break;
+        }
+        case MPAddressToReplaceNull: {
+            textFieldAttributed = @"Saisir une destination";
+            [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
+            break;
+        }
+        default:{
+            textFieldAttributed = @"Saisir une destination";
+            [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
+            break;
         }
     }
     
-    [self.searchBar reloadInputViews];
+    if (address != nil) {
+        if ([address stopArea] != nil) {
+            [self setDestinationWithStopArea:address.stopArea];
+        } else if ([address searchResult] != nil) {
+            [self setDestinationWithSearchResult:address.searchResult];
+        } else if ([address history] != nil) {
+            [self setDestinationWithHistory:address.history];
+        }
+    }
+    
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:textFieldAttributed
+                                                                      attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.4]}];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -218,10 +202,11 @@ static SKListLevel listLevelLimit;
     self.downloadPackage = [[SKMapsService sharedInstance].packagesManager installedOfflineMapPackages];
     if (self.downloadPackage.count <= 0) {
         [self alertViewDownloadMap];
-        
-        [self.searchBar setUserInteractionEnabled:NO];
+        [self.textField setUserInteractionEnabled:NO];
+//        [self.searchBar setUserInteractionEnabled:NO];
     } else {
-        [self.searchBar setUserInteractionEnabled:YES];
+        [self.textField setUserInteractionEnabled:YES];
+//        [self.searchBar setUserInteractionEnabled:YES];
     }
     if ([[MPGlobalItineraryManager sharedManager] addressToReplace] != MPAddressToReplaceStart && [[MPGlobalItineraryManager sharedManager] addressToReplace] != MPAddressToReplaceDestination)
         [self centerOnCoordinate:[[SKPositionerService sharedInstance] currentCoordinate]];
@@ -238,7 +223,7 @@ static SKListLevel listLevelLimit;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (![self.searchBar.text isEqual: @""]) {
+    if (![self.textField.text isEqual: @""]) {
         if (self.searchResultsHistory.count + self.searchResultsStopArea.count + self.searchResultsSkobbler.count > RESULT_LIMIT) {
             NSInteger i = 0;
             NSInteger j = 0;
@@ -340,7 +325,8 @@ static SKListLevel listLevelLimit;
             break;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.searchBar resignFirstResponder];
+    self.textField.text = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+    [self.textField resignFirstResponder];
     [self showTableView:NO];
 }
 
@@ -348,30 +334,38 @@ static SKListLevel listLevelLimit;
     return CELL_HEIGHT;
 }
 
-#pragma mark - UISearchBarDelegate
+#pragma mark - UITextFieldDelegate
 
-- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     [self showTableView:YES];
     return YES;
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    [self filterContentForSearchText:searchText scope:@"All"];
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    [self.searchBar resignFirstResponder];
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    [self filterContentForSearchText:self.textField.text scope:@"All"];
     return YES;
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self.searchBar resignFirstResponder];
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    [self.textField resignFirstResponder];
+    return YES;
 }
 
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [self showTableView:NO];
-    [self.searchBar resignFirstResponder];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.textField resignFirstResponder];
+    return YES;
 }
+
+- (void)clearTextField:(UIButton *)button {
+    self.textField.text = @"";
+    [self showTableView:NO];
+    [self.textField resignFirstResponder];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self.textField resignFirstResponder];
+}
+
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
     
@@ -520,11 +514,8 @@ static SKListLevel listLevelLimit;
         [self centerOnCoordinate:coordinate];
         [self addAnnotationDestination:coordinate];
         
-        NSMutableString *text = [NSMutableString stringWithFormat:[[MPLanguageManager sharedManager] getStringWithKey:@"home.ligne_nb"], [stopArea name], [(MPLine*)[stopArea.lines.allObjects firstObject] transport_type]];
-        for (MPLine *line in stopArea.lines) {
-            [text appendFormat:@" %@,",line.code];
-        }
-        [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
+        NSMutableString *text = [stopArea linesToString];
+
         
         if ([[[(MPLine*)[stopArea.lines.allObjects firstObject] transport_type] lowercaseString] isEqualToString:@"metro"]) {
             [self setTexteInfoView:text image:[UIImage imageNamed:@"icon-metro"]];
@@ -692,9 +683,9 @@ static SKListLevel listLevelLimit;
     if (self.searchResultSelected != nil || self.stopAreaSelected != nil || self.historySelected) {
         if ([MPGlobalItineraryManager sharedManager].addressToReplace == MPAddressToReplaceNull) {
             [[MPGlobalItineraryManager sharedManager] reset];
-            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: CLLocationCoordinate2DMake(48.862725, 2.287592)];
+//            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: CLLocationCoordinate2DMake(48.862725, 2.287592)];
 
-//            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: [[SKPositionerService sharedInstance] currentCoordinate]];
+            SKSearchResult *searchObject =  [[SKReverseGeocoderService sharedInstance] reverseGeocodeLocation: [[SKPositionerService sharedInstance] currentCoordinate]];
             MPAddress *address = [[MPAddress alloc] initWithSKSearchResult:searchObject];
             [address setName:[[MPLanguageManager sharedManager] getStringWithKey:@"searchBar.yourPosition"]];
             [[MPGlobalItineraryManager sharedManager] setAddress:address];
@@ -714,7 +705,9 @@ static SKListLevel listLevelLimit;
         [[MPGlobalItineraryManager sharedManager] setAddress:address];
         MPRevealController *revealController = [MPRevealController sharedInstance];
         
-        self.searchBar.text = @"";
+        
+        self.textField.text = @"";
+//        self.searchBar.text = @"";
         
         [(UINavigationController*)revealController.frontViewController pushViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass ([MPItineraryViewController class])] animated:YES];
     }
@@ -747,7 +740,8 @@ static SKListLevel listLevelLimit;
 }
 
 - (void)showTableView:(BOOL)show {
-    self.searchBar.showsCancelButton = show;
+//    self.textField.clearButtonMode = 
+//    self.searchBar.showsCancelButton = show;
     
     if (show) {
         [self.tableView setHidden:NO];

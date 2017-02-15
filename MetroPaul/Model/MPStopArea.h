@@ -29,4 +29,7 @@
 + (NSArray *)findAll;
 + (NSArray *)findByDistanceInMeter:(NSInteger)distanceInMeter fromLatitude:(CGFloat)latitude fromLongitude:(CGFloat)longitude;
 
+
+- (NSMutableString*)linesToString;
+
 @end

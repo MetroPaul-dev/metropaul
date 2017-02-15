@@ -7,6 +7,7 @@
 //
 
 #import "MPStopArea.h"
+#import "MPLine.h"
 #import <CoreLocation/CoreLocation.h>
 
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
@@ -192,6 +193,44 @@
     [aCoder encodeObject:self.longitude forKey:@"longitude"];
     [aCoder encodeObject:self.last_update forKey:@"last_update"];
     [aCoder encodeObject:self.calculated forKey:@"calculated"];
+}
+
+- (NSMutableString*)linesToString {
+    
+    NSMutableString *text = [NSMutableString stringWithFormat:[[MPLanguageManager sharedManager] getStringWithKey:@"home.ligne_nb"], self.name, [(MPLine*)[self.lines.allObjects firstObject] transport_type]];
+    
+    NSArray *sortedArray;
+    sortedArray = [[self.lines allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSInteger first = [[(MPLine*)a code] integerValue];
+        NSInteger second = [[(MPLine*)b code] integerValue];
+        return first > second;
+    }];
+    
+    for (MPLine *line in sortedArray) {
+        if ([line.transport_type isEqualToString:@"Metro"]) {
+            [text appendFormat:@" %@,",line.code];
+        }
+    }
+    
+    sortedArray = [[self.lines allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSString *first = [(MPLine*)a code];
+        NSString *second = [(MPLine*)b code];
+        return [first compare:second];
+    }];
+    
+    for (MPLine *line in sortedArray) {
+        if ([line.transport_type isEqualToString:@"RapidTransit"]) {
+            [text appendFormat:@" %@,",line.code];
+        }
+    }
+    for (MPLine *line in sortedArray) {
+        if ([line.transport_type isEqualToString:@"Tramway"]) {
+            [text appendFormat:@" %@,",line.code];
+        }
+    }
+    [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
+    
+    return text;
 }
 
 

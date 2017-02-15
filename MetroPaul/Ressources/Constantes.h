@@ -32,6 +32,11 @@
 
 + (UIColor*)blueBackGround;
 + (UIColor*)gray;
++ (UIColor *)purpleLoading;
++ (UIColor *)orangeLoading;
++ (UIColor *)blueLoading;
++ (UIColor *)greenLoading;
++ (UIColor *)redLoading;
 
 + (NSArray*)rowMenu;
 @end

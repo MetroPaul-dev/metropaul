@@ -31,6 +31,7 @@
         [self.loadOverlay removeFromSuperview];
         
         if (loading) {
+            [self.loadOverlay randomLoadView];
             UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
             [currentWindow addSubview:self.loadOverlay];
         }

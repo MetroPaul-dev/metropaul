@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MPLoadOverlay : UIView
-
+- (void)randomLoadView;
+- (void)loadViewConfiguration:(NSInteger)configuration;
 @end

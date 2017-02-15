@@ -91,3 +91,9 @@
 "alert.message.configure.mail" = "Veuillez configurer l'application Mail";
 
 "cgu.content" = "Les CGU";
+
+"load.message.1" = "La rue la plus courte de Paris\nmesure 5.75m de large";
+"load.message.2" = "Le metro à Paris, c’est :\n301 stations, 16 lignes,\net 218km de galeries !";
+"load.message.3" = "Les lignes de bus descendent\ndes omnibus... à cheval !";
+"load.message.4" = "Le Vélib’ à Paris, c’est :\n1 451 stations pour 20 600 vélos !";
+"load.message.5" = "Les Parisiens marchent\n8 342 pas par jour en moyenne.\nLe record de France !";"

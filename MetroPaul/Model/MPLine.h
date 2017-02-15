@@ -30,4 +30,7 @@
 + (MPLine *)findByCode:(NSString *)code;
 + (NSArray *)findByStopAreaId:(NSNumber *)id_stop_area;
 + (NSArray *)findAll;
+
+- (NSInteger)codeToInt;
+
 @end

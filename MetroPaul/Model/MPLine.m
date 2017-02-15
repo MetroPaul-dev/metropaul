@@ -145,4 +145,8 @@
     return results;
 }
 
+- (NSInteger)codeToInt {
+    return [self.code integerValue];
+}
+
 @end
