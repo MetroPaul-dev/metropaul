@@ -8,6 +8,7 @@
 
 #import "MPMetroChangeCell.h"
 #import "MPLine.h"
+#import "MPStopArea.h"
 
 @interface MPMetroChangeCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -26,6 +27,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.iconImageView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     _durationImageView.tintColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:128/255.0];
     _distanceImageView.tintColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:128/255.0];
     _iconImageView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
@@ -45,6 +47,10 @@
     self.distanceLabel.hidden = YES;
     self.distanceImageView.hidden = YES;
     _distanceLabel.text = [NSString stringWithFormat:@"%im", 0];
+    
+    MPStopArea *lastStopArea = [self.sectionItinerary.stopAreas lastObject];
+    self.titleLabel.text = [[NSString stringWithFormat:[[MPLanguageManager sharedManager] getStringWithKey:@"detail.change_direction"], lastStopArea.name] uppercaseString];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

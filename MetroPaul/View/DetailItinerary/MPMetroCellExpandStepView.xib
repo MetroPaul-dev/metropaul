@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.otf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MPMetroCellExpandStepView">
+            <connections>
+                <outlet property="imageView" destination="Sjo-pf-uxs" id="nwa-WV-4Fe"/>
+                <outlet property="label" destination="0bx-hD-fL0" id="Sef-FW-bZg"/>
+                <outlet property="view" destination="plN-7V-mZb" id="JWy-CM-Iqs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="plN-7V-mZb">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="19"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itinerary_step" translatesAutoresizingMaskIntoConstraints="NO" id="Sjo-pf-uxs">
+                    <rect key="frame" x="0.0" y="1" width="60" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="GeE-WP-DxW"/>
+                        <constraint firstAttribute="height" constant="17" id="hML-C0-wIy"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONTPARNASSE-BIENVENUE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bx-hD-fL0">
+                    <rect key="frame" x="60" y="1" width="315" height="17"/>
+                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="15"/>
+                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0bx-hD-fL0" firstAttribute="leading" secondItem="Sjo-pf-uxs" secondAttribute="trailing" id="5Hq-S8-r1H"/>
+                <constraint firstAttribute="trailing" secondItem="0bx-hD-fL0" secondAttribute="trailing" id="IQD-Xg-MfG"/>
+                <constraint firstItem="Sjo-pf-uxs" firstAttribute="centerY" secondItem="plN-7V-mZb" secondAttribute="centerY" id="SBm-Dj-kSF"/>
+                <constraint firstItem="0bx-hD-fL0" firstAttribute="bottom" secondItem="Sjo-pf-uxs" secondAttribute="bottom" id="Te1-jI-RBw"/>
+                <constraint firstItem="0bx-hD-fL0" firstAttribute="top" secondItem="Sjo-pf-uxs" secondAttribute="top" id="W1L-Ve-Nfj"/>
+                <constraint firstItem="Sjo-pf-uxs" firstAttribute="leading" secondItem="plN-7V-mZb" secondAttribute="leading" id="hN6-vd-eWQ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="349"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="itinerary_step" width="17" height="17"/>
+    </resources>
+</document>

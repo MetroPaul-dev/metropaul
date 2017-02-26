@@ -32,6 +32,10 @@
 		7144A9111DCCEB3D00D43C72 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A90E1DCCEB3D00D43C72 /* libstdc++.dylib */; };
 		7144A9121DCCEB3D00D43C72 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A90F1DCCEB3D00D43C72 /* libz.dylib */; };
 		7144A9141DCCEB5B00D43C72 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7144A9131DCCEB5B00D43C72 /* SystemConfiguration.framework */; };
+		7147B4551E633744000D74B7 /* MPMetroCellCompressStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7147B4541E633744000D74B7 /* MPMetroCellCompressStepView.xib */; };
+		7147B4581E633922000D74B7 /* MPMetroCellCompressStepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7147B4571E633922000D74B7 /* MPMetroCellCompressStepView.m */; };
+		7147B45B1E6361DC000D74B7 /* MPMetroCellExpandStepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7147B45A1E6361DC000D74B7 /* MPMetroCellExpandStepView.m */; };
+		7147B45D1E636226000D74B7 /* MPMetroCellExpandStepView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7147B45C1E636226000D74B7 /* MPMetroCellExpandStepView.xib */; };
 		7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */; };
 		714AE8B91DAFD89500ACCE5D /* MPGlobalItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714AE8B81DAFD89500ACCE5D /* MPGlobalItinerary.m */; };
 		714B8A9C1DA7F3F2002D003B /* MPItinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 714B8A9B1DA7F3F2002D003B /* MPItinerary.m */; };
@@ -201,6 +205,12 @@
 		7144A90E1DCCEB3D00D43C72 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "../../../Desktop/libstdc++.dylib"; sourceTree = "<group>"; };
 		7144A90F1DCCEB3D00D43C72 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = ../../../Desktop/libz.dylib; sourceTree = "<group>"; };
 		7144A9131DCCEB5B00D43C72 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7147B4541E633744000D74B7 /* MPMetroCellCompressStepView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPMetroCellCompressStepView.xib; sourceTree = "<group>"; };
+		7147B4561E633922000D74B7 /* MPMetroCellCompressStepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMetroCellCompressStepView.h; sourceTree = "<group>"; };
+		7147B4571E633922000D74B7 /* MPMetroCellCompressStepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMetroCellCompressStepView.m; sourceTree = "<group>"; };
+		7147B4591E6361DC000D74B7 /* MPMetroCellExpandStepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPMetroCellExpandStepView.h; sourceTree = "<group>"; };
+		7147B45A1E6361DC000D74B7 /* MPMetroCellExpandStepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMetroCellExpandStepView.m; sourceTree = "<group>"; };
+		7147B45C1E636226000D74B7 /* MPMetroCellExpandStepView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPMetroCellExpandStepView.xib; sourceTree = "<group>"; };
 		7148BF981DA7A6CC00919104 /* MPGlobalItineraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItineraryManager.h; sourceTree = "<group>"; };
 		7148BF991DA7A6CC00919104 /* MPGlobalItineraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPGlobalItineraryManager.m; sourceTree = "<group>"; };
 		714AE8B71DAFD89500ACCE5D /* MPGlobalItinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPGlobalItinerary.h; sourceTree = "<group>"; };
@@ -585,6 +595,12 @@
 				718766511E11BB7400A00150 /* MPWalkCell.m */,
 				718766531E11BB8700A00150 /* MPMetroCell.h */,
 				718766541E11BB8700A00150 /* MPMetroCell.m */,
+				7147B4591E6361DC000D74B7 /* MPMetroCellExpandStepView.h */,
+				7147B45A1E6361DC000D74B7 /* MPMetroCellExpandStepView.m */,
+				7147B45C1E636226000D74B7 /* MPMetroCellExpandStepView.xib */,
+				7147B4561E633922000D74B7 /* MPMetroCellCompressStepView.h */,
+				7147B4571E633922000D74B7 /* MPMetroCellCompressStepView.m */,
+				7147B4541E633744000D74B7 /* MPMetroCellCompressStepView.xib */,
 				718766561E11BB9D00A00150 /* MPMetroChangeCell.h */,
 				718766571E11BB9D00A00150 /* MPMetroChangeCell.m */,
 			);
@@ -900,6 +916,7 @@
 					7178C5071D9B91F200ED775B = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = B5SDH4YU8C;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -963,6 +980,7 @@
 			files = (
 				71FB3EF31D9D1FD100BD0D6A /* Roboto-BlackItalic.otf in Resources */,
 				712765591DF491C1006BAD8A /* MPLoadOverlay.xib in Resources */,
+				7147B45D1E636226000D74B7 /* MPMetroCellExpandStepView.xib in Resources */,
 				7178C51E1D9B91F200ED775B /* LaunchScreen.storyboard in Resources */,
 				71CDE93C1DA164F30003C683 /* SKAdvisorResources.bundle in Resources */,
 				71FB3EF41D9D1FD100BD0D6A /* Roboto-Bold.otf in Resources */,
@@ -976,6 +994,7 @@
 				71FBC2221E1318570095A5C7 /* AIPOINTE.TTF in Resources */,
 				71FB3EFA1D9D1FD100BD0D6A /* Roboto-MediumItalic.otf in Resources */,
 				719A5CF91DBB5E7400F86593 /* metro_tram_simple.pdf in Resources */,
+				7147B4551E633744000D74B7 /* MPMetroCellCompressStepView.xib in Resources */,
 				7178C51B1D9B91F200ED775B /* Assets.xcassets in Resources */,
 				71FB3EF71D9D1FD100BD0D6A /* Roboto-Light.otf in Resources */,
 				71CDE93A1DA164E80003C683 /* SKMaps.bundle in Resources */,
@@ -1187,6 +1206,7 @@
 				7115063C1E2BA2230079F2DB /* AudioService.m in Sources */,
 				711506461E2BA2F70079F2DB /* SettingsValuesViewController.m in Sources */,
 				71E6DAEF1D9CF9270008EC19 /* LeftViewController.m in Sources */,
+				7147B45B1E6361DC000D74B7 /* MPMetroCellExpandStepView.m in Sources */,
 				7178C5101D9B91F200ED775B /* AppDelegate.m in Sources */,
 				718766581E11BB9D00A00150 /* MPMetroChangeCell.m in Sources */,
 				71C556871D9EC472002D1BCB /* MPSwitchCell.m in Sources */,
@@ -1226,6 +1246,7 @@
 				71AEC6131DA1A6CA002ED428 /* MapRegion.m in Sources */,
 				7178C5191D9B91F200ED775B /* MetroPaul.xcdatamodeld in Sources */,
 				7148BF9A1DA7A6CC00919104 /* MPGlobalItineraryManager.m in Sources */,
+				7147B4581E633922000D74B7 /* MPMetroCellCompressStepView.m in Sources */,
 				7187F2C21E06B3060089981F /* MPBaseViewController.m in Sources */,
 				71BC122A1DD0AFE200896C87 /* MPHistory.m in Sources */,
 				71AA93371DB13AD9003BD674 /* MPSectionView.m in Sources */,
@@ -1400,6 +1421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MetroPaul/MetroPaul.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MetroPaul (B5SDH4YU8C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1466,6 +1488,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2534ab3a-0880-441a-a095-f480a69316b9";
 				PROVISIONING_PROFILE_SPECIFIER = "MetroPaul - Dev";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1475,6 +1499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MetroPaul/MetroPaul.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MetroPaul (B5SDH4YU8C)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -1536,6 +1561,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d9a93ce9-503c-4dda-b45e-a03c6f175263";
 				PROVISIONING_PROFILE_SPECIFIER = "MetroPaul - AppStore";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -18,7 +18,7 @@
 
 #import "MPGlobalItinerary.h"
 
-@interface DetailItineraryViewController () <SKMapViewDelegate, SKSearchServiceDelegate, SKRoutingDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface DetailItineraryViewController () <SKMapViewDelegate, SKSearchServiceDelegate, SKRoutingDelegate, UITableViewDelegate, UITableViewDataSource, MPMetroCellDelegate>
 @property (weak, nonatomic) IBOutlet SKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *actualHourLbael;
@@ -42,7 +42,6 @@
     [SKRoutingService sharedInstance].routingDelegate = self; // set for receiving routing callbacks
     [SKRoutingService sharedInstance].mapView = self.mapView;
     
-    self.openedCell = [NSMutableArray array];
     self.lastIndex = 0;
     
     //    SKRouteSettings* route = [[SKRouteSettings alloc]init];
@@ -62,6 +61,12 @@
             [self.sectionsItinerary addObject:section];
         }
     }
+    
+    self.openedCell = [NSMutableArray array];
+    for (int i = 0; i < self.sectionsItinerary.count; i++) {
+        [self.openedCell addObject:[NSNumber numberWithInteger: MPMetroCellExpensionNil]];
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"HH'h'mm"];
     
@@ -112,11 +117,6 @@
     [self.mapView animateToLocation:coordinate withPadding:CGPointZero duration:1.0];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
@@ -154,10 +154,18 @@
                 MPSectionItinerary *section = self.sectionsItinerary[indexPath.row];
                 if (section.type == MPStepItineraryTransport) {
                     MPMetroCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPMetroCell"];
+                    cell.delegate = self;
                     cell.sectionItinerary = section;
+                    cell.expensionType = [[self.openedCell objectAtIndex:indexPath.row] integerValue];
+
                     return cell;
                 } else if (section.type == MPStepItineraryTransfert) {
                     MPMetroChangeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MPMetroChangeCell"];
+                    if (self.sectionsItinerary.count > indexPath.row+1) {
+                        MPSectionItinerary *nextSession = self.sectionsItinerary[indexPath.row+1];
+                        nextSession.duration = section.duration;
+                        section = nextSession;
+                    }
                     cell.sectionItinerary = section;
                     return cell;
                 }
@@ -207,11 +215,10 @@
         case 1: {
             MPSectionItinerary *section = self.sectionsItinerary[indexPath.row];
             if (section.type == MPStepItineraryTransport) {
-                if ([self.openedCell containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
-                    [self.openedCell removeObject:[NSNumber numberWithInteger:indexPath.row]];
-                    
+                if ([[self.openedCell objectAtIndex:indexPath.row] integerValue] != MPMetroCellExpensionNil) {
+                    [self.openedCell replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger: MPMetroCellExpensionNil]];
                 } else {
-                    [self.openedCell addObject:[NSNumber numberWithInteger:indexPath.row]];
+                    [self.openedCell replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger: MPMetroCellExpensionNormal]];
                 }
                 [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
@@ -257,10 +264,13 @@
         case 1: {
             MPSectionItinerary *section = self.sectionsItinerary[indexPath.row];
             if (section.type == MPStepItineraryTransport) {
-                if ([self.openedCell containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
-                    return 245;
-                } else {
+                MPMetroCellExpensionType type = [[self.openedCell objectAtIndex:indexPath.row] integerValue];
+                if (type == MPMetroCellExpensionNil) {
                     return 65;
+                } else if (type == MPMetroCellExpensionNormal) {
+                    return 190 + NORMAL_SIZE;
+                } else {
+                    return 190 + FULL_SIZE * (section.stopAreas.count-1);
                 }
             } else if (section.type == MPStepItineraryTransfert) {
                 return 92;
@@ -286,6 +296,16 @@
 
 - (void)routingServiceDidFailRouteCalculation:(SKRoutingService *)routingService{
     NSLog(@"Route calculation failed.");
+}
+
+- (void)tapOnSwitchDimension:(MPMetroCell *)cell {
+    NSIndexPath *indexPath =  [self.tableView indexPathForCell:cell];
+    if ([[self.openedCell objectAtIndex:indexPath.row] integerValue] == MPMetroCellExpensionNormal) {
+        [self.openedCell replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger: MPMetroCellExpensionFull]];
+    } else {
+        [self.openedCell replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithInteger: MPMetroCellExpensionNormal]];
+    }
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

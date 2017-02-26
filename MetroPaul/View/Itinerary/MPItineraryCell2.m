@@ -109,7 +109,6 @@
     }
     nbSection = nbSection + (nbSectionItinerary > 2 ? 2 : nbSectionItinerary);
     
-    CGFloat totalSize = self.frame.size.width-50;
     switch (nbSection) {
         case 1:{
             self.firstSectionView.hidden = NO;

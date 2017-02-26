@@ -28,10 +28,8 @@
 }
 
 - (void)randomLoadView {
-    NSInteger lowerBound = 0;
-    NSInteger upperBound = 4;
-    NSInteger rndValue = lowerBound + arc4random() % (upperBound - lowerBound);
-    [self loadViewConfiguration:rndValue];
+    NSUInteger random = arc4random_uniform(4);
+    [self loadViewConfiguration:random];
 }
 
 - (void)loadViewConfiguration:(NSInteger)configuration {

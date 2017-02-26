@@ -23,6 +23,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.iconImageView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
     _durationImageView.tintColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:128/255.0];
     _distanceImageView.tintColor = [UIColor colorWithRed:128/255.0 green:128/255.0 blue:128/255.0 alpha:128/255.0];
     _iconImageView.tintColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];

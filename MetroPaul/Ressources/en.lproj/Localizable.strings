@@ -32,13 +32,18 @@
 
 
 //MapViewController
-"home.ligne_nb" = "%@\n%@\nLigne";
+"home.ligne_nb" = "%@\n%@\nLignes";
 "home.alert.download_map" = "Merci de télécharger une carte dans le menu onglet \"Télécharger\" pour activer les fonctionnalités";
 
 //MapDownloadViewController
 "mapDownload.download.finish" = "Download finished";
 "mapDownload.title.delete" = "Supprimer";
 "mapDownload.title.download" = "Télécharger";
+
+//DetailView
+"detail.direction" = "Direction :\n%@";
+"detail.change_direction" = "Changement, Direction :\n%@";
+"detail.wait.station" = "ATTENDEZ %lu STATIONS";
 
 
 "SDKTools.lessThanAMinuteKey" = "Less than a minute";
